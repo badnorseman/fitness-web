@@ -8,10 +8,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return {
-    state.transactionReducer.clientToken,
-    state.transactionReducer.errors
-  };
+  const { transactionReducer } = state;
+  const { clientToken, errors } = transactionReducer;
+  return { clientToken, errors };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewTransaction);

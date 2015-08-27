@@ -8,7 +8,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return { state.productReducer.errors };
+  const { productReducer } = state;
+  const { errors } = productReducer;
+  return { errors };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewProduct);
