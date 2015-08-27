@@ -8,7 +8,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return { state.authReducer.errors };
+  const { authReducer } = state;
+  const { errors } = authReducer;
+  return { errors };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
