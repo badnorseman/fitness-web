@@ -114,19 +114,19 @@ export default class App extends Component {
               </span>
               <div className="mdl-layout-spacer"></div>
               <nav className="mdl-navigation">
-                {this.props.isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
-                {!this.props.isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
-                {!this.props.isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
+                {isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
+                {!isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
+                {!isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
               </nav>
             </div>
           </header>
           <div className="mdl-layout__drawer">
             <span className="mdl-layout-title">FitBird</span>
             <nav className="mdl-navigation">
-              {this.props.isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
-              {!this.props.isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
-              {!this.props.isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
-              {this.props.isLoggedIn && <Link name="Transactions" onClick={this._linkToTransactions} />}
+              {isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
+              {!isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
+              {!isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
+              {isLoggedIn && <Link name="Transactions" onClick={this._linkToTransactions} />}
             </nav>
           </div>
           <main className="mdl-layout__content">
