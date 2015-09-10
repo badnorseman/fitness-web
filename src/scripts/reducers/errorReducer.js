@@ -3,18 +3,14 @@ import {
   ERROR_RESET
 } from "../actions/errorActions";
 
-const initialState = {
-  errors: []
-};
+export default function errorReducer(state = null, action) {
+  const { type, error } = action;
 
-export default function errorReducer(state = initialState, action) {
-  switch (action.type) {
-    case ERROR_RESET:
-      return Object.assign({}, state, {
-        errors: []
-      });
-
-    default:
-      return state;
+  if (type === ERROR_RESET) {
+    return null;
+  } else if (error) {
+    return action.errors;
   }
+
+  return state;
 }
