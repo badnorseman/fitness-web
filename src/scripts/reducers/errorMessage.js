@@ -3,19 +3,13 @@ import {
   RESET_ERROR_MESSAGE
 } from "../actions/errorActions";
 
-const initialState = {
-  errorMessage: []
-};
-
-export default function errorMessage(state = initialState, action) {
+export default function errorMessage(state = null, action) {
   const { type, errors } = action;
 
   if (type === RESET_ERROR_MESSAGE) {
     return null;
   } else if (errors) {
-    return Object.assign({}, state, {
-      errorMessage: errors
-    });
+    return errors;
   }
 
   return state;
