@@ -44,7 +44,7 @@ export default class ProductList extends Component {
           {items}
         </div>
         <button
-          className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-button--floating-action"
+          className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored button--floating-action"
           onClick={this._handleNew}>
           <i className="material-icons">add</i>
         </button>

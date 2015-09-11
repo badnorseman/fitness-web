@@ -133,7 +133,7 @@ export default class App extends Component {
               {content}
             </div>
             <div className="mdl-layout-spacer"></div>
-            <Footer />
+            <Footer className="footer" />
           </main>
         </div>
       </div>
