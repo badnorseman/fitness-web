@@ -9,8 +9,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   const { transactionReducer } = state;
-  const { errors, isFetching, transactions } = transactionReducer;
-  return { errors, isFetching, transactions };
+  const { isFetching, transactions } = transactionReducer;
+  return { isFetching, transactions };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TransactionList);

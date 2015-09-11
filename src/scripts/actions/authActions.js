@@ -5,16 +5,6 @@ import {
   signup as apiSignup
 } from "../api/api";
 
-export const AUTH_ERROR_RESET = "AUTH_ERROR_RESET";
-
-export function resetError() {
-  return dispatch => {
-    dispatch({
-      type: AUTH_ERROR_RESET
-    });
-  };
-}
-
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_RESPONSE = "LOGIN_RESPONSE";
 export const LOGIN_ERROR = "LOGIN_ERROR";

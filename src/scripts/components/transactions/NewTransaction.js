@@ -6,7 +6,6 @@ import Button from "../Button";
 export default class NewTransaction extends Component {
   static propTypes = {
     clientToken: PropTypes.string,
-    errors: PropTypes.array,
     product: PropTypes.object.isRequired,
     onAdd: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired
@@ -60,7 +59,6 @@ export default class NewTransaction extends Component {
     return (
       <div className="mdl-grid text-center">
         <div className="mdl-cell mdl-cell--12-col">
-          <div>{this.props.errors}</div>
           <div>
             {this.props.product.name}
             <div className="divider"></div>

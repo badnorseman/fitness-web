@@ -6,7 +6,6 @@ import Oauth from "./Oauth";
 
 export default class Login extends Component {
   static propTypes = {
-    errors: PropTypes.array,
     onClose: PropTypes.func.isRequired,
     onLogin: PropTypes.func.isRequired
   }
@@ -39,7 +38,6 @@ export default class Login extends Component {
     return (
       <div className="mdl-grid text-center">
         <div className="mdl-cell mdl-cell--12-col">
-          <div>{this.props.errors}</div>
           <div><Oauth provider="facebook"/></div>
           <div className="divider"></div>
           <div><Oauth provider="google_oauth2" /></div>

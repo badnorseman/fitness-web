@@ -25,10 +25,9 @@ export default class App extends Component {
     componentHandler.upgradeDom()
   }
 
-  _getLogin(errors) {
+  _getLogin() {
     return (
       <Login
-      errors={errors}
       onClose={this._handleClose}
       onLogin={this._handleLogin} />
     );
@@ -40,10 +39,9 @@ export default class App extends Component {
     );
   }
 
-  _getSignup(errors) {
+  _getSignup() {
     return (
       <Signup
-      errors={errors}
       onClose={this._handleClose}
       onSignup={this._handleSignup} />
     );
@@ -56,7 +54,6 @@ export default class App extends Component {
   }
 
   _handleClose() {
-    this.props.resetError();
     this.props.changeRoute("PRODUCTS");
   }
 
@@ -89,15 +86,15 @@ export default class App extends Component {
   }
 
   render() {
-    const { errorMessages, errors, isLoggedIn, route, user } = this.props;
+    const { errorMessage, isLoggedIn, route, user } = this.props;
 
     let content;
     switch (route) {
       case "LOGIN":
-        content = this._getLogin(errors);
+        content = this._getLogin();
         break;
       case "SIGNUP":
-        content = this._getSignup(errors);
+        content = this._getSignup();
         break;
       case "TRANSACTIONS":
         content = this._getTransactions();
@@ -131,8 +128,7 @@ export default class App extends Component {
             </nav>
           </div>
           <main className="mdl-layout__content">
-            {errorMessages}
-            {errors}
+            <ErrorMessage errorMessage={errorMessage} />
             <div className="page-content">
               {content}
             </div>

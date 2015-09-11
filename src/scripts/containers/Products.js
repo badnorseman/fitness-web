@@ -10,9 +10,9 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   const { productReducer, routeReducer } = state;
-  const { errors, isFetching, products } = productReducer;
+  const { isFetching, products } = productReducer;
   const { id, route } = routeReducer;
-  return { errors, id, isFetching, products, route };
+  return { id, isFetching, products, route };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
