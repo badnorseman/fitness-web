@@ -20,8 +20,8 @@ export default class Login extends Component {
     this.props.onClose();
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  _handleSubmit(event) {
+    event.preventDefault();
 
     let email = this.refs.email.state.fieldValue;
     let password = this.refs.password.state.fieldValue;

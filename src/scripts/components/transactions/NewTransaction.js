@@ -35,8 +35,8 @@ export default class NewTransaction extends Component {
     this.props.onClose();
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  _handleSubmit(event) {
+    event.preventDefault();
   }
 
   _onPaymentMethodReceived(paymentMethod) {
