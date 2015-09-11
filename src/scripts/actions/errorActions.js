@@ -1,9 +1,9 @@
-export const ERROR_RESET = "ERROR_RESET";
+export const RESET_ERROR_MESSAGE = "RESET_ERROR_MESSAGE";
 
-export function resetError() {
+export function resetErrorMessage() {
   return dispatch => {
     dispatch({
-      type: ERROR_RESET
+      type: RESET_ERROR_MESSAGE
     });
   };
 }

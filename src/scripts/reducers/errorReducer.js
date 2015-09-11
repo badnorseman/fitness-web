@@ -1,17 +1,15 @@
 "use strict";
 import {
-  ERROR_RESET
+  RESET_ERROR_MESSAGE
 } from "../actions/errorActions";
 
-export default function errorReducer(state = null, action) {
+export default function errorMessage(state = null, action) {
   const { type, errors } = action;
 
-  console.log(action);
-
-  if (type === ERROR_RESET) {
+  if (type === RESET_ERROR_MESSAGE) {
     return null;
   } else if (errors) {
-    return action.errors;
+    return errors;
   }
 
   return state;

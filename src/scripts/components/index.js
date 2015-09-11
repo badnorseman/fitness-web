@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component } from "react";
+import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
 import Link from "../components/Link";
 import Login from "../components/auth/Login";
@@ -88,7 +89,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { errors, isLoggedIn, route, user } = this.props;
+    const { errorMessages, errors, isLoggedIn, route, user } = this.props;
 
     let content;
     switch (route) {
@@ -130,6 +131,8 @@ export default class App extends Component {
             </nav>
           </div>
           <main className="mdl-layout__content">
+            {errorMessages}
+            {errors}
             <div className="page-content">
               {content}
             </div>

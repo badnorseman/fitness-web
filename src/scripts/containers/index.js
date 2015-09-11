@@ -9,10 +9,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { authReducer, routeReducer } = state;
+  const { errorReducer, authReducer, routeReducer } = state;
+  const { errorMessages } = errorReducer || { errorMessages: [] };
   const { errors, isLoggedIn, user } = authReducer;
   const { route } = routeReducer;
-  return { errors, isLoggedIn, route, user };
+  return { errorMessages, errors, isLoggedIn, route, user };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
