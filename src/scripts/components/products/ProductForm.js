@@ -28,12 +28,13 @@ export default class ProductForm extends Component {
 
   _getCurrency() {
     let currencies = document.getElementsByName("currency");
-    for (let k in currencies) {
-      if (currencies[k].checked === true) return currencies[k].value;
+    for (let key in currencies) {
+      if (currencies[key].checked === true) return currencies[key].value;
     }
   }
 
-  _handleClose() {
+  _handleClose(event) {
+    event.preventDefault();
     this.props.onClose();
   }
 
