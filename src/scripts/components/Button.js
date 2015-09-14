@@ -17,7 +17,8 @@ export default class Button extends Component {
     this._handleClick = this._handleClick.bind(this);
   }
 
-  _handleClick() {
+  _handleClick(event) {
+    event.preventDefault();
     this.props.onClick();
   }
 

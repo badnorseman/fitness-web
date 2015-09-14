@@ -33,8 +33,7 @@ export default class ProductForm extends Component {
     }
   }
 
-  _handleClose(event) {
-    event.preventDefault();
+  _handleClose() {
     this.props.onClose();
   }
 
@@ -121,7 +120,7 @@ export default class ProductForm extends Component {
           <InputFile
             ref="image" />
           <div>
-            <Button name="Close" type="button" onClick={this._handleClose} />
+            <Button name="Close" onClick={this._handleClose} />
             <div className="divider"></div>
             <Button name="Save" type="submit" />
           </div>
