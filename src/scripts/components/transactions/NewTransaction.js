@@ -70,7 +70,7 @@ export default class NewTransaction extends Component {
           <div>
             <form onSubmit={this._handleSubmit}>
               <div id="dropin-container"></div>
-              <Button name="Close" onClick={this._handleClose}/>
+              <Button name="Close" type="button" onClick={this._handleClose}/>
               <div className="divider"></div>
               <Button name="Buy" type="submit" />
             </form>

@@ -73,7 +73,7 @@ export default class Signup extends Component {
                 </InputField>
               </div>
               <div>
-                <Button name="Close" onClick={this._handleClose} />
+                <Button name="Close" type="button" onClick={this._handleClose} />
                 <div className="divider"></div>
                 <Button name="Sign Up" type="submit" />
               </div>

@@ -44,7 +44,7 @@ export default class EditProduct extends Component {
             onClose={this._handleClose}
             onSubmit={this._handleEdit} />
           <div className="divider"></div>
-          <Button name="Remove" onClick={this._handleRemove} />
+          <Button name="Remove" type="button" onClick={this._handleRemove} />
         </div>
       </div>
     )
