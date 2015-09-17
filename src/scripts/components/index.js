@@ -7,7 +7,7 @@ import Link from "../components/Link";
 import Login from "../components/auth/Login";
 import Products from "../containers/products";
 import Signup from "../components/auth/Signup";
-import TransactionList from "../containers/TransactionList";
+import Transactions from "../containers/Transactions";
 
 export default class App extends Component {
   constructor(props) {
@@ -57,7 +57,7 @@ export default class App extends Component {
 
   _getTransactions() {
     return (
-      <TransactionList />
+      <Transactions />
     );
   }
 
