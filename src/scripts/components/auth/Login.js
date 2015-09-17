@@ -6,7 +6,6 @@ import Oauth from "./Oauth";
 
 export default class Login extends Component {
   static propTypes = {
-    errors: PropTypes.array,
     onClose: PropTypes.func.isRequired,
     onLogin: PropTypes.func.isRequired
   }
@@ -21,8 +20,8 @@ export default class Login extends Component {
     this.props.onClose();
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  _handleSubmit(event) {
+    event.preventDefault();
 
     let email = this.refs.email.state.fieldValue;
     let password = this.refs.password.state.fieldValue;
@@ -39,7 +38,6 @@ export default class Login extends Component {
     return (
       <div className="mdl-grid text-center">
         <div className="mdl-cell mdl-cell--12-col">
-          <div>{this.props.errors}</div>
           <div><Oauth provider="facebook"/></div>
           <div className="divider"></div>
           <div><Oauth provider="google_oauth2" /></div>
@@ -62,7 +60,7 @@ export default class Login extends Component {
                 </InputField>
               </div>
               <div>
-                <Button name="Close" onClick={this._handleClose} />
+                <Button name="Close" type="button" onClick={this._handleClose} />
                 <div className="divider"></div>
                 <Button name="Log In" type="submit" />
               </div>

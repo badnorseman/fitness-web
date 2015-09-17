@@ -11,10 +11,6 @@ export default class TransactionList extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.getTransactions();
-  }
-
   _getItems() {
     let items = [];
     for (let key in this.props.transactions) {

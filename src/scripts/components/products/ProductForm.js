@@ -28,8 +28,8 @@ export default class ProductForm extends Component {
 
   _getCurrency() {
     let currencies = document.getElementsByName("currency");
-    for (let k in currencies) {
-      if (currencies[k].checked === true) return currencies[k].value;
+    for (let key in currencies) {
+      if (currencies[key].checked === true) return currencies[key].value;
     }
   }
 
@@ -37,8 +37,8 @@ export default class ProductForm extends Component {
     this.props.onClose();
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  _handleSubmit(event) {
+    event.preventDefault();
 
     let currency = this._getCurrency();
     let description = this.refs.description.state.fieldValue;

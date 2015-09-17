@@ -7,7 +7,6 @@ export default class NewProduct extends Component {
   static propTypes = {
     currency: PropTypes.string,
     description: PropTypes.string,
-    errors: PropTypes.array,
     id: PropTypes.number,
     image: PropTypes.string,
     name: PropTypes.string,
@@ -34,7 +33,6 @@ export default class NewProduct extends Component {
     return (
       <div className="mdl-grid text-center">
         <div className="mdl-cell mdl-cell--12-col">
-          <div>{this.props.errors}</div>
           <ProductForm
             currency={this.props.currency}
             description={this.props.description}

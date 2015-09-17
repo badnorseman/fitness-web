@@ -18,8 +18,8 @@ export default class InputField extends Component {
     this._handleChange = this._handleChange.bind(this);
   }
 
-  _handleChange(e) {
-    e.preventDefault();
+  _handleChange(event) {
+    event.preventDefault();
 
     let fieldValue = findDOMNode(this.refs[this.props.fieldId]).value;
 

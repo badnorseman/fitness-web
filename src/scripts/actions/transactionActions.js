@@ -38,16 +38,6 @@ export function getClientToken() {
   };
 }
 
-export const TRANSACTION_ERROR_RESET = "TRANSACTION_ERROR_RESET";
-
-export function resetError() {
-  return dispatch => {
-    dispatch({
-      type: TRANSACTION_ERROR_RESET
-    });
-  };
-}
-
 export const TRANSACTION_CREATE_REQUEST = "TRANSACTION_CREATE_REQUEST";
 export const TRANSACTION_CREATE_RESPONSE = "TRANSACTION_CREATE_RESPONSE";
 export const TRANSACTION_CREATE_ERROR = "TRANSACTION_CREATE_ERROR";

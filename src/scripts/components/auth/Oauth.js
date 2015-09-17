@@ -19,7 +19,7 @@ export default class Oauth extends Component {
 
   render() {
     return (
-      <Button name={this.props.provider} onClick={this._handleClick} />
+      <Button name={this.props.provider} type="button" onClick={this._handleClick} />
     )
   }
 }

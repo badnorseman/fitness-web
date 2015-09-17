@@ -7,10 +7,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ createProduct }, dispatch);
 }
 
-function mapStateToProps(state) {
-  const { productReducer } = state;
-  const { errors } = productReducer;
-  return { errors };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewProduct);
+export default connect(mapDispatchToProps)(NewProduct);

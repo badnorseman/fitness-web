@@ -1,11 +1,13 @@
 "use strict";
 import React, { Component } from "react";
+import Cart from "../components/products/Cart";
+import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
 import Link from "../components/Link";
 import Login from "../components/auth/Login";
 import Products from "../containers/products";
 import Signup from "../components/auth/Signup";
-import TransactionList from "../containers/TransactionList";
+import Transactions from "../containers/Transactions";
 
 export default class App extends Component {
   constructor(props) {
@@ -14,6 +16,7 @@ export default class App extends Component {
     this._handleLogin = this._handleLogin.bind(this);
     this._handleLogout = this._handleLogout.bind(this);
     this._handleSignup = this._handleSignup.bind(this);
+    this._linkToCart = this._linkToCart.bind(this);
     this._linkToLogin = this._linkToLogin.bind(this);
     this._linkToProducts = this._linkToProducts.bind(this);
     this._linkToSignup = this._linkToSignup.bind(this);
@@ -24,10 +27,15 @@ export default class App extends Component {
     componentHandler.upgradeDom()
   }
 
-  _getLogin(errors) {
+  _getCart() {
+    return (
+      <Cart />
+    );
+  }
+
+  _getLogin() {
     return (
       <Login
-      errors={errors}
       onClose={this._handleClose}
       onLogin={this._handleLogin} />
     );
@@ -39,10 +47,9 @@ export default class App extends Component {
     );
   }
 
-  _getSignup(errors) {
+  _getSignup() {
     return (
       <Signup
-      errors={errors}
       onClose={this._handleClose}
       onSignup={this._handleSignup} />
     );
@@ -50,12 +57,11 @@ export default class App extends Component {
 
   _getTransactions() {
     return (
-      <TransactionList />
+      <Transactions />
     );
   }
 
   _handleClose() {
-    this.props.resetError();
     this.props.changeRoute("PRODUCTS");
   }
 
@@ -69,6 +75,10 @@ export default class App extends Component {
 
   _handleSignup(auth) {
     this.props.signup(auth);
+  }
+
+  _linkToCart() {
+    this.props.changeRoute("CART");
   }
 
   _linkToLogin() {
@@ -88,18 +98,21 @@ export default class App extends Component {
   }
 
   render() {
-    const { errors, isLoggedIn, route, user } = this.props;
+    const { errorMessage, isLoggedIn, route, user } = this.props;
 
     let content;
     switch (route) {
       case "LOGIN":
-        content = this._getLogin(errors);
+        content = this._getLogin();
         break;
       case "SIGNUP":
-        content = this._getSignup(errors);
+        content = this._getSignup();
         break;
       case "TRANSACTIONS":
         content = this._getTransactions();
+        break;
+      case "CART":
+        content = this._getCart();
         break;
       default:
         content = this._getProducts();
@@ -127,14 +140,16 @@ export default class App extends Component {
               {!isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
               {!isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
               {isLoggedIn && <Link name="Transactions" onClick={this._linkToTransactions} />}
+              {isLoggedIn && <Link name="Cart" onClick={this._linkToCart} />}
             </nav>
           </div>
           <main className="mdl-layout__content">
+            <ErrorMessage errorMessage={errorMessage} />
             <div className="page-content">
               {content}
             </div>
             <div className="mdl-layout-spacer"></div>
-            <Footer />
+            <Footer className="footer" />
           </main>
         </div>
       </div>

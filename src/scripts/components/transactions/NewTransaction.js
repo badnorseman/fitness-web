@@ -6,7 +6,6 @@ import Button from "../Button";
 export default class NewTransaction extends Component {
   static propTypes = {
     clientToken: PropTypes.string,
-    errors: PropTypes.array,
     product: PropTypes.object.isRequired,
     onAdd: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired
@@ -36,8 +35,8 @@ export default class NewTransaction extends Component {
     this.props.onClose();
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  _handleSubmit(event) {
+    event.preventDefault();
   }
 
   _onPaymentMethodReceived(paymentMethod) {
@@ -60,7 +59,6 @@ export default class NewTransaction extends Component {
     return (
       <div className="mdl-grid text-center">
         <div className="mdl-cell mdl-cell--12-col">
-          <div>{this.props.errors}</div>
           <div>
             {this.props.product.name}
             <div className="divider"></div>
@@ -72,7 +70,7 @@ export default class NewTransaction extends Component {
           <div>
             <form onSubmit={this._handleSubmit}>
               <div id="dropin-container"></div>
-              <Button name="Close" onClick={this._handleClose}/>
+              <Button name="Close" type="button" onClick={this._handleClose}/>
               <div className="divider"></div>
               <Button name="Buy" type="submit" />
             </form>

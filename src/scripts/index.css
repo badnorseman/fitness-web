@@ -1,9 +1,22 @@
+* {
+  margin:0;
+}
+
 html, body {
   height:100%;
 }
 
-.text-center {
-  text-align:center;
+footer, .push {
+  height:100px;
+}
+
+.button--floating-action {
+  bottom:50px;
+  margin-bottom:100px;
+  padding-top:24px;
+  position:fixed;
+  right:24px;
+  z-index:998;
 }
 
 .divider {
@@ -12,13 +25,9 @@ html, body {
   display:inline-block;
 }
 
-.mdl-button--floating-action {
-  bottom:45px;
-  margin-bottom:100px;
-  padding-top:24px;
-  position:fixed;
-  right:24px;
-  z-index:998;
+.footer {
+  margin:0 auto -100px;
+  min-height:100%;
 }
 
 .mdl-layout__content {
@@ -26,4 +35,8 @@ html, body {
 	display:flex;
   -webkit-flex-direction:column;
 	flex-direction:column;
+}
+
+.text-center {
+  text-align:center;
 }

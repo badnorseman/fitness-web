@@ -7,10 +7,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ login }, dispatch);
 }
 
-function mapStateToProps(state) {
-  const { authReducer } = state;
-  const { errors } = authReducer;
-  return { errors };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapDispatchToProps)(Login);

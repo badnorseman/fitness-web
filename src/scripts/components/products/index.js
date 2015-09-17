@@ -23,10 +23,9 @@ export default class Products extends Component {
     componentHandler.upgradeDom();
   }
 
-  _getEditProduct(errors = [], product = {}) {
+  _getEditProduct(product = {}) {
     return (
       <EditProduct
-        errors={errors}
         product={product}
         onClose={this._handleClose}
         onEdit={this._handleEdit}
@@ -34,10 +33,9 @@ export default class Products extends Component {
     );
   }
 
-  _getNewProduct(errors = []) {
+  _getNewProduct() {
     return (
       <NewProduct
-        errors={errors}
         onAdd={this._handleAdd}
         onClose={this._handleClose} />
     );
@@ -57,7 +55,6 @@ export default class Products extends Component {
   }
 
   _handleClose() {
-    this.props.resetError();
     this.props.changeRoute("LIST");
   }
 
@@ -78,16 +75,16 @@ export default class Products extends Component {
   }
 
   render() {
-    const { errors, id, isFetching, products, route } = this.props;
+    const { id, isFetching, products, route } = this.props;
     const product = this.props.products[id];
 
     let content;
     switch (route) {
       case "EDIT":
-        content = this._getEditProduct(errors, product);
+        content = this._getEditProduct(product);
         break;
       case "NEW":
-        content = this._getNewProduct(errors);
+        content = this._getNewProduct();
         break;
       default:
         content = this._getProductList(products);

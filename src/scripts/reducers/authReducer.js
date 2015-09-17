@@ -1,6 +1,5 @@
 "use strict";
 import {
-  AUTH_ERROR_RESET,
   LOGIN_REQUEST,
   LOGIN_RESPONSE,
   LOGIN_ERROR,
@@ -17,7 +16,6 @@ import {
 
 const AUTH_TOKEN = "token";
 const initialState = {
-  errors: [],
   isLoggedIn: false,
   user: {}
 };
@@ -32,11 +30,7 @@ function saveTokenLocally(token) {
 
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
-    case AUTH_ERROR_RESET:
-      return Object.assign({}, state, {
-        errors: []
-      });
-
+    // This seems unnecessary
     case LOGIN_REQUEST:
     case LOGOUT_REQUEST:
     case OAUTH_REQUEST:
@@ -49,7 +43,6 @@ export default function authReducer(state = initialState, action) {
     case OAUTH_RESPONSE:
       saveTokenLocally(action.data.token);
       return Object.assign({}, state, {
-        errors: [],
         isLoggedIn: true,
         user: action.data
       });
@@ -58,17 +51,16 @@ export default function authReducer(state = initialState, action) {
     case SIGNUP_RESPONSE:
       deleteLocalToken();
       return Object.assign({}, state, {
-        errors: [],
         isLoggedIn: false,
         user: {}
       });
 
+    // This seems unnecessary
     case LOGIN_ERROR:
     case LOGOUT_ERROR:
     case OAUTH_ERROR:
     case SIGNUP_ERROR:
       return Object.assign({}, state, {
-        errors: action.errors,
         isLoggedIn: false
       });
 
