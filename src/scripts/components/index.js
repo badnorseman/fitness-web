@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component } from "react";
+import Cart from "../components/products/Cart";
 import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
 import Link from "../components/Link";
@@ -15,6 +16,7 @@ export default class App extends Component {
     this._handleLogin = this._handleLogin.bind(this);
     this._handleLogout = this._handleLogout.bind(this);
     this._handleSignup = this._handleSignup.bind(this);
+    this._linkToCart = this._linkToCart.bind(this);
     this._linkToLogin = this._linkToLogin.bind(this);
     this._linkToProducts = this._linkToProducts.bind(this);
     this._linkToSignup = this._linkToSignup.bind(this);
@@ -23,6 +25,12 @@ export default class App extends Component {
 
   componentDidUpdate() {
     componentHandler.upgradeDom()
+  }
+
+  _getCart() {
+    return (
+      <Cart />
+    );
   }
 
   _getLogin() {
@@ -69,6 +77,10 @@ export default class App extends Component {
     this.props.signup(auth);
   }
 
+  _linkToCart() {
+    this.props.changeRoute("CART");
+  }
+
   _linkToLogin() {
     this.props.changeRoute("LOGIN");
   }
@@ -99,6 +111,9 @@ export default class App extends Component {
       case "TRANSACTIONS":
         content = this._getTransactions();
         break;
+      case "CART":
+        content = this._getCart();
+        break;
       default:
         content = this._getProducts();
     }
@@ -125,6 +140,7 @@ export default class App extends Component {
               {!isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
               {!isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
               {isLoggedIn && <Link name="Transactions" onClick={this._linkToTransactions} />}
+              {isLoggedIn && <Link name="Cart" onClick={this._linkToCart} />}
             </nav>
           </div>
           <main className="mdl-layout__content">
