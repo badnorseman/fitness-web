@@ -56,7 +56,6 @@ export default class Products extends Component {
     this.props.createProduct(product);
   }
 
-
   _handleBuy(product) {
     this.props.cartAddProduct(product);
   }
