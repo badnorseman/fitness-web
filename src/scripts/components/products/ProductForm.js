@@ -64,6 +64,8 @@ export default class ProductForm extends Component {
   }
 
   render() {
+    const { description, image, name, price } = this.props;
+
     return (
       <div>
         <form onSubmit={this._handleSubmit}>
@@ -74,7 +76,7 @@ export default class ProductForm extends Component {
               fieldName="Name"
               fieldPattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
               fieldType="text"
-              fieldValue={this.props.name}
+              fieldValue={name}
               ref="name">
             </InputField>
           </div>
@@ -83,7 +85,7 @@ export default class ProductForm extends Component {
               fieldId="description"
               fieldName="Description"
               fieldType="text"
-              fieldValue={this.props.description}
+              fieldValue={description}
               ref="description">
             </InputField>
           </div>
@@ -94,7 +96,7 @@ export default class ProductForm extends Component {
               fieldName="Price"
               fieldPattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
               fieldType="text"
-              fieldValue={this.props.price}
+              fieldValue={price}
               ref="price">
             </InputField>
           </div>
@@ -115,7 +117,7 @@ export default class ProductForm extends Component {
             </label>
           </div>
           <div>
-            <img src={this.props.image} alt="" />
+            <img src={image} alt="" />
           </div>
           <InputFile
             ref="image" />

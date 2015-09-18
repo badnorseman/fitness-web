@@ -59,6 +59,19 @@ export function fetchAll(entityName) {
   );
 }
 
+export function fetchById(entityName, id) {
+  const url = getUrl(entityName, id);
+  const headers = getHeaders();
+  return Promise.resolve(
+    $.ajax({
+      url: url,
+      dataType: "json",
+      type: "GET",
+      headers: headers
+    })
+  );
+}
+
 export function login(data) {
   const url = LOGIN;
   return Promise.resolve(

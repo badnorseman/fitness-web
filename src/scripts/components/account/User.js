@@ -2,6 +2,7 @@
 import React, { Component, PropTypes } from "react";
 import Button from "../Button";
 import InputField from "../InputField";
+import InputFile from "../InputFile";
 
 export default class User extends Component {
   static propTypes = {
@@ -11,18 +12,25 @@ export default class User extends Component {
 
   constructor(props) {
     super(props);
+    this._handleShow = this._handleShow.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+  }
+
+  _handleShow() {
+    this.props.onShow();
   }
 
   _handleSubmit(event) {
     event.preventDefault();
 
+    let avatar = this.refs.avatar.state.file;
     let email = this.refs.email.state.fieldValue;
     let id = this.props.user.id;
-    let name = this.refs.fullName.state.fieldValue;
+    let name = this.refs.name.state.fieldValue;
 
     if (email && name) {
       this.props.onEdit({
+        avatar: avatar,
         email: email,
         id: id,
         name: name
@@ -31,7 +39,7 @@ export default class User extends Component {
   }
 
   render() {
-    const { name, email } = this.props.user;
+    const { avatar, email, name } = this.props.user;
 
     return (
       <div className="mdl-grid text-center">
@@ -48,15 +56,25 @@ export default class User extends Component {
             </div>
             <div>
               <InputField
-                fieldId="fullName"
+                fieldId="name"
                 fieldName="Full Name"
                 fieldType="text"
                 fieldValue={name}
-                ref="fullName">
+                ref="name">
               </InputField>
             </div>
-            <div className="divider"></div>
-            <Button name="Save" type="submit" />
+            <div>
+              <img src={avatar} alt="" />
+            </div>
+            <div>
+              <InputFile
+                ref="avatar" />
+            </div>
+            <div>
+              <Button name="Save" type="submit" />
+              <div className="divider"></div>
+              <Button name="Show" type="button" onClick={this._handleShow} />
+            </div>
           </form>
         </div>
       </div>

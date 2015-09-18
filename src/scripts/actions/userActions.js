@@ -1,4 +1,4 @@
-import { destroy, update } from "../api/api";
+import { destroy, fetchById, update } from "../api/api";
 
 const entityName = "user";
 
@@ -34,6 +34,42 @@ export function destroyUser(id) {
     return destroy(entityName, id)
     .then(response => dispatch(userDestroyResponse(response)))
     .catch(error => dispatch(userDestroyError(error)))
+  };
+}
+
+export const USER_FETCH_REQUEST = "USER_FETCH_REQUEST";
+export const USER_FETCH_RESPONSE = "USER_FETCH_RESPONSE";
+export const USER_FETCH_ERROR = "USER_FETCH_ERROR";
+
+function userFetchRequest(id) {
+  return {
+    type: USER_FETCH_REQUEST,
+    id: id
+  };
+}
+
+function userFetchResponse(response) {
+  console.log("userFetchResponse", response);
+  return {
+    type: USER_FETCH_RESPONSE,
+    user: response
+  };
+}
+
+function userFetchError(error) {
+  const errors = JSON.parse(error.responseText).errors;
+  return {
+    type: USER_FETCH_ERROR,
+    errors: errors
+  };
+}
+
+export function getUser(id) {
+  return dispatch => {
+    dispatch(userFetchRequest(id));
+    return fetchById(entityName, id)
+      .then(response => dispatch(userFetchResponse(response)))
+      .catch(error => dispatch(userFetchError(error)))
   };
 }
 
