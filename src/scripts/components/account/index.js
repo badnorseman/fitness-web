@@ -6,14 +6,15 @@ import TransactionList from "./TransactionList";
 export default class Account extends Component {
   constructor(props) {
     super(props);
+    this._handleEdit = this._handleEdit.bind(this);
   }
 
   componentDidMount() {
     this.props.getTransactions();
   }
 
-  componentDidUpdate() {
-    componentHandler.upgradeDom();
+  _handleEdit(user) {
+    this.props.updateUser(user);
   }
 
   render() {
@@ -21,7 +22,9 @@ export default class Account extends Component {
 
     return (
       <div>
-        <User user={user} />
+        <User
+          user={user}
+          onEdit={this._handleEdit} />
         <TransactionList transactions={transactions} />
       </div>
     );

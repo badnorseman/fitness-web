@@ -12,7 +12,6 @@ export default class ProductForm extends Component {
     image: PropTypes.string,
     name: PropTypes.string,
     price: PropTypes.number,
-    onBuy: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired
   }
@@ -23,7 +22,6 @@ export default class ProductForm extends Component {
 
   constructor(props) {
     super(props);
-    this._handleBuy = this._handleBuy.bind(this);
     this._handleClose = this._handleClose.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
@@ -33,10 +31,6 @@ export default class ProductForm extends Component {
     for (let key in currencies) {
       if (currencies[key].checked === true) return currencies[key].value;
     }
-  }
-
-  _handleBuy() {
-    this.props.onBuy();
   }
 
   _handleClose() {
@@ -127,8 +121,6 @@ export default class ProductForm extends Component {
             ref="image" />
           <div>
             <Button name="Close" type="button" onClick={this._handleClose} />
-            <div className="divider"></div>
-            <Button name="Buy" type="button" onClick={this._handleBuy} />
             <div className="divider"></div>
             <Button name="Save" type="submit" />
           </div>

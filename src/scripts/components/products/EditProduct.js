@@ -47,11 +47,12 @@ export default class EditProduct extends Component {
             image={this.props.product.image}
             name={this.props.product.name}
             price={this.props.product.price}
-            onBuy={this._handleBuy}
             onClose={this._handleClose}
             onSubmit={this._handleEdit} />
           <div className="divider"></div>
           <Button name="Remove" type="button" onClick={this._handleRemove} />
+          <div className="divider"></div>
+          <Button name="Buy" type="button" onClick={this._handleBuy} />
         </div>
       </div>
     )

@@ -20,10 +20,6 @@ export default class Products extends Component {
     this.props.getProducts();
   }
 
-  componentDidUpdate() {
-    componentHandler.upgradeDom();
-  }
-
   _getEditProduct(product = {}) {
     return (
       <EditProduct
