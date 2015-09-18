@@ -7,7 +7,7 @@ import Link from "../components/Link";
 import Login from "../components/auth/Login";
 import Products from "../containers/products";
 import Signup from "../components/auth/Signup";
-import Transactions from "../containers/Transactions";
+import Account from "../containers/Account";
 
 export default class App extends Component {
   constructor(props) {
@@ -16,15 +16,21 @@ export default class App extends Component {
     this._handleLogin = this._handleLogin.bind(this);
     this._handleLogout = this._handleLogout.bind(this);
     this._handleSignup = this._handleSignup.bind(this);
+    this._linkToAccount = this._linkToAccount.bind(this);
     this._linkToCart = this._linkToCart.bind(this);
     this._linkToLogin = this._linkToLogin.bind(this);
     this._linkToProducts = this._linkToProducts.bind(this);
     this._linkToSignup = this._linkToSignup.bind(this);
-    this._linkToTransactions = this._linkToTransactions.bind(this);
   }
 
   componentDidUpdate() {
     componentHandler.upgradeDom()
+  }
+
+  _getAccount() {
+    return (
+      <Account />
+    );
   }
 
   _getCart() {
@@ -55,12 +61,6 @@ export default class App extends Component {
     );
   }
 
-  _getTransactions() {
-    return (
-      <Transactions />
-    );
-  }
-
   _handleClose() {
     this.props.changeRoute("PRODUCTS");
   }
@@ -75,6 +75,10 @@ export default class App extends Component {
 
   _handleSignup(auth) {
     this.props.signup(auth);
+  }
+
+  _linkToAccount() {
+    this.props.changeRoute("ACCOUNT");
   }
 
   _linkToCart() {
@@ -93,26 +97,22 @@ export default class App extends Component {
     this.props.changeRoute("SIGNUP");
   }
 
-  _linkToTransactions() {
-    this.props.changeRoute("TRANSACTIONS");
-  }
-
   render() {
     const { errorMessage, isLoggedIn, route, user } = this.props;
 
     let content;
     switch (route) {
+      case "ACCOUNT":
+        content = this._getAccount();
+        break;
+      case "CART":
+        content = this._getCart();
+        break;
       case "LOGIN":
         content = this._getLogin();
         break;
       case "SIGNUP":
         content = this._getSignup();
-        break;
-      case "TRANSACTIONS":
-        content = this._getTransactions();
-        break;
-      case "CART":
-        content = this._getCart();
         break;
       default:
         content = this._getProducts();
@@ -127,20 +127,20 @@ export default class App extends Component {
               </span>
               <div className="mdl-layout-spacer"></div>
               <nav className="mdl-navigation">
-                {isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
                 {!isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
                 {!isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
+                {isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
               </nav>
             </div>
           </header>
           <div className="mdl-layout__drawer">
             <span className="mdl-layout-title">FitBird</span>
             <nav className="mdl-navigation">
-              {isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
               {!isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
               {!isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
-              {isLoggedIn && <Link name="Transactions" onClick={this._linkToTransactions} />}
+              {isLoggedIn && <Link name="Account" onClick={this._linkToAccount} />}
               {isLoggedIn && <Link name="Cart" onClick={this._linkToCart} />}
+              {isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
             </nav>
           </div>
           <main className="mdl-layout__content">

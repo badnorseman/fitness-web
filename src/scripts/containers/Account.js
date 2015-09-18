@@ -1,17 +1,17 @@
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import { getTransactions } from "../actions/transactionActions";
-import Transactions from "../components/transactions";
+import Account from "../components/account";
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ getTransactions }, dispatch);
-  // return bindActionCreators({ changeRoute, getTransactions}), dispatch);
 }
 
 function mapStateToProps(state) {
-  const { transactionReducer } = state;
+  const { authReducer, transactionReducer } = state;
+  const { user } = authReducer;
   const { isFetching, transactions } = transactionReducer;
-  return { isFetching, transactions };
+  return { isFetching, transactions, user };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Transactions);
+export default connect(mapStateToProps, mapDispatchToProps)(Account);
