@@ -8,6 +8,7 @@ export default class Products extends Component {
   constructor(props) {
     super(props);
     this._handleAdd = this._handleAdd.bind(this);
+    this._handleBuy = this._handleBuy.bind(this);
     this._handleClose = this._handleClose.bind(this);
     this._handleEdit = this._handleEdit.bind(this);
     this._handleNew = this._handleNew.bind(this);
@@ -27,6 +28,7 @@ export default class Products extends Component {
     return (
       <EditProduct
         product={product}
+        onBuy={this._handleBuy}
         onClose={this._handleClose}
         onEdit={this._handleEdit}
         onRemove={this._handleRemove} />
@@ -52,6 +54,10 @@ export default class Products extends Component {
 
   _handleAdd(product) {
     this.props.createProduct(product);
+  }
+
+  _handleBuy(product) {
+    this.props.cartAddProduct(product);
   }
 
   _handleClose() {
