@@ -1,5 +1,7 @@
 "use strict";
 import React, { Component } from "react";
+import Account from "../containers/Account";
+import AccountMenu from "./AccountMenu";
 import Cart from "../components/products/Cart";
 import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
@@ -7,7 +9,6 @@ import Link from "../components/Link";
 import Login from "../components/auth/Login";
 import Products from "../containers/products";
 import Signup from "../components/auth/Signup";
-import Account from "../containers/Account";
 
 export default class App extends Component {
   constructor(props) {
@@ -99,6 +100,7 @@ export default class App extends Component {
 
   render() {
     const { errorMessage, isLoggedIn, route, user } = this.props;
+    const { name } = user;
 
     let content;
     switch (route) {
@@ -130,6 +132,7 @@ export default class App extends Component {
                 {!isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
                 {!isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
                 {isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
+                {isLoggedIn && <AccountMenu />}
               </nav>
             </div>
           </header>

@@ -78,7 +78,7 @@ export default class Products extends Component {
 
   render() {
     const { id, isFetching, products, route } = this.props;
-    const product = this.props.products[id];
+    const product = products[id];
 
     let content;
     switch (route) {

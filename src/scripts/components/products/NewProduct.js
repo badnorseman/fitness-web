@@ -33,13 +33,14 @@ export default class NewProduct extends Component {
     return (
       <div className="mdl-grid text-center">
         <div className="mdl-cell mdl-cell--12-col">
+          <Button name="Close" type="button" onClick={this._handleClose} />
+          <div className="divider"></div>
           <ProductForm
             currency={this.props.currency}
             description={this.props.description}
             image={this.props.image}
             name={this.props.name}
             price={this.props.price}
-            onClose={this._handleClose}
             onSubmit={this._handleAdd} />
         </div>
       </div>
