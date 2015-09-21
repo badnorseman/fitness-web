@@ -129,21 +129,23 @@ export default class App extends Component {
               </span>
               <div className="mdl-layout-spacer"></div>
               <nav className="mdl-navigation">
-                {!isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
-                {!isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
-                {isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
-                {isLoggedIn && <AccountMenu />}
+                {!isLoggedIn && <Link name="Log In" onClick={this._linkToLogin} />}
+                {!isLoggedIn && <Link name="Sign Up" onClick={this._linkToSignup} />}
+                {isLoggedIn &&
+                  <AccountMenu
+                    onLinkToAccount={this._linkToAccount}
+                    onLogout={this._handleLogout} />}
               </nav>
             </div>
           </header>
           <div className="mdl-layout__drawer">
             <span className="mdl-layout-title">FitBird</span>
             <nav className="mdl-navigation">
-              {!isLoggedIn && <Link name="Log in" onClick={this._linkToLogin} />}
-              {!isLoggedIn && <Link name="Sign up" onClick={this._linkToSignup} />}
+              {!isLoggedIn && <Link name="Log In" onClick={this._linkToLogin} />}
+              {!isLoggedIn && <Link name="Sign Up" onClick={this._linkToSignup} />}
               {isLoggedIn && <Link name="Account" onClick={this._linkToAccount} />}
               {isLoggedIn && <Link name="Cart" onClick={this._linkToCart} />}
-              {isLoggedIn && <Link name="Log out" onClick={this._handleLogout} />}
+              {isLoggedIn && <Link name="Log Out" onClick={this._handleLogout} />}
             </nav>
           </div>
           <main className="mdl-layout__content">
