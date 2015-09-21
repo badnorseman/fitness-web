@@ -23,12 +23,12 @@ export default class Account extends Component {
   }
 
   render() {
-    const { isFetching, transactions, user } = this.props;
+    const { currentUser, isFetching, transactions } = this.props;
 
     return (
       <div>
         <User
-          user={user}
+          user={currentUser}
           onShow={this._handleShow}
           onEdit={this._handleEdit} />
         <TransactionList transactions={transactions} />

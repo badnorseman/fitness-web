@@ -9,10 +9,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { authReducer, transactionReducer } = state;
+  const { sessionReducer, transactionReducer } = state;
   const { isFetching, transactions } = transactionReducer;
-  const { user } = authReducer;
-  return { isFetching, transactions, user };
+  const { currentUser } = sessionReducer;
+  return { currentUser, isFetching, transactions };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account);
