@@ -133,6 +133,7 @@ export default class App extends Component {
                 {!isLoggedIn && <Link name="Sign Up" onClick={this._linkToSignup} />}
                 {isLoggedIn &&
                   <AccountMenu
+                    name={name}
                     onLinkToAccount={this._linkToAccount}
                     onLogout={this._handleLogout} />}
               </nav>

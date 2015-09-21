@@ -18,12 +18,15 @@ export default class AccountMenu extends Component {
   }
 
   render() {
+    const { name } = this.props;
+
     return (
-      <div>
+      <div className="mdl-layout--large-screen-only">
+        Hi {name}
         <button
           id="account-menu"
           className="mdl-button mdl-js-button mdl-button--icon">
-          <i className="material-icons">account_circle</i>
+          <i className="material-icons">arrow_drop_down</i>
         </button>
         <ul
           className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"

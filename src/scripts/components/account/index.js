@@ -19,7 +19,7 @@ export default class Account extends Component {
   }
 
   _handleShow() {
-    this.props.getUser(this.props.user.id);
+    this.props.getUser(this.props.currentUser.id);
   }
 
   render() {
