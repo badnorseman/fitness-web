@@ -99,8 +99,8 @@ export default class App extends Component {
   }
 
   render() {
-    const { errorMessage, isLoggedIn, route, user } = this.props;
-    const { name } = user;
+    const { currentUser, errorMessage, isLoggedIn, route } = this.props;
+    const { name } = currentUser;
 
     let content;
     switch (route) {

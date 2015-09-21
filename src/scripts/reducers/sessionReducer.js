@@ -17,7 +17,7 @@ import {
 const AUTH_TOKEN = "token";
 const initialState = {
   isLoggedIn: false,
-  user: {}
+  currentUser: {}
 };
 
 function deleteLocalToken() {
@@ -28,7 +28,7 @@ function saveTokenLocally(token) {
   localStorage.setItem(AUTH_TOKEN, token);
 }
 
-export default function authReducer(state = initialState, action) {
+export default function sessionReducer(state = initialState, action) {
   switch (action.type) {
     // This seems unnecessary
     case LOGIN_REQUEST:
@@ -44,7 +44,7 @@ export default function authReducer(state = initialState, action) {
       saveTokenLocally(action.data.token);
       return Object.assign({}, state, {
         isLoggedIn: true,
-        user: action.data
+        currentUser: action.data
       });
 
     case LOGOUT_RESPONSE:
@@ -52,7 +52,7 @@ export default function authReducer(state = initialState, action) {
       deleteLocalToken();
       return Object.assign({}, state, {
         isLoggedIn: false,
-        user: {}
+        currentUser: {}
       });
 
     // This seems unnecessary
