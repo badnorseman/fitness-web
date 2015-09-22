@@ -6,7 +6,7 @@ import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
 import Link from "../components/Link";
 import Login from "../components/auth/Login";
-import Menu from "./Menu";
+import NavigationHeader from "./NavigationHeader";
 import Products from "../containers/products";
 import Signup from "../components/auth/Signup";
 
@@ -127,17 +127,13 @@ export default class App extends Component {
                 <a className="mdl-navigation__link" href="#" onClick={this._linkToProducts}>FitBird</a>
               </span>
               <div className="mdl-layout-spacer"></div>
-              <nav className="mdl-navigation">
-                {!isLoggedIn && <Link name="Log In" onClick={this._linkToLogin} />}
-                {!isLoggedIn && <Link name="Sign Up" onClick={this._linkToSignup} />}
-                <Menu
-                  currentUser={currentUser}
-                  isLoggedIn={isLoggedIn}
-                  onLinkToAccount={this._linkToAccount}
-                  onLinkToLogin={this._linkToLogin}
-                  onLinkToSignup={this._linkToSignup}
-                  onLogout={this._handleLogout} />
-              </nav>
+              <NavigationHeader
+                currentUser={currentUser}
+                isLoggedIn={isLoggedIn}
+                onLinkToAccount={this._linkToAccount}
+                onLinkToLogin={this._linkToLogin}
+                onLinkToSignup={this._linkToSignup}
+                onLogout={this._handleLogout} />
             </div>
           </header>
           <div className="mdl-layout__drawer">
