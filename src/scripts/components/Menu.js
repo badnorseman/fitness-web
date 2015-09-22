@@ -1,8 +1,8 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import Link from "../components/Link";
+import Link from "./Link";
 
-export default class AccountMenu extends Component {
+export default class Menu extends Component {
   constructor(props) {
     super(props);
     this._handleLinkToAccount = this._handleLinkToAccount.bind(this);
@@ -18,7 +18,8 @@ export default class AccountMenu extends Component {
   }
 
   render() {
-    const { name } = this.props;
+    const { currentUser } = this.props;
+    const { name } = currentUser;
 
     return (
       <div className="mdl-layout--large-screen-only">
