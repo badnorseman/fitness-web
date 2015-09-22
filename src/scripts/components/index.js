@@ -130,11 +130,13 @@ export default class App extends Component {
               <nav className="mdl-navigation">
                 {!isLoggedIn && <Link name="Log In" onClick={this._linkToLogin} />}
                 {!isLoggedIn && <Link name="Sign Up" onClick={this._linkToSignup} />}
-                {isLoggedIn &&
-                  <Menu
-                    currentUser={currentUser}
-                    onLinkToAccount={this._linkToAccount}
-                    onLogout={this._handleLogout} />}
+                <Menu
+                  currentUser={currentUser}
+                  isLoggedIn={isLoggedIn}
+                  onLinkToAccount={this._linkToAccount}
+                  onLinkToLogin={this._linkToLogin}
+                  onLinkToSignup={this._linkToSignup}
+                  onLogout={this._handleLogout} />
               </nav>
             </div>
           </header>
