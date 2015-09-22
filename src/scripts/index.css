@@ -25,11 +25,6 @@ footer, .push {
   display:inline-block;
 }
 
-.footer {
-  margin:0 auto -100px;
-  min-height:100%;
-}
-
 .mdl-layout__content {
   display:-webkit-flex;
 	display:flex;

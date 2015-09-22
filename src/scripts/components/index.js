@@ -6,10 +6,11 @@ import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
 import Link from "../components/Link";
 import Login from "../components/auth/Login";
-import NavigationDrawer from "./NavigationDrawer";
+import Navigation from "./Navigation";
 import NavigationHeader from "./NavigationHeader";
 import Products from "../containers/products";
 import Signup from "../components/auth/Signup";
+import "./layout.css";
 
 export default class App extends Component {
   constructor(props) {
@@ -101,6 +102,7 @@ export default class App extends Component {
 
   render() {
     const { currentUser, errorMessage, isLoggedIn, route } = this.props;
+    const { avatar, email, name } = currentUser;
 
     let content;
     switch (route) {
@@ -121,33 +123,37 @@ export default class App extends Component {
     }
     return (
       <div>
-        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--overlay-drawer-button">
+        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
           <header className="mdl-layout__header">
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
                 <a className="mdl-navigation__link" href="#" onClick={this._linkToProducts}>FitBird</a>
               </span>
               <div className="mdl-layout-spacer"></div>
-              <NavigationHeader
-                currentUser={currentUser}
-                isLoggedIn={isLoggedIn}
-                onLinkToAccount={this._linkToAccount}
-                onLinkToCart={this._linkToCart}
-                onLinkToLogin={this._linkToLogin}
-                onLinkToSignup={this._linkToSignup}
-                onLogout={this._handleLogout} />
+              <nav className="mdl-navigation">
+                {!isLoggedIn && <a className="mdl-navigation__link" href="#" onClick={this._linkToLogin}>Log In</a>}
+                {!isLoggedIn && <a className="mdl-navigation__link" href="#" onClick={this._linkToSignup}>Sign Up</a>}
+              </nav>
             </div>
           </header>
-          <div className="mdl-layout__drawer">
-            <span className="mdl-layout-title">FitBird</span>
-              <NavigationDrawer
-                currentUser={currentUser}
-                isLoggedIn={isLoggedIn}
-                onLinkToAccount={this._linkToAccount}
-                onLinkToCart={this._linkToCart}
-                onLinkToLogin={this._linkToLogin}
-                onLinkToSignup={this._linkToSignup}
-                onLogout={this._handleLogout} />
+          <div className="mdl-layout__drawer layout__drawer">
+            <header className="layout__drawer-header">
+              <img className="layout__drawer-header-avatar" src={avatar} alt="" />
+              <div className="layout__drawer-header-name">{name}</div>
+              <div className="layout__drawer-header-email">{email}</div>
+            </header>
+            <nav className="mdl-navigation">
+              <a className="mdl-navigation__link" href="#" onClick={this._linkToProducts}><i className="material-icons">home</i>Home</a>
+              {!isLoggedIn && <div>
+                <a className="mdl-navigation__link" href="#" onClick={this._linkToLogin}><i className="material-icons">lock</i>Log In</a>
+                <a className="mdl-navigation__link" href="#" onClick={this._linkToSignup}><i className="material-icons">lock</i>Sign Up</a>
+              </div>}
+              {isLoggedIn && <div>
+                <a className="mdl-navigation__link" href="#" onClick={this._linkToCart}><i className="material-icons">shopping_cart</i>Cart</a>
+                <a className="mdl-navigation__link" href="#" onClick={this._linkToAccount}><i className="material-icons">account_circle</i>Account</a>
+                <a className="mdl-navigation__link" href="#" onClick={this._handleLogout}><i className="material-icons">lock</i>Log Out</a>
+              </div>}
+            </nav>
           </div>
           <main className="mdl-layout__content">
             <ErrorMessage errorMessage={errorMessage} />
@@ -155,7 +161,7 @@ export default class App extends Component {
               {content}
             </div>
             <div className="mdl-layout-spacer"></div>
-            <Footer className="footer" />
+            <Footer className="layout__footer" />
           </main>
         </div>
       </div>
