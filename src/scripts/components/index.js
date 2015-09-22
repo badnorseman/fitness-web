@@ -6,6 +6,7 @@ import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
 import Link from "../components/Link";
 import Login from "../components/auth/Login";
+import NavigationDrawer from "./NavigationDrawer";
 import NavigationHeader from "./NavigationHeader";
 import Products from "../containers/products";
 import Signup from "../components/auth/Signup";
@@ -131,6 +132,7 @@ export default class App extends Component {
                 currentUser={currentUser}
                 isLoggedIn={isLoggedIn}
                 onLinkToAccount={this._linkToAccount}
+                onLinkToCart={this._linkToCart}
                 onLinkToLogin={this._linkToLogin}
                 onLinkToSignup={this._linkToSignup}
                 onLogout={this._handleLogout} />
@@ -138,13 +140,14 @@ export default class App extends Component {
           </header>
           <div className="mdl-layout__drawer">
             <span className="mdl-layout-title">FitBird</span>
-            <nav className="mdl-navigation">
-              {!isLoggedIn && <Link name="Log In" onClick={this._linkToLogin} />}
-              {!isLoggedIn && <Link name="Sign Up" onClick={this._linkToSignup} />}
-              {isLoggedIn && <Link name="Account" onClick={this._linkToAccount} />}
-              {isLoggedIn && <Link name="Cart" onClick={this._linkToCart} />}
-              {isLoggedIn && <Link name="Log Out" onClick={this._handleLogout} />}
-            </nav>
+              <NavigationDrawer
+                currentUser={currentUser}
+                isLoggedIn={isLoggedIn}
+                onLinkToAccount={this._linkToAccount}
+                onLinkToCart={this._linkToCart}
+                onLinkToLogin={this._linkToLogin}
+                onLinkToSignup={this._linkToSignup}
+                onLogout={this._handleLogout} />
           </div>
           <main className="mdl-layout__content">
             <ErrorMessage errorMessage={errorMessage} />
