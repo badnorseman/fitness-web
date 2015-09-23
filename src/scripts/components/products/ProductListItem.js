@@ -17,13 +17,13 @@ export default class ProductListItem extends Component {
   }
 
   render() {
-    var titleStyle = {
+    const titleStyle = {
       backgroundImage:'url(' + this.props.item.image + ')',
       backgroundRepeat:'no-repeat',
       backgroundSize:'cover',
       height:160,
       WebkitTransition:'all',
-      msTransition: 'all'
+      msTransition:'all'
     }
 
     return (

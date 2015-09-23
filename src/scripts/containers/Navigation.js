@@ -2,16 +2,16 @@ import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/routeActions";
 import * as authActions from "../actions/authActions";
-import App from "../components";
+import Navigation from "../components/Navigation";
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(Object.assign({}, { changeRoute }, authActions), dispatch);
 }
 
 function mapStateToProps(state) {
-  const { routeReducer } = state;
-  const { route } = routeReducer;
-  return { route };
+  const { sessionReducer } = state;
+  const { currentUser, isLoggedIn } = sessionReducer;
+  return { currentUser, isLoggedIn };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

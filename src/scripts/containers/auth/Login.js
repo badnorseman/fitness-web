@@ -1,16 +1,14 @@
-// Form could be own component
-// Can Login and Signup forms be one?
-// Add avatar, paperclip functionality
 "use strict";
 import React, { Component, PropTypes } from "react";
-import Button from "../Button";
-import InputField from "../InputField";
-import Oauth from "./Oauth";
+import { connect } from "react-redux";
+import { login } from "../../actions/authActions";
+import Button from "../../components/Button";
+import InputField from "../../components/InputField";
+import Oauth from "../../components/auth/Oauth";
 
-export default class Signup extends Component {
+class Login extends Component {
   static propTypes = {
-    onClose: PropTypes.func.isRequired,
-    onSignup: PropTypes.func.isRequired
+    onClose: PropTypes.func.isRequired
   }
 
   constructor(props) {
@@ -28,14 +26,12 @@ export default class Signup extends Component {
 
     let email = this.refs.email.state.fieldValue;
     let password = this.refs.password.state.fieldValue;
-    let passwordConfirmation = this.refs.passwordConfirmation.state.fieldValue;
 
-    if (email && password && passwordConfirmation) {
-      this.props.onSignup({
-        email: email,
-        password: password,
-        password_confirmation: passwordConfirmation
-      })
+    if (email && password) {
+      this.props.dispatch(login({
+        auth_key: email,
+        password: password
+      }))
     };
   }
 
@@ -65,17 +61,9 @@ export default class Signup extends Component {
                 </InputField>
               </div>
               <div>
-                <InputField
-                  fieldId="passwordConfirmation"
-                  fieldName="Password Confirmation"
-                  fieldType="password"
-                  ref="passwordConfirmation">
-                </InputField>
-              </div>
-              <div>
                 <Button name="Close" type="button" onClick={this._handleClose} />
                 <div className="divider"></div>
-                <Button name="Sign Up" type="submit" />
+                <Button name="Log In" type="submit" />
               </div>
             </form>
           </div>
@@ -84,3 +72,5 @@ export default class Signup extends Component {
     )
   }
 }
+
+export default connect()(Login)

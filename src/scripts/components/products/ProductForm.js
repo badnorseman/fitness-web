@@ -12,8 +12,6 @@ export default class ProductForm extends Component {
     image: PropTypes.string,
     name: PropTypes.string,
     price: PropTypes.number,
-    onBuy: PropTypes.func.isRequired,
-    onClose: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired
   }
 
@@ -23,8 +21,6 @@ export default class ProductForm extends Component {
 
   constructor(props) {
     super(props);
-    this._handleBuy = this._handleBuy.bind(this);
-    this._handleClose = this._handleClose.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
@@ -33,14 +29,6 @@ export default class ProductForm extends Component {
     for (let key in currencies) {
       if (currencies[key].checked === true) return currencies[key].value;
     }
-  }
-
-  _handleBuy() {
-    this.props.onBuy();
-  }
-
-  _handleClose() {
-    this.props.onClose();
   }
 
   _handleSubmit(event) {
@@ -70,6 +58,8 @@ export default class ProductForm extends Component {
   }
 
   render() {
+    const { description, image, name, price } = this.props;
+
     return (
       <div>
         <form onSubmit={this._handleSubmit}>
@@ -80,7 +70,7 @@ export default class ProductForm extends Component {
               fieldName="Name"
               fieldPattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
               fieldType="text"
-              fieldValue={this.props.name}
+              fieldValue={name}
               ref="name">
             </InputField>
           </div>
@@ -89,7 +79,7 @@ export default class ProductForm extends Component {
               fieldId="description"
               fieldName="Description"
               fieldType="text"
-              fieldValue={this.props.description}
+              fieldValue={description}
               ref="description">
             </InputField>
           </div>
@@ -100,7 +90,7 @@ export default class ProductForm extends Component {
               fieldName="Price"
               fieldPattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
               fieldType="text"
-              fieldValue={this.props.price}
+              fieldValue={price}
               ref="price">
             </InputField>
           </div>
@@ -121,15 +111,11 @@ export default class ProductForm extends Component {
             </label>
           </div>
           <div>
-            <img src={this.props.image} alt="" />
+            <img src={image} alt="" />
           </div>
           <InputFile
             ref="image" />
           <div>
-            <Button name="Close" type="button" onClick={this._handleClose} />
-            <div className="divider"></div>
-            <Button name="Buy" type="button" onClick={this._handleBuy} />
-            <div className="divider"></div>
             <Button name="Save" type="submit" />
           </div>
         </form>
