@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import Account from "../containers/Account";
 import Cart from "../components/products/Cart";
-import ErrorMessage from "../components/ErrorMessage";
+import ErrorMessage from "../containers/ErrorMessage";
 import Footer from "../components/Footer";
 import Login from "../components/auth/Login";
 import Navigation from "../containers/Navigation";
@@ -74,7 +74,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { errorMessage, route } = this.props;
+    const { route } = this.props;
 
     let content;
     switch (route) {
@@ -106,7 +106,7 @@ export default class App extends Component {
             </div>
           </header>
           <main className="mdl-layout__content">
-            <ErrorMessage errorMessage={errorMessage} />
+            <ErrorMessage />
             <div className="page-content">
               {content}
             </div>

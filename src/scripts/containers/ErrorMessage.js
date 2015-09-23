@@ -8,8 +8,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { errorMessages } = state.errorReducer;
-  return { errorMessages };
+  const { errorMessage } = state;
+  return { errorMessage };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ErrorMessage);
