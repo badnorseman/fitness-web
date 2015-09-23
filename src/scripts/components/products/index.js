@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from "react";
 import EditProduct from "./EditProduct";
 import NewProduct from "./NewProduct";
 import ProductList from "./ProductList";
+import ShowProduct from "./ShowProduct";
 
 export default class Products extends Component {
   constructor(props) {
@@ -24,7 +25,6 @@ export default class Products extends Component {
     return (
       <EditProduct
         product={product}
-        onBuy={this._handleBuy}
         onClose={this._handleClose}
         onEdit={this._handleEdit}
         onRemove={this._handleRemove} />
@@ -45,6 +45,15 @@ export default class Products extends Component {
         products={products}
         onNew={this._handleNew}
         onSelect={this._handleSelect} />
+    );
+  }
+
+  _getShowProduct(product = {}) {
+    return (
+      <ShowProduct
+        product={product}
+        onBuy={this._handleBuy}
+        onClose={this._handleClose} />
     );
   }
 
@@ -73,7 +82,7 @@ export default class Products extends Component {
   }
 
   _handleSelect(id) {
-    this.props.changeRoute("EDIT", id);
+    this.props.changeRoute("SHOW", id);
   }
 
   render() {
@@ -87,6 +96,9 @@ export default class Products extends Component {
         break;
       case "NEW":
         content = this._getNewProduct();
+        break;
+      case "SHOW":
+        content = this._getShowProduct(product);
         break;
       default:
         content = this._getProductList(products);
