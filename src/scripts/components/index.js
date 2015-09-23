@@ -4,18 +4,16 @@ import Account from "../containers/Account";
 import Cart from "../components/products/Cart";
 import ErrorMessage from "../containers/ErrorMessage";
 import Footer from "../components/Footer";
-import Login from "../components/auth/Login";
+import Login from "../containers/auth/Login";
 import Navigation from "../containers/Navigation";
 import Products from "../containers/Products";
-import Signup from "../components/auth/Signup";
+import Signup from "../containers/auth/Signup";
 import "./layouts.css";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this._handleClose = this._handleClose.bind(this);
-    this._handleLogin = this._handleLogin.bind(this);
-    this._handleSignup = this._handleSignup.bind(this);
     this._linkToProducts = this._linkToProducts.bind(this);
   }
 
@@ -38,8 +36,7 @@ export default class App extends Component {
   _getLogin() {
     return (
       <Login
-      onClose={this._handleClose}
-      onLogin={this._handleLogin} />
+      onClose={this._handleClose} />
     );
   }
 
@@ -52,21 +49,12 @@ export default class App extends Component {
   _getSignup() {
     return (
       <Signup
-      onClose={this._handleClose}
-      onSignup={this._handleSignup} />
+      onClose={this._handleClose} />
     );
   }
 
   _handleClose() {
     this.props.changeRoute("PRODUCTS");
-  }
-
-  _handleLogin(auth) {
-    this.props.login(auth);
-  }
-
-  _handleSignup(auth) {
-    this.props.signup(auth);
   }
 
   _linkToProducts() {

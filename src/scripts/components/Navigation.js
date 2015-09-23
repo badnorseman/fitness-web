@@ -39,6 +39,7 @@ export default class Navigation extends Component {
       <div className="mdl-layout--large-screen-only">
         <nav className="mdl-navigation">
           {!isLoggedIn && <a className="mdl-navigation__link" href="#" onClick={this._linkToLogin}>Log In</a>}
+          {!isLoggedIn && <a className="mdl-navigation__link" href="#" onClick={this._linkToSignup}>Sign Up</a>}
           <a className="mdl-navigation__link" href="#" onClick={this._linkToCart}>Cart</a>
           {isLoggedIn && <div>
             <button
