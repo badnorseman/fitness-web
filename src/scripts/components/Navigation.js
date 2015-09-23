@@ -36,17 +36,17 @@ export default class Navigation extends Component {
     const { avatar, email, name } = currentUser;
 
     return (
-      <div className="mdl-layout--large-screen-only">
+      <div>
         <nav className="mdl-navigation">
-          {!isLoggedIn && <a className="mdl-navigation__link" href="#" onClick={this._linkToLogin}>Log In</a>}
-          {!isLoggedIn && <a className="mdl-navigation__link" href="#" onClick={this._linkToSignup}>Sign Up</a>}
-          <a className="mdl-navigation__link" href="#" onClick={this._linkToCart}>Cart</a>
-          {isLoggedIn && <div>
+          {!isLoggedIn && <a className="mdl-navigation__link mdl-layout--large-screen-only" href="#" onClick={this._linkToLogin}>Log In</a>}
+          <a className="mdl-navigation__link mdl-layout--large-screen-only" href="#" onClick={this._linkToCart}>Cart</a>
+          {isLoggedIn && <div className="mdl-layout--large-screen-only">
             <button
               id="account-menu"
               className="mdl-button mdl-js-button mdl-button--icon">
               <img className="layout__header-avatar" src={avatar} alt="" />
             </button>
+            <div className="mdl-tooltip" htmlFor="account-menu">{name}</div>
             <ul
               className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
               htmlFor="account-menu">
@@ -54,6 +54,8 @@ export default class Navigation extends Component {
               <li className="mdl-menu__item" onClick={this._handleLogout}>Log Out</li>
             </ul>
           </div>}
+          {!isLoggedIn && <a className="mdl-navigation__link mdl-layout--small-screen-only" href="#" onClick={this._linkToLogin}><i className="material-icons">lock_open</i></a>}
+          {isLoggedIn && <a className="mdl-navigation__link mdl-layout--small-screen-only" href="#" onClick={this._handleLogout}><i className="material-icons">lock_outline</i></a>}
         </nav>
       </div>
     )
