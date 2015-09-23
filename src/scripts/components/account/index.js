@@ -7,10 +7,10 @@ export default class Account extends Component {
   constructor(props) {
     super(props);
     this._handleEdit = this._handleEdit.bind(this);
-    this._handleShow = this._handleShow.bind(this);
   }
 
   componentDidMount() {
+    this.props.getUser(this.props.currentUser.id);
     this.props.getTransactions();
   }
 
@@ -18,18 +18,14 @@ export default class Account extends Component {
     this.props.updateUser(user);
   }
 
-  _handleShow() {
-    this.props.getUser(this.props.currentUser.id);
-  }
-
   render() {
-    const { currentUser, isFetching, transactions } = this.props;
+    const { currentUser, transactions, user } = this.props;
+    console.log(this.props);
 
     return (
       <div>
         <User
           user={currentUser}
-          onShow={this._handleShow}
           onEdit={this._handleEdit} />
         <TransactionList transactions={transactions} />
       </div>

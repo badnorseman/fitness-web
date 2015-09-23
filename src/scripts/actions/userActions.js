@@ -49,7 +49,6 @@ function userFetchRequest(id) {
 }
 
 function userFetchResponse(response) {
-  console.log("userFetchResponse", response);
   return {
     type: USER_FETCH_RESPONSE,
     user: response

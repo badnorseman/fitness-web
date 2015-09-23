@@ -12,12 +12,7 @@ export default class User extends Component {
 
   constructor(props) {
     super(props);
-    this._handleShow = this._handleShow.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
-  }
-
-  _handleShow() {
-    this.props.onShow();
   }
 
   _handleSubmit(event) {
@@ -39,7 +34,7 @@ export default class User extends Component {
   }
 
   render() {
-    const { avatar, email, name } = this.props.user;
+    const { avatar, birth_day, email, gender, height, name, weight } = this.props.user;
 
     return (
       <div className="mdl-grid text-center">
@@ -64,6 +59,42 @@ export default class User extends Component {
               </InputField>
             </div>
             <div>
+              <InputField
+                fieldId="gender"
+                fieldName="Mand or Woman"
+                fieldType="text"
+                fieldValue={gender}
+                ref="gender">
+              </InputField>
+            </div>
+            <div>
+              <InputField
+                fieldId="birthday"
+                fieldName="Day of Birth"
+                fieldType="text"
+                fieldValue={birth_day}
+                ref="birthday">
+              </InputField>
+            </div>
+            <div>
+              <InputField
+                fieldId="height"
+                fieldName="Height"
+                fieldType="text"
+                fieldValue={height}
+                ref="height">
+              </InputField>
+            </div>
+            <div>
+              <InputField
+                fieldId="weight"
+                fieldName="Height"
+                fieldType="text"
+                fieldValue={weight}
+                ref="weight">
+              </InputField>
+            </div>
+            <div>
               <img src={avatar} alt="" />
             </div>
             <div>
@@ -72,8 +103,6 @@ export default class User extends Component {
             </div>
             <div>
               <Button name="Save" type="submit" />
-              <div className="divider"></div>
-              <Button name="Show" type="button" onClick={this._handleShow} />
             </div>
           </form>
         </div>

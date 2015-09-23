@@ -6,6 +6,7 @@ import productReducer from "./productReducer";
 import routeReducer from "./routeReducer";
 import sessionReducer from "./sessionReducer";
 import transactionReducer from "./transactionReducer";
+import userReducer from "./userReducer";
 
 const combinedReducer = combineReducers({
   cartReducer,
@@ -13,7 +14,8 @@ const combinedReducer = combineReducers({
   productReducer,
   routeReducer,
   sessionReducer,
-  transactionReducer
+  transactionReducer,
+  userReducer
 });
 
 export default combinedReducer;
