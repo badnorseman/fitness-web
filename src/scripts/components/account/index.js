@@ -20,12 +20,11 @@ export default class Account extends Component {
 
   render() {
     const { currentUser, transactions, user } = this.props;
-    console.log(this.props);
 
     return (
       <div>
         <User
-          user={currentUser}
+          user={user}
           onEdit={this._handleEdit} />
         <TransactionList transactions={transactions} />
       </div>

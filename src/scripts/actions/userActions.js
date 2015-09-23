@@ -51,7 +51,7 @@ function userFetchRequest(id) {
 function userFetchResponse(response) {
   return {
     type: USER_FETCH_RESPONSE,
-    user: response
+    data: response
   };
 }
 

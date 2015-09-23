@@ -6,7 +6,7 @@ import InputFile from "../InputFile";
 
 export default class User extends Component {
   static propTypes = {
-    user: PropTypes.object,
+    user: PropTypes.object.isRequired,
     onEdit: PropTypes.func.isRequired
   }
 
@@ -34,11 +34,14 @@ export default class User extends Component {
   }
 
   render() {
-    const { avatar, birth_day, email, gender, height, name, weight } = this.props.user;
+    const { user } = this.props;
+    const { avatar, birth_day, email, gender, height, name, weight } = user;
 
     return (
       <div className="mdl-grid text-center">
         <div className="mdl-cell mdl-cell--12-col">
+          <pre>{email}</pre>
+          <pre>{name}</pre>
           <form onSubmit={this._handleSubmit}>
             <div>
               <InputField
@@ -56,42 +59,6 @@ export default class User extends Component {
                 fieldType="text"
                 fieldValue={name}
                 ref="name">
-              </InputField>
-            </div>
-            <div>
-              <InputField
-                fieldId="gender"
-                fieldName="Mand or Woman"
-                fieldType="text"
-                fieldValue={gender}
-                ref="gender">
-              </InputField>
-            </div>
-            <div>
-              <InputField
-                fieldId="birthday"
-                fieldName="Day of Birth"
-                fieldType="text"
-                fieldValue={birth_day}
-                ref="birthday">
-              </InputField>
-            </div>
-            <div>
-              <InputField
-                fieldId="height"
-                fieldName="Height"
-                fieldType="text"
-                fieldValue={height}
-                ref="height">
-              </InputField>
-            </div>
-            <div>
-              <InputField
-                fieldId="weight"
-                fieldName="Height"
-                fieldType="text"
-                fieldValue={weight}
-                ref="weight">
               </InputField>
             </div>
             <div>
