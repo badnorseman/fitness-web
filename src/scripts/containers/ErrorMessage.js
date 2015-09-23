@@ -1,10 +1,20 @@
-import { bindActionCreators } from 'redux';
+"use strict";
+import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { resetErrorMessage } from "../actions/errorActions";
-import ErrorMessage from "../components/ErrorMessage";
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ resetErrorMessage }, dispatch);
+class ErrorMessage extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        {this.props.errorMessage}
+      </div>
+    )
+  }
 }
 
 function mapStateToProps(state) {
@@ -12,4 +22,4 @@ function mapStateToProps(state) {
   return { errorMessage };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ErrorMessage);
+export default connect(mapStateToProps)(ErrorMessage);
