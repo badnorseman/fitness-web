@@ -4,10 +4,7 @@ import Account from "../containers/Account";
 import Cart from "../components/products/Cart";
 import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
-import Link from "../components/Link";
 import Login from "../components/auth/Login";
-import Navigation from "./Navigation";
-import NavigationHeader from "./NavigationHeader";
 import Products from "../containers/products";
 import Signup from "../components/auth/Signup";
 import "./layout.css";
@@ -123,8 +120,8 @@ export default class App extends Component {
     }
     return (
       <div>
-        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
-          <header className="mdl-layout__header">
+        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header className="mdl-layout__header layout__header">
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
                 <a className="mdl-navigation__link" href="#" onClick={this._linkToProducts}>FitBird</a>
@@ -132,29 +129,23 @@ export default class App extends Component {
               <div className="mdl-layout-spacer"></div>
               <nav className="mdl-navigation">
                 {!isLoggedIn && <a className="mdl-navigation__link" href="#" onClick={this._linkToLogin}>Log In</a>}
-                {!isLoggedIn && <a className="mdl-navigation__link" href="#" onClick={this._linkToSignup}>Sign Up</a>}
+                <a className="mdl-navigation__link" href="#" onClick={this._linkToCart}>Cart</a>
+                {isLoggedIn && <div>
+                  <button
+                    id="account-menu"
+                    className="mdl-button mdl-js-button mdl-button--icon">
+                    <img className="layout__header-avatar" src={avatar} alt="" />
+                  </button>
+                  <ul
+                    className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                    htmlFor="account-menu">
+                    <li className="mdl-menu__item" onClick={this._linkToAccount}>Account</li>
+                    <li className="mdl-menu__item" onClick={this._handleLogout}>Log Out</li>
+                  </ul>
+                </div>}
               </nav>
             </div>
           </header>
-          <div className="mdl-layout__drawer layout__drawer">
-            <header className="layout__drawer-header">
-              <img className="layout__drawer-header-avatar" src={avatar} alt="" />
-              <div className="layout__drawer-header-name">{name}</div>
-              <div className="layout__drawer-header-email">{email}</div>
-            </header>
-            <nav className="mdl-navigation">
-              <a className="mdl-navigation__link" href="#" onClick={this._linkToProducts}><i className="material-icons">home</i>Home</a>
-              {!isLoggedIn && <div>
-                <a className="mdl-navigation__link" href="#" onClick={this._linkToLogin}><i className="material-icons">lock</i>Log In</a>
-                <a className="mdl-navigation__link" href="#" onClick={this._linkToSignup}><i className="material-icons">lock</i>Sign Up</a>
-              </div>}
-              {isLoggedIn && <div>
-                <a className="mdl-navigation__link" href="#" onClick={this._linkToCart}><i className="material-icons">shopping_cart</i>Cart</a>
-                <a className="mdl-navigation__link" href="#" onClick={this._linkToAccount}><i className="material-icons">account_circle</i>Account</a>
-                <a className="mdl-navigation__link" href="#" onClick={this._handleLogout}><i className="material-icons">lock</i>Log Out</a>
-              </div>}
-            </nav>
-          </div>
           <main className="mdl-layout__content">
             <ErrorMessage errorMessage={errorMessage} />
             <div className="page-content">
