@@ -48,10 +48,10 @@ class EditUser extends Component {
     const { avatar, birth_day, email, gender, height, name, weight } = user;
 
     return (
-      <div className="user-card block-center mdl-card mdl-shadow--2dp">
+      <div className="user-card block--center mdl-card mdl-shadow--2dp">
         <div className="mdl-card__supporting-text mdl-card--border">
           <form onSubmit={this._handleSubmit}>
-            <div className="text-center">
+            <div className="text--center">
               <div>
                 <img className="user-card__avatar" src={avatar} alt="" />
               </div>
@@ -110,7 +110,7 @@ class EditUser extends Component {
                   ref="weight" />
               </div>
             </div>
-            <div className="text-center">
+            <div className="text--center">
               <Button name="Save" type="submit" />
             </div>
           </form>

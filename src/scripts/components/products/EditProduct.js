@@ -32,7 +32,7 @@ export default class EditProduct extends Component {
 
   render() {
     return (
-      <div className="mdl-grid text-center">
+      <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <Button name="Close" type="button" onClick={this._handleClose} />
           <div className="divider"></div>

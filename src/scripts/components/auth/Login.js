@@ -40,7 +40,7 @@ class Login extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="user-card block-center mdl-card mdl-shadow--2dp">
+          <div className="login-card block--center mdl-card mdl-shadow--2dp">
             <div className="mdl-card__supporting-text mdl-card--border">
               <Button name="Close" type="button" onClick={this._handleClose} />
               <div className="divider"></div>
@@ -65,7 +65,7 @@ class Login extends Component {
                       ref="password">
                     </InputField>
                   </div>
-                  <div>
+                  <div className="text--center">
                     <Button name="Log In" type="submit" />
                   </div>
                 </form>

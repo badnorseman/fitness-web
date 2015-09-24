@@ -8,10 +8,9 @@ export default class Cart extends Component {
 
   render() {
     return (
-      <div className="mdl-grid text-center">
+      <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <div>
-            <div className="divider"></div>
           </div>
         </div>
       </div>
