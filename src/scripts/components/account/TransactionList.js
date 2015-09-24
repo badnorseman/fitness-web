@@ -28,7 +28,7 @@ export default class TransactionList extends Component {
     let items = this._getItems();
 
     return (
-      <div className="transaction-list-card block--center mdl-card mdl-shadow--2dp">
+      <div className="transaction-list block--center mdl-card mdl-shadow--2dp">
         <div className="mdl-card__supporting-text mdl-card--border">
           <table className="mdl-data-table mdl-js-data-table">
             <thead>
