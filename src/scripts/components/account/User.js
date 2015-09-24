@@ -40,8 +40,6 @@ export default class User extends Component {
     return (
       <div className="mdl-grid text-center">
         <div className="mdl-cell mdl-cell--12-col">
-          <pre>{email}</pre>
-          <pre>{name}</pre>
           <form onSubmit={this._handleSubmit}>
             <div>
               <InputField
