@@ -8,7 +8,7 @@ import Login from "../components/auth/Login";
 import Navigation from "../containers/Navigation";
 import Products from "../containers/Products";
 import Signup from "../components/auth/Signup";
-import "./layout.css";
+import "./App.css";
 
 export default class App extends Component {
   constructor(props) {
@@ -87,7 +87,7 @@ export default class App extends Component {
           <header className="mdl-layout__header layout__header">
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
-                <a className="mdl-navigation__link" href="#" onClick={this._linkToProducts}>FitBird</a>
+                <a className="mdl-navigation__link" href="#!" onClick={this._linkToProducts}>FitBird</a>
               </span>
               <div className="mdl-layout-spacer"></div>
               <Navigation />

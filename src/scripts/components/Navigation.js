@@ -38,8 +38,8 @@ export default class Navigation extends Component {
     return (
       <div>
         <nav className="mdl-navigation">
-          {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#" onClick={this._linkToLogin}>Log In</a></div>}
-          <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#" onClick={this._linkToCart}>Cart</a></div>
+          {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToLogin}>Log In</a></div>}
+          <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToCart}>Cart</a></div>
           {isLoggedIn && <div className="mdl-layout--large-screen-only">
             <button
               id="account-menu"
@@ -53,9 +53,9 @@ export default class Navigation extends Component {
               <li className="mdl-menu__item" onClick={this._handleLogout}>Log Out</li>
             </ul>
           </div>}
-          {!isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#" onClick={this._linkToLogin}><i className="material-icons">lock_open</i></a></div>}
-          <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#" onClick={this._linkToCart}><i className="material-icons">shopping_cart</i></a></div>
-          {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#" onClick={this._handleLogout}><i className="material-icons">lock_outline</i></a></div>}
+          {!isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToLogin}><i className="material-icons">lock_open</i></a></div>}
+          <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToCart}><i className="material-icons">shopping_cart</i></a></div>
+          {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._handleLogout}><i className="material-icons">lock_outline</i></a></div>}
         </nav>
       </div>
     )

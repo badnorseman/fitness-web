@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/routeActions";
 import * as authActions from "../actions/authActions";
-import App from "../components";
+import App from "../components/App";
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(Object.assign({}, { changeRoute }, authActions), dispatch);
