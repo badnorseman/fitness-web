@@ -19,10 +19,19 @@ footer, .push {
   z-index: 998;
 }
 
+.block-center {
+  margin: 0 auto;
+}
+
 .divider {
   width: 20px;
   height: auto;
   display: inline-block;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
 }
 
 .text-center {

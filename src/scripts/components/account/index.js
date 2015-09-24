@@ -20,6 +20,7 @@ export default class Account extends Component {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <EditUser user={user} />
+          <br />
           <TransactionList transactions={transactions} />
         </div>
       </div>
