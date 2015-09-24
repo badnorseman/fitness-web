@@ -1,7 +1,7 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
-import EditUser from "./EditUser";
-import TransactionList from "./TransactionList";
+import React, { Component, PropTypes } from 'react';
+import EditUser from '../users/EditUser';
+import TransactionList from './TransactionList';
 
 export default class Account extends Component {
   constructor(props) {
@@ -17,9 +17,11 @@ export default class Account extends Component {
     const { currentUser, transactions, user } = this.props;
 
     return (
-      <div>
-        <EditUser user={user} />
-        <TransactionList transactions={transactions} />
+      <div className="mdl-grid">
+        <div className="mdl-cell mdl-cell--12-col">
+          <EditUser user={user} />
+          <TransactionList transactions={transactions} />
+        </div>
       </div>
     );
   }

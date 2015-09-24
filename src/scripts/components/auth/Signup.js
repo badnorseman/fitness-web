@@ -2,12 +2,12 @@
 // Can Login and Signup forms be one?
 // Add avatar, paperclip functionality
 "use strict";
-import React, { Component, PropTypes } from "react";
-import { connect } from "react-redux";
-import { signup } from "../../actions/authActions";
-import Button from "../../components/Button";
-import InputField from "../../components/InputField";
-import Oauth from "../../components/auth/Oauth";
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { signup } from '../../actions/authActions';
+import Button from '../../components/Button';
+import InputField from '../../components/InputField';
+import Oauth from '../../components/auth/Oauth';
 
 class Signup extends Component {
   static propTypes = {
@@ -42,7 +42,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="mdl-grid text-center">
+      <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <div><Oauth provider="facebook"/></div>
           <div className="divider"></div>

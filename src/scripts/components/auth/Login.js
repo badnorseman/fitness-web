@@ -1,10 +1,11 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
-import { connect } from "react-redux";
-import { login } from "../../actions/authActions";
-import Button from "../Button";
-import InputField from "../InputField";
-import Oauth from "../auth/Oauth";
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { login } from '../../actions/authActions';
+import Button from '../Button';
+import InputField from '../InputField';
+import Oauth from '../auth/Oauth';
+import './Login.css';
 
 class Login extends Component {
   static propTypes = {
@@ -37,35 +38,39 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="mdl-grid text-center">
+      <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div><Oauth provider="facebook"/></div>
-          <div className="divider"></div>
-          <div><Oauth provider="google_oauth2" /></div>
-          <div>
-            <form onSubmit={this._handleSubmit}>
+          <div className="user-card mdl-card mdl-shadow--2dp">
+            <div className="mdl-card__supporting-text mdl-card--border">
+              <Button name="Close" type="button" onClick={this._handleClose} />
+              <div className="divider"></div>
+              <div><Oauth provider="facebook"/></div>
+              <div className="divider"></div>
+              <div><Oauth provider="google_oauth2" /></div>
               <div>
-                <InputField
-                  fieldId="email"
-                  fieldName="Email"
-                  fieldType="text"
-                  ref="email">
-                </InputField>
+                <form onSubmit={this._handleSubmit}>
+                  <div>
+                    <InputField
+                      fieldId="email"
+                      fieldName="Email"
+                      fieldType="text"
+                      ref="email">
+                    </InputField>
+                  </div>
+                  <div>
+                    <InputField
+                      fieldId="password"
+                      fieldName="Password"
+                      fieldType="password"
+                      ref="password">
+                    </InputField>
+                  </div>
+                  <div>
+                    <Button name="Log In" type="submit" />
+                  </div>
+                </form>
               </div>
-              <div>
-                <InputField
-                  fieldId="password"
-                  fieldName="Password"
-                  fieldType="password"
-                  ref="password">
-                </InputField>
-              </div>
-              <div>
-                <Button name="Close" type="button" onClick={this._handleClose} />
-                <div className="divider"></div>
-                <Button name="Log In" type="submit" />
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
