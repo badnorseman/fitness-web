@@ -1,9 +1,10 @@
+"use strict";
 import {
   login as apiLogin,
   logout as apiLogout,
   oauth as apiOauth,
   signup as apiSignup
-} from "../api/api";
+} from '../api/api';
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_RESPONSE = "LOGIN_RESPONSE";

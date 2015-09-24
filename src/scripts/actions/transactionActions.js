@@ -1,5 +1,6 @@
-import { Schema, arrayOf, normalize } from "normalizr";
-import { create, fetchAll, fetchClientToken } from "../api/api";
+"use strict";
+import { Schema, arrayOf, normalize } from 'normalizr';
+import { create, fetchAll, fetchClientToken } from '../api/api';
 
 const transactionSchema = new Schema("transactions", { idAttribute: "id" });
 const entityName = "transaction";

@@ -5,7 +5,7 @@ import {
   TRANSACTION_CREATE_RESPONSE,
   TRANSACTION_FETCH_REQUEST,
   TRANSACTION_FETCH_RESPONSE
-} from "../actions/transactionActions";
+} from '../actions/transactionActions';
 
 const initialState = {
   clientToken: "",

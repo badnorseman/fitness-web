@@ -6,7 +6,7 @@ import {
   USER_DESTROY_RESPONSE,
   USER_UPDATE_REQUEST,
   USER_UPDATE_RESPONSE
-} from "../actions/userActions";
+} from '../actions/userActions';
 
 const initialState = {
   isFetching: false,

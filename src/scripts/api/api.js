@@ -1,7 +1,7 @@
 "use strict";
-import $ from "jquery";
-import { getFormData, getHeaders, getUrl } from "../utils/apiUtils";
-import { LOGIN, LOGOUT, OAUTH, SIGNUP } from "../constants/apiRoutes";
+import $ from 'jquery';
+import { getFormData, getHeaders, getUrl } from '../utils/apiUtils';
+import { LOGIN, LOGOUT, OAUTH, SIGNUP } from '../constants/apiRoutes';
 
 export function create(entityName, data) {
   const url = getUrl(entityName);
