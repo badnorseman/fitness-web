@@ -11,18 +11,16 @@ export default class TransactionListItem extends Component {
   }
 
   render() {
+    const { item } = this.props;
+    const { amount, currency, date, transaction_id } = item;
+
     return (
-      <div>
-        <div className="mdl-cell mdl-cell--12-col">
-          {this.props.item.date}
-          <div className="divider"></div>
-          {this.props.item.currency}
-          <div className="divider"></div>
-          {this.props.item.amount}
-          <div className="divider"></div>
-          {this.props.item.transaction_id}
-        </div>
-      </div>
+      <tr>
+        <td className="mdl-data-table__cell--non-numeric">{date}</td>
+        <td className="mdl-data-table__cell--non-numeric">{currency}</td>
+        <td className="mdl-data-table__cell--non-numeric">{amount}</td>
+        <td className="mdl-data-table__cell--non-numeric">{transaction_id}</td>
+      </tr>
     )
   }
 }

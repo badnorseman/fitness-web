@@ -17,6 +17,8 @@ export default class ProductListItem extends Component {
   }
 
   render() {
+    const { item } = this.props;
+    const { description, name } = item;
     const titleStyle = {
       backgroundImage:'url(' + this.props.item.image + ')',
       backgroundRepeat:'no-repeat',
@@ -34,8 +36,8 @@ export default class ProductListItem extends Component {
               <div className="mdl-card__title" style={titleStyle}>
               </div>
               <div className="mdl-card__supporting-text">
-                <h6>{this.props.item.name}</h6>
-                <p>{this.props.item.description}</p>
+                <h6>{name}</h6>
+                <p>{description}</p>
               </div>
             </div>
           </div>
