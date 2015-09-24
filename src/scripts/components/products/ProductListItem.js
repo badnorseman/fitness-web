@@ -32,7 +32,7 @@ export default class ProductListItem extends Component {
       <div>
         <a onClick={this._handleSelect} href="#">
           <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop">
-            <div className="mdl-card mdl-shadow--1dp">
+            <div className="mdl-card mdl-shadow--2dp">
               <div className="mdl-card__title" style={titleStyle}>
               </div>
               <div className="mdl-card__supporting-text">

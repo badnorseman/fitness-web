@@ -1,12 +1,11 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import User from "./User";
+import EditUser from "./EditUser";
 import TransactionList from "./TransactionList";
 
 export default class Account extends Component {
   constructor(props) {
     super(props);
-    this._handleEdit = this._handleEdit.bind(this);
   }
 
   componentDidMount() {
@@ -14,18 +13,12 @@ export default class Account extends Component {
     this.props.getTransactions();
   }
 
-  _handleEdit(user) {
-    this.props.updateUser(user);
-  }
-
   render() {
     const { currentUser, transactions, user } = this.props;
 
     return (
       <div>
-        <User
-          user={user}
-          onEdit={this._handleEdit} />
+        <EditUser user={user} />
         <TransactionList transactions={transactions} />
       </div>
     );

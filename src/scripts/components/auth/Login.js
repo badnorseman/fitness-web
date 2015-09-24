@@ -2,9 +2,9 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { login } from "../../actions/authActions";
-import Button from "../../components/Button";
-import InputField from "../../components/InputField";
-import Oauth from "../../components/auth/Oauth";
+import Button from "../Button";
+import InputField from "../InputField";
+import Oauth from "../auth/Oauth";
 
 class Login extends Component {
   static propTypes = {
