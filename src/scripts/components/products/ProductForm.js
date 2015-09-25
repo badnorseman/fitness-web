@@ -25,9 +25,9 @@ export default class ProductForm extends Component {
   }
 
   _getCurrency() {
-    let currencies = document.getElementsByName("currency");
-    for (let key in currencies) {
-      if (currencies[key].checked === true) return currencies[key].value;
+    let radios = document.getElementsByName('currency');
+    for (let key in radios) {
+      if (radios[key].checked === true) return radios[key].value;
     }
   }
 
