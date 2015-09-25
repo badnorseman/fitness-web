@@ -1,7 +1,7 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
-import Braintree from "braintree-web";
-import Button from "../Button";
+import React, { Component, PropTypes } from 'react';
+import Braintree from 'braintree-web';
+import Button from '../Button';
 
 export default class NewTransaction extends Component {
   static propTypes = {

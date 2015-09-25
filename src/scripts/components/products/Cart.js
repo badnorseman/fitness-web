@@ -1,5 +1,5 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
+import React, { Component, PropTypes } from 'react';
 
 export default class Cart extends Component {
   constructor(props) {

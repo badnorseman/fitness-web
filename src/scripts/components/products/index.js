@@ -1,9 +1,9 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
-import EditProduct from "./EditProduct";
-import NewProduct from "./NewProduct";
-import ProductList from "./ProductList";
-import ShowProduct from "./ShowProduct";
+import React, { Component, PropTypes } from 'react';
+import EditProduct from './EditProduct';
+import NewProduct from './NewProduct';
+import ProductList from './ProductList';
+import ShowProduct from './ShowProduct';
 
 export default class Products extends Component {
   constructor(props) {
