@@ -48,19 +48,19 @@ class EditUser extends Component {
     const { avatar, birth_day, email, gender, height, name, weight } = user;
 
     return (
-      <div className="user-card block--center mdl-card mdl-shadow--2dp">
+      <div className="edit-user block--center mdl-card mdl-shadow--2dp">
         <div className="mdl-card__supporting-text mdl-card--border">
           <form onSubmit={this._handleSubmit}>
-            <div className="text--center">
+            <div className="edit-user__left">
               <div>
-                <img className="user-card__avatar" src={avatar} alt="" />
+                <img className="user__avatar" src={avatar} alt="" />
               </div>
               <div>
                 <InputFile
                   ref="avatar" />
               </div>
             </div>
-            <div>
+            <div className="edit-user__right">
               <div>
                 <InputField
                   fieldId="email"
@@ -86,7 +86,8 @@ class EditUser extends Component {
                   fieldType="text"
                   fieldValue={gender}
                   ref="gender" />
-                <div className="divider"></div>
+              </div>
+              <div>
                 <InputField
                   fieldId="birthday"
                   fieldName="Day of Birth"
@@ -101,7 +102,8 @@ class EditUser extends Component {
                   fieldType="text"
                   fieldValue={height}
                   ref="height" />
-                <div className="divider"></div>
+              </div>
+              <div>
                 <InputField
                   fieldId="weight"
                   fieldName="Weight"
