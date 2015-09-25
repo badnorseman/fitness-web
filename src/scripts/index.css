@@ -24,9 +24,9 @@ footer, .push {
 }
 
 .divider {
-  width: 20px;
-  height: auto;
   display: inline-block;
+  height: auto;
+  width: 20px;
 }
 
 .flex--center {
