@@ -122,4 +122,4 @@ class EditUser extends Component {
   }
 }
 
-export default connect()(EditUser)
+export default connect()(EditUser);

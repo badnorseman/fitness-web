@@ -1,5 +1,5 @@
 "use strict";
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class InputFile extends Component {
   constructor() {
@@ -11,7 +11,7 @@ export default class InputFile extends Component {
   _handleChange(event) {
     event.preventDefault();
 
-    let file = document.getElementById("file--selected").files[0];
+    let file = document.getElementById('file--selected').files[0];
 
     this.setState({ file: file });
   }

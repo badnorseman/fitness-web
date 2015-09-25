@@ -9,17 +9,16 @@ export default class Account extends Component {
   }
 
   componentDidMount() {
-    this.props.getUser(this.props.currentUser.id);
     this.props.getTransactions();
   }
 
   render() {
-    const { currentUser, transactions, user } = this.props;
+    const { currentUser, transactions } = this.props;
 
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <EditUser user={user} />
+          <EditUser user={currentUser} />
           <br />
           <TransactionList transactions={transactions} />
         </div>
