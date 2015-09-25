@@ -17,30 +17,30 @@ export default class ProductListItem extends Component {
   }
 
   render() {
+    const { item } = this.props;
+    const { description, name } = item;
     const titleStyle = {
-      backgroundImage:'url(' + this.props.item.image + ')',
-      backgroundRepeat:'no-repeat',
-      backgroundSize:'cover',
-      height:160,
-      WebkitTransition:'all',
-      msTransition:'all'
+      backgroundImage: 'url(' + this.props.item.image + ')',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      height: 160,
+      WebkitTransition: 'all',
+      msTransition: 'all'
     }
 
     return (
-      <div>
-        <a onClick={this._handleSelect} href="#">
-          <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop">
-            <div className="mdl-card mdl-shadow--2dp">
-              <div className="mdl-card__title" style={titleStyle}>
-              </div>
-              <div className="mdl-card__supporting-text">
-                <h6>{this.props.item.name}</h6>
-                <p>{this.props.item.description}</p>
-              </div>
+      <a onClick={this._handleSelect} href="#!">
+        <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop">
+          <div className="mdl-card mdl-shadow--2dp">
+            <div className="mdl-card__title" style={titleStyle}>
+            </div>
+            <div className="mdl-card__supporting-text">
+              <h6>{name}</h6>
+              <p>{description}</p>
             </div>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     )
   }
 }

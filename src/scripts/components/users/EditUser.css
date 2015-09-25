@@ -1,0 +1,25 @@
+.edit-user {
+  height: auto;
+  margin: 10px;
+  max-width: 800px;
+  padding: 10px;
+  width: 800px;
+}
+
+.edit-user__left {
+  float: left;
+  overflow: hidden;
+  width: 50%;
+}
+
+.edit-user__right {
+  float: left;
+  overflow: hidden;
+  width: 50%;
+}
+
+.user__avatar {
+  border-radius: 48px;
+  height: 96px;
+  width: 96px;
+}

@@ -40,7 +40,7 @@ export default class ProductList extends Component {
 
     return (
       <div>
-        <div className="mdl-grid">
+        <div className="mdl-grid flex--center">
           {items}
         </div>
         <button

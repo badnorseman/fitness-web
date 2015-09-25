@@ -1,5 +1,6 @@
-import { Schema, arrayOf, normalize } from "normalizr";
-import { create, destroy, fetchAll, update } from "../api/api";
+"use strict";
+import { Schema, arrayOf, normalize } from 'normalizr';
+import { create, destroy, fetchAll, update } from '../api/api';
 
 const productSchema = new Schema("products", { idAttribute: "id" });
 const entityName = "product";

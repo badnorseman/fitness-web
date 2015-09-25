@@ -1,4 +1,5 @@
-import { destroy, fetchById, update } from "../api/api";
+"use strict";
+import { destroy, fetchById, update } from '../api/api';
 
 const entityName = "user";
 
@@ -49,10 +50,9 @@ function userFetchRequest(id) {
 }
 
 function userFetchResponse(response) {
-  console.log("userFetchResponse", response);
   return {
     type: USER_FETCH_RESPONSE,
-    user: response
+    data: response
   };
 }
 

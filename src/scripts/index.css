@@ -1,30 +1,40 @@
 * {
-  margin:0;
+  margin: 0;
 }
 
 html, body {
-  height:100%;
+  height: 100%;
 }
 
 footer, .push {
-  height:100px;
+  height: 100px;
 }
 
 .button--floating-action {
-  bottom:50px;
-  margin-bottom:100px;
-  padding-top:24px;
-  position:fixed;
-  right:24px;
-  z-index:998;
+  bottom: 50px;
+  margin-bottom: 100px;
+  padding-top: 24px;
+  position: fixed;
+  right: 24px;
+  z-index: 998;
+}
+
+.block--center {
+  margin: 0 auto;
 }
 
 .divider {
-  width:20px;
-  height:auto;
-  display:inline-block;
+  width: 20px;
+  height: auto;
+  display: inline-block;
 }
 
-.text-center {
-  text-align:center;
+.flex--center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.text--center {
+  text-align: center;
 }

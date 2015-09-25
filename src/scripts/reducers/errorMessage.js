@@ -1,10 +1,10 @@
 "use strict";
 import {
   RESET_ERROR_MESSAGE
-} from "../actions/errorActions";
+} from '../actions/errorActions';
 import {
   ROUTE_CHANGE
-} from "../actions/routeActions";
+} from '../actions/routeActions';
 
 export default function errorMessage(state = null, action) {
   const { type, errors } = action;

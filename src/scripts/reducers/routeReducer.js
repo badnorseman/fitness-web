@@ -1,13 +1,13 @@
 "use strict";
 import {
   ROUTE_CHANGE
-} from "../actions/routeActions";
+} from '../actions/routeActions';
 import {
   LOGIN_RESPONSE,
   LOGOUT_RESPONSE,
   OAUTH_RESPONSE,
   SIGNUP_RESPONSE
-} from "../actions/authActions";
+} from '../actions/authActions';
 import {
   PRODUCT_CREATE_RESPONSE,
   PRODUCT_CREATE_ERROR,
@@ -15,7 +15,7 @@ import {
   PRODUCT_DESTROY_ERROR,
   PRODUCT_UPDATE_RESPONSE,
   PRODUCT_UPDATE_ERROR
-} from "../actions/productActions";
+} from '../actions/productActions';
 
 const initialState = {
   route: "",

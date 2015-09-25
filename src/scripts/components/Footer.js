@@ -11,8 +11,8 @@ export default class Footer extends Component {
           </div>
           <div className="mdl-mini-footer--right-section">
             <ul className="mdl-mini-footer--link-list">
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Privacy & Terms</a></li>
+              <li><a href="#!">Help</a></li>
+              <li><a href="#!">Privacy & Terms</a></li>
             </ul>
           </div>
         </footer>

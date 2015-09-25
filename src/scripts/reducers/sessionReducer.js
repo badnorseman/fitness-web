@@ -12,7 +12,7 @@ import {
   SIGNUP_REQUEST,
   SIGNUP_RESPONSE,
   SIGNUP_ERROR
-} from "../actions/authActions";
+} from '../actions/authActions';
 
 const AUTH_TOKEN = "token";
 const initialState = {

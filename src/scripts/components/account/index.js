@@ -1,37 +1,28 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
-import User from "./User";
-import TransactionList from "./TransactionList";
+import React, { Component, PropTypes } from 'react';
+import EditUser from '../users/EditUser';
+import TransactionList from './TransactionList';
 
 export default class Account extends Component {
   constructor(props) {
     super(props);
-    this._handleEdit = this._handleEdit.bind(this);
-    this._handleShow = this._handleShow.bind(this);
   }
 
   componentDidMount() {
+    this.props.getUser(this.props.currentUser.id);
     this.props.getTransactions();
   }
 
-  _handleEdit(user) {
-    this.props.updateUser(user);
-  }
-
-  _handleShow() {
-    this.props.getUser(this.props.currentUser.id);
-  }
-
   render() {
-    const { currentUser, isFetching, transactions } = this.props;
+    const { currentUser, transactions, user } = this.props;
 
     return (
-      <div>
-        <User
-          user={currentUser}
-          onShow={this._handleShow}
-          onEdit={this._handleEdit} />
-        <TransactionList transactions={transactions} />
+      <div className="mdl-grid">
+        <div className="mdl-cell mdl-cell--12-col">
+          <EditUser user={user} />
+          <br />
+          <TransactionList transactions={transactions} />
+        </div>
       </div>
     );
   }

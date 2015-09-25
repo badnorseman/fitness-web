@@ -27,24 +27,26 @@ export default class InputField extends Component {
   }
 
   render() {
+    const { fieldError, fieldId, fieldName, fieldPattern, fieldType, fieldValue } = this.props;
+
     return (
       <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input
           className="mdl-textfield__input"
-          id={this.props.fieldId}
-          pattern={this.props.fieldPattern}
-          type={this.props.fieldType}
+          id={fieldId}
+          pattern={fieldPattern}
+          type={fieldType}
           value={this.state.fieldValue}
-          ref={this.props.fieldId}
+          ref={fieldId}
           onChange={this._handleChange} />
         <label
           className="mdl-textfield__label"
-          htmlFor={this.props.fieldId}>
-          {this.props.fieldName}
+          htmlFor={fieldId}>
+          {fieldName}
         </label>
         <span
           className="mdl-textfield__error">
-          {this.props.fieldError}
+          {fieldError}
         </span>
       </div>
     )

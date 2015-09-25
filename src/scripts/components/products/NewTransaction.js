@@ -57,7 +57,7 @@ export default class NewTransaction extends Component {
 
   render() {
     return (
-      <div className="mdl-grid text-center">
+      <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <div>
             {this.props.product.name}
