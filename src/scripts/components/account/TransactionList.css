@@ -6,15 +6,9 @@
   width: 800px;
 }
 
-.transaction-list-item {
-  border: 1px solid black;
-  margin: 10px;
-  padding: 10px;
-}
-
 .transaction-list-item__header {
   border: 1px solid green;
-  margin: 10px 10px 10px;
+  margin: 0 10px 10px 0;
   max-width: 800px;
   padding: 10px;
   width: 25%;
@@ -22,7 +16,7 @@
 
 .transaction-list-item__data {
   border: 1px solid red;
-  margin: 10px 10px 10px;
+  margin: 0 10px 10px 0;
   max-width: 800px;
   padding: 10px;
   width: 25%;
