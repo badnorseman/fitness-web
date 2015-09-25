@@ -50,6 +50,8 @@ class EditUser extends Component {
     return (
       <div className="edit-user block--center mdl-card mdl-shadow--2dp">
         <div className="mdl-card__supporting-text mdl-card--border">
+          <h4>Profile</h4>
+          <br />
           <form onSubmit={this._handleSubmit}>
             <div className="edit-user__left">
               <div>
@@ -78,14 +80,15 @@ class EditUser extends Component {
                   ref="name" />
               </div>
               <div>
-                <InputField
-                  fieldError="Must be M or F"
-                  fieldId="gender"
-                  fieldName="Gender"
-                  fieldPattern="[M|F]"
-                  fieldType="text"
-                  fieldValue={gender}
-                  ref="gender" />
+                <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="gender-male">
+                  <input className="mdl-radio__button" id="gender-male" type="radio" value="M" name="gender" />
+                  <span className="mdl-radio__label"><i className="material-icons">call_merge</i></span>
+                </label>
+                <div className="block-divider"></div>
+                <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="gender-female">
+                  <input className="mdl-radio__button" id="gender-female" type="radio" value="F" name="gender" />
+                  <span className="mdl-radio__label"><i className="material-icons">call_split</i></span>
+                </label>
               </div>
               <div>
                 <InputField

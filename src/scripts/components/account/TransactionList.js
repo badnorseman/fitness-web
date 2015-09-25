@@ -31,7 +31,9 @@ export default class TransactionList extends Component {
 
     return (
       <div className="transaction-list block--center mdl-card mdl-shadow--2dp">
-        <div className="mdl-card__supporting-text mdl-card--border">
+        <div className="block--center mdl-card__supporting-text mdl-card--border">
+          <h4>Payment History</h4>
+          <br />
           <TransactionListHeader header={header}/>
           {items}
         </div>

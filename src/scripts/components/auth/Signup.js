@@ -45,9 +45,8 @@ class Signup extends Component {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <Button name="Close" type="button" onClick={this._handleClose} />
-          <div className="divider"></div>
+          <br />
           <div><Oauth provider="facebook"/></div>
-          <div className="divider"></div>
           <div><Oauth provider="google_oauth2" /></div>
           <div>
             <form onSubmit={this._handleSubmit}>

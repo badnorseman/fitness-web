@@ -16,11 +16,14 @@ export default class TransactionListItem extends Component {
     const { amount, currency, date, transaction_id } = item;
 
     return (
-      <div className="transaction-list-item flex--center">
-        <div className="transaction-list-item__data">{date}</div>
-        <div className="transaction-list-item__data">{currency}</div>
-        <div className="transaction-list-item__data">{amount}</div>
-        <div className="transaction-list-item__data">{transaction_id}</div>
+      <div>
+        <hr />
+        <div className="transaction-list-item flex--center">
+          <div className="transaction-list-item__data">{date}</div>
+          <div className="transaction-list-item__data">{currency}</div>
+          <div className="transaction-list-item__data">{amount}</div>
+          <div className="transaction-list-item__data">{transaction_id}</div>
+        </div>
       </div>
     )
   }

@@ -1,0 +1,24 @@
+.show-product {
+  height: auto;
+  margin: 10px;
+  max-width: 800px;
+  padding: 10px;
+  width: 800px;
+}
+
+.show-product__left {
+  float: left;
+  overflow: hidden;
+  width: 50%;
+}
+
+.show-product__right {
+  float: left;
+  overflow: hidden;
+  width: 50%;
+}
+
+.product-image {
+  height: 320px;
+  width: 320px;
+}

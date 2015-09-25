@@ -23,7 +23,7 @@ footer, .push {
   margin: 0 auto;
 }
 
-.divider {
+.block-divider {
   display: inline-block;
   height: auto;
   width: 20px;

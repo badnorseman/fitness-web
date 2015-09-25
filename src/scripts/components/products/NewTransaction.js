@@ -61,17 +61,17 @@ export default class NewTransaction extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div>
             {this.props.product.name}
-            <div className="divider"></div>
+            <div className="block-divider"></div>
             {this.props.product.price}
-            <div className="divider"></div>
+            <div className="block-divider"></div>
             {this.props.product.currency}
           </div>
-          <div className="divider"></div>
+          <div className="block-divider"></div>
           <div>
             <form onSubmit={this._handleSubmit}>
               <div id="dropin-container"></div>
               <Button name="Close" type="button" onClick={this._handleClose}/>
-              <div className="divider"></div>
+              <div className="block-divider"></div>
               <Button name="Buy" type="submit" />
             </form>
           </div>

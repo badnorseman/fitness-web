@@ -96,12 +96,12 @@ export default class ProductForm extends Component {
               <input className="mdl-radio__button" id="currency-dkk" type="radio" value="DKK" name="currency" defaultChecked={this._isCurrency("DKK")} />
               <span className="mdl-radio__label">DKK</span>
             </label>
-            <div className="divider"></div>
+            <div className="block-divider"></div>
             <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="currency-eur">
               <input className="mdl-radio__button" id="currency-eur" type="radio" value="EUR" name="currency" defaultChecked={this._isCurrency("EUR")} />
               <span className="mdl-radio__label">EUR</span>
             </label>
-            <div className="divider"></div>
+            <div className="block-divider"></div>
             <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="currency-usd">
               <input className="mdl-radio__button" id="currency-usd" type="radio" value="USD" name="currency" defaultChecked={this._isCurrency("USD")} />
               <span className="mdl-radio__label">USD</span>

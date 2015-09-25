@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from 'react';
 import './TransactionList.css';
 
-export default class TransactionListHeader2 extends Component {
+export default class TransactionListHeader extends Component {
   static propTypes = {
     header: PropTypes.object.isRequired
   }
