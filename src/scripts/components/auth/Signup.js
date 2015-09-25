@@ -44,6 +44,8 @@ class Signup extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
+          <Button name="Close" type="button" onClick={this._handleClose} />
+          <div className="divider"></div>
           <div><Oauth provider="facebook"/></div>
           <div className="divider"></div>
           <div><Oauth provider="google_oauth2" /></div>
@@ -54,28 +56,23 @@ class Signup extends Component {
                   fieldId="email"
                   fieldName="Email"
                   fieldType="text"
-                  ref="email">
-                </InputField>
+                  ref="email" />
               </div>
               <div>
                 <InputField
                   fieldId="password"
                   fieldName="Password"
                   fieldType="password"
-                  ref="password">
-                </InputField>
+                  ref="password" />
               </div>
               <div>
                 <InputField
                   fieldId="passwordConfirmation"
                   fieldName="Password Confirmation"
                   fieldType="password"
-                  ref="passwordConfirmation">
-                </InputField>
+                  ref="passwordConfirmation" />
               </div>
-              <div>
-                <Button name="Close" type="button" onClick={this._handleClose} />
-                <div className="divider"></div>
+              <div className="text--center">
                 <Button name="Sign Up" type="submit" />
               </div>
             </form>

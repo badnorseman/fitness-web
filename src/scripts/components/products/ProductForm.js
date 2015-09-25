@@ -71,8 +71,7 @@ export default class ProductForm extends Component {
               fieldPattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
               fieldType="text"
               fieldValue={name}
-              ref="name">
-            </InputField>
+              ref="name" />
           </div>
           <div>
             <InputField
@@ -80,8 +79,7 @@ export default class ProductForm extends Component {
               fieldName="Description"
               fieldType="text"
               fieldValue={description}
-              ref="description">
-            </InputField>
+              ref="description" />
           </div>
           <div>
             <InputField
@@ -91,8 +89,7 @@ export default class ProductForm extends Component {
               fieldPattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
               fieldType="text"
               fieldValue={price}
-              ref="price">
-            </InputField>
+              ref="price" />
           </div>
           <div>
             <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="currency-dkk">

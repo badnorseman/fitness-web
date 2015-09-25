@@ -38,7 +38,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="mdl-grid flex--center">
+      <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login mdl-card mdl-shadow--2dp">
             <div className="mdl-card__supporting-text mdl-card--border">
@@ -54,16 +54,14 @@ class Login extends Component {
                       fieldId="email"
                       fieldName="Email"
                       fieldType="text"
-                      ref="email">
-                    </InputField>
+                      ref="email" />
                   </div>
                   <div>
                     <InputField
                       fieldId="password"
                       fieldName="Password"
                       fieldType="password"
-                      ref="password">
-                    </InputField>
+                      ref="password" />
                   </div>
                   <div className="text--center">
                     <Button name="Log In" type="submit" />
