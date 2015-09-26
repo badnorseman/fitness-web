@@ -17,7 +17,7 @@ export default class ShowProduct extends Component {
   }
 
   _handleBuy() {
-    this.props.onBuy(this.props.product);
+    this.props.onBuy(this.props.product.id);
   }
 
   _handleClose() {
@@ -34,7 +34,6 @@ export default class ShowProduct extends Component {
           <div className="show-product block--center mdl-card mdl-shadow--2dp">
             <div className="block--center mdl-card__supporting-text mdl-card--border">
               <Button name="Close" type="button" onClick={this._handleClose} />
-              <br />
               <div className="flex--center">
                 <div className="show-product__left">
                   <div className="flex--center">
@@ -42,11 +41,14 @@ export default class ShowProduct extends Component {
                   </div>
                 </div>
                 <div className="show-product__right">
-                  <h3>{name}</h3>
-                  <p>{description}</p>
-                  <h6>{currency} {price}</h6>
-                  <br />
-                  <Button name="Buy" type="button" onClick={this._handleBuy} />
+                  <div>
+                    <h3>{name}</h3>
+                    <p>{description}</p>
+                    <h6>{currency} {price}</h6>
+                  </div>
+                  <div>
+                    <Button name="Buy" type="button" onClick={this._handleBuy} />
+                  </div>
                 </div>
               </div>
             </div>

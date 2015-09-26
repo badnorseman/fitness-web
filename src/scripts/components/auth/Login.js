@@ -43,8 +43,7 @@ class Login extends Component {
           <div className="login block--center mdl-card mdl-shadow--2dp">
             <div className="mdl-card__supporting-text mdl-card--border">
               <Button name="Close" type="button" onClick={this._handleClose} />
-              <br />
-              <div><Oauth provider="facebook"/></div>
+              <div><Oauth provider="facebook" /></div>
               <div><Oauth provider="google_oauth2" /></div>
               <div>
                 <form onSubmit={this._handleSubmit}>

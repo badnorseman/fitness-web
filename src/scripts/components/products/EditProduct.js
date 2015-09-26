@@ -35,7 +35,6 @@ export default class EditProduct extends Component {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <Button name="Close" type="button" onClick={this._handleClose} />
-          <br />
           <ProductForm
             currency={this.props.product.currency}
             description={this.props.product.description}
@@ -44,7 +43,6 @@ export default class EditProduct extends Component {
             name={this.props.product.name}
             price={this.props.product.price}
             onSubmit={this._handleEdit} />
-          <br />
           <Button name="Remove" type="button" onClick={this._handleRemove} />
         </div>
       </div>
