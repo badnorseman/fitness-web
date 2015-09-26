@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import EditUser from "../users/EditUser";
-import TransactionList from "./TransactionList";
+import EditUser from "./users/EditUser";
+import TransactionList from "./transactions/TransactionList";
 
 export default class Account extends Component {
   constructor(props) {

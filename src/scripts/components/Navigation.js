@@ -6,7 +6,7 @@ export default class Navigation extends Component {
     super(props);
     this._handleLogout = this._handleLogout.bind(this);
     this._linkToAccount = this._linkToAccount.bind(this);
-    this._linkToCart = this._linkToCart.bind(this);
+    this._linkToDashboard = this._linkToDashboard.bind(this);
     this._linkToLogin = this._linkToLogin.bind(this);
     this._linkToSignup = this._linkToSignup.bind(this);
   }
@@ -19,8 +19,8 @@ export default class Navigation extends Component {
     this.props.changeRoute("ACCOUNT");
   }
 
-  _linkToCart() {
-    this.props.changeRoute("CART");
+  _linkToDashboard() {
+    this.props.changeRoute("DASHBOARD");
   }
 
   _linkToLogin() {
@@ -39,7 +39,7 @@ export default class Navigation extends Component {
       <div>
         <nav className="mdl-navigation">
           {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToLogin}>Log In</a></div>}
-          <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToCart}>Cart</a></div>
+          {isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToDashboard}>Dashboard</a></div>}
           {isLoggedIn && <div className="mdl-layout--large-screen-only">
             <button
               id="account-menu"
@@ -54,7 +54,8 @@ export default class Navigation extends Component {
             </ul>
           </div>}
           {!isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToLogin}><i className="material-icons">lock_open</i></a></div>}
-          <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToCart}><i className="material-icons">shopping_cart</i></a></div>
+          {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToDashboard}><i className="material-icons">dashboard</i></a></div>}
+          {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._linkToAccount}><i className="material-icons">account_circle</i></a></div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._handleLogout}><i className="material-icons">lock_outline</i></a></div>}
         </nav>
       </div>

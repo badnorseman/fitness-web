@@ -1,39 +1,21 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import EditProduct from "./EditProduct";
-import NewProduct from "./NewProduct";
-import NewTransaction from "./NewTransaction";
-import ProductList from "./ProductList";
-import ShowProduct from "./ShowProduct";
+import NewTransaction from "./transactions/NewTransaction";
+import ProductList from "./products/ProductList";
+import ShowProduct from "./products/ShowProduct";
 
-export default class Products extends Component {
+export default class Marketplace extends Component {
   constructor(props) {
     super(props);
     this._handleClose = this._handleClose.bind(this);
     this._routeToBuy = this._routeToBuy.bind(this);
-    this._routeToEdit = this._routeToEdit.bind(this);
-    this._routeToNew = this._routeToNew.bind(this);
     this._routeToShow = this._routeToShow.bind(this);
   }
 
   componentDidMount() {
     this.props.getProducts();
+    // getClientToken requires that user is logged in.
     // this.props.getClientToken();
-  }
-
-  _getEditProduct(product = {}) {
-    return (
-      <EditProduct
-        product={product}
-        onClose={this._handleClose} />
-    );
-  }
-
-  _getNewProduct() {
-    return (
-      <NewProduct
-        onClose={this._handleClose} />
-    );
   }
 
   _getNewTransaction(clientToken, product) {
@@ -49,7 +31,6 @@ export default class Products extends Component {
     return (
       <ProductList
         products={products}
-        onNew={this._routeToNew}
         onSelect={this._routeToShow} />
     );
   }
@@ -71,14 +52,6 @@ export default class Products extends Component {
     this.props.changeRoute("BUY", id);
   }
 
-  _routeToEdit(id) {
-    this.props.changeRoute("EDIT", id);
-  }
-
-  _routeToNew() {
-    this.props.changeRoute("NEW");
-  }
-
   _routeToShow(id) {
     this.props.changeRoute("SHOW", id);
   }
@@ -91,12 +64,6 @@ export default class Products extends Component {
     switch (route) {
       case "BUY":
         content = this._getNewTransaction(clientToken, product);
-        break;
-      case "EDIT":
-        content = this._getEditProduct(product);
-        break;
-      case "NEW":
-        content = this._getNewProduct();
         break;
       case "SHOW":
         content = this._getShowProduct(product);

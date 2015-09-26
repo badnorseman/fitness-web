@@ -37,7 +37,7 @@ export default class ShowProduct extends Component {
               <div className="flex--center">
                 <div className="show-product__left">
                   <div className="flex--center">
-                    <img src={image} alt="" />
+                    <img className="product-image" src={image} alt="" />
                   </div>
                 </div>
                 <div className="show-product__right">

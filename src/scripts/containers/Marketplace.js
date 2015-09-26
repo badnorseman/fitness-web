@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { changeRoute } from "../actions/routeActions";
 import { getProducts } from "../actions/productActions";
 import { getClientToken } from "../actions/transactionActions";
-import Products from "../components/products";
+import Marketplace from "../components/Marketplace";
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ changeRoute, getClientToken, getProducts }, dispatch);
@@ -18,4 +18,4 @@ function mapStateToProps(state) {
   return { clientToken, id, isFetching, products, route };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(Marketplace);

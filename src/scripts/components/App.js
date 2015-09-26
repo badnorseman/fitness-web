@@ -1,12 +1,12 @@
 "use strict";
 import React, { Component } from "react";
 import Account from "../containers/Account";
-import Cart from "../components/products/Cart";
+import Dashboard from "../containers/Dashboard";
 import ErrorMessage from "../containers/ErrorMessage";
 import Footer from "../components/Footer";
 import Login from "../components/auth/Login";
+import Marketplace from "../containers/Marketplace";
 import Navigation from "../containers/Navigation";
-import Products from "../containers/Products";
 import Signup from "../components/auth/Signup";
 import "./App.css";
 
@@ -14,7 +14,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this._handleClose = this._handleClose.bind(this);
-    this._linkToProducts = this._linkToProducts.bind(this);
+    this._linkToMarketplace = this._linkToMarketplace.bind(this);
   }
 
   componentDidUpdate() {
@@ -27,9 +27,9 @@ export default class App extends Component {
     );
   }
 
-  _getCart() {
+  _getDashboard() {
     return (
-      <Cart />
+      <Dashboard />
     );
   }
 
@@ -40,9 +40,9 @@ export default class App extends Component {
     );
   }
 
-  _getProducts() {
+  _getMarketplace() {
     return (
-      <Products />
+      <Marketplace />
     );
   }
 
@@ -54,11 +54,11 @@ export default class App extends Component {
   }
 
   _handleClose() {
-    this.props.changeRoute("PRODUCTS");
+    this.props.changeRoute("MARKETPLACE");
   }
 
-  _linkToProducts() {
-    this.props.changeRoute("PRODUCTS");
+  _linkToMarketplace() {
+    this.props.changeRoute("MARKETPLACE");
   }
 
   render() {
@@ -69,8 +69,8 @@ export default class App extends Component {
       case "ACCOUNT":
         content = this._getAccount();
         break;
-      case "CART":
-        content = this._getCart();
+      case "DASHBOARD":
+        content = this._getDashboard();
         break;
       case "LOGIN":
         content = this._getLogin();
@@ -79,7 +79,7 @@ export default class App extends Component {
         content = this._getSignup();
         break;
       default:
-        content = this._getProducts();
+        content = this._getMarketplace();
     }
     return (
       <div>
@@ -87,7 +87,7 @@ export default class App extends Component {
           <header className="mdl-layout__header layout__header">
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
-                <a className="mdl-navigation__link" href="#!" onClick={this._linkToProducts}>FitBird</a>
+                <a className="mdl-navigation__link" href="#!" onClick={this._linkToMarketplace}>FitBird</a>
               </span>
               <div className="mdl-layout-spacer"></div>
               <Navigation />

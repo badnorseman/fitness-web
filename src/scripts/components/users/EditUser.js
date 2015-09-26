@@ -69,8 +69,7 @@ class EditUser extends Component {
                 <img className="user__avatar" src={avatar} alt="" />
               </div>
               <div>
-                <InputFile
-                  ref="avatar" />
+                <InputFile ref="avatar" />
               </div>
             </div>
             <div className="edit-user__right">
