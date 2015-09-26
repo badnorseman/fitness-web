@@ -1,9 +1,9 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { destroyProduct, updateProduct } from '../../actions/productActions';
-import ProductForm from './ProductForm';
-import Button from '../Button';
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { destroyProduct, updateProduct } from "../../actions/productActions";
+import ProductForm from "./ProductForm";
+import Button from "../Button";
 
 class EditProduct extends Component {
   static propTypes = {

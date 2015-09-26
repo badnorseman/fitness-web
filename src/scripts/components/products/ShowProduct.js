@@ -1,7 +1,7 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import Button from '../Button';
-import './ShowProduct.css';
+import React, { Component, PropTypes } from "react";
+import Button from "../Button";
+import "./ShowProduct.css";
 
 export default class ShowProduct extends Component {
   static propTypes = {

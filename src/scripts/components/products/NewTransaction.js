@@ -1,9 +1,9 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { createTransaction } from '../../actions/transactionActions';
-import Braintree from 'braintree-web';
-import Button from '../Button';
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { createTransaction } from "../../actions/transactionActions";
+import Braintree from "braintree-web";
+import Button from "../Button";
 
 class NewTransaction extends Component {
   static propTypes = {

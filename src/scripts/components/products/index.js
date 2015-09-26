@@ -1,10 +1,10 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import EditProduct from './EditProduct';
-import NewProduct from './NewProduct';
-import NewTransaction from './NewTransaction';
-import ProductList from './ProductList';
-import ShowProduct from './ShowProduct';
+import React, { Component, PropTypes } from "react";
+import EditProduct from "./EditProduct";
+import NewProduct from "./NewProduct";
+import NewTransaction from "./NewTransaction";
+import ProductList from "./ProductList";
+import ShowProduct from "./ShowProduct";
 
 export default class Products extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ export default class Products extends Component {
 
   componentDidMount() {
     this.props.getProducts();
-    this.props.getClientToken();
+    // this.props.getClientToken();
   }
 
   _getEditProduct(product = {}) {

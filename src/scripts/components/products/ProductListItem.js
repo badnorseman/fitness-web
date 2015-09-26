@@ -1,5 +1,5 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from "react";
 
 export default class ProductListItem extends Component {
   static propTypes = {
@@ -20,12 +20,12 @@ export default class ProductListItem extends Component {
     const { item } = this.props;
     const { currency, name, price } = item;
     const titleStyle = {
-      backgroundImage: 'url(' + this.props.item.image + ')',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
+      backgroundImage: "url(" + this.props.item.image + ")",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
       height: 160,
-      WebkitTransition: 'all',
-      msTransition: 'all'
+      WebkitTransition: "all",
+      msTransition: "all"
     }
 
     return (

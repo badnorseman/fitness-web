@@ -1,8 +1,8 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import Button from '../Button';
-import InputField from '../InputField';
-import InputFile from '../InputFile';
+import React, { Component, PropTypes } from "react";
+import Button from "../Button";
+import InputField from "../InputField";
+import InputFile from "../InputFile";
 
 export default class ProductForm extends Component {
   static propTypes = {
@@ -25,7 +25,7 @@ export default class ProductForm extends Component {
   }
 
   _getCurrency() {
-    let radios = document.getElementsByName('currency');
+    let radios = document.getElementsByName("currency");
     for (let key in radios) {
       if (radios[key].checked === true) return radios[key].value;
     }
