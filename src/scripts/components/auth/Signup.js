@@ -71,7 +71,7 @@ class Signup extends Component {
                   fieldType="password"
                   ref="passwordConfirmation" />
               </div>
-              <div className="text--center">
+              <div>
                 <Button name="Sign Up" type="submit" />
               </div>
             </form>

@@ -62,7 +62,7 @@ class Login extends Component {
                       fieldType="password"
                       ref="password" />
                   </div>
-                  <div className="text--center">
+                  <div>
                     <Button name="Log In" type="submit" />
                   </div>
                 </form>
