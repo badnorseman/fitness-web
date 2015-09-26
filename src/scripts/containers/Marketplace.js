@@ -2,20 +2,17 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/routeActions";
-import { getProducts } from "../actions/productActions";
 import { getClientToken } from "../actions/transactionActions";
 import Marketplace from "../components/Marketplace";
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeRoute, getClientToken, getProducts }, dispatch);
+  return bindActionCreators({ changeRoute, getClientToken }, dispatch);
 }
 
 function mapStateToProps(state) {
-  const { productReducer, routeReducer, transactionReducer } = state;
+  const { transactionReducer } = state;
   const { clientToken } = transactionReducer;
-  const { isFetching, products } = productReducer;
-  const { id, route } = routeReducer;
-  return { clientToken, id, isFetching, products, route };
+  return { clientToken };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Marketplace);

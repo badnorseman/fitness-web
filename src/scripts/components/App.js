@@ -9,6 +9,8 @@ import Login from "../components/auth/Login";
 import Marketplace from "../containers/Marketplace";
 import Navigation from "../containers/Navigation";
 import NewProduct from "./products/NewProduct";
+import NewTransaction from "./transactions/NewTransaction";
+import ShowProduct from "./products/ShowProduct";
 import Signup from "../components/auth/Signup";
 import "./App.css";
 
@@ -38,16 +40,28 @@ export default class App extends Component {
     return <EditProduct product={product} />;
   }
 
+  _getShowProduct(product = {}) {
+    return <ShowProduct product={product} />;
+  }
+
   _getNewProduct() {
     return <NewProduct />;
+  }
+
+  _getNewTransaction(clientToken, product) {
+    return (
+      <NewTransaction
+        clientToken={clientToken}
+        product={product} />
+    );
   }
 
   _getLogin() {
     return <Login />;
   }
 
-  _getMarketplace() {
-    return <Marketplace />;
+  _getMarketplace(products) {
+    return <Marketplace products={products} />;
   }
 
   _getSignup() {
@@ -60,6 +74,7 @@ export default class App extends Component {
 
   render() {
     const { id, isFetching, products, route } = this.props;
+    const clientToken = "";
     const product = products[id];
 
     let content;
@@ -79,11 +94,17 @@ export default class App extends Component {
       case "NEWPRODUCT":
         content = this._getNewProduct();
         break;
+      case "NEWTRANSACTION":
+        content = this._getNewTransaction(clientToken, product);
+        break;
+      case "SHOWPRODUCT":
+        content = this._getShowProduct(product);
+        break;
       case "SIGNUP":
         content = this._getSignup();
         break;
       default:
-        content = this._getMarketplace();
+        content = this._getMarketplace(products);
     }
     return (
       <div>

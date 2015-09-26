@@ -1,13 +1,13 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { changeRoute } from "../../actions/routeActions";
 import Button from "../Button";
 import "./ShowProduct.css";
 
-export default class ShowProduct extends Component {
+class ShowProduct extends Component {
   static propTypes = {
-    product: PropTypes.object.isRequired,
-    onBuy: PropTypes.func.isRequired,
-    onClose: PropTypes.func.isRequired
+    product: PropTypes.object.isRequired
   }
 
   constructor(props) {
@@ -17,11 +17,11 @@ export default class ShowProduct extends Component {
   }
 
   _handleBuy() {
-    this.props.onBuy(this.props.product.id);
+    this.props.dispatch(changeRoute("NEWTRANSACTION", this.props.product.id));
   }
 
   _handleClose() {
-    this.props.onClose();
+    this.props.dispatch(changeRoute("MARKETPLACE"));
   }
 
   render() {
@@ -58,3 +58,5 @@ export default class ShowProduct extends Component {
     )
   }
 }
+
+export default connect()(ShowProduct);
