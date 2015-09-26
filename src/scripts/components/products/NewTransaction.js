@@ -1,13 +1,14 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
-import Braintree from "braintree-web";
-import Button from "../Button";
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { createTransaction } from '../../actions/transactionActions';
+import Braintree from 'braintree-web';
+import Button from '../Button';
 
-export default class NewTransaction extends Component {
+class NewTransaction extends Component {
   static propTypes = {
     clientToken: PropTypes.string,
     product: PropTypes.object.isRequired,
-    onAdd: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired
   }
 
@@ -15,13 +16,10 @@ export default class NewTransaction extends Component {
     super(props);
     this._handleClose = this._handleClose.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+    this._onPaymentMethodReceived = this._onPaymentMethodReceived.bind(this);
   }
 
   componentDidMount() {
-    this.props.getClientToken();
-  }
-
-  componentDidUpdate() {
     Braintree.setup(
       this.props.clientToken,
       "dropin", {
@@ -46,37 +44,28 @@ export default class NewTransaction extends Component {
     let paymentMethodNonce = paymentMethod.nonce;
 
     if (amount && currency && id && paymentMethodNonce) {
-      this.props.onAdd({
+      this.props.dispatch(createTransaction({
         amount: amount,
         currency: currency,
         product_id: id,
         payment_method_nonce: paymentMethodNonce
-      })
-    }
+      }))
+    };
   }
 
   render() {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div>
-            {this.props.product.name}
-            <div className="divider"></div>
-            {this.props.product.price}
-            <div className="divider"></div>
-            {this.props.product.currency}
-          </div>
-          <div className="divider"></div>
-          <div>
-            <form onSubmit={this._handleSubmit}>
-              <div id="dropin-container"></div>
-              <Button name="Close" type="button" onClick={this._handleClose}/>
-              <div className="divider"></div>
-              <Button name="Buy" type="submit" />
-            </form>
-          </div>
+          <Button name="Close" type="button" onClick={this._handleClose}/>
+          <form onSubmit={this._handleSubmit}>
+            <div id="dropin-container"></div>
+            <Button name="Buy" type="submit" />
+          </form>
         </div>
       </div>
     )
   }
 }
+
+export default connect()(NewTransaction);

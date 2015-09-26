@@ -1,6 +1,7 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
-import Button from "../Button";
+import React, { Component, PropTypes } from 'react';
+import Button from '../Button';
+import './ShowProduct.css';
 
 export default class ShowProduct extends Component {
   static propTypes = {
@@ -16,7 +17,7 @@ export default class ShowProduct extends Component {
   }
 
   _handleBuy() {
-    this.props.onBuy(this.props.product);
+    this.props.onBuy(this.props.product.id);
   }
 
   _handleClose() {
@@ -30,21 +31,28 @@ export default class ShowProduct extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <Button name="Close" type="button" onClick={this._handleClose} />
-          <div className="divider"></div>
-          {name}
-          <div>
-            <img src={image} alt="" />
+          <div className="show-product block--center mdl-card mdl-shadow--2dp">
+            <div className="block--center mdl-card__supporting-text mdl-card--border">
+              <Button name="Close" type="button" onClick={this._handleClose} />
+              <div className="flex--center">
+                <div className="show-product__left">
+                  <div className="flex--center">
+                    <img src={image} alt="" />
+                  </div>
+                </div>
+                <div className="show-product__right">
+                  <div>
+                    <h3>{name}</h3>
+                    <p>{description}</p>
+                    <h6>{currency} {price}</h6>
+                  </div>
+                  <div>
+                    <Button name="Buy" type="button" onClick={this._handleBuy} />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            {description}
-          </div>
-          <div>
-            {currency}
-            <span>{price}</span>
-          </div>
-          <div className="divider"></div>
-          <Button name="Buy" type="button" onClick={this._handleBuy} />
         </div>
       </div>
     )

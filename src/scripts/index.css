@@ -23,10 +23,10 @@ footer, .push {
   margin: 0 auto;
 }
 
-.divider {
-  width: 20px;
-  height: auto;
+.block-divider {
   display: inline-block;
+  height: auto;
+  width: 20px;
 }
 
 .flex--center {

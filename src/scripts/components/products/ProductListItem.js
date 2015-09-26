@@ -1,5 +1,5 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
+import React, { Component, PropTypes } from 'react';
 
 export default class ProductListItem extends Component {
   static propTypes = {
@@ -18,7 +18,7 @@ export default class ProductListItem extends Component {
 
   render() {
     const { item } = this.props;
-    const { description, name } = item;
+    const { currency, name, price } = item;
     const titleStyle = {
       backgroundImage: 'url(' + this.props.item.image + ')',
       backgroundRepeat: 'no-repeat',
@@ -35,8 +35,8 @@ export default class ProductListItem extends Component {
             <div className="mdl-card__title" style={titleStyle}>
             </div>
             <div className="mdl-card__supporting-text">
-              <h6>{name}</h6>
-              <p>{description}</p>
+              <h5>{name}</h5>
+              <h6>{currency} {price}</h6>
             </div>
           </div>
         </div>

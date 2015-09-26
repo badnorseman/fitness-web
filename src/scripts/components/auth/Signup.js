@@ -45,9 +45,7 @@ class Signup extends Component {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <Button name="Close" type="button" onClick={this._handleClose} />
-          <div className="divider"></div>
-          <div><Oauth provider="facebook"/></div>
-          <div className="divider"></div>
+          <div><Oauth provider="facebook" /></div>
           <div><Oauth provider="google_oauth2" /></div>
           <div>
             <form onSubmit={this._handleSubmit}>
@@ -72,7 +70,7 @@ class Signup extends Component {
                   fieldType="password"
                   ref="passwordConfirmation" />
               </div>
-              <div className="text--center">
+              <div>
                 <Button name="Sign Up" type="submit" />
               </div>
             </form>
@@ -83,4 +81,4 @@ class Signup extends Component {
   }
 }
 
-export default connect()(Signup)
+export default connect()(Signup);

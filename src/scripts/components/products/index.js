@@ -1,14 +1,14 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
-import EditProduct from "./EditProduct";
-import NewProduct from "./NewProduct";
-import ProductList from "./ProductList";
-import ShowProduct from "./ShowProduct";
+import React, { Component, PropTypes } from 'react';
+import EditProduct from './EditProduct';
+import NewProduct from './NewProduct';
+import NewTransaction from './NewTransaction';
+import ProductList from './ProductList';
+import ShowProduct from './ShowProduct';
 
 export default class Products extends Component {
   constructor(props) {
     super(props);
-    this._handleAdd = this._handleAdd.bind(this);
     this._handleBuy = this._handleBuy.bind(this);
     this._handleClose = this._handleClose.bind(this);
     this._handleEdit = this._handleEdit.bind(this);
@@ -19,6 +19,7 @@ export default class Products extends Component {
 
   componentDidMount() {
     this.props.getProducts();
+    this.props.getClientToken();
   }
 
   _getEditProduct(product = {}) {
@@ -34,7 +35,15 @@ export default class Products extends Component {
   _getNewProduct() {
     return (
       <NewProduct
-        onAdd={this._handleAdd}
+        onClose={this._handleClose} />
+    );
+  }
+
+  _getNewTransaction(clientToken, product) {
+    return (
+      <NewTransaction
+        clientToken={clientToken}
+        product={product}
         onClose={this._handleClose} />
     );
   }
@@ -57,12 +66,9 @@ export default class Products extends Component {
     );
   }
 
-  _handleAdd(product) {
-    this.props.createProduct(product);
-  }
-
-  _handleBuy(product) {
-    this.props.cartAddProduct(product);
+  _handleBuy(id) {
+    this.props.changeRoute("BUY", id);
+    // this.props.cartAddProduct(product);
   }
 
   _handleClose() {
@@ -86,11 +92,14 @@ export default class Products extends Component {
   }
 
   render() {
-    const { id, isFetching, products, route } = this.props;
+    const { clientToken, id, isFetching, products, route } = this.props;
     const product = products[id];
 
     let content;
     switch (route) {
+      case "BUY":
+        content = this._getNewTransaction(clientToken, product);
+        break;
       case "EDIT":
         content = this._getEditProduct(product);
         break;

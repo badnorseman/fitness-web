@@ -1,0 +1,22 @@
+.show-product {
+  height: auto;
+  max-width: 800px;
+  width: 800px;
+}
+
+.show-product__left {
+  float: left;
+  overflow: hidden;
+  width: 50%;
+}
+
+.show-product__right {
+  float: left;
+  overflow: hidden;
+  width: 50%;
+}
+
+.product-image {
+  height: 320px;
+  width: 320px;
+}

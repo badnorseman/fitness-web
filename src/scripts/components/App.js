@@ -1,14 +1,14 @@
 "use strict";
-import React, { Component } from "react";
-import Account from "../containers/Account";
-import Cart from "../components/products/Cart";
-import ErrorMessage from "../components/ErrorMessage";
-import Footer from "../components/Footer";
-import Login from "../components/auth/Login";
-import Navigation from "../containers/Navigation";
-import Products from "../containers/Products";
-import Signup from "../components/auth/Signup";
-import "./App.css";
+import React, { Component } from 'react';
+import Account from '../containers/Account';
+import Cart from '../components/products/Cart';
+import ErrorMessage from '../containers/ErrorMessage';
+import Footer from '../components/Footer';
+import Login from '../components/auth/Login';
+import Navigation from '../containers/Navigation';
+import Products from '../containers/Products';
+import Signup from '../components/auth/Signup';
+import './App.css';
 
 export default class App extends Component {
   constructor(props) {
