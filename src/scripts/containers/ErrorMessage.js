@@ -1,8 +1,8 @@
 "use strict";
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { resetErrorMessage } from '../actions/errorActions';
-import ErrorMessage from '../components/ErrorMessage';
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { resetErrorMessage } from "../actions/errorActions";
+import ErrorMessage from "../components/ErrorMessage";
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ resetErrorMessage }, dispatch);

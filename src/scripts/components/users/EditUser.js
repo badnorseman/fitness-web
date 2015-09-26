@@ -1,11 +1,11 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { updateUser } from '../../actions/userActions';
-import Button from '../Button';
-import InputField from '../InputField';
-import InputFile from '../InputFile';
-import './EditUser.css';
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { updateUser } from "../../actions/userActions";
+import Button from "../Button";
+import InputField from "../InputField";
+import InputFile from "../InputFile";
+import "./EditUser.css";
 
 class EditUser extends Component {
   static propTypes = {
@@ -18,7 +18,7 @@ class EditUser extends Component {
   }
 
   _getGender() {
-    let radios = document.getElementsByName('gender');
+    let radios = document.getElementsByName("gender");
     for (let key in radios) {
       if (radios[key].checked === true) return radios[key].value;
     }

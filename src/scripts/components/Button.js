@@ -1,6 +1,6 @@
 "use strict";
-import $ from 'jquery';
-import React, { Component, PropTypes } from 'react';
+import $ from "jquery";
+import React, { Component, PropTypes } from "react";
 
 export default class Button extends Component {
   static propTypes = {

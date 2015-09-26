@@ -1,11 +1,11 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { login } from '../../actions/authActions';
-import Button from '../Button';
-import InputField from '../InputField';
-import Oauth from '../auth/Oauth';
-import './Login.css';
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { login } from "../../actions/authActions";
+import Button from "../Button";
+import InputField from "../InputField";
+import Oauth from "../auth/Oauth";
+import "./Login.css";
 
 class Login extends Component {
   static propTypes = {

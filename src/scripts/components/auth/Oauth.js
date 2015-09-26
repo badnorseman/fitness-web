@@ -1,7 +1,7 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import { oauth } from '../../actions/authActions';
-import Button from '../Button';
+import React, { Component, PropTypes } from "react";
+import { oauth } from "../../actions/authActions";
+import Button from "../Button";
 
 export default class Oauth extends Component {
   static propTypes = {

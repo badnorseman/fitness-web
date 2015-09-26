@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export default class Facebook extends Component {
   render() {
@@ -7,9 +7,9 @@ export default class Facebook extends Component {
         <script>
           window.fbAsyncInit = function() {
             FB.init({
-              appId      : '262325467304404',
-              xfbml      : true,
-              version    : 'v2.3'
+              appId: "262325467304404",
+              xfbml: true,
+              version: "v2.3"
             });
           }
 
@@ -19,7 +19,7 @@ export default class Facebook extends Component {
              js = d.createElement(s); js.id = id;
              js.src = "//connect.facebook.net/en_US/sdk.js";
              fjs.parentNode.insertBefore(js, fjs);
-           }(document, 'script', 'facebook-jssdk'));
+           }(document, "script", "facebook-jssdk"));
         </script>
         <div
           className="fb-like"

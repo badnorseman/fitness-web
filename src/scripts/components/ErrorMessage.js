@@ -1,5 +1,5 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from "react";
 
 export default class ErrorMessage extends Component {
   constructor(props) {
