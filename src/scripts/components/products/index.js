@@ -18,7 +18,7 @@ export default class Products extends Component {
 
   componentDidMount() {
     this.props.getProducts();
-    // this.props.getClientToken();
+    this.props.getClientToken();
   }
 
   _getEditProduct(product = {}) {
