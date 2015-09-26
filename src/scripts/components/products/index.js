@@ -9,26 +9,23 @@ import ShowProduct from './ShowProduct';
 export default class Products extends Component {
   constructor(props) {
     super(props);
-    this._handleBuy = this._handleBuy.bind(this);
     this._handleClose = this._handleClose.bind(this);
-    this._handleEdit = this._handleEdit.bind(this);
-    this._handleNew = this._handleNew.bind(this);
-    this._handleRemove = this._handleRemove.bind(this);
-    this._handleSelect = this._handleSelect.bind(this);
+    this._routeToBuy = this._routeToBuy.bind(this);
+    this._routeToEdit = this._routeToEdit.bind(this);
+    this._routeToNew = this._routeToNew.bind(this);
+    this._routeToShow = this._routeToShow.bind(this);
   }
 
   componentDidMount() {
     this.props.getProducts();
-    this.props.getClientToken();
+    // this.props.getClientToken();
   }
 
   _getEditProduct(product = {}) {
     return (
       <EditProduct
         product={product}
-        onClose={this._handleClose}
-        onEdit={this._handleEdit}
-        onRemove={this._handleRemove} />
+        onClose={this._handleClose} />
     );
   }
 
@@ -52,8 +49,8 @@ export default class Products extends Component {
     return (
       <ProductList
         products={products}
-        onNew={this._handleNew}
-        onSelect={this._handleSelect} />
+        onNew={this._routeToNew}
+        onSelect={this._routeToShow} />
     );
   }
 
@@ -61,33 +58,28 @@ export default class Products extends Component {
     return (
       <ShowProduct
         product={product}
-        onBuy={this._handleBuy}
+        onBuy={this._routeToBuy}
         onClose={this._handleClose} />
     );
-  }
-
-  _handleBuy(id) {
-    this.props.changeRoute("BUY", id);
-    // this.props.cartAddProduct(product);
   }
 
   _handleClose() {
     this.props.changeRoute("LIST");
   }
 
-  _handleEdit(product) {
-    this.props.updateProduct(product);
+  _routeToBuy(id) {
+    this.props.changeRoute("BUY", id);
   }
 
-  _handleNew() {
+  _routeToEdit(id) {
+    this.props.changeRoute("EDIT", id);
+  }
+
+  _routeToNew() {
     this.props.changeRoute("NEW");
   }
 
-  _handleRemove(id) {
-    this.props.destroyProduct(id);
-  }
-
-  _handleSelect(id) {
+  _routeToShow(id) {
     this.props.changeRoute("SHOW", id);
   }
 

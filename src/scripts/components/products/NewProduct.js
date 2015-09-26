@@ -18,16 +18,16 @@ class NewProduct extends Component {
 
   constructor(props) {
     super(props);
+    this._handleAdd = this._handleAdd.bind(this);
     this._handleClose = this._handleClose.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
+  }
+
+  _handleAdd(product) {
+    this.props.dispatch(createProduct(product));
   }
 
   _handleClose() {
     this.props.onClose();
-  }
-
-  _handleSubmit(product) {
-    this.props.dispatch(createProduct(product));
   }
 
   render() {
@@ -41,7 +41,7 @@ class NewProduct extends Component {
             image={this.props.image}
             name={this.props.name}
             price={this.props.price}
-            onSubmit={this._handleSubmit} />
+            onSubmit={this._handleAdd} />
         </div>
       </div>
     )

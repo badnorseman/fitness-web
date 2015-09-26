@@ -1,14 +1,13 @@
 "use strict";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as productActions from '../actions/productActions';
-import * as cartActions from '../actions/cartActions';
 import { changeRoute } from '../actions/routeActions';
+import { getProducts } from '../actions/productActions';
 import { getClientToken } from '../actions/transactionActions';
 import Products from '../components/products';
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Object.assign({}, { changeRoute }, { getClientToken }, cartActions, productActions), dispatch);
+  return bindActionCreators({ changeRoute, getClientToken, getProducts }, dispatch);
 }
 
 function mapStateToProps(state) {
