@@ -1,6 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
+import { changeRoute } from "../../actions/routeActions";
 import { createProduct } from "../../actions/productActions";
 import ProductForm from "./ProductForm";
 import Button from "../Button";
@@ -12,8 +13,7 @@ class NewProduct extends Component {
     id: PropTypes.number,
     image: PropTypes.string,
     name: PropTypes.string,
-    price: PropTypes.number,
-    onClose: PropTypes.func.isRequired
+    price: PropTypes.number
   }
 
   constructor(props) {
@@ -27,7 +27,7 @@ class NewProduct extends Component {
   }
 
   _handleClose() {
-    this.props.onClose();
+    this.props.dispatch(changeRoute("DASHBOARD"));
   }
 
   render() {

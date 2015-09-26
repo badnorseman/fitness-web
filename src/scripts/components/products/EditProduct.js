@@ -1,14 +1,14 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
+import { changeRoute } from "../../actions/routeActions";
 import { destroyProduct, updateProduct } from "../../actions/productActions";
 import ProductForm from "./ProductForm";
 import Button from "../Button";
 
 class EditProduct extends Component {
   static propTypes = {
-    product: PropTypes.object.isRequired,
-    onClose: PropTypes.func.isRequired
+    product: PropTypes.object.isRequired
   }
 
   constructor(props) {
@@ -19,7 +19,7 @@ class EditProduct extends Component {
   }
 
   _handleClose() {
-    this.props.onClose();
+    this.props.dispatch(changeRoute("DASHBOARD"));
   }
 
   _handleEdit(product) {

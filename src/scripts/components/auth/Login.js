@@ -1,6 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
+import { changeRoute } from "../../actions/routeActions";
 import { login } from "../../actions/authActions";
 import Button from "../Button";
 import InputField from "../InputField";
@@ -8,10 +9,6 @@ import Oauth from "../auth/Oauth";
 import "./Login.css";
 
 class Login extends Component {
-  static propTypes = {
-    onClose: PropTypes.func.isRequired
-  }
-
   constructor(props) {
     super(props);
     this._handleClose = this._handleClose.bind(this);
@@ -19,7 +16,7 @@ class Login extends Component {
   }
 
   _handleClose() {
-    this.props.onClose();
+    this.props.dispatch(changeRoute("MARKETPLACE"));
   }
 
   _handleSubmit(event) {

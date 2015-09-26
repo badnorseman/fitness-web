@@ -1,12 +1,9 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import EditProduct from "./products/EditProduct";
-import NewProduct from "./products/NewProduct";
 
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this._handleClose = this._handleClose.bind(this);
     this._routeToEdit = this._routeToEdit.bind(this);
     this._routeToNew = this._routeToNew.bind(this);
   }
@@ -15,22 +12,28 @@ export default class Dashboard extends Component {
     // this.props.getProducts();
   }
 
-  _getEditProduct(product = {}) {
-    return (
-      <EditProduct
-        product={product}
-        onClose={this._handleClose} />
-    );
+  _getItems(products) {
+    let items = [];
+    for (let key in this.props.products) {
+      if (this.props.products.hasOwnProperty(key)) {
+        items.push(
+          <Item key={key} item={this.props.products[key]} onClick={this._routeToEdit} />
+        );
+      }
+    }
+    return items;
   }
 
-  _getNewProduct() {
-    return (
-      <NewProduct
-        onClose={this._handleClose} />
-    );
+  _routeToEdit(id) {
+    this.props.changeRoute("EDITPRODUCT", id);
   }
 
-  _getList(products) {
+  _routeToNew() {
+    this.props.changeRoute("NEWPRODUCT");
+  }
+
+  render() {
+    const { isFetching, products } = this.props;
     let items = this._getItems(products);
 
     return (
@@ -46,54 +49,6 @@ export default class Dashboard extends Component {
       </div>
     );
   }
-
-  _getItems(products) {
-    let items = [];
-    for (let key in this.props.products) {
-      if (this.props.products.hasOwnProperty(key)) {
-        items.push(
-          <Item key={key} item={this.props.products[key]} onClick={this._routeToEdit} />
-        );
-      }
-    }
-    return items;
-  }
-
-  _handleClose() {
-    this.props.changeRoute("LIST");
-  }
-
-  _routeToEdit(id) {
-    console.log("_routeToEdit", id);
-    this.props.changeRoute("EDIT", id);
-  }
-
-  _routeToNew() {
-    console.log("_routeToNew");
-    this.props.changeRoute("NEW");
-  }
-
-  render() {
-    const { id, isFetching, products, route } = this.props;
-    const product = products[id];
-
-    let content;
-    switch (route) {
-      case "EDIT":
-        content = this._getEditProduct(product);
-        break;
-      case "NEW":
-        content = this._getNewProduct();
-        break;
-      default:
-        content = this._getList(products);
-    }
-    return (
-      <div>
-        {content}
-      </div>
-    );
-  }
 }
 
 class Item extends Component {
@@ -105,6 +60,7 @@ class Item extends Component {
   _handleSelect() {
     this.props.onClick(this.props.item.id);
   }
+
   render() {
     const { name } = this.props.item;
 
