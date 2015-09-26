@@ -32,26 +32,22 @@ export default class ShowProduct extends Component {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <div className="show-product block--center mdl-card mdl-shadow--2dp">
-            <div className="mdl-card__supporting-text mdl-card--border">
+            <div className="block--center mdl-card__supporting-text mdl-card--border">
               <Button name="Close" type="button" onClick={this._handleClose} />
               <br />
-              <div className="show-product__left">
-                <div className="flex--center">
-                  <img src={image} alt="" />
+              <div className="flex--center">
+                <div className="show-product__left">
+                  <div className="flex--center">
+                    <img src={image} alt="" />
+                  </div>
                 </div>
-              </div>
-              <div className="show-product__right">
-                <div>
-                  {name}
+                <div className="show-product__right">
+                  <h3>{name}</h3>
+                  <p>{description}</p>
+                  <h6>{currency} {price}</h6>
+                  <br />
+                  <Button name="Buy" type="button" onClick={this._handleBuy} />
                 </div>
-                <div>
-                  {description}
-                </div>
-                <div>
-                  Amount: {currency}<span>{price}</span>
-                </div>
-                <br />
-                <Button name="Buy" type="button" onClick={this._handleBuy} />
               </div>
             </div>
           </div>

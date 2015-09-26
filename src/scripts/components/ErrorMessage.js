@@ -1,9 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { resetErrorMessage } from '../actions/errorActions';
 
-class ErrorMessage extends Component {
+export default class ErrorMessage extends Component {
   constructor(props) {
     super(props);
   }
@@ -16,10 +14,3 @@ class ErrorMessage extends Component {
     )
   }
 }
-
-function mapStateToProps(state) {
-  const { errorMessage } = state;
-  return { errorMessage };
-}
-
-export default connect(mapStateToProps)(ErrorMessage);
