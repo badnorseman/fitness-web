@@ -1,8 +1,10 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { changeRoute } from "../actions/routeActions";
 import ProductList from "./products/ProductList";
 
-export default class Marketplace extends Component {
+class Marketplace extends Component {
   static propTypes = {
     products: PropTypes.object.isRequired
   }
@@ -13,7 +15,7 @@ export default class Marketplace extends Component {
   }
 
   _goToShowProduct(id) {
-    this.props.changeRoute("SHOWPRODUCT", id);
+    this.props.dispatch(changeRoute("SHOWPRODUCT", id));
   }
 
   render() {
@@ -28,3 +30,5 @@ export default class Marketplace extends Component {
     );
   }
 }
+
+export default connect()(Marketplace);

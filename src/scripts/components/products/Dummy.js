@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 
-export default class Cart extends Component {
+export default class Dummy extends Component {
   constructor(props) {
     super(props);
   }

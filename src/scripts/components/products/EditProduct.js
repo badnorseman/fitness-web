@@ -33,6 +33,9 @@ class EditProduct extends Component {
   }
 
   render() {
+    const { product } = this.props;
+    const { currency, description, id, image, name, price } = product;
+
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
@@ -40,12 +43,12 @@ class EditProduct extends Component {
             <div className="mdl-card__supporting-text">
               <Button name="Remove" type="button" onClick={this._handleRemove} />
               <ProductForm
-                currency={this.props.product.currency}
-                description={this.props.product.description}
-                id={this.props.product.id}
-                image={this.props.product.image}
-                name={this.props.product.name}
-                price={this.props.product.price}
+                currency={currency}
+                description={description}
+                id={id}
+                image={image}
+                name={name}
+                price={price}
                 onSubmit={this._handleEdit} />
             </div>
             <div className="mdl-card__menu">
