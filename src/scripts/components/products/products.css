@@ -1,22 +1,22 @@
-.show-product {
+.product-card {
   height: auto;
   max-width: 800px;
   width: 800px;
 }
 
-.show-product__left {
+.product-card__left {
   float: left;
   overflow: hidden;
   width: 50%;
 }
 
-.show-product__right {
+.product-card__right {
   float: left;
   overflow: hidden;
   width: 50%;
 }
 
-.product-image {
+.product-card__image {
   height: 320px;
   width: 320px;
 }

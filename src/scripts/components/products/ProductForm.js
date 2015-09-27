@@ -1,22 +1,17 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import Button from '../Button';
-import InputField from '../InputField';
-import InputFile from '../InputFile';
+import React, { Component, PropTypes } from "react";
+import Button from "../Button";
+import InputField from "../InputField";
+import InputFile from "../InputFile";
 
 export default class ProductForm extends Component {
   static propTypes = {
-    currency: PropTypes.string,
-    description: PropTypes.string,
-    id: PropTypes.number,
-    image: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.number,
+    product: PropTypes.object,
     onSubmit: PropTypes.func.isRequired
   }
 
   static defaultProps = {
-    currency: "DKK"
+    product: { currency: "DKK" }
   }
 
   constructor(props) {
@@ -25,7 +20,7 @@ export default class ProductForm extends Component {
   }
 
   _getCurrency() {
-    let radios = document.getElementsByName('currency');
+    let radios = document.getElementsByName("currency");
     for (let key in radios) {
       if (radios[key].checked === true) return radios[key].value;
     }
@@ -36,7 +31,7 @@ export default class ProductForm extends Component {
 
     let currency = this._getCurrency();
     let description = this.refs.description.state.fieldValue;
-    let id = this.props.id;
+    let id = this.props.product.id;
     let image = this.refs.image.state.file;
     let name = this.refs.name.state.fieldValue;
     let price = this.refs.price.state.fieldValue;
@@ -54,11 +49,14 @@ export default class ProductForm extends Component {
   }
 
   _isCurrency(value) {
-    return value === this.props.currency;
+    return value === this.props.product.currency;
   }
 
   render() {
-    const { description, image, name, price } = this.props;
+    const { product } = this.props;
+    const { description, image, name, price } = product || {
+      description: "", image: "", name: "", price: ""
+    };
 
     return (
       <form onSubmit={this._handleSubmit}>
@@ -95,12 +93,12 @@ export default class ProductForm extends Component {
             <input className="mdl-radio__button" id="currency-dkk" type="radio" value="DKK" name="currency" defaultChecked={this._isCurrency("DKK")} />
             <span className="mdl-radio__label">DKK</span>
           </label>
-          <div className="block-divider"></div>
+          <div className="block--divider"></div>
           <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="currency-eur">
             <input className="mdl-radio__button" id="currency-eur" type="radio" value="EUR" name="currency" defaultChecked={this._isCurrency("EUR")} />
             <span className="mdl-radio__label">EUR</span>
           </label>
-          <div className="block-divider"></div>
+          <div className="block--divider"></div>
           <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="currency-usd">
             <input className="mdl-radio__button" id="currency-usd" type="radio" value="USD" name="currency" defaultChecked={this._isCurrency("USD")} />
             <span className="mdl-radio__label">USD</span>

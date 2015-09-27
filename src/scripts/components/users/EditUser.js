@@ -1,11 +1,11 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { updateUser } from '../../actions/userActions';
-import Button from '../Button';
-import InputField from '../InputField';
-import InputFile from '../InputFile';
-import './EditUser.css';
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { updateUser } from "../../actions/userActions";
+import Button from "../Button";
+import InputField from "../InputField";
+import InputFile from "../InputFile";
+import "./EditUser.css";
 
 class EditUser extends Component {
   static propTypes = {
@@ -18,7 +18,7 @@ class EditUser extends Component {
   }
 
   _getGender() {
-    let radios = document.getElementsByName('gender');
+    let radios = document.getElementsByName("gender");
     for (let key in radios) {
       if (radios[key].checked === true) return radios[key].value;
     }
@@ -69,8 +69,7 @@ class EditUser extends Component {
                 <img className="user__avatar" src={avatar} alt="" />
               </div>
               <div>
-                <InputFile
-                  ref="avatar" />
+                <InputFile ref="avatar" />
               </div>
             </div>
             <div className="edit-user__right">
@@ -95,7 +94,7 @@ class EditUser extends Component {
                   <input className="mdl-radio__button" id="gender-male" type="radio" value="M" name="gender" defaultChecked={this._isGender("M")} />
                   <span className="mdl-radio__label"><i className="material-icons">call_merge</i></span>
                 </label>
-                <div className="block-divider"></div>
+                <div className="block--divider"></div>
                 <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="gender-female">
                   <input className="mdl-radio__button" id="gender-female" type="radio" value="F" name="gender" defaultChecked={this._isGender("F")} />
                   <span className="mdl-radio__label"><i className="material-icons">call_split</i></span>

@@ -1,20 +1,27 @@
 "use strict";
-import React, { Component } from 'react';
-import Account from '../containers/Account';
-import Cart from '../components/products/Cart';
-import ErrorMessage from '../containers/ErrorMessage';
-import Footer from '../components/Footer';
-import Login from '../components/auth/Login';
-import Navigation from '../containers/Navigation';
-import Products from '../containers/Products';
-import Signup from '../components/auth/Signup';
-import './App.css';
+import React, { Component } from "react";
+import Account from "../containers/Account";
+import Dashboard from "../containers/Dashboard";
+import EditProduct from "./products/EditProduct";
+import ErrorMessage from "../containers/ErrorMessage";
+import Footer from "../components/Footer";
+import Login from "../components/auth/Login";
+import Marketplace from "../components/Marketplace";
+import Navigation from "../containers/Navigation";
+import NewProduct from "./products/NewProduct";
+import NewTransaction from "./transactions/NewTransaction";
+import ShowProduct from "./products/ShowProduct";
+import Signup from "../components/auth/Signup";
+import "./App.css";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this._handleClose = this._handleClose.bind(this);
-    this._linkToProducts = this._linkToProducts.bind(this);
+    this._goToMarketplace = this._goToMarketplace.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.getProducts();
   }
 
   componentDidUpdate() {
@@ -22,64 +29,82 @@ export default class App extends Component {
   }
 
   _getAccount() {
-    return (
-      <Account />
-    );
+    return <Account />;
   }
 
-  _getCart() {
+  _getDashboard() {
+    return <Dashboard />;
+  }
+
+  _getEditProduct(product = {}) {
+    return <EditProduct product={product} />;
+  }
+
+  _getShowProduct(product = {}) {
+    return <ShowProduct product={product} />;
+  }
+
+  _getNewProduct() {
+    return <NewProduct />;
+  }
+
+  _getNewTransaction(clientToken, product) {
     return (
-      <Cart />
+      <NewTransaction
+        clientToken={clientToken}
+        product={product} />
     );
   }
 
   _getLogin() {
-    return (
-      <Login
-      onClose={this._handleClose} />
-    );
+    return <Login />;
   }
 
-  _getProducts() {
-    return (
-      <Products />
-    );
+  _getMarketplace(products) {
+    return <Marketplace products={products} />;
   }
 
   _getSignup() {
-    return (
-      <Signup
-      onClose={this._handleClose} />
-    );
+    return <Signup />;
   }
 
-  _handleClose() {
-    this.props.changeRoute("PRODUCTS");
-  }
-
-  _linkToProducts() {
-    this.props.changeRoute("PRODUCTS");
+  _goToMarketplace() {
+    this.props.changeRoute("MARKETPLACE");
   }
 
   render() {
-    const { route } = this.props;
+    const { id, isFetching, products, route } = this.props;
+    const clientToken = "";
+    const product = products[id];
 
     let content;
     switch (route) {
       case "ACCOUNT":
         content = this._getAccount();
         break;
-      case "CART":
-        content = this._getCart();
+      case "DASHBOARD":
+        content = this._getDashboard();
         break;
       case "LOGIN":
         content = this._getLogin();
+        break;
+      case "EDITPRODUCT":
+        content = this._getEditProduct(product);
+        break;
+      case "NEWPRODUCT":
+        content = this._getNewProduct();
+        break;
+      case "NEWTRANSACTION":
+        content = this._getNewTransaction(clientToken, product);
+        break;
+      case "SHOWPRODUCT":
+        content = this._getShowProduct(product);
         break;
       case "SIGNUP":
         content = this._getSignup();
         break;
       default:
-        content = this._getProducts();
+        content = this._getMarketplace(products);
     }
     return (
       <div>
@@ -87,7 +112,7 @@ export default class App extends Component {
           <header className="mdl-layout__header layout__header">
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
-                <a className="mdl-navigation__link" href="#!" onClick={this._linkToProducts}>FitBird</a>
+                <a className="mdl-navigation__link" href="#!" onClick={this._goToMarketplace}>FitBird</a>
               </span>
               <div className="mdl-layout-spacer"></div>
               <Navigation />

@@ -2,7 +2,7 @@
 import {
   CART_ADD_PRODUCT,
   CART_REMOVE_PRODUCT
-} from '../actions/cartActions';
+} from "../actions/cartActions";
 
 const initialState = {
   products: {}

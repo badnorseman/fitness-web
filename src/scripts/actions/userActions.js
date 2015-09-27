@@ -1,5 +1,5 @@
 "use strict";
-import { destroy, fetchById, update } from '../api/api';
+import { destroy, fetchById, update } from "../api/api";
 
 const entityName = "user";
 

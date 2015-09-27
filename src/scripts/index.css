@@ -19,22 +19,29 @@ footer, .push {
   z-index: 998;
 }
 
-.block--center {
+.block--center-horizontally__margin {
   margin: 0 auto;
 }
 
-.block-divider {
+.block--center-horizontally__flex {
+  display: flex;
+  justify-content: center;
+}
+
+.block--divider {
   display: inline-block;
   height: auto;
   width: 20px;
 }
 
-.flex--center {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
 .text--center {
   text-align: center;
+}
+
+.test-outer-border {
+  border: 1px solid green;
+}
+
+.test-inner-border {
+  border: 1px solid red;
 }

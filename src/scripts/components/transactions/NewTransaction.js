@@ -1,15 +1,15 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { createTransaction } from '../../actions/transactionActions';
-import Braintree from 'braintree-web';
-import Button from '../Button';
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { changeRoute } from "../../actions/routeActions";
+import { createTransaction } from "../../actions/transactionActions";
+import Braintree from "braintree-web";
+import Button from "../Button";
 
 class NewTransaction extends Component {
   static propTypes = {
     clientToken: PropTypes.string,
-    product: PropTypes.object.isRequired,
-    onClose: PropTypes.func.isRequired
+    product: PropTypes.object.isRequired
   }
 
   constructor(props) {
@@ -30,7 +30,7 @@ class NewTransaction extends Component {
   }
 
   _handleClose() {
-    this.props.onClose();
+    this.props.dispatch(changeRoute("MARKETPLACE"));
   }
 
   _handleSubmit(event) {

@@ -2,15 +2,10 @@
 import $ from "jquery";
 import React, { Component, PropTypes } from "react";
 
-export default class Button extends Component {
+export default class IconButton extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
-  }
-
-  static defaultProps = {
-    onClick: $.noop
   }
 
   constructor(props) {
@@ -25,10 +20,9 @@ export default class Button extends Component {
   render() {
     return (
       <button
-        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-        type={this.props.type}
+        className="mdl-button mdl-js-button mdl-button--icon"
         onClick={this._handleClick}>
-        {this.props.name}
+          <i className="material-icons">{this.props.name}</i>
       </button>
     )
   }

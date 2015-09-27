@@ -1,13 +1,14 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import Button from '../Button';
-import './ShowProduct.css';
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { changeRoute } from "../../actions/routeActions";
+import Button from "../Button";
+import IconButton from "../IconButton";
+import "./products.css";
 
-export default class ShowProduct extends Component {
+class ShowProduct extends Component {
   static propTypes = {
-    product: PropTypes.object.isRequired,
-    onBuy: PropTypes.func.isRequired,
-    onClose: PropTypes.func.isRequired
+    product: PropTypes.object.isRequired
   }
 
   constructor(props) {
@@ -17,11 +18,11 @@ export default class ShowProduct extends Component {
   }
 
   _handleBuy() {
-    this.props.onBuy(this.props.product.id);
+    this.props.dispatch(changeRoute("NEWTRANSACTION", this.props.product.id));
   }
 
   _handleClose() {
-    this.props.onClose();
+    this.props.dispatch(changeRoute("MARKETPLACE"));
   }
 
   render() {
@@ -31,26 +32,29 @@ export default class ShowProduct extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="show-product block--center mdl-card mdl-shadow--2dp">
-            <div className="block--center mdl-card__supporting-text mdl-card--border">
-              <Button name="Close" type="button" onClick={this._handleClose} />
-              <div className="flex--center">
-                <div className="show-product__left">
-                  <div className="flex--center">
-                    <img src={image} alt="" />
-                  </div>
+          <div className="product-card block--center-horizontally__margin mdl-card mdl-shadow--2dp">
+            <div className="test-outer-border mdl-card__supporting-text">
+              <div className="block--center-horizontally__flex">
+                <div className="product-card__left">
+                  <img className="product-card__image" src={image} alt="" />
                 </div>
-                <div className="show-product__right">
+                <div className="test-inner-border product-card__right">
                   <div>
                     <h3>{name}</h3>
-                    <p>{description}</p>
                     <h6>{currency} {price}</h6>
                   </div>
-                  <div>
-                    <Button name="Buy" type="button" onClick={this._handleBuy} />
-                  </div>
+                  <Button name="Buy" type="button" onClick={this._handleBuy} />
                 </div>
               </div>
+            </div>
+            <div className="mdl-card__supporting-text">
+              <div>
+                <h3>Description</h3>
+                <p>{description}</p>
+              </div>
+            </div>
+            <div className="mdl-card__menu">
+              <IconButton name="close" onClick={this._handleClose} />
             </div>
           </div>
         </div>
@@ -58,3 +62,5 @@ export default class ShowProduct extends Component {
     )
   }
 }
+
+export default connect()(ShowProduct);

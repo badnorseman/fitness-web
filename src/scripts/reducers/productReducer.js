@@ -8,7 +8,7 @@ import {
   PRODUCT_DESTROY_RESPONSE,
   PRODUCT_UPDATE_REQUEST,
   PRODUCT_UPDATE_RESPONSE
-} from '../actions/productActions';
+} from "../actions/productActions";
 
 const initialState = {
   isFetching: false,

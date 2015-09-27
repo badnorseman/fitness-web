@@ -1,6 +1,6 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
-import './TransactionList.css';
+import React, { Component, PropTypes } from "react";
+import "./transactions.css";
 
 export default class TransactionListHeader extends Component {
   static propTypes = {
@@ -15,7 +15,7 @@ export default class TransactionListHeader extends Component {
     const { header } = this.props;
 
     return (
-      <div className="transaction-list-item flex--center">
+      <div className="transaction-list-item block--center-horizontally__flex">
         <div className="transaction-list-item__header">DATE</div>
         <div className="transaction-list-item__header">CURRENCY</div>
         <div className="transaction-list-item__header">AMOUNT</div>

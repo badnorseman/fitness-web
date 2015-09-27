@@ -1,10 +1,10 @@
 "use strict";
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from "react";
 
 export default class ProductListItem extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
-    onClick: PropTypes.func.isRequired
+    onSelect: PropTypes.func.isRequired
   }
 
   constructor(props) {
@@ -13,19 +13,19 @@ export default class ProductListItem extends Component {
   }
 
   _handleSelect() {
-    this.props.onClick(this.props.item.id);
+    this.props.onSelect(this.props.item.id);
   }
 
   render() {
     const { item } = this.props;
     const { currency, name, price } = item;
     const titleStyle = {
-      backgroundImage: 'url(' + this.props.item.image + ')',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
+      backgroundImage: "url(" + this.props.item.image + ")",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
       height: 160,
-      WebkitTransition: 'all',
-      msTransition: 'all'
+      WebkitTransition: "all",
+      msTransition: "all"
     }
 
     return (
