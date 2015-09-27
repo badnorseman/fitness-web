@@ -20,7 +20,7 @@ export default class IconButton extends Component {
   render() {
     return (
       <button
-        className="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect"
+        className="mdl-button mdl-js-button mdl-button--icon"
         onClick={this._handleClick}>
           <i className="material-icons">{this.props.name}</i>
       </button>
