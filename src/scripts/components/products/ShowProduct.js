@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/routeActions";
 import Button from "../Button";
-import "./ShowProduct.css";
+import "./products.css";
 
 class ShowProduct extends Component {
   static propTypes = {
@@ -31,16 +31,16 @@ class ShowProduct extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="show-product block--center mdl-card mdl-shadow--2dp">
+          <div className="product-card block--center mdl-card mdl-shadow--2dp">
             <div className="block--center mdl-card__supporting-text mdl-card--border">
               <Button name="Close" type="button" onClick={this._handleClose} />
               <div className="flex--center">
-                <div className="show-product__left">
+                <div className="product-card__left">
                   <div className="flex--center">
-                    <img className="product-image" src={image} alt="" />
+                    <img className="product-card__image" src={image} alt="" />
                   </div>
                 </div>
-                <div className="show-product__right">
+                <div className="product-card__right">
                   <div>
                     <h3>{name}</h3>
                     <p>{description}</p>

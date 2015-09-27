@@ -5,6 +5,7 @@ import { changeRoute } from "../../actions/routeActions";
 import { destroyProduct, updateProduct } from "../../actions/productActions";
 import ProductForm from "./ProductForm";
 import Button from "../Button";
+import "./products.css";
 
 class EditProduct extends Component {
   static propTypes = {
@@ -34,16 +35,20 @@ class EditProduct extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <Button name="Close" type="button" onClick={this._handleClose} />
-          <ProductForm
-            currency={this.props.product.currency}
-            description={this.props.product.description}
-            id={this.props.product.id}
-            image={this.props.product.image}
-            name={this.props.product.name}
-            price={this.props.product.price}
-            onSubmit={this._handleEdit} />
-          <Button name="Remove" type="button" onClick={this._handleRemove} />
+          <div className="product-card block--center mdl-card mdl-shadow--2dp">
+            <div className="block--center mdl-card__supporting-text mdl-card--border">
+              <Button name="Close" type="button" onClick={this._handleClose} />
+              <ProductForm
+                currency={this.props.product.currency}
+                description={this.props.product.description}
+                id={this.props.product.id}
+                image={this.props.product.image}
+                name={this.props.product.name}
+                price={this.props.product.price}
+                onSubmit={this._handleEdit} />
+              <Button name="Remove" type="button" onClick={this._handleRemove} />
+            </div>
+          </div>
         </div>
       </div>
     )
