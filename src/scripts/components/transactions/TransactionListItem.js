@@ -18,7 +18,7 @@ export default class TransactionListItem extends Component {
     return (
       <div>
         <hr />
-        <div className="transaction-list-item flex--center">
+        <div className="transaction-list-item block--center-horizontally__flex">
           <div className="transaction-list-item__data">{date}</div>
           <div className="transaction-list-item__data">{currency}</div>
           <div className="transaction-list-item__data">{amount}</div>

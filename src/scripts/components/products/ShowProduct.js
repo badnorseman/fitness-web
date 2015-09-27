@@ -32,20 +32,25 @@ class ShowProduct extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="product-card block--center mdl-card mdl-shadow--2dp">
-            <div className="red-border block--center mdl-card__supporting-text mdl-card--border">
-              <div className="flex--center">
+          <div className="product-card block--center-horizontally__margin mdl-card mdl-shadow--2dp">
+            <div className="test-outer-border mdl-card__supporting-text">
+              <div className="block--center-horizontally__flex">
                 <div className="product-card__left">
                   <img className="product-card__image" src={image} alt="" />
                 </div>
-                <div className="product-card__right">
+                <div className="test-inner-border product-card__right">
                   <div>
                     <h3>{name}</h3>
-                    <p>{description}</p>
                     <h6>{currency} {price}</h6>
                   </div>
                   <Button name="Buy" type="button" onClick={this._handleBuy} />
                 </div>
+              </div>
+            </div>
+            <div className="mdl-card__supporting-text">
+              <div>
+                <h3>Description</h3>
+                <p>{description}</p>
               </div>
             </div>
             <div className="mdl-card__menu">

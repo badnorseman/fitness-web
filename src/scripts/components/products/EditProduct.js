@@ -36,8 +36,8 @@ class EditProduct extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="product-card block--center mdl-card mdl-shadow--2dp">
-            <div className="block--center mdl-card__supporting-text mdl-card--border">
+          <div className="product-card mdl-card mdl-shadow--2dp">
+            <div className="mdl-card__supporting-text">
               <Button name="Remove" type="button" onClick={this._handleRemove} />
               <ProductForm
                 currency={this.props.product.currency}

@@ -1,3 +1,5 @@
+// Add tabs to navigate user and transactions
+// http://www.getmdl.io/components/index.html#layout-section/tabs
 "use strict";
 import React, { Component, PropTypes } from "react";
 import EditUser from "./users/EditUser";
