@@ -5,6 +5,7 @@ import { changeRoute } from "../../actions/routeActions";
 import { destroyProduct, updateProduct } from "../../actions/productActions";
 import ProductForm from "./ProductForm";
 import Button from "../Button";
+import IconButton from "../IconButton";
 import "./products.css";
 
 class EditProduct extends Component {
@@ -48,11 +49,7 @@ class EditProduct extends Component {
                 onSubmit={this._handleEdit} />
             </div>
             <div className="mdl-card__menu">
-              <button
-                className="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect"
-                onClick={this._handleClose}>
-                <i className="material-icons">close</i>
-              </button>
+              <IconButton name="close" onClick={this._handleClose} />
             </div>
           </div>
         </div>
