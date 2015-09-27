@@ -6,17 +6,12 @@ import InputFile from "../InputFile";
 
 export default class ProductForm extends Component {
   static propTypes = {
-    currency: PropTypes.string,
-    description: PropTypes.string,
-    id: PropTypes.number,
-    image: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.number,
+    product: PropTypes.object,
     onSubmit: PropTypes.func.isRequired
   }
 
   static defaultProps = {
-    currency: "DKK"
+    product: { currency: "DKK" }
   }
 
   constructor(props) {
@@ -36,7 +31,7 @@ export default class ProductForm extends Component {
 
     let currency = this._getCurrency();
     let description = this.refs.description.state.fieldValue;
-    let id = this.props.id;
+    let id = this.props.product.id;
     let image = this.refs.image.state.file;
     let name = this.refs.name.state.fieldValue;
     let price = this.refs.price.state.fieldValue;
@@ -54,11 +49,14 @@ export default class ProductForm extends Component {
   }
 
   _isCurrency(value) {
-    return value === this.props.currency;
+    return value === this.props.product.currency;
   }
 
   render() {
-    const { description, image, name, price } = this.props;
+    const { product } = this.props;
+    const { description, image, name, price } = product || {
+      description: "", image: "", name: "", price: ""
+    };
 
     return (
       <form onSubmit={this._handleSubmit}>

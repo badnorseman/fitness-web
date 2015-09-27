@@ -43,12 +43,7 @@ class EditProduct extends Component {
             <div className="mdl-card__supporting-text">
               <Button name="Remove" type="button" onClick={this._handleRemove} />
               <ProductForm
-                currency={currency}
-                description={description}
-                id={id}
-                image={image}
-                name={name}
-                price={price}
+                product={product}
                 onSubmit={this._handleEdit} />
             </div>
             <div className="mdl-card__menu">

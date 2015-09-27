@@ -9,15 +9,6 @@ import IconButton from "../IconButton";
 import "./products.css";
 
 class NewProduct extends Component {
-  static propTypes = {
-    currency: PropTypes.string,
-    description: PropTypes.string,
-    id: PropTypes.number,
-    image: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.number
-  }
-
   constructor(props) {
     super(props);
     this._handleAdd = this._handleAdd.bind(this);
@@ -39,11 +30,6 @@ class NewProduct extends Component {
           <div className="product-card mdl-card mdl-shadow--2dp">
             <div className="mdl-card__supporting-text">
               <ProductForm
-                currency={this.props.currency}
-                description={this.props.description}
-                image={this.props.image}
-                name={this.props.name}
-                price={this.props.price}
                 onSubmit={this._handleAdd} />
             </div>
             <div className="mdl-card__menu">
