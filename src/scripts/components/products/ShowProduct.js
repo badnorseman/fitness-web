@@ -33,7 +33,6 @@ class ShowProduct extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="product-card block--center mdl-card mdl-shadow--2dp">
             <div className="block--center mdl-card__supporting-text mdl-card--border">
-              <Button name="Close" type="button" onClick={this._handleClose} />
               <div className="flex--center">
                 <div className="product-card__left">
                   <div className="flex--center">
@@ -51,6 +50,13 @@ class ShowProduct extends Component {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="mdl-card__menu">
+              <button
+                className="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect"
+                onClick={this._handleClose}>
+                <i className="material-icons">close</i>
+              </button>
             </div>
           </div>
         </div>

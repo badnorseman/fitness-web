@@ -37,7 +37,7 @@ class EditProduct extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="product-card block--center mdl-card mdl-shadow--2dp">
             <div className="block--center mdl-card__supporting-text mdl-card--border">
-              <Button name="Close" type="button" onClick={this._handleClose} />
+              <Button name="Remove" type="button" onClick={this._handleRemove} />
               <ProductForm
                 currency={this.props.product.currency}
                 description={this.props.product.description}
@@ -46,7 +46,13 @@ class EditProduct extends Component {
                 name={this.props.product.name}
                 price={this.props.product.price}
                 onSubmit={this._handleEdit} />
-              <Button name="Remove" type="button" onClick={this._handleRemove} />
+            </div>
+            <div className="mdl-card__menu">
+              <button
+                className="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect"
+                onClick={this._handleClose}>
+                <i className="material-icons">close</i>
+              </button>
             </div>
           </div>
         </div>
