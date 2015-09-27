@@ -17,7 +17,7 @@ import "./App.css";
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this._routeToMarketplace = this._routeToMarketplace.bind(this);
+    this._goToMarketplace = this._goToMarketplace.bind(this);
   }
 
   componentDidMount() {
@@ -68,7 +68,7 @@ export default class App extends Component {
     return <Signup />;
   }
 
-  _routeToMarketplace() {
+  _goToMarketplace() {
     this.props.changeRoute("MARKETPLACE");
   }
 
@@ -112,7 +112,7 @@ export default class App extends Component {
           <header className="mdl-layout__header layout__header">
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
-                <a className="mdl-navigation__link" href="#!" onClick={this._routeToMarketplace}>FitBird</a>
+                <a className="mdl-navigation__link" href="#!" onClick={this._goToMarketplace}>FitBird</a>
               </span>
               <div className="mdl-layout-spacer"></div>
               <Navigation />

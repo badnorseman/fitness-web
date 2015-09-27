@@ -4,12 +4,8 @@ import React, { Component, PropTypes } from "react";
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this._routeToEdit = this._routeToEdit.bind(this);
-    this._routeToNew = this._routeToNew.bind(this);
-  }
-
-  componentDidMount() {
-    // this.props.getProducts();
+    this._goToEditProduct = this._goToEditProduct.bind(this);
+    this._goToNewProduct = this._goToNewProduct.bind(this);
   }
 
   _getItems(products) {
@@ -17,18 +13,18 @@ export default class Dashboard extends Component {
     for (let key in this.props.products) {
       if (this.props.products.hasOwnProperty(key)) {
         items.push(
-          <Item key={key} item={this.props.products[key]} onClick={this._routeToEdit} />
+          <Item key={key} item={this.props.products[key]} onClick={this._goToEditProduct} />
         );
       }
     }
     return items;
   }
 
-  _routeToEdit(id) {
+  _goToEditProduct(id) {
     this.props.changeRoute("EDITPRODUCT", id);
   }
 
-  _routeToNew() {
+  _goToNewProduct() {
     this.props.changeRoute("NEWPRODUCT");
   }
 
@@ -42,7 +38,7 @@ export default class Dashboard extends Component {
           {items}
           <button
             className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored button--floating-action"
-            onClick={this._routeToNew}>
+            onClick={this._goToNewProduct}>
             <i className="material-icons">add</i>
           </button>
         </div>

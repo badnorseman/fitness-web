@@ -1,6 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import "./TransactionList.css";
+import "./transactions.css";
 
 export default class TransactionListItem extends Component {
   static propTypes = {

@@ -9,10 +9,10 @@ export default class Marketplace extends Component {
 
   constructor(props) {
     super(props);
-    this._routeToShowProduct = this._routeToShowProduct.bind(this);
+    this._goToShowProduct = this._goToShowProduct.bind(this);
   }
 
-  _routeToShowProduct(id) {
+  _goToShowProduct(id) {
     this.props.changeRoute("SHOWPRODUCT", id);
   }
 
@@ -23,7 +23,7 @@ export default class Marketplace extends Component {
       <div>
         <ProductList
           products={products}
-          onSelect={this._routeToShowProduct} />
+          onSelect={this._goToShowProduct} />
       </div>
     );
   }

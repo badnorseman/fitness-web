@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from "react";
 import TransactionListItem from "./TransactionListItem";
 import TransactionListHeader from "./TransactionListHeader";
-import "./TransactionList.css";
+import "./transactions.css";
 
 export default class TransactionList extends Component {
   static propTypes = {

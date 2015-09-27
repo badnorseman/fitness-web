@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from "react";
 export default class ProductListItem extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
-    onClick: PropTypes.func.isRequired
+    onSelect: PropTypes.func.isRequired
   }
 
   constructor(props) {
@@ -13,7 +13,7 @@ export default class ProductListItem extends Component {
   }
 
   _handleSelect() {
-    this.props.onClick(this.props.item.id);
+    this.props.onSelect(this.props.item.id);
   }
 
   render() {

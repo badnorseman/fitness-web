@@ -18,7 +18,7 @@ export default class ProductList extends Component {
     for (let key in this.props.products) {
       if (this.props.products.hasOwnProperty(key)) {
         items.push(
-          <ProductListItem key={key} item={this.props.products[key]} onClick={this._handleSelect} />
+          <ProductListItem key={key} item={this.props.products[key]} onSelect={this._handleSelect} />
         );
       }
     }
