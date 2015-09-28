@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import TransactionListItem from "./TransactionListItem";
 import TransactionListHeader from "./TransactionListHeader";
+import TransactionListItem from "./TransactionListItem";
 import "./transactions.css";
 
 export default class TransactionList extends Component {
