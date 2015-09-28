@@ -12,8 +12,8 @@ export default class Marketplace extends Component {
     this.props.getProducts();
   }
 
-  _goToShowProduct(id) {
-    this.props.changeRoute("SHOWPRODUCT", id);
+  _goToShowProduct(product) {
+    this.props.changeRoute("SHOWPRODUCT", product);
   }
 
   render() {

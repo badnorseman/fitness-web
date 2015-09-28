@@ -18,7 +18,7 @@ class ShowProduct extends Component {
   }
 
   _handleBuy() {
-    this.props.dispatch(changeRoute("NEWTRANSACTION", this.props.product.id));
+    this.props.dispatch(changeRoute("NEWTRANSACTION", this.props.product));
   }
 
   _handleClose() {

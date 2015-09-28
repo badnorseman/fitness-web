@@ -65,7 +65,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { param, products, route } = this.props;
+    const { param, route } = this.props;
 
     let content;
     switch (route) {
@@ -79,16 +79,16 @@ export default class App extends Component {
         content = this._getLogin();
         break;
       case "EDITPRODUCT":
-        content = this._getEditProduct(products[param]);
+        content = this._getEditProduct(param);
         break;
       case "NEWPRODUCT":
         content = this._getNewProduct();
         break;
       case "NEWTRANSACTION":
-        content = this._getNewTransaction(products[param]);
+        content = this._getNewTransaction(param);
         break;
       case "SHOWPRODUCT":
-        content = this._getShowProduct(products[param]);
+        content = this._getShowProduct(param);
         break;
       case "SIGNUP":
         content = this._getSignup();

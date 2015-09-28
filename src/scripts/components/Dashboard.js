@@ -20,8 +20,8 @@ export default class Dashboard extends Component {
     return items;
   }
 
-  _goToEditProduct(id) {
-    this.props.changeRoute("EDITPRODUCT", id);
+  _goToEditProduct(product) {
+    this.props.changeRoute("EDITPRODUCT", product);
   }
 
   _goToNewProduct() {
@@ -54,7 +54,7 @@ class Item extends Component {
   }
 
   _handleSelect() {
-    this.props.onClick(this.props.item.id);
+    this.props.onClick(this.props.item);
   }
 
   render() {
