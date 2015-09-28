@@ -33,7 +33,7 @@ export default class ProductList extends Component {
     let items = this._getItems();
 
     return (
-      <div className="mdl-grid flex--center">
+      <div className="mdl-grid">
         {items}
       </div>
     )

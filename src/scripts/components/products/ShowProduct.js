@@ -33,12 +33,12 @@ class ShowProduct extends Component {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <div className="product-card block--center-horizontally__margin mdl-card mdl-shadow--2dp">
-            <div className="test-outer-border mdl-card__supporting-text">
+            <div className="mdl-card__supporting-text">
               <div className="block--center-horizontally__flex">
                 <div className="product-card__left">
                   <img className="product-card__image" src={image} alt="" />
                 </div>
-                <div className="test-inner-border product-card__right">
+                <div className="product-card__right">
                   <div>
                     <h3>{name}</h3>
                     <h6>{currency} {price}</h6>

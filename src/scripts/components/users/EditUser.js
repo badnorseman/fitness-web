@@ -59,8 +59,8 @@ class EditUser extends Component {
     const { avatar, birth_date, email, gender, height, name, weight } = user;
 
     return (
-      <div className="edit-user block--center mdl-card mdl-shadow--2dp">
-        <div className="block--center mdl-card__supporting-text mdl-card--border">
+      <div className="edit-user mdl-card mdl-shadow--2dp">
+        <div className="mdl-card__supporting-text mdl-card--border">
           <h4>Profile</h4>
           <br />
           <form onSubmit={this._handleSubmit}>
