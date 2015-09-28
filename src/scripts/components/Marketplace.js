@@ -1,21 +1,19 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import { connect } from "react-redux";
-import { changeRoute } from "../actions/routeActions";
 import ProductList from "./products/ProductList";
 
-class Marketplace extends Component {
-  static propTypes = {
-    products: PropTypes.object.isRequired
-  }
-
+export default class Marketplace extends Component {
   constructor(props) {
     super(props);
     this._goToShowProduct = this._goToShowProduct.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getProducts();
+  }
+
   _goToShowProduct(id) {
-    this.props.dispatch(changeRoute("SHOWPRODUCT", id));
+    this.props.changeRoute("SHOWPRODUCT", id);
   }
 
   render() {
@@ -30,5 +28,3 @@ class Marketplace extends Component {
     );
   }
 }
-
-export default connect()(Marketplace);

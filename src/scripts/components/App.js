@@ -6,7 +6,7 @@ import EditProduct from "./products/EditProduct";
 import ErrorMessage from "../containers/ErrorMessage";
 import Footer from "../components/Footer";
 import Login from "../components/auth/Login";
-import Marketplace from "../components/Marketplace";
+import Marketplace from "../containers/Marketplace";
 import Navigation from "../containers/Navigation";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
@@ -18,10 +18,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this._goToMarketplace = this._goToMarketplace.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.getProducts();
   }
 
   componentDidUpdate() {
@@ -36,11 +32,11 @@ export default class App extends Component {
     return <Dashboard />;
   }
 
-  _getEditProduct(product = {}) {
+  _getEditProduct(product) {
     return <EditProduct product={product} />;
   }
 
-  _getShowProduct(product = {}) {
+  _getShowProduct(product) {
     return <ShowProduct product={product} />;
   }
 
@@ -56,8 +52,8 @@ export default class App extends Component {
     return <Login />;
   }
 
-  _getMarketplace(products) {
-    return <Marketplace products={products} />;
+  _getMarketplace() {
+    return <Marketplace />;
   }
 
   _getSignup() {
@@ -69,7 +65,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { param, isFetching, products, route } = this.props;
+    const { param, products, route } = this.props;
 
     let content;
     switch (route) {
@@ -98,7 +94,7 @@ export default class App extends Component {
         content = this._getSignup();
         break;
       default:
-        content = this._getMarketplace(products);
+        content = this._getMarketplace();
     }
     return (
       <div>
