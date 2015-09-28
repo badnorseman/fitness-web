@@ -10,10 +10,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { productReducer, routeReducer } = state;
+  const { productReducer, routeReducer, transactionReducer } = state;
+  const { clientToken } = transactionReducer;
   const { isFetching, products } = productReducer;
   const { id, route } = routeReducer;
-  return { id, isFetching, products, route };
+  return { clientToken, id, isFetching, products, route };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

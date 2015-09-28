@@ -73,8 +73,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { id, isFetching, products, route } = this.props;
-    const clientToken = "";
+    const { clientToken, id, isFetching, products, route } = this.props;
     const product = products[id];
 
     let content;
