@@ -12,8 +12,8 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   const { productReducer, routeReducer } = state;
   const { isFetching, products } = productReducer;
-  const { id, route } = routeReducer;
-  return { id, isFetching, products, route };
+  const { param, route } = routeReducer;
+  return { isFetching, products, param, route };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

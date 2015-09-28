@@ -49,10 +49,7 @@ export default class App extends Component {
   }
 
   _getNewTransaction(product) {
-    return (
-      <NewTransaction
-        product={product} />
-    );
+    return <NewTransaction product={product} />;
   }
 
   _getLogin() {
@@ -72,8 +69,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { id, isFetching, products, route } = this.props;
-    const product = products[id];
+    const { param, isFetching, products, route } = this.props;
 
     let content;
     switch (route) {
@@ -87,16 +83,16 @@ export default class App extends Component {
         content = this._getLogin();
         break;
       case "EDITPRODUCT":
-        content = this._getEditProduct(product);
+        content = this._getEditProduct(products[param]);
         break;
       case "NEWPRODUCT":
         content = this._getNewProduct();
         break;
       case "NEWTRANSACTION":
-        content = this._getNewTransaction(product);
+        content = this._getNewTransaction(products[param]);
         break;
       case "SHOWPRODUCT":
-        content = this._getShowProduct(product);
+        content = this._getShowProduct(products[param]);
         break;
       case "SIGNUP":
         content = this._getSignup();
