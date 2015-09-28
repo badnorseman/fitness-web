@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from "react";
 import TransactionListHeader from "./TransactionListHeader";
 import TransactionListItem from "./TransactionListItem";
-import "./transactions.css";
+import "./TransactionList.css";
 
 export default class TransactionList extends Component {
   static propTypes = {
@@ -29,13 +29,9 @@ export default class TransactionList extends Component {
     let items = this._getItems();
 
     return (
-      <div className="transaction-list mdl-card mdl-shadow--2dp">
-        <div className="mdl-card__supporting-text mdl-card--border">
-          <h4>Payment History</h4>
-          <br />
-          <TransactionListHeader />
-          {items}
-        </div>
+      <div className="transaction-list block--center-horizontally__margin">
+        <TransactionListHeader />
+        {items}
       </div>
     )
   }
