@@ -27,14 +27,13 @@ export default class TransactionList extends Component {
 
   render() {
     let items = this._getItems();
-    let header = {};
 
     return (
       <div className="transaction-list block--center mdl-card mdl-shadow--2dp">
         <div className="block--center mdl-card__supporting-text mdl-card--border">
           <h4>Payment History</h4>
           <br />
-          <TransactionListHeader header={header}/>
+          <TransactionListHeader />
           {items}
         </div>
       </div>
