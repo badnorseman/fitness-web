@@ -60,7 +60,7 @@ export default class NewTransaction extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="mdl-card mdl-shadow--2dp">
             <div className="mdl-card__supporting-text">
-              <Button name="close" onClick={this._handleClose} />
+              <Button name="close" type="button" onClick={this._handleClose} />
               <form onSubmit={this._handleSubmit}>
                 <div id="dropin-container"></div>
                 <Button name="Buy" type="submit" />

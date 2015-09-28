@@ -8,18 +8,6 @@ export default class Dashboard extends Component {
     this._goToNewProduct = this._goToNewProduct.bind(this);
   }
 
-  _getItems(products) {
-    let items = [];
-    for (let key in this.props.products) {
-      if (this.props.products.hasOwnProperty(key)) {
-        items.push(
-          <Item key={key} item={this.props.products[key]} onClick={this._goToEditProduct} />
-        );
-      }
-    }
-    return items;
-  }
-
   _goToEditProduct(product) {
     this.props.changeRoute("EDITPRODUCT", product);
   }
@@ -29,21 +17,71 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    const { isFetching, products } = this.props;
-    let items = this._getItems(products);
+    const { products } = this.props;
 
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          {items}
-          <button
-            className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored button--floating-action"
-            onClick={this._goToNewProduct}>
-            <i className="material-icons">add</i>
-          </button>
+          <div className="mdl-tabs mdl-js-tabs">
+            <div className="mdl-tabs__tab-bar">
+              <a href="#products-panel" className="mdl-tabs__tab is-active">Products</a>
+              <a href="#users-panel" className="mdl-tabs__tab">Users</a>
+            </div>
+            <div className="mdl-tabs__panel is-active" id="products-panel">
+              <List
+                items={products}
+                onEdit={this._goToEditProduct}
+                onNew={this._goToNewProduct} />
+            </div>
+            <div className="mdl-tabs__panel" id="users-panel">
+            </div>
+          </div>
         </div>
       </div>
     );
+  }
+}
+
+class List extends Component {
+  constructor(props) {
+    super(props);
+    this._handleEdit = this._handleEdit.bind(this);
+    this._handleNew = this._handleNew.bind(this);
+  }
+
+  _getItems() {
+    let items = [];
+    for (let key in this.props.items) {
+      if (this.props.items.hasOwnProperty(key)) {
+        items.push(
+          <Item key={key} item={this.props.items[key]} onSelect={this._handleEdit} />
+        );
+      }
+    }
+    return items;
+  }
+
+  _handleEdit(item) {
+    this.props.onEdit(item);
+  }
+
+  _handleNew() {
+    this.props.onNew();
+  }
+
+  render() {
+    let items = this._getItems();
+
+    return (
+      <div>
+        {items}
+        <button
+          className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored button--floating-action"
+          onClick={this._handleNew}>
+          <i className="material-icons">add</i>
+        </button>
+      </div>
+    )
   }
 }
 
@@ -54,7 +92,7 @@ class Item extends Component {
   }
 
   _handleSelect() {
-    this.props.onClick(this.props.item);
+    this.props.onSelect(this.props.item);
   }
 
   render() {
