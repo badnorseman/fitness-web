@@ -28,7 +28,7 @@ class EditUser extends Component {
     event.preventDefault();
 
     let avatar = this.refs.avatar.state.file;
-    let birthday = this.refs.birthday.state.fieldValue;
+    let birthDate = this.refs.birthDate.state.fieldValue;
     let email = this.refs.email.state.fieldValue;
     let gender = this._getGender();
     let height = this.refs.height.state.fieldValue;
@@ -39,7 +39,7 @@ class EditUser extends Component {
     if (email && name) {
       this.props.dispatch(updateUser({
         avatar: avatar,
-        birth_day: birthday,
+        birth_date: birthDate,
         gender: gender,
         height: height,
         email: email,
@@ -56,7 +56,7 @@ class EditUser extends Component {
 
   render() {
     const { user } = this.props;
-    const { avatar, birth_day, email, gender, height, name, weight } = user;
+    const { avatar, birth_date, email, gender, height, name, weight } = user;
 
     return (
       <div className="edit-user block--center mdl-card mdl-shadow--2dp">
@@ -102,11 +102,11 @@ class EditUser extends Component {
               </div>
               <div>
                 <InputField
-                  fieldId="birthday"
-                  fieldName="Day of Birth"
+                  fieldId="birthDate"
+                  fieldName="Date of Birth"
                   fieldType="text"
-                  fieldValue={birth_day}
-                  ref="birthday" />
+                  fieldValue={birth_date}
+                  ref="birthDate" />
               </div>
               <div>
                 <InputField
