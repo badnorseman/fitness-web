@@ -9,7 +9,7 @@ import Login from "../components/auth/Login";
 import Marketplace from "../containers/Marketplace";
 import Navigation from "../containers/Navigation";
 import NewProduct from "./products/NewProduct";
-import NewTransaction from "./transactions/NewTransaction";
+import NewTransaction from "../containers/NewTransaction";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "../components/auth/Signup";
 import "./App.css";

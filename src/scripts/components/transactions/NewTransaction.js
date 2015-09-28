@@ -1,13 +1,11 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import { connect } from "react-redux";
-import { changeRoute } from "../../actions/routeActions";
-import { createTransaction, getClientToken } from "../../actions/transactionActions";
 import Braintree from "braintree-web";
 import Button from "../Button";
 
-class NewTransaction extends Component {
+export default class NewTransaction extends Component {
   static propTypes = {
+    clientToken: PropTypes.string,
     product: PropTypes.object.isRequired
   }
 
@@ -19,7 +17,7 @@ class NewTransaction extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getClientToken());
+    this.props.getClientToken();
   }
 
   componentDidUpdate() {
@@ -33,7 +31,7 @@ class NewTransaction extends Component {
   }
 
   _handleClose() {
-    this.props.dispatch(changeRoute("MARKETPLACE"));
+    this.props.changeRoute("MARKETPLACE");
   }
 
   _handleSubmit(event) {
@@ -47,12 +45,12 @@ class NewTransaction extends Component {
     let paymentMethodNonce = paymentMethod.nonce;
 
     if (amount && currency && id && paymentMethodNonce) {
-      this.props.dispatch(createTransaction({
+      this.props.createTransaction({
         amount: amount,
         currency: currency,
         product_id: id,
         payment_method_nonce: paymentMethodNonce
-      }))
+      })
     };
   }
 
@@ -60,15 +58,17 @@ class NewTransaction extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <Button name="Close" type="button" onClick={this._handleClose}/>
-          <form onSubmit={this._handleSubmit}>
-            <div id="dropin-container"></div>
-            <Button name="Buy" type="submit" />
-          </form>
+          <div className="mdl-card mdl-shadow--2dp">
+            <div className="mdl-card__supporting-text">
+              <Button name="close" onClick={this._handleClose} />
+              <form onSubmit={this._handleSubmit}>
+                <div id="dropin-container"></div>
+                <Button name="Buy" type="submit" />
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     )
   }
 }
-
-export default connect()(NewTransaction);
