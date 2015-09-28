@@ -2,13 +2,12 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/routeActions";
-import { createTransaction } from "../../actions/transactionActions";
+import { createTransaction, getClientToken } from "../../actions/transactionActions";
 import Braintree from "braintree-web";
 import Button from "../Button";
 
 class NewTransaction extends Component {
   static propTypes = {
-    clientToken: PropTypes.string,
     product: PropTypes.object.isRequired
   }
 
@@ -20,6 +19,10 @@ class NewTransaction extends Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(getClientToken());
+  }
+
+  componentDidUpdate() {
     Braintree.setup(
       this.props.clientToken,
       "dropin", {

@@ -48,10 +48,9 @@ export default class App extends Component {
     return <NewProduct />;
   }
 
-  _getNewTransaction(clientToken, product) {
+  _getNewTransaction(product) {
     return (
       <NewTransaction
-        clientToken={clientToken}
         product={product} />
     );
   }
@@ -73,7 +72,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { clientToken, id, isFetching, products, route } = this.props;
+    const { id, isFetching, products, route } = this.props;
     const product = products[id];
 
     let content;
@@ -94,7 +93,7 @@ export default class App extends Component {
         content = this._getNewProduct();
         break;
       case "NEWTRANSACTION":
-        content = this._getNewTransaction(clientToken, product);
+        content = this._getNewTransaction(product);
         break;
       case "SHOWPRODUCT":
         content = this._getShowProduct(product);
