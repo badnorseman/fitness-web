@@ -31,7 +31,7 @@ export default class List extends Component {
     let items = this._getItems();
 
     return (
-      <div>
+      <div className="list block--center-horizontally__margin">
         <ListHeader header={header}/>
         {items}
       </div>

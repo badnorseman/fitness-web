@@ -15,11 +15,11 @@ export default class ListHeader extends Component {
     const { header } = this.props;
 
     return (
-      <div className="list-item block--center-horizontally__flex">
-        <div className="list-item__header"></div>
-        <div className="list-item__header"></div>
-        <div className="list-item__header"></div>
-        <div className="list-item__header"></div>
+      <div className="block--center-horizontally__flex">
+        <div className="list__header"></div>
+        <div className="list__header"></div>
+        <div className="list__header"></div>
+        <div className="list__header"></div>
       </div>
     )
   }

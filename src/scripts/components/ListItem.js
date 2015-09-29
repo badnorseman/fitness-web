@@ -17,11 +17,11 @@ export default class ListItem extends Component {
     return (
       <div>
         <hr />
-        <div className="list-item block--center-horizontally__flex">
-          <div className="list-item__data"></div>
-          <div className="list-item__data"></div>
-          <div className="list-item__data"></div>
-          <div className="list-item__data"></div>
+        <div className="block--center-horizontally__flex">
+          <div className="list__item"></div>
+          <div className="list__item"></div>
+          <div className="list__item"></div>
+          <div className="list__item"></div>
         </div>
       </div>
     )

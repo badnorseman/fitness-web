@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import List from "./List";
 import "./Dashboard.css";
 
 export default class Dashboard extends Component {
@@ -19,6 +20,7 @@ export default class Dashboard extends Component {
 
   render() {
     const { products } = this.props;
+    const header = {};
 
     return (
       <div className="mdl-grid">
@@ -32,12 +34,13 @@ export default class Dashboard extends Component {
                   <a href="#users-panel" className="mdl-tabs__tab">Users</a>
                 </div>
                 <div className="mdl-tabs__panel is-active" id="products-panel">
-                  <List
+                  <ProductList
                     items={products}
                     onEdit={this._goToEditProduct}
                     onNew={this._goToNewProduct} />
                 </div>
                 <div className="mdl-tabs__panel" id="users-panel">
+                  <List header={header} items={products} />
                 </div>
               </div>
             </div>
@@ -48,7 +51,7 @@ export default class Dashboard extends Component {
   }
 }
 
-class List extends Component {
+class ProductList extends Component {
   constructor(props) {
     super(props);
     this._handleEdit = this._handleEdit.bind(this);
