@@ -2,13 +2,13 @@
   padding: 50px 0 0 0;
 }
 
-.transaction-list-item__header {
+.transaction-list__header {
   margin: 0 10px 10px 0;
   max-width: 800px;
   width: 25%;
 }
 
-.transaction-list-item__data {
+.transaction-list__item {
   margin: 10px 10px 10px 0;
   max-width: 800px;
   width: 25%;

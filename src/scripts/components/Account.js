@@ -19,7 +19,7 @@ export default class Account extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="account mdl-card mdl-shadow--2dp">
+          <div className="account-card mdl-card mdl-shadow--2dp">
             <div className="block--center-horizontally__margin mdl-card__supporting-text">
               <div className="mdl-tabs mdl-js-tabs">
                 <div className="mdl-tabs__tab-bar">
