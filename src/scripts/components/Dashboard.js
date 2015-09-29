@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import "./Dashboard.css";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -22,18 +23,22 @@ export default class Dashboard extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="mdl-tabs mdl-js-tabs">
-            <div className="mdl-tabs__tab-bar">
-              <a href="#products-panel" className="mdl-tabs__tab is-active">Products</a>
-              <a href="#users-panel" className="mdl-tabs__tab">Users</a>
-            </div>
-            <div className="mdl-tabs__panel is-active" id="products-panel">
-              <List
-                items={products}
-                onEdit={this._goToEditProduct}
-                onNew={this._goToNewProduct} />
-            </div>
-            <div className="mdl-tabs__panel" id="users-panel">
+          <div className="dashboard-card mdl-card mdl-shadow--2dp">
+            <div className="block--center-horizontally__margin mdl-card__supporting-text">
+              <div className="mdl-tabs mdl-js-tabs">
+                <div className="mdl-tabs__tab-bar">
+                  <a href="#products-panel" className="mdl-tabs__tab is-active">Products</a>
+                  <a href="#users-panel" className="mdl-tabs__tab">Users</a>
+                </div>
+                <div className="mdl-tabs__panel is-active" id="products-panel">
+                  <List
+                    items={products}
+                    onEdit={this._goToEditProduct}
+                    onNew={this._goToNewProduct} />
+                </div>
+                <div className="mdl-tabs__panel" id="users-panel">
+                </div>
+              </div>
             </div>
           </div>
         </div>

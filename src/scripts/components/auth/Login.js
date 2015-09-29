@@ -37,7 +37,7 @@ class Login extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="login mdl-card mdl-shadow--2dp">
+          <div className="login-card mdl-card mdl-shadow--2dp">
             <div className="mdl-card__supporting-text mdl-card--border">
               <Button name="Close" type="button" onClick={this._handleClose} />
               <div><Oauth provider="facebook" /></div>
