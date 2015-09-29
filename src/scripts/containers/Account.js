@@ -2,10 +2,11 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { getTransactions } from "../actions/transactionActions";
-import Account from "../components/Account";
+import { updateUser } from "../actions/userActions";
+import Account from "../components/account/Account";
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getTransactions }, dispatch);
+  return bindActionCreators({ getTransactions, updateUser }, dispatch);
 }
 
 function mapStateToProps(state) {

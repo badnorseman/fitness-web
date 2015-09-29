@@ -1,3 +1,8 @@
+.account-card {
+  height: auto;
+  width: 80%;
+}
+
 .edit-user {
   max-width: 800px;
   padding: 50px 0 0 0;

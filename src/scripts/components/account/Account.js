@@ -1,16 +1,21 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import EditUser from "./users/EditUser";
-import TransactionList from "./transactions/TransactionList";
+import EditUser from "./EditUser";
+import TransactionList from "../transactions/TransactionList";
 import "./Account.css";
 
 export default class Account extends Component {
   constructor(props) {
     super(props);
+    this._handleEdit = this._handleEdit.bind(this);
   }
 
   componentDidMount() {
     this.props.getTransactions();
+  }
+
+  _handleEdit(user) {
+    this.props.updateUser(user);
   }
 
   render() {
@@ -33,7 +38,7 @@ export default class Account extends Component {
                   Here edites email and password.
                 </div>
                 <div className="mdl-tabs__panel" id="profile-panel">
-                  <EditUser user={currentUser} />
+                  <EditUser user={currentUser} onSubmit={this._handleEdit} />
                 </div>
                 <div className="mdl-tabs__panel" id="photo-panel">
                   Here edites photo.
