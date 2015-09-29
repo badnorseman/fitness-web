@@ -1,21 +1,16 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import EditUser from "./EditUser";
-import TransactionList from "../transactions/TransactionList";
+import EditUser from "./users/EditUser";
+import TransactionList from "./transactions/TransactionList";
 import "./Account.css";
 
 export default class Account extends Component {
   constructor(props) {
     super(props);
-    this._handleEdit = this._handleEdit.bind(this);
   }
 
   componentDidMount() {
     this.props.getTransactions();
-  }
-
-  _handleEdit(user) {
-    this.props.updateUser(user);
   }
 
   render() {
@@ -29,19 +24,15 @@ export default class Account extends Component {
             <div className="block--center-horizontally__margin mdl-card__supporting-text">
               <div className="mdl-tabs mdl-js-tabs">
                 <div className="mdl-tabs__tab-bar">
-                  <a href="#settings-panel" className="mdl-tabs__tab is-active">Settings</a>
-                  <a href="#profile-panel" className="mdl-tabs__tab">Profile</a>
-                  <a href="#photo-panel" className="mdl-tabs__tab">Photo</a>
+                  <a href="#profile-panel" className="mdl-tabs__tab is-active">Profile</a>
+                  <a href="#settings-panel" className="mdl-tabs__tab">Settings</a>
                   <a href="#payment-history-panel" className="mdl-tabs__tab">Payment History</a>
                 </div>
-                <div className="mdl-tabs__panel is-active" id="settings-panel">
-                  Here edites email and password.
+                <div className="mdl-tabs__panel is-active" id="profile-panel">
+                  <EditUser user={currentUser} />
                 </div>
-                <div className="mdl-tabs__panel" id="profile-panel">
-                  <EditUser user={currentUser} onSubmit={this._handleEdit} />
-                </div>
-                <div className="mdl-tabs__panel" id="photo-panel">
-                  Here edites photo.
+                <div className="mdl-tabs__panel" id="settings-panel">
+                  <p>Here edites email and password.</p>
                 </div>
                 <div className="mdl-tabs__panel" id="payment-history-panel">
                   <TransactionList transactions={transactions} />

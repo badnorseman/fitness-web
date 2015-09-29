@@ -1,13 +1,15 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { updateUser } from "../../actions/userActions";
 import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
+import "./EditUser.css";
 
-export default class EditUser extends Component {
+class EditUser extends Component {
   static propTypes = {
-    user: PropTypes.object.isRequired,
-    onSubmit: PropTypes.func.isRequired
+    user: PropTypes.object.isRequired
   }
 
   constructor(props) {
@@ -35,7 +37,7 @@ export default class EditUser extends Component {
     let weight = this.refs.weight.state.fieldValue;
 
     if (email && name) {
-      this.props.onSubmit({
+      this.props.dispatch(updateUser({
         avatar: avatar,
         birth_date: birthDate,
         gender: gender,
@@ -44,7 +46,7 @@ export default class EditUser extends Component {
         id: id,
         name: name,
         weight: weight
-      })
+      }))
     };
   }
 
@@ -130,3 +132,5 @@ export default class EditUser extends Component {
     )
   }
 }
+
+export default connect()(EditUser);
