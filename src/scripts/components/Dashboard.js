@@ -23,7 +23,8 @@ export default class Dashboard extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="dashboard-card mdl-card mdl-shadow--2dp">
+          <div className="dashboard-card block--center-horizontally__margin"><h3>Dashboard</h3></div>
+          <div className="dashboard-card block--center-horizontally__margin mdl-card mdl-shadow--2dp">
             <div className="block--center-horizontally__margin mdl-card__supporting-text">
               <div className="mdl-tabs mdl-js-tabs">
                 <div className="mdl-tabs__tab-bar">
