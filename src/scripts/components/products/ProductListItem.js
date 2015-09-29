@@ -13,7 +13,7 @@ export default class ProductListItem extends Component {
   }
 
   _handleSelect() {
-    this.props.onSelect(this.props.item.id);
+    this.props.onSelect(this.props.item);
   }
 
   render() {

@@ -6,10 +6,10 @@ import EditProduct from "./products/EditProduct";
 import ErrorMessage from "../containers/ErrorMessage";
 import Footer from "../components/Footer";
 import Login from "../components/auth/Login";
-import Marketplace from "../components/Marketplace";
+import Marketplace from "../containers/Marketplace";
 import Navigation from "../containers/Navigation";
 import NewProduct from "./products/NewProduct";
-import NewTransaction from "./transactions/NewTransaction";
+import NewTransaction from "../containers/NewTransaction";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "../components/auth/Signup";
 import "./App.css";
@@ -18,10 +18,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this._goToMarketplace = this._goToMarketplace.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.getProducts();
   }
 
   componentDidUpdate() {
@@ -36,11 +32,11 @@ export default class App extends Component {
     return <Dashboard />;
   }
 
-  _getEditProduct(product = {}) {
+  _getEditProduct(product) {
     return <EditProduct product={product} />;
   }
 
-  _getShowProduct(product = {}) {
+  _getShowProduct(product) {
     return <ShowProduct product={product} />;
   }
 
@@ -48,20 +44,16 @@ export default class App extends Component {
     return <NewProduct />;
   }
 
-  _getNewTransaction(clientToken, product) {
-    return (
-      <NewTransaction
-        clientToken={clientToken}
-        product={product} />
-    );
+  _getNewTransaction(product) {
+    return <NewTransaction product={product} />;
   }
 
   _getLogin() {
     return <Login />;
   }
 
-  _getMarketplace(products) {
-    return <Marketplace products={products} />;
+  _getMarketplace() {
+    return <Marketplace />;
   }
 
   _getSignup() {
@@ -73,9 +65,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { id, isFetching, products, route } = this.props;
-    const clientToken = "";
-    const product = products[id];
+    const { param, route } = this.props;
 
     let content;
     switch (route) {
@@ -89,22 +79,22 @@ export default class App extends Component {
         content = this._getLogin();
         break;
       case "EDITPRODUCT":
-        content = this._getEditProduct(product);
+        content = this._getEditProduct(param);
         break;
       case "NEWPRODUCT":
         content = this._getNewProduct();
         break;
       case "NEWTRANSACTION":
-        content = this._getNewTransaction(clientToken, product);
+        content = this._getNewTransaction(param);
         break;
       case "SHOWPRODUCT":
-        content = this._getShowProduct(product);
+        content = this._getShowProduct(param);
         break;
       case "SIGNUP":
         content = this._getSignup();
         break;
       default:
-        content = this._getMarketplace(products);
+        content = this._getMarketplace();
     }
     return (
       <div>

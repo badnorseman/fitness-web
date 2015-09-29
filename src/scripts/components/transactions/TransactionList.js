@@ -1,8 +1,8 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import TransactionListItem from "./TransactionListItem";
 import TransactionListHeader from "./TransactionListHeader";
-import "./transactions.css";
+import TransactionListItem from "./TransactionListItem";
+import "./TransactionList.css";
 
 export default class TransactionList extends Component {
   static propTypes = {
@@ -27,16 +27,11 @@ export default class TransactionList extends Component {
 
   render() {
     let items = this._getItems();
-    let header = {};
 
     return (
-      <div className="transaction-list block--center mdl-card mdl-shadow--2dp">
-        <div className="block--center mdl-card__supporting-text mdl-card--border">
-          <h4>Payment History</h4>
-          <br />
-          <TransactionListHeader header={header}/>
-          {items}
-        </div>
+      <div className="transaction-list block--center-horizontally__margin">
+        <TransactionListHeader />
+        {items}
       </div>
     )
   }

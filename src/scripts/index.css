@@ -37,11 +37,3 @@ footer, .push {
 .text--center {
   text-align: center;
 }
-
-.test-outer-border {
-  border: 1px solid green;
-}
-
-.test-inner-border {
-  border: 1px solid red;
-}

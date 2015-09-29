@@ -18,8 +18,8 @@ import {
 } from "../actions/productActions";
 
 const initialState = {
-  route: "",
-  id: 0
+  param: "",
+  route: ""
 };
 
 export default function routeReducer(state = initialState, action) {
@@ -27,7 +27,7 @@ export default function routeReducer(state = initialState, action) {
     case ROUTE_CHANGE:
       return Object.assign({}, state, {
         route: action.route,
-        id: action.id
+        param: action.param
       });
     case LOGIN_RESPONSE:
     case LOGOUT_RESPONSE:

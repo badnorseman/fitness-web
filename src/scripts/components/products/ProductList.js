@@ -25,15 +25,15 @@ export default class ProductList extends Component {
     return items;
   }
 
-  _handleSelect(id) {
-    this.props.onSelect(id);
+  _handleSelect(product) {
+    this.props.onSelect(product);
   }
 
   render() {
     let items = this._getItems();
 
     return (
-      <div className="mdl-grid flex--center">
+      <div className="mdl-grid">
         {items}
       </div>
     )
