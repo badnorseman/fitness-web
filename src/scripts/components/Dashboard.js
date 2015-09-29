@@ -34,7 +34,7 @@ export default class Dashboard extends Component {
                   <a href="#users-panel" className="mdl-tabs__tab">Users</a>
                 </div>
                 <div className="mdl-tabs__panel is-active" id="products-panel">
-                  <ProductList
+                  <DashboardList
                     items={products}
                     onEdit={this._goToEditProduct}
                     onNew={this._goToNewProduct} />
@@ -51,7 +51,7 @@ export default class Dashboard extends Component {
   }
 }
 
-class ProductList extends Component {
+class DashboardList extends Component {
   constructor(props) {
     super(props);
     this._handleEdit = this._handleEdit.bind(this);
@@ -63,7 +63,7 @@ class ProductList extends Component {
     for (let key in this.props.items) {
       if (this.props.items.hasOwnProperty(key)) {
         items.push(
-          <Item key={key} item={this.props.items[key]} onSelect={this._handleEdit} />
+          <DashboardListItem key={key} item={this.props.items[key]} onSelect={this._handleEdit} />
         );
       }
     }
@@ -82,10 +82,10 @@ class ProductList extends Component {
     let items = this._getItems();
 
     return (
-      <div>
+      <div className="dashboard-list">
         {items}
         <button
-          className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored button--floating-action"
+          className="dashboard-list__button--new mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
           onClick={this._handleNew}>
           <i className="material-icons">add</i>
         </button>
@@ -94,7 +94,7 @@ class ProductList extends Component {
   }
 }
 
-class Item extends Component {
+class DashboardListItem extends Component {
   constructor(props) {
     super(props);
     this._handleSelect = this._handleSelect.bind(this);
