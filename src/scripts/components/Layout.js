@@ -24,42 +24,6 @@ export default class Layout extends Component {
     componentHandler.upgradeDom()
   }
 
-  _getAccount() {
-    return <Account />;
-  }
-
-  _getDashboard() {
-    return <Dashboard />;
-  }
-
-  _getEditProduct(product) {
-    return <EditProduct product={product} />;
-  }
-
-  _getShowProduct(product) {
-    return <ShowProduct product={product} />;
-  }
-
-  _getNewProduct() {
-    return <NewProduct />;
-  }
-
-  _getNewTransaction(product) {
-    return <NewTransaction product={product} />;
-  }
-
-  _getLogin() {
-    return <Login />;
-  }
-
-  _getMarketplace() {
-    return <Marketplace />;
-  }
-
-  _getSignup() {
-    return <Signup />;
-  }
-
   _goToMarketplace() {
     this.props.changeRoute("MARKETPLACE");
   }
@@ -70,31 +34,31 @@ export default class Layout extends Component {
     let content;
     switch (route) {
       case "ACCOUNT":
-        content = this._getAccount();
+        content = <Account />;
         break;
       case "DASHBOARD":
-        content = this._getDashboard();
+        content = <Dashboard />;
         break;
       case "LOGIN":
-        content = this._getLogin();
+        content = <Login />;
         break;
       case "EDITPRODUCT":
-        content = this._getEditProduct(param);
+        content = <EditProduct product={param} />;
         break;
       case "NEWPRODUCT":
-        content = this._getNewProduct();
+        content = <NewProduct />;
         break;
       case "NEWTRANSACTION":
-        content = this._getNewTransaction(param);
+        content = <NewTransaction product={param} />;
         break;
       case "SHOWPRODUCT":
-        content = this._getShowProduct(param);
+        content = <ShowProduct product={param} />;
         break;
       case "SIGNUP":
-        content = this._getSignup();
+        content = <Signup />;
         break;
       default:
-        content = this._getMarketplace();
+        content = <Marketplace />;
     }
     return (
       <div>
