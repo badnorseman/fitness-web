@@ -1,6 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import ProductList from "./products/ProductList";
+import ProductGrid from "./products/ProductGrid";
 
 export default class Marketplace extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class Marketplace extends Component {
 
     return (
       <div>
-        <ProductList
+        <ProductGrid
           products={products}
           onSelect={this._goToShowProduct} />
       </div>

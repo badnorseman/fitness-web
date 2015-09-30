@@ -1,8 +1,8 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import ProductListItem from "./ProductListItem";
+import ProductGridItem from "./ProductGridItem";
 
-export default class ProductList extends Component {
+export default class ProductGrid extends Component {
   static propTypes = {
     products: PropTypes.object.isRequired,
     onSelect: PropTypes.func.isRequired
@@ -18,7 +18,7 @@ export default class ProductList extends Component {
     for (let key in this.props.products) {
       if (this.props.products.hasOwnProperty(key)) {
         items.push(
-          <ProductListItem key={key} item={this.props.products[key]} onSelect={this._handleSelect} />
+          <ProductGridItem key={key} item={this.props.products[key]} onSelect={this._handleSelect} />
         );
       }
     }
