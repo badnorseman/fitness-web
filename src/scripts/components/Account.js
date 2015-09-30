@@ -25,14 +25,14 @@ export default class Account extends Component {
               <div className="mdl-tabs mdl-js-tabs">
                 <div className="mdl-tabs__tab-bar">
                   <a href="#profile-panel" className="mdl-tabs__tab is-active">Profile</a>
-                  <a href="#settings-panel" className="mdl-tabs__tab">Settings</a>
+                  <a href="#security-panel" className="mdl-tabs__tab">Security</a>
                   <a href="#payment-history-panel" className="mdl-tabs__tab">Payment History</a>
                 </div>
                 <div className="mdl-tabs__panel is-active" id="profile-panel">
                   <EditUser user={currentUser} />
                 </div>
-                <div className="mdl-tabs__panel" id="settings-panel">
-                  <p>Here edites email and password.</p>
+                <div className="mdl-tabs__panel" id="security-panel">
+                  <p>Edit email and/or password. Current password is required.</p>
                 </div>
                 <div className="mdl-tabs__panel" id="payment-history-panel">
                   <TransactionList transactions={transactions} />
