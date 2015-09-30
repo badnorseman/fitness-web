@@ -29,22 +29,26 @@ export default function routeReducer(state = initialState, action) {
         route: action.route,
         param: action.param
       });
+
     case LOGIN_RESPONSE:
     case LOGOUT_RESPONSE:
     case OAUTH_RESPONSE:
       return Object.assign({}, state, {
         route: "MARKETPLACE"
       });
+
     case PRODUCT_CREATE_RESPONSE:
     case PRODUCT_DESTROY_RESPONSE:
     case PRODUCT_UPDATE_RESPONSE:
       return Object.assign({}, state, {
         route: "DASHBOARD"
       });
+
     case SIGNUP_RESPONSE:
       return Object.assign({}, state, {
         route: "LOGIN"
       });
+
     default:
       return state;
   }
