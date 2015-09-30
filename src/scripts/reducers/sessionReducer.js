@@ -14,6 +14,7 @@ import {
   SIGNUP_ERROR
 } from "../actions/authActions";
 import {
+  USER_UPDATE_REQUEST,
   USER_UPDATE_RESPONSE
 } from "../actions/userActions";
 
