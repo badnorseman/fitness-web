@@ -1,9 +1,9 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 
-export default class ProductGridItem extends Component {
+export default class ProductGridTile extends Component {
   static propTypes = {
-    item: PropTypes.object.isRequired,
+    tile: PropTypes.object.isRequired,
     onSelect: PropTypes.func.isRequired
   }
 
@@ -13,14 +13,14 @@ export default class ProductGridItem extends Component {
   }
 
   _handleSelect() {
-    this.props.onSelect(this.props.item);
+    this.props.onSelect(this.props.tile);
   }
 
   render() {
-    const { item } = this.props;
-    const { currency, name, price } = item;
-    const titleStyle = {
-      backgroundImage: "url(" + this.props.item.image + ")",
+    const { tile } = this.props;
+    const { currency, image, name, price } = tile;
+    const style = {
+      backgroundImage: "url(" + image + ")",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       height: 160,
@@ -32,7 +32,7 @@ export default class ProductGridItem extends Component {
       <a onClick={this._handleSelect} href="#!">
         <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop">
           <div className="mdl-card mdl-shadow--2dp">
-            <div className="mdl-card__title" style={titleStyle}>
+            <div className="mdl-card__title" style={style}>
             </div>
             <div className="mdl-card__supporting-text">
               <h5>{name}</h5>
