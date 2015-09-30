@@ -1,18 +1,6 @@
 .edit-user {
-  max-width: 800px;
   padding: 50px 0 0 0;
-}
-
-.edit-user__left {
-  float: left;
-  overflow: hidden;
-  width: 50%;
-}
-
-.edit-user__right {
-  float: left;
-  overflow: hidden;
-  width: 50%;
+  width: 300px;
 }
 
 .user__avatar {

@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 
-export default class ProductListItem extends Component {
+export default class ProductGridItem extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
     onSelect: PropTypes.func.isRequired

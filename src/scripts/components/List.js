@@ -2,7 +2,6 @@
 import React, { Component, PropTypes } from "react";
 import ListHeader from "./ListHeader";
 import ListItem from "./ListItem";
-import "./List.css";
 
 export default class List extends Component {
   static propTypes = {
@@ -29,9 +28,12 @@ export default class List extends Component {
   render() {
     let header = {};
     let items = this._getItems();
+    const style = {
+      padding: "50px 0 0 0"
+    }
 
     return (
-      <div>
+      <div className="block--center-horizontally__margin" style={style}>
         <ListHeader header={header}/>
         {items}
       </div>

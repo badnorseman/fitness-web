@@ -10,15 +10,6 @@ footer, .push {
   height: 100px;
 }
 
-.button--floating-action {
-  bottom: 50px;
-  margin-bottom: 100px;
-  padding-top: 24px;
-  position: fixed;
-  right: 24px;
-  z-index: 998;
-}
-
 .block--center-horizontally__margin {
   margin: 0 auto;
 }
@@ -32,6 +23,15 @@ footer, .push {
   display: inline-block;
   height: auto;
   width: 20px;
+}
+
+.button--floating-action {
+  bottom: 50px;
+  margin-bottom: 100px;
+  padding-top: 24px;
+  position: fixed;
+  right: 24px;
+  z-index: 998;
 }
 
 .text--center {

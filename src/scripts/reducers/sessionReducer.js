@@ -16,7 +16,6 @@ import {
 
 const AUTH_TOKEN = "token";
 const initialState = {
-  isLoggedIn: false,
   currentUser: {}
 };
 
@@ -30,20 +29,10 @@ function saveTokenLocally(token) {
 
 export default function sessionReducer(state = initialState, action) {
   switch (action.type) {
-    // This seems unnecessary
-    case LOGIN_REQUEST:
-    case LOGOUT_REQUEST:
-    case OAUTH_REQUEST:
-    case SIGNUP_REQUEST:
-      return Object.assign({}, state, {
-        isLoggedIn: false
-      });
-
     case LOGIN_RESPONSE:
     case OAUTH_RESPONSE:
       saveTokenLocally(action.data.token);
       return Object.assign({}, state, {
-        isLoggedIn: true,
         currentUser: action.data
       });
 
@@ -51,17 +40,15 @@ export default function sessionReducer(state = initialState, action) {
     case SIGNUP_RESPONSE:
       deleteLocalToken();
       return Object.assign({}, state, {
-        isLoggedIn: false,
         currentUser: {}
       });
 
-    // This seems unnecessary
     case LOGIN_ERROR:
     case LOGOUT_ERROR:
     case OAUTH_ERROR:
     case SIGNUP_ERROR:
       return Object.assign({}, state, {
-        isLoggedIn: false
+        currentUser: {}
       });
 
     default:

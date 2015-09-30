@@ -1,6 +1,5 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import "./List.css";
 
 export default class ListHeader extends Component {
   static propTypes = {
@@ -13,13 +12,18 @@ export default class ListHeader extends Component {
 
   render() {
     const { header } = this.props;
+    const style = {
+      margin: "0 10px 10px 0",
+      maxWidth:"800px",
+      width: "25%"
+    }
 
     return (
-      <div className="list-item block--center-horizontally__flex">
-        <div className="list-item__header"></div>
-        <div className="list-item__header"></div>
-        <div className="list-item__header"></div>
-        <div className="list-item__header"></div>
+      <div className="block--center-horizontally__flex">
+        <div style={style}></div>
+        <div style={style}></div>
+        <div style={style}></div>
+        <div style={style}></div>
       </div>
     )
   }

@@ -12,9 +12,9 @@ import NewProduct from "./products/NewProduct";
 import NewTransaction from "../containers/NewTransaction";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "../components/auth/Signup";
-import "./App.css";
+import "./Layout.css";
 
-export default class App extends Component {
+export default class Layout extends Component {
   constructor(props) {
     super(props);
     this._goToMarketplace = this._goToMarketplace.bind(this);

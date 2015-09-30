@@ -10,9 +10,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { sessionReducer } = state;
-  const { currentUser, isLoggedIn } = sessionReducer;
-  return { currentUser, isLoggedIn };
+  const { currentUser } = state.sessionReducer;
+  return { currentUser };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

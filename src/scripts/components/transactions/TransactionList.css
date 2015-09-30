@@ -4,12 +4,10 @@
 
 .transaction-list__header {
   margin: 0 10px 10px 0;
-  max-width: 800px;
   width: 25%;
 }
 
 .transaction-list__item {
   margin: 10px 10px 10px 0;
-  max-width: 800px;
   width: 25%;
 }

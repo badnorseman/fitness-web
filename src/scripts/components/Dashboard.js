@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import List from "./List";
 import "./Dashboard.css";
 
 export default class Dashboard extends Component {
@@ -19,11 +20,13 @@ export default class Dashboard extends Component {
 
   render() {
     const { products } = this.props;
+    const header = {};
 
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="dashboard-card mdl-card mdl-shadow--2dp">
+          <div className="dashboard-card block--center-horizontally__margin"><h3>Dashboard</h3></div>
+          <div className="dashboard-card block--center-horizontally__margin mdl-card mdl-shadow--2dp">
             <div className="block--center-horizontally__margin mdl-card__supporting-text">
               <div className="mdl-tabs mdl-js-tabs">
                 <div className="mdl-tabs__tab-bar">
@@ -31,12 +34,13 @@ export default class Dashboard extends Component {
                   <a href="#users-panel" className="mdl-tabs__tab">Users</a>
                 </div>
                 <div className="mdl-tabs__panel is-active" id="products-panel">
-                  <List
+                  <DashboardList
                     items={products}
                     onEdit={this._goToEditProduct}
                     onNew={this._goToNewProduct} />
                 </div>
                 <div className="mdl-tabs__panel" id="users-panel">
+                  <List header={header} items={products} />
                 </div>
               </div>
             </div>
@@ -47,7 +51,7 @@ export default class Dashboard extends Component {
   }
 }
 
-class List extends Component {
+class DashboardList extends Component {
   constructor(props) {
     super(props);
     this._handleEdit = this._handleEdit.bind(this);
@@ -59,7 +63,7 @@ class List extends Component {
     for (let key in this.props.items) {
       if (this.props.items.hasOwnProperty(key)) {
         items.push(
-          <Item key={key} item={this.props.items[key]} onSelect={this._handleEdit} />
+          <DashboardListItem key={key} item={this.props.items[key]} onSelect={this._handleEdit} />
         );
       }
     }
@@ -78,10 +82,10 @@ class List extends Component {
     let items = this._getItems();
 
     return (
-      <div>
+      <div className="dashboard-list">
         {items}
         <button
-          className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored button--floating-action"
+          className="dashboard-list__button--new mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
           onClick={this._handleNew}>
           <i className="material-icons">add</i>
         </button>
@@ -90,7 +94,7 @@ class List extends Component {
   }
 }
 
-class Item extends Component {
+class DashboardListItem extends Component {
   constructor(props) {
     super(props);
     this._handleSelect = this._handleSelect.bind(this);

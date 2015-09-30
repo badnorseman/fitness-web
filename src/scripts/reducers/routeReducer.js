@@ -41,18 +41,10 @@ export default function routeReducer(state = initialState, action) {
       return Object.assign({}, state, {
         route: "DASHBOARD"
       });
-    case PRODUCT_CREATE_ERROR:
-    case PRODUCT_DESTROY_ERROR:
-    case PRODUCT_UPDATE_ERROR:
-      return Object.assign({}, state, {
-        // No change of route.
-      });
-
     case SIGNUP_RESPONSE:
       return Object.assign({}, state, {
         route: "LOGIN"
       });
-
     default:
       return state;
   }

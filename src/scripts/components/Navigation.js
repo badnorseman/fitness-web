@@ -32,14 +32,15 @@ export default class Navigation extends Component {
   }
 
   render() {
-    const { currentUser, isLoggedIn } = this.props;
-    const { avatar, email, name } = currentUser;
+    const { currentUser } = this.props;
+    const { avatar, coach, email, id, name } = currentUser;
+    const isLoggedIn = currentUser.id > 0;
 
     return (
       <div>
         <nav className="mdl-navigation">
           {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToLogin}>Log In</a></div>}
-          {isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToDashboard}>Dashboard</a></div>}
+          {coach && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToDashboard}>Dashboard</a></div>}
           {isLoggedIn && <div className="mdl-layout--large-screen-only">
             <button
               id="account-menu"
@@ -54,7 +55,7 @@ export default class Navigation extends Component {
             </ul>
           </div>}
           {!isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToLogin}><i className="material-icons">lock_open</i></a></div>}
-          {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToDashboard}><i className="material-icons">dashboard</i></a></div>}
+          {coach && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToDashboard}><i className="material-icons">dashboard</i></a></div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToAccount}><i className="material-icons">account_circle</i></a></div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._handleLogout}><i className="material-icons">lock</i></a></div>}
         </nav>
