@@ -63,7 +63,7 @@ class Signup extends Component {
               <div>
                 <InputField
                   fieldId="passwordConfirmation"
-                  fieldName="Password Confirmation"
+                  fieldName="Confirm password"
                   fieldType="password"
                   ref="passwordConfirmation" />
               </div>

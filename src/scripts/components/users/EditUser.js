@@ -28,7 +28,7 @@ class EditUser extends Component {
     event.preventDefault();
 
     let avatar = this.refs.avatar.state.file;
-    let birthDate = this.refs.birthDate.state.fieldValue;
+    let birthDay = this.refs.birthDay.state.fieldValue;
     let email = this.refs.email.state.fieldValue;
     let gender = this._getGender();
     let id = this.props.user.id;
@@ -37,7 +37,7 @@ class EditUser extends Component {
     if (email && name) {
       this.props.dispatch(updateUser({
         avatar: avatar,
-        birth_date: birthDate,
+        birth_date: birthDay,
         gender: gender,
         email: email,
         id: id,
@@ -78,11 +78,11 @@ class EditUser extends Component {
         </div>
         <div>
           <InputField
-            fieldId="birthDate"
-            fieldName="Birth date"
+            fieldId="birthDay"
+            fieldName="Birthday"
             fieldType="text"
             fieldValue={birth_date}
-            ref="birthDate" />
+            ref="birthDay" />
         </div>
         <div>
           <InputField
