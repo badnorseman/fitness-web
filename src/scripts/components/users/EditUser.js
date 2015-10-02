@@ -59,7 +59,7 @@ class EditUser extends Component {
         <div>
           <InputField
             fieldId="name"
-            fieldName="Full Name"
+            fieldName="Full name"
             fieldType="text"
             fieldValue={name}
             ref="name" />
@@ -79,7 +79,7 @@ class EditUser extends Component {
         <div>
           <InputField
             fieldId="birthDate"
-            fieldName="Birth Date"
+            fieldName="Birth date"
             fieldType="text"
             fieldValue={birth_date}
             ref="birthDate" />
@@ -87,7 +87,7 @@ class EditUser extends Component {
         <div>
           <InputField
             fieldId="email"
-            fieldName="Email Adress"
+            fieldName="Email"
             fieldType="text"
             fieldValue={email}
             ref="email" />
