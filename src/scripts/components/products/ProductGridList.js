@@ -1,8 +1,8 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import ProductGridItem from "./ProductGridItem";
+import ProductGridTile from "./ProductGridTile";
 
-export default class ProductGrid extends Component {
+export default class ProductGridList extends Component {
   static propTypes = {
     products: PropTypes.object.isRequired,
     onSelect: PropTypes.func.isRequired
@@ -13,16 +13,16 @@ export default class ProductGrid extends Component {
     this._handleSelect = this._handleSelect.bind(this);
   }
 
-  _getItems() {
-    let items = [];
+  _getTiles() {
+    let tiles = [];
     for (let key in this.props.products) {
       if (this.props.products.hasOwnProperty(key)) {
-        items.push(
-          <ProductGridItem key={key} item={this.props.products[key]} onSelect={this._handleSelect} />
+        tiles.push(
+          <ProductGridTile key={key} tile={this.props.products[key]} onSelect={this._handleSelect} />
         );
       }
     }
-    return items;
+    return tiles;
   }
 
   _handleSelect(product) {
@@ -30,11 +30,11 @@ export default class ProductGrid extends Component {
   }
 
   render() {
-    let items = this._getItems();
+    let tiles = this._getTiles();
 
     return (
       <div className="mdl-grid">
-        {items}
+        {tiles}
       </div>
     )
   }

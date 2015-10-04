@@ -62,7 +62,7 @@ export default class ProductForm extends Component {
       <form onSubmit={this._handleSubmit}>
         <div>
           <InputField
-            fieldError="Must be letter, number, .,: or -"
+            fieldError="Use letter, number, .,: or -"
             fieldId="name"
             fieldName="Name"
             fieldPattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
@@ -80,7 +80,7 @@ export default class ProductForm extends Component {
         </div>
         <div>
           <InputField
-            fieldError="Must be number with or without separator . or ,"
+            fieldError="Use number with or without separator . or ,"
             fieldId="price"
             fieldName="Price"
             fieldPattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"

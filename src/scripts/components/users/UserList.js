@@ -1,10 +1,10 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import TransactionListItem from "./TransactionListItem";
+import UserListItem from "./UserListItem";
 
-export default class TransactionList extends Component {
+export default class UserList extends Component {
   static propTypes = {
-    transactions: PropTypes.object.isRequired
+    items: PropTypes.object.isRequired
   }
 
   constructor(props) {
@@ -13,10 +13,10 @@ export default class TransactionList extends Component {
 
   _getItems() {
     let items = [];
-    for (let key in this.props.transactions) {
-      if (this.props.transactions.hasOwnProperty(key)) {
+    for (let key in this.props.items) {
+      if (this.props.items.hasOwnProperty(key)) {
         items.push(
-          <TransactionListItem key={key} item={this.props.transactions[key]}/>
+          <UserListItem key={key} item={this.props.items[key]}/>
         );
       }
     }
@@ -37,10 +37,10 @@ export default class TransactionList extends Component {
     return (
       <div className="block--center-horizontally__margin" style={listStyle}>
         <div className="block--center-horizontally__flex">
-          <div style={headerElementStyle}>DATE</div>
-          <div style={headerElementStyle}>CURRENCY</div>
-          <div style={headerElementStyle}>AMOUNT</div>
-          <div style={headerElementStyle}>TRANSACTION ID</div>
+          <div style={headerElementStyle}>STATUS</div>
+          <div style={headerElementStyle}>NAME</div>
+          <div style={headerElementStyle}>PRODUCT</div>
+          <div style={headerElementStyle}>CURRENT END DATE</div>
         </div>
         {items}
       </div>

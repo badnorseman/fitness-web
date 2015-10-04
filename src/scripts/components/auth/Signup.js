@@ -7,8 +7,9 @@ import { connect } from "react-redux";
 import { changeRoute } from "../../actions/routeActions";
 import { signup } from "../../actions/authActions";
 import Button from "../../components/Button";
+import Facebook from "./Facebook";
+import Google from "./Google";
 import InputField from "../../components/InputField";
-import Oauth from "../../components/auth/Oauth";
 
 class Signup extends Component {
   constructor(props) {
@@ -42,8 +43,8 @@ class Signup extends Component {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <Button name="Close" type="button" onClick={this._handleClose} />
-          <div><Oauth provider="facebook" /></div>
-          <div><Oauth provider="google_oauth2" /></div>
+          <div><Facebook /></div>
+          <div><Google /></div>
           <div>
             <form onSubmit={this._handleSubmit}>
               <div>
@@ -63,7 +64,7 @@ class Signup extends Component {
               <div>
                 <InputField
                   fieldId="passwordConfirmation"
-                  fieldName="Password Confirmation"
+                  fieldName="Confirm password"
                   fieldType="password"
                   ref="passwordConfirmation" />
               </div>

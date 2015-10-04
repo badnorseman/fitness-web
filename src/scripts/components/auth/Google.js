@@ -1,25 +1,24 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
 import { oauth } from "../../actions/authActions";
 import Button from "../Button";
 
-export default class Oauth extends Component {
-  static propTypes = {
-    provider: PropTypes.string.isRequired
-  }
-
+class Google extends Component {
   constructor(props) {
     super(props);
     this._handleClick = this._handleClick.bind(this);
   }
 
   _handleClick() {
-    oauth(this.props.provider);
+    this.props.dispatch(oauth("google_oauth2"));
   }
 
   render() {
     return (
-      <Button name={this.props.provider} type="button" onClick={this._handleClick} />
+      <Button name="Continue with Google" type="button" onClick={this._handleClick} />
     )
   }
 }
+
+export default connect()(Google);
