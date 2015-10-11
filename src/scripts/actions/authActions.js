@@ -78,10 +78,11 @@ export const OAUTH_REQUEST = "OAUTH_REQUEST";
 export const OAUTH_RESPONSE = "OAUTH_RESPONSE";
 export const OAUTH_ERROR = "OAUTH_ERROR";
 
-function oauthRequest(provider) {
+function oauthRequest(provider, data) {
   return {
     type: OAUTH_REQUEST,
-    provider: provider
+    provider: provider,
+    data: data
   };
 }
 
@@ -100,10 +101,10 @@ function oauthError(error) {
   };
 }
 
-export function oauth(provider) {
+export function oauth(provider, data) {
   return dispatch => {
-    dispatch(oauthRequest(provider));
-    return apiOauth(provider)
+    dispatch(oauthRequest(provider, data));
+    return apiOauth(provider, data)
     .then(response => dispatch(oauthResponse(response)))
     .catch(error => dispatch(oauthError(error)))
   };
