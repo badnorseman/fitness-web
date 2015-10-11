@@ -96,7 +96,8 @@ export function logout() {
 }
 
 export function oauth(provider, signedRequest) {
-  const url = `${OAUTH}/${provider}/callback?${signedRequest}`;
+  // const url = `${OAUTH}/${provider}/callback?${signedRequest}`;
+  const url = `${OAUTH}/${provider}/callback`;
   return Promise.resolve(
     $.ajax({
       url: url,
