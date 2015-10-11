@@ -95,8 +95,8 @@ export function logout() {
   );
 }
 
-export function oauth(provider) {
-  const url = `${OAUTH}/${provider}`;
+export function oauth(provider, signedRequest) {
+  const url = `${OAUTH}/${provider}/callback?${signedRequest}`;
   return Promise.resolve(
     $.ajax({
       url: url,
