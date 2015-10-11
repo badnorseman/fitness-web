@@ -16,31 +16,19 @@ class Facebook extends Component {
     let login;
 
     FB.getLoginStatus(response => {
-      if (response.status === "connected") login = response;
+      if (response.status === "connected") login = response.authResponse;
     });
 
     if (!login) {
       FB.login(response => {
-        if (response.authResponse) login = response;
+        if (response.authResponse) login = response.authResponse;
       }, { scope: "public_profile,email,user_birthday" });
     }
 
-    console.log("login", login);
-
     if (login) {
-      this.props.dispatch(oauth("facebook", login.authResponse.signedRequest));
+      this.props.dispatch(oauth("facebook", login.signedRequest));
     }
   }
-
-  // Do we need to crete a fbsr cookie?
-  // _setCookie(name, value, days) {
-  //   if (days) {
-  //     let date = new Date();
-  //     date.setTime(date.getTime() + (days*24*60*60*1000));
-  //     let expires = `; expires=${date.toUTCString()}`; // UTC or GMT?
-  //   } else let expires = "";
-  //   document.cookie=`fbsr_${name}=${value} ${expires}`;
-  // }
 
   render() {
     return (
