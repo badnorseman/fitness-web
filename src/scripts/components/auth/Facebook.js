@@ -16,17 +16,19 @@ class Facebook extends Component {
     let login;
 
     FB.getLoginStatus(response => {
-      if (response.status === "connected") login = response.authResponse;
+      if (response.status === "connected") {
+        login = response.authResponse;
+        this.props.dispatch(oauth("facebook", login.signedRequest));
+      }
     });
 
     if (!login) {
       FB.login(response => {
-        if (response.authResponse) login = response.authResponse;
+        if (response.authResponse) {
+          login = response.authResponse;
+          this.props.dispatch(oauth("facebook", login.signedRequest));
+        }
       }, { scope: "public_profile,email,user_birthday" });
-    }
-
-    if (login) {
-      this.props.dispatch(oauth("facebook", login.signedRequest));
     }
   }
 
