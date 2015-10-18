@@ -7,7 +7,7 @@ import Button from "../Button";
 import Facebook from "./Facebook";
 import Google from "./Google";
 import InputField from "../InputField";
-import "./Login.css";
+import "./login.css";
 
 class Login extends Component {
   constructor(props) {
@@ -38,32 +38,30 @@ class Login extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="login-card mdl-card mdl-shadow--2dp">
+          <div className="login mdl-card mdl-shadow--2dp">
             <div className="mdl-card__supporting-text mdl-card--border">
               <Button name="Close" type="button" onClick={this._handleClose} />
               <div><Facebook /></div>
               <div><Google /></div>
-              <div>
-                <form onSubmit={this._handleSubmit}>
-                  <div>
-                    <InputField
-                      fieldId="email"
-                      fieldName="Email"
-                      fieldType="text"
-                      ref="email" />
-                  </div>
-                  <div>
-                    <InputField
-                      fieldId="password"
-                      fieldName="Password"
-                      fieldType="password"
-                      ref="password" />
-                  </div>
-                  <div>
-                    <Button name="Log In" type="submit" />
-                  </div>
-                </form>
-              </div>
+              <form onSubmit={this._handleSubmit}>
+                <div>
+                  <InputField
+                    fieldId="email"
+                    fieldName="Email"
+                    fieldType="text"
+                    ref="email" />
+                </div>
+                <div>
+                  <InputField
+                    fieldId="password"
+                    fieldName="Password"
+                    fieldType="password"
+                    ref="password" />
+                </div>
+                <div>
+                  <Button name="Login" type="submit" />
+                </div>
+              </form>
             </div>
           </div>
         </div>
