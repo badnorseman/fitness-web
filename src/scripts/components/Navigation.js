@@ -39,7 +39,8 @@ export default class Navigation extends Component {
     return (
       <div>
         <nav className="mdl-navigation">
-          {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToLogin}>Log In</a></div>}
+          {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToLogin}>Log in</a></div>}
+          {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToSignup}>Sign up</a></div>}
           {coach && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToDashboard}>Dashboard</a></div>}
           {isLoggedIn && <div className="mdl-layout--large-screen-only">
             <button
@@ -51,7 +52,7 @@ export default class Navigation extends Component {
               className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
               htmlFor="account-menu">
               <li className="mdl-menu__item" onClick={this._goToAccount}>Account</li>
-              <li className="mdl-menu__item" onClick={this._handleLogout}>Log Out</li>
+              <li className="mdl-menu__item" onClick={this._handleLogout}>Log out</li>
             </ul>
           </div>}
           {!isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToLogin}><i className="material-icons">lock_open</i></a></div>}
