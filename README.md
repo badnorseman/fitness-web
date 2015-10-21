@@ -6,3 +6,6 @@ Run `npm install`
 ###Run app
 Run `npm start`  
 Open browser and http://localhost:8080/
+###Code change
+Create pull request with change  
+Assign label ready to review when change is completed & tested
