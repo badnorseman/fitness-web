@@ -1,5 +1,5 @@
-#Web App
-##Development Mode
+#Web app
+##Development mode
 ###Install app
 Clone app. Read more https://help.github.com/articles/cloning-a-repository/  
 Run `npm install`
