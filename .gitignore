@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore build files.
-#/dist
+/dist
 
 # Ignore node modules.
 /node_modules
