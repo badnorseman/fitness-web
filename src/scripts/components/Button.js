@@ -16,6 +16,9 @@ export default class Button extends Component {
   constructor(props) {
     super(props);
     this._handleClick = this._handleClick.bind(this);
+    if (!this.props.className) {
+      this.props.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect";
+    }
   }
 
   _handleClick() {
@@ -25,7 +28,8 @@ export default class Button extends Component {
   render() {
     return (
       <button
-        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+        disabled = {this.props.disabled}
+        className={this.props.className}
         type={this.props.type}
         onClick={this._handleClick}>
         {this.props.name}
