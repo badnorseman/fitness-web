@@ -27,27 +27,13 @@ class Authenticate extends Component {
       this.props.dispatch(changeRoute("LOGIN"));
   }
 
-  // _handleSubmit(event) {
-  //   event.preventDefault();
-
-  //   let email = this.refs.email.state.fieldValue;
-  //   let password = this.refs.password.state.fieldValue;
-
-  //   if (email && password) {
-  //     this.props.dispatch(login({
-  //       auth_key: email,
-  //       password: password
-  //     }))
-  //   };
-  // }
-
   render() {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login full-screen mdl-card mdl-shadow--2dp">
             <div className="mdl-cell--hide-phone">
-              <Button name="Log In or Sign Up" disabled="true" className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15px" type="button" onClick={this._handleClose} />
+              <Button name="Log In or Sign Up" disabled="true" className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
               <Button name="&larr; Log In or Sign Up" className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleClose} />

@@ -89,7 +89,7 @@ export default class Layout extends Component {
           <div id="drawer" className="mdl-layout__drawer">
             <span className="mdl-layout-title">FitBird</span>
             <nav className="mdl-navigation">
-              <a className="mdl-navigation__link" href="#!" onClick={this._goToAuthenticate}>Acc</a>
+              <a className="mdl-navigation__link" href="#!" onClick={this._goToAuthenticate}>Login or Sign Up</a>
               <a className="mdl-navigation__link" href="">Link</a>
               <a className="mdl-navigation__link" href="">Link</a>
               <a className="mdl-navigation__link" href="">Link</a>

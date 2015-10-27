@@ -45,7 +45,7 @@ class Signup extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login full-screen mdl-card mdl-shadow--2dp">
             <div className="mdl-cell--hide-phone">
-              <Button name="Sign Up" disabled="true" className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15px" type="button" onClick={this._handleClose} />
+              <Button name="Sign Up" disabled="true" className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
               <Button name="&larr; Sign Up" className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleClose} />
@@ -64,7 +64,7 @@ class Signup extends Component {
                 <div>
                   <InputField fieldId="password" fieldName="Password" fieldType="password" ref="password" />
                 </div>
-                <label className="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect text--left margin--8px" htmlFor="checkboxNews">
+                <label className="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect text--left margin--8" htmlFor="checkboxNews">
                   <input type="checkbox" id="checkboxNews" className="mdl-checkbox__input"/>
                   <span className="mdl-checkbox__label">Tell me about FitBird news</span>
                 </label>
