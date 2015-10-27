@@ -133,10 +133,11 @@ class Signup extends Component {
                 </div>
 
                 <div className="text--left margin--8">Birthday</div>
-                <Select onChange={this._yearChanged} options={this.props.years} id="birthday-year" name="Year" />
-                <Select onChange={this._monthChanged} options={this.props.months} id="birthday-month" name="Month" />
-                <Select disabled={!this.state.days.length} key={this.state.days} options={this.state.days} id="birthday-day" name="Day" />
-
+                <div className="mdl-cell mdl-cell--12-col">
+                <Select className="birthday-select" onChange={this._yearChanged} options={this.props.years} id="birthday-year" name="Year" />
+                <Select className="birthday-select birthday-select--side-margin" onChange={this._monthChanged} options={this.props.months} id="birthday-month" name="Month" />
+                <Select className="birthday-select" disabled={!this.state.days.length} key={this.state.days} options={this.state.days} id="birthday-day" name="Day" />
+                </div>
                 <label className="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect text--left margin--8" htmlFor="checkboxNews">
                   <input type="checkbox" id="checkboxNews" className="mdl-checkbox__input"/>
                   <span className="mdl-checkbox__label">Tell me about FitBird news</span>

@@ -14,6 +14,7 @@ export default class Select extends Component {
 
   constructor(props) {
     super(props);
+    this.props.className += " display--inline";
     this._handleChange = this._handleChange.bind(this);
     var options = [];
     for(var i=0; i < this.props.options.length; i++) {
@@ -31,7 +32,7 @@ export default class Select extends Component {
     const { id, name, options } = this.props;
 
     return (
-       <div className="mdl-cell mdl-cell--4-col mdl-cell mdl-cell--4-col-tablet mdl-cell mdl-cell--4-col-phone display--inline">
+       <div className={this.props.className}>
           <select disabled = {this.props.disabled} key={this.props.key} onChange={this._handleChange} className="select" id={id} name={name}>
             <option value=""></option>
             {this.state.options}
