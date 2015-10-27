@@ -14,6 +14,7 @@ class Login extends Component {
     this._goToSignup = this._goToSignup.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
     this._documentClickHandler = this._documentClickHandler.bind(this);
+    this._handleGoBack = this._handleGoBack.bind(this);
   }
   componentDidMount() {
     document.addEventListener("click", this._documentClickHandler);
@@ -32,6 +33,9 @@ class Login extends Component {
   }
   _goToSignup() {
     this.props.dispatch(changeRoute("SIGNUP"));
+  }
+  _handleGoBack() {
+      this.props.dispatch(changeRoute("GOBACK"));
   }
   _handleSubmit(event) {
     event.preventDefault();
@@ -56,7 +60,7 @@ class Login extends Component {
               <Button name="Log In" disabled={true} className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
-              <Button name=" Log In" icon={<i className="material-icons button__return-icon">arrow_back</i>} className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleClose} />
+              <Button name=" Log In" icon={<i className="material-icons button__return-icon">arrow_back</i>} className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleGoBack} />
             </div>
             <div className="mdl-card__supporting-text padding-top--0 mdl-card--border">
               <form onSubmit={this._handleSubmit}>

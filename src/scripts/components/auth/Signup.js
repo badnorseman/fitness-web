@@ -28,22 +28,23 @@ class Signup extends Component {
     this._handleClick = this._handleClick.bind(this);
     this._monthChanged = this._monthChanged.bind(this);
     this._yearChanged = this._yearChanged.bind(this);
+    this._handleGoBack = this._handleGoBack.bind(this);
 
     this.props.months = [];
     this.props.years = [];
 
-    this.props.months.push({value:0, name:"January"});
-    this.props.months.push({value:1, name:"February"});
-    this.props.months.push({value:2, name:"March"});
-    this.props.months.push({value:3, name:"April"});
-    this.props.months.push({value:4, name:"May"});
-    this.props.months.push({value:5, name:"June"});
-    this.props.months.push({value:6, name:"July"});
-    this.props.months.push({value:7, name:"August"});
-    this.props.months.push({value:8, name:"September"});
-    this.props.months.push({value:9, name:"October"});
-    this.props.months.push({value:10, name:"November"});
-    this.props.months.push({value:11, name:"December"});
+    this.props.months.push({value:1, name:"January"});
+    this.props.months.push({value:2, name:"February"});
+    this.props.months.push({value:3, name:"March"});
+    this.props.months.push({value:4, name:"April"});
+    this.props.months.push({value:5, name:"May"});
+    this.props.months.push({value:6, name:"June"});
+    this.props.months.push({value:7, name:"July"});
+    this.props.months.push({value:8, name:"August"});
+    this.props.months.push({value:9, name:"September"});
+    this.props.months.push({value:10, name:"October"});
+    this.props.months.push({value:11, name:"November"});
+    this.props.months.push({value:12, name:"December"});
     
     for(var i= new Date().getFullYear(); i > 1900; i--) {
       this.props.years.push({value:i, name:i});
@@ -90,7 +91,9 @@ class Signup extends Component {
       this.setState({days: Days});
     }
   }
-
+  _handleGoBack() {
+      this.props.dispatch(changeRoute("GOBACK"));
+  }
   _handleSubmit(event) {
     event.preventDefault();
 
@@ -112,10 +115,10 @@ class Signup extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login full-screen mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
             <div className="mdl-cell--hide-phone">
-              <Button name="Sign Up" disabled={true} className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
+              <Button name="Sign Up" disabled={true} className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClick} />
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
-              <Button name="Sign Up" icon={<i className="material-icons button__return-icon">arrow_back</i>} className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleClose} />
+              <Button name="Sign Up" icon={<i className="material-icons button__return-icon">arrow_back</i>} className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleGoBack} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border padding-top--0">
               <form onSubmit={this._handleSubmit}>

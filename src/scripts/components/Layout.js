@@ -18,11 +18,19 @@ import "./Layout.css";
 export default class Layout extends Component {
   constructor(props) {
     super(props);
+    this.navigation = {
+      steps: [],
+      goTo: null
+    };
     this._goToMarketplace = this._goToMarketplace.bind(this);
     this._goToAuthenticate = this._goToAuthenticate.bind(this);
   }
 
   componentDidUpdate() {
+    if (this.navigation.goTo) {
+      this.props.changeRoute( this.navigation.goTo );
+      this.navigation.goTo = null;
+    }
     componentHandler.upgradeDom()
   }
 
@@ -38,6 +46,8 @@ export default class Layout extends Component {
     const { param, route } = this.props;
     var header = document.getElementById("header")
     if (header) header.className = "mdl-layout__header layout__header";
+    var i = this.navigation.steps.length;
+    if (this.navigation.steps[i-1] != route)  this.navigation.steps.push(route);
     let content;
     switch (route) {
       case "ACCOUNT":
@@ -70,6 +80,10 @@ export default class Layout extends Component {
         document.getElementById("header").className += " header--hidden-phone";
         content = <Authenticate />;
         break;
+      case "GOBACK":
+        var index = this.navigation.steps.length-3;
+        var goTo = this.navigation.steps.splice(index,3)[0];
+        this.navigation.goTo = goTo;
       default:
         content = <Marketplace />;
     }
