@@ -8,20 +8,87 @@ import { changeRoute } from "../../actions/routeActions";
 import { signup } from "../../actions/authActions";
 import Button from "../../components/Button";
 import InputField from "../../components/InputField";
+import Select from "../../components/Select";
 import "./signup.css";
 
 class Signup extends Component {
+
+  static propTypes = {
+    months: PropTypes.array,
+    days: PropTypes.array,
+    years : PropTypes.array
+  }
+
   constructor(props) {
     super(props);
     this._handleClose = this._handleClose.bind(this);
     this._goToLogin = this._goToLogin.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+    this._documentClickHandler = this._documentClickHandler.bind(this);
+    this._handleClick = this._handleClick.bind(this);
+    this._monthChanged = this._monthChanged.bind(this);
+    this._yearChanged = this._yearChanged.bind(this);
+
+    this.props.months = [];
+    this.props.years = [];
+
+    this.props.months.push({value:0, name:"January"});
+    this.props.months.push({value:1, name:"February"});
+    this.props.months.push({value:2, name:"March"});
+    this.props.months.push({value:3, name:"April"});
+    this.props.months.push({value:4, name:"May"});
+    this.props.months.push({value:5, name:"June"});
+    this.props.months.push({value:6, name:"July"});
+    this.props.months.push({value:7, name:"August"});
+    this.props.months.push({value:8, name:"September"});
+    this.props.months.push({value:9, name:"October"});
+    this.props.months.push({value:10, name:"November"});
+    this.props.months.push({value:11, name:"December"});
+    
+    for(var i= new Date().getFullYear(); i > 1900; i--) {
+      this.props.years.push({value:i, name:i});
+    }
+
+    this.state = { month: false, year: false, days: [] };
+  }
+  componentDidMount() {
+    document.addEventListener("click", this._documentClickHandler);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("click", this._documentClickHandler);
+  }
+  _documentClickHandler() {
+    this.props.dispatch(changeRoute("MARKETPLACE"));
+  }
+  _handleClick(e) {
+     e.nativeEvent.stopImmediatePropagation();
   }
   _handleClose() {
     this.props.dispatch(changeRoute("MARKETPLACE"));
   }
   _goToLogin() {
     this.props.dispatch(changeRoute("LOGIN"));
+  }
+  _monthChanged(e) {
+    var month = e.target.value;
+    this.setState({month: month});
+    this._setDays(this.state.year, month);
+  }
+  _yearChanged(e) {
+    var year = e.target.value;
+    this.setState({year: year});
+    this._setDays(year, this.state.month);
+  }
+  _setDays(year,month) {
+    this.setState({days: []});
+    if (year && month) {
+      var days = new Date(year, month, 0).getDate()
+      var Days = [];
+      for(var i=1; i <= days; i++) {
+        Days.push({value:i, name:i});
+      }
+      this.setState({days: Days});
+    }
   }
 
   _handleSubmit(event) {
@@ -43,12 +110,12 @@ class Signup extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="login full-screen mdl-card mdl-shadow--2dp">
+          <div className="login full-screen mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
             <div className="mdl-cell--hide-phone">
-              <Button name="Sign Up" disabled="true" className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
+              <Button name="Sign Up" disabled={true} className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
-              <Button name="&larr; Sign Up" className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleClose} />
+              <Button name="Sign Up" icon={<i className="material-icons button__return-icon">arrow_back</i>} className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border padding-top--0">
               <form onSubmit={this._handleSubmit}>
@@ -64,6 +131,12 @@ class Signup extends Component {
                 <div>
                   <InputField fieldId="password" fieldName="Password" fieldType="password" ref="password" />
                 </div>
+
+                <div className="text--left margin--8">Birthday</div>
+                <Select onChange={this._yearChanged} options={this.props.years} id="birthday-year" name="Year" />
+                <Select onChange={this._monthChanged} options={this.props.months} id="birthday-month" name="Month" />
+                <Select disabled={!this.state.days.length} key={this.state.days} options={this.state.days} id="birthday-day" name="Day" />
+
                 <label className="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect text--left margin--8" htmlFor="checkboxNews">
                   <input type="checkbox" id="checkboxNews" className="mdl-checkbox__input"/>
                   <span className="mdl-checkbox__label">Tell me about FitBird news</span>

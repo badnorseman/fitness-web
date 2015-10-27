@@ -1,0 +1,35 @@
+.select {
+	width: 100%;
+	border: none;
+	outline: none;
+	background-color: rgba(0,0,0,0);
+	border-bottom: 2px solid rgb(219,219,219);
+	-webkit-transition:border-bottom 0.4s;
+	position: relative;
+	z-index: 5;
+}
+.select:focus {
+	border-bottom:2px solid blue;
+}
+/*.select:focus > * {
+	background-color: white !important;
+}*/
+.select__label {
+	color: rgb(219,219,219);
+	position: relative;
+    float: left;
+    z-index: 0;
+    top: -25px;
+    font-size: 18px;
+    -webkit-transition: top 0.4s, color 0.4s, font-size 0.4s;
+}
+ .select:focus ~ .select__label {
+    top: -40px;
+    font-size: 12px;
+    color:blue;
+}
+.select__label--fly {
+	top: -40px;
+    font-size: 12px;
+    color:blue;
+}

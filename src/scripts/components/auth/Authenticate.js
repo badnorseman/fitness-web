@@ -14,6 +14,20 @@ class Authenticate extends Component {
     this._handleClose = this._handleClose.bind(this);
     this._goToSignup = this._goToSignup.bind(this);
     this._goToLogin = this._goToLogin.bind(this);
+    this._documentClickHandler = this._documentClickHandler.bind(this);
+    this._handleClick = this._handleClick.bind(this);
+  }
+  componentDidMount() {
+    document.addEventListener("click", this._documentClickHandler);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("click", this._documentClickHandler);
+  }
+  _documentClickHandler() {
+    this.props.dispatch(changeRoute("MARKETPLACE"));
+  }
+  _handleClick(e) {
+     e.nativeEvent.stopImmediatePropagation();
   }
 
 
@@ -31,12 +45,12 @@ class Authenticate extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="login full-screen mdl-card mdl-shadow--2dp">
+          <div className="login full-screen mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
             <div className="mdl-cell--hide-phone">
-              <Button name="Log In or Sign Up" disabled="true" className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
+              <Button name="Log In or Sign Up" disabled={true} className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
-              <Button name="&larr; Log In or Sign Up" className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleClose} />
+              <Button name=" Log In or Sign Up" icon={<i className="material-icons button__return-icon">arrow_back</i>} className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Facebook /></div>

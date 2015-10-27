@@ -24,14 +24,14 @@ class Login extends Component {
   _documentClickHandler() {
     this.props.dispatch(changeRoute("MARKETPLACE"));
   }
+  _handleClick(e) {
+     e.nativeEvent.stopImmediatePropagation();
+  }
   _handleClose() {
     this.props.dispatch(changeRoute("MARKETPLACE"));
   }
   _goToSignup() {
     this.props.dispatch(changeRoute("SIGNUP"));
-  }
-  _handleClick(e) {
-     e.nativeEvent.stopImmediatePropagation();
   }
   _handleSubmit(event) {
     event.preventDefault();
@@ -53,10 +53,10 @@ class Login extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login full-screen mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
             <div className="mdl-cell--hide-phone">
-              <Button name="Log In" disabled="true" className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
+              <Button name="Log In" disabled={true} className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
-              <Button name="&larr; Log In" className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleClose} />
+              <Button name=" Log In" icon={<i className="material-icons button__return-icon">arrow_back</i>} className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text padding-top--0 mdl-card--border">
               <form onSubmit={this._handleSubmit}>
