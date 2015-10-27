@@ -1,12 +1,15 @@
 "use strict";
 import $ from "jquery";
 import React, { Component, PropTypes } from "react";
+import "./Button.css";
 
 export default class Button extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    icon: PropTypes.element,
+    disabled: PropTypes.bool
   }
 
   static defaultProps = {
@@ -32,6 +35,7 @@ export default class Button extends Component {
         className={this.props.className}
         type={this.props.type}
         onClick={this._handleClick}>
+        {this.props.icon}
         {this.props.name}
       </button>
     )
