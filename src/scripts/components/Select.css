@@ -11,9 +11,6 @@
 .select:focus {
 	border-bottom:2px solid blue;
 }
-/*.select:focus > * {
-	background-color: white !important;
-}*/
 .select__label {
 	color: rgb(219,219,219);
 	position: relative;

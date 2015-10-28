@@ -9,6 +9,8 @@ import { signup } from "../../actions/authActions";
 import Button from "../../components/Button";
 import InputField from "../../components/InputField";
 import Select from "../../components/Select";
+import Facebook from "./Facebook";
+import Google from "./Google";
 import "./signup.css";
 
 class Signup extends Component {
@@ -59,7 +61,7 @@ class Signup extends Component {
     document.removeEventListener("click", this._documentClickHandler);
   }
   _documentClickHandler() {
-    this.props.dispatch(changeRoute("MARKETPLACE"));
+    this._handleClose();
   }
   _handleClick(e) {
      e.nativeEvent.stopImmediatePropagation();
@@ -113,20 +115,20 @@ class Signup extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="login full-screen mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
+          <div className="signup auth--full-screen-mobile mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
             <div className="mdl-cell--hide-phone">
-              <Button name="Sign Up" disabled={true} className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClick} />
+              <Button name="" className="mdl-button--icon modal__close-button" icon={<i className="material-icons">close</i>} type="button" onClick={this._handleClose} />
+              <h5 className="modal__title">Sign up</h5>
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
-              <Button name="Sign Up" icon={<i className="material-icons button__return-icon">arrow_back</i>} className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleGoBack} />
+              <Button name="Sign Up" icon={<i className="material-icons back-button__icon">arrow_back</i>} className="back-button mdl-button--raised mdl-button--primary" type="button" onClick={this._handleGoBack} />
             </div>
-            <div className="mdl-card__supporting-text mdl-card--border padding-top--0">
+            <div className="mdl-cell mdl-cell--12-col"><Facebook /></div>
+            <div className="mdl-cell mdl-cell--12-col"><Google /></div>
+            <div className="mdl-card--border mdl-cell mdl-cell--12-col">
               <form onSubmit={this._handleSubmit}>
                 <div>
-                  <InputField fieldId="firstName" fieldName="First Name" fieldType="text" ref="firstName" />
-                </div>
-                <div>
-                  <InputField fieldId="lastName" fieldName="Last Name" fieldType="text" ref="lastName" />
+                  <InputField fieldId="name" fieldName="Name" fieldType="text" ref="name" />
                 </div>
                 <div>
                   <InputField fieldId="email" fieldName="Email" fieldType="text" ref="email" />
@@ -134,23 +136,20 @@ class Signup extends Component {
                 <div>
                   <InputField fieldId="password" fieldName="Password" fieldType="password" ref="password" />
                 </div>
-
-                <div className="text--left margin--8">Birthday</div>
-                <div className="mdl-cell mdl-cell--12-col">
-                <Select className="birthday-select" onChange={this._yearChanged} options={this.props.years} id="birthday-year" name="Year" />
-                <Select className="birthday-select birthday-select--side-margin" onChange={this._monthChanged} options={this.props.months} id="birthday-month" name="Month" />
-                <Select className="birthday-select" disabled={!this.state.days.length} key={this.state.days} options={this.state.days} id="birthday-day" name="Day" />
+                <label className="birthday__label">Birthday</label>
+                <div className="mdl-cell mdl-cell--12-col birthday__datepicker">
+                  <Select className="birthday__select" onChange={this._yearChanged} options={this.props.years} id="birthday-year" name="Year" />
+                  <Select className="birthday__select birthday__select--side-margin" onChange={this._monthChanged} options={this.props.months} id="birthday-month" name="Month" />
+                  <Select className="birthday__select" disabled={!this.state.days.length} key={this.state.days} options={this.state.days} id="birthday-day" name="Day" />
                 </div>
-                <label className="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect text--left margin--8" htmlFor="checkboxNews">
+                <label className="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect signup__news" htmlFor="checkboxNews">
                   <input type="checkbox" id="checkboxNews" className="mdl-checkbox__input"/>
                   <span className="mdl-checkbox__label">Tell me about FitBird news</span>
                 </label>
                 <div>
-                  <Button name="SIGN UP" className="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" />
+                  <Button name="SIGN UP" className="mdl-cell mdl-cell--12-col mdl-button--raised mdl-button--accent" type="submit" />
                 </div>
               </form>
-              Already a member? 
-              <Button name="Sign in!" className=" mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent" type="button" onClick={this._goToLogin} />
             </div>
           </div>
         </div>

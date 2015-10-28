@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { changeRoute } from "../../actions/routeActions";
 import { login } from "../../actions/authActions";
 import Button from "../Button";
+import Facebook from "./Facebook";
+import Google from "./Google";
 import InputField from "../InputField";
 import "./login.css";
 
@@ -23,7 +25,7 @@ class Login extends Component {
     document.removeEventListener("click", this._documentClickHandler);
   }
   _documentClickHandler() {
-    this.props.dispatch(changeRoute("MARKETPLACE"));
+    this._handleClose();
   }
   _handleClick(e) {
      e.nativeEvent.stopImmediatePropagation();
@@ -55,14 +57,17 @@ class Login extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="login full-screen mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
+          <div className="login auth--full-screen-mobile mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
             <div className="mdl-cell--hide-phone">
-              <Button name="Log In" disabled={true} className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
+              <Button name="" className="mdl-button--icon modal__close-button" icon={<i className="material-icons">close</i>} type="button" onClick={this._handleClose} />
+              <h5 className="modal__title">Log in</h5>
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
-              <Button name=" Log In" icon={<i className="material-icons button__return-icon">arrow_back</i>} className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleGoBack} />
+              <Button name=" Log In" icon={<i className="material-icons back-button__icon">arrow_back</i>} className="back-button mdl-button--raised mdl-button--primary" type="button" onClick={this._handleGoBack} />
             </div>
-            <div className="mdl-card__supporting-text padding-top--0 mdl-card--border">
+            <div className="mdl-cell mdl-cell--12-col"><Facebook /></div>
+            <div className="mdl-cell mdl-cell--12-col"><Google /></div>
+            <div className="mdl-cell mdl-cell--12-col mdl-card--border ">
               <form onSubmit={this._handleSubmit}>
                 <div>
                   <InputField
@@ -78,12 +83,11 @@ class Login extends Component {
                     fieldType="password"
                     ref="password" />
                 </div>
-                <Button name="Forgot Password" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent font-size--10 margin-top---20" onClick={this._goToSignup} type="button" />
+                <Button name="Forgot password ?" className="mdl-button--accent login__forget-password " onClick={this._goToSignup} type="button" />
                 <div>
-                  <Button name="Log in" className="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" />
+                  <Button name="Log in" className="mdl-cell mdl-cell--12-col mdl-button--raised mdl-button--accent" type="submit" />
                 </div>
               </form>
-              Not yet a member? <Button name="Sign up!" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent" onClick={this._goToSignup} type="button" />
             </div>
           </div>
         </div>

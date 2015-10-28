@@ -25,7 +25,7 @@ class Authenticate extends Component {
     document.removeEventListener("click", this._documentClickHandler);
   }
   _documentClickHandler() {
-    this.props.dispatch(changeRoute("MARKETPLACE"));
+    this._handleClose();
   }
   _handleClick(e) {
      e.nativeEvent.stopImmediatePropagation();
@@ -47,19 +47,19 @@ class Authenticate extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="login full-screen mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
+          <div className="login auth--full-screen-phone mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
             <div className="mdl-cell--hide-phone">
-              <Button name="Log In or Sign Up" disabled={true} className="mdl-button mdl-js-button mdl-card__return disabled--color-black text--left margin-left--15" type="button" onClick={this._handleClose} />
+              <Button name="Log In or Sign Up" disabled={true} className="back-button disabled--color-black" type="button" onClick={this._handleClose} />
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
-              <Button name=" Log In or Sign Up" icon={<i className="material-icons button__return-icon">arrow_back</i>} className="mdl-button mdl-js-button mdl-card__return mdl-button--raised mdl-js-ripple-effect mdl-button--primary text--left" type="button" onClick={this._handleGoBack} />
+              <Button name=" Log In or Sign Up" icon={<i className="material-icons back-button__icon">arrow_back</i>} className="back-button mdl-button--raised mdl-button--primary" type="button" onClick={this._handleGoBack} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Facebook /></div>
               <div><Google /></div>
               <div>
-                <Button name="SIGN UP" className="mdl-shadow--2dp mdl-button mdl-js-button mdl-js-ripple-effect mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" onClick={this._goToSignup} type="button" />
-                <Button name="LOG IN" className="mdl-shadow--2dp mdl-button mdl-js-button mdl-js-ripple-effect mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" onClick={this._goToLogin} type="button" />
+                <Button name="SIGN UP" className="mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" onClick={this._goToSignup} type="button" />
+                <Button name="LOG IN" className="mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" onClick={this._goToLogin} type="button" />
               </div>
               Disclaimer text: by signing up you accept FitBird’s politics of refunds, confidentiality, etc.
             </div>

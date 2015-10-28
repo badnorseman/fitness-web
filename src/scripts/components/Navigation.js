@@ -7,6 +7,7 @@ export default class Navigation extends Component {
     this._goToAccount = this._goToAccount.bind(this);
     this._goToDashboard = this._goToDashboard.bind(this);
     this._goToAuthenticate = this._goToAuthenticate.bind(this);
+    this._goToLogin = this._goToLogin.bind(this);
     this._goToSignup = this._goToSignup.bind(this);
     this._handleLogout = this._handleLogout.bind(this);
   }
@@ -21,6 +22,10 @@ export default class Navigation extends Component {
 
   _goToAuthenticate() {
     this.props.changeRoute("AUTHENTICATE");
+  }
+
+  _goToLogin() {
+    this.props.changeRoute("LOGIN");
   }
 
   _goToSignup() {
@@ -39,7 +44,7 @@ export default class Navigation extends Component {
     return (
       <div>
         <nav className="mdl-navigation">
-          {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToAuthenticate}>Log in</a></div>}
+          {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToLogin}>Log in</a></div>}
           {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToSignup}>Sign up</a></div>}
           {coach && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToDashboard}>Dashboard</a></div>}
           {isLoggedIn && <div className="mdl-layout--large-screen-only">

@@ -32,7 +32,7 @@ export default class Select extends Component {
     const { id, name, options } = this.props;
 
     return (
-       <div className={"display--inline " + this.props.className}>
+       <div className={"div--inline " + this.props.className}>
           <select disabled = {this.props.disabled} key={this.props.key} onChange={this._handleChange} className="select" id={id} name={name}>
             <option disabled selected value=""></option>
             {this.state.options}
