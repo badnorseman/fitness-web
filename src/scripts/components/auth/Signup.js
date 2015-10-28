@@ -115,9 +115,9 @@ class Signup extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="signup auth--full-screen-mobile mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
+          <div className="signup auth--full-screen-phone mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
             <div className="mdl-cell--hide-phone">
-              <Button name="" className="mdl-button--icon modal__close-button" icon={<i className="material-icons">close</i>} type="button" onClick={this._handleClose} />
+              <Button className="mdl-button--icon modal__close-button" icon={<i className="material-icons">close</i>} type="button" onClick={this._handleClose} />
               <h5 className="modal__title">Sign up</h5>
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">

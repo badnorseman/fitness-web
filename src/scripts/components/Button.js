@@ -9,7 +9,6 @@ export default class Button extends Component {
     type: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
     icon: PropTypes.element,
-    disabled: PropTypes.bool
   }
 
   static defaultProps = {
@@ -28,7 +27,6 @@ export default class Button extends Component {
   render() {
     return (
       <button
-        disabled = {this.props.disabled}
         className= {"mdl-button mdl-js-button mdl-js-ripple-effect " + this.props.className}
         type={this.props.type}
         onClick={this._handleClick}>

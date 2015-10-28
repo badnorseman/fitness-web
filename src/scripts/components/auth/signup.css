@@ -42,7 +42,7 @@
 	margin: 0;
 }
 @media screen and (max-width: 480px) {
-    .auth--full-screen-mobile {
+    .auth--full-screen-phone {
     	position: absolute;
     	left: 0;
     	top: 0;

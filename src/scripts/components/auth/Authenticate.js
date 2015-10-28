@@ -6,7 +6,6 @@ import Button from "../Button";
 import Facebook from "./Facebook";
 import Google from "./Google";
 import InputField from "../InputField";
-import "./Authenticate.css";
 
 class Authenticate extends Component {
   constructor(props) {
@@ -49,7 +48,8 @@ class Authenticate extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login auth--full-screen-phone mdl-card mdl-shadow--2dp" onClick={this._handleClick}>
             <div className="mdl-cell--hide-phone">
-              <Button name="Log In or Sign Up" disabled={true} className="back-button disabled--color-black" type="button" onClick={this._handleClose} />
+              <Button className="mdl-button--icon modal__close-button" icon={<i className="material-icons">close</i>} type="button" onClick={this._handleClose} />
+              <h5 className="modal__title">Log In or Sign Up</h5>
             </div>
             <div className="mdl-cell--hide-tablet mdl-cell--hide-desktop">
               <Button name=" Log In or Sign Up" icon={<i className="material-icons back-button__icon">arrow_back</i>} className="back-button mdl-button--raised mdl-button--primary" type="button" onClick={this._handleGoBack} />
