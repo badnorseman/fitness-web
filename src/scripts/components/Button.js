@@ -1,12 +1,14 @@
 "use strict";
 import $ from "jquery";
 import React, { Component, PropTypes } from "react";
+import "./Button.css";
 
 export default class Button extends Component {
   static propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     type: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    icon: PropTypes.element,
   }
 
   static defaultProps = {
@@ -25,9 +27,10 @@ export default class Button extends Component {
   render() {
     return (
       <button
-        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+        className= {"mdl-button mdl-js-button mdl-js-ripple-effect " + this.props.className}
         type={this.props.type}
         onClick={this._handleClick}>
+        {this.props.icon}
         {this.props.name}
       </button>
     )

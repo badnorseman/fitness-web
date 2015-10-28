@@ -16,7 +16,7 @@ class Google extends Component {
 
   render() {
     return (
-      <Button name="Continue with Google" type="button" onClick={this._handleClick} />
+      <Button className="mdl-button--raised mdl-cell mdl-cell--12-col auth__google" name="Google+" type="button" onClick={this._handleClick} />
     )
   }
 }

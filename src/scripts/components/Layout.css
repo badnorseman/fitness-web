@@ -2,6 +2,10 @@
   background-color: #FFFFFF;
 }
 
+.layout__header .mdl-layout__header,
+.layout__header .mdl-layout__drawer-button {
+  color: black;
+}
 .layout__header-avatar {
   border-radius: 16px;
   height: 32px;
@@ -39,4 +43,12 @@
 .layout__footer {
   margin: 0 auto -100px;
   min-height: 100%;
+}
+@media screen and (max-width: 480px) {
+    .background-color--white-phone {
+      background-color: white;
+    }
+    .header--hidden-phone {
+      display: none !important;
+    }
 }

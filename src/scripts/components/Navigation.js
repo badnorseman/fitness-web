@@ -6,6 +6,7 @@ export default class Navigation extends Component {
     super(props);
     this._goToAccount = this._goToAccount.bind(this);
     this._goToDashboard = this._goToDashboard.bind(this);
+    this._goToAuthenticate = this._goToAuthenticate.bind(this);
     this._goToLogin = this._goToLogin.bind(this);
     this._goToSignup = this._goToSignup.bind(this);
     this._handleLogout = this._handleLogout.bind(this);
@@ -17,6 +18,10 @@ export default class Navigation extends Component {
 
   _goToDashboard() {
     this.props.changeRoute("DASHBOARD");
+  }
+
+  _goToAuthenticate() {
+    this.props.changeRoute("AUTHENTICATE");
   }
 
   _goToLogin() {
@@ -55,7 +60,7 @@ export default class Navigation extends Component {
               <li className="mdl-menu__item" onClick={this._handleLogout}>Log out</li>
             </ul>
           </div>}
-          {!isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToLogin}><i className="material-icons">lock_open</i></a></div>}
+          {!isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToAuthenticate}><i className="material-icons">lock_open</i></a></div>}
           {coach && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToDashboard}><i className="material-icons">dashboard</i></a></div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToAccount}><i className="material-icons">account_circle</i></a></div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._handleLogout}><i className="material-icons">lock</i></a></div>}
