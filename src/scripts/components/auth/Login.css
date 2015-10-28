@@ -3,4 +3,28 @@
   max-width: 400px;
   padding: 10px;
   width: 400px;
+  margin: 0 auto;
+}
+.auth__google {
+  background-color: #d34836;
+  color: white;
+}
+.auth__facebook {
+  background-color: #3b5998;
+  color: white;
+}
+.login__forgot-password {
+  float: right;
+  font-size: 10px;
+  margin-top:-20px;
+}
+.login__close {
+  float: right;
+}
+.login__title {
+  float: left;
+  margin: 8px;
+}
+.login__input {
+  margin: 0 8px;
 }

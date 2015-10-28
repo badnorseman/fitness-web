@@ -38,14 +38,16 @@ class Login extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="login mdl-card mdl-shadow--2dp">
+          <div className="login mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-phone">
             <div className="mdl-card__supporting-text mdl-card--border">
-              <Button name="Close" type="button" onClick={this._handleClose} />
-              <div><Facebook /></div>
+              <h5 className="login__title">Log in</h5>
+              <Button name="Close" className="login__close" type="button" onClick={this._handleClose} />
+              <div ><Facebook /></div>
               <div><Google /></div>
               <form onSubmit={this._handleSubmit}>
                 <div>
                   <InputField
+                    fieldClassName="login__input"
                     fieldId="email"
                     fieldName="Email"
                     fieldType="text"
@@ -53,13 +55,15 @@ class Login extends Component {
                 </div>
                 <div>
                   <InputField
+                    fieldClassName="login__input"
                     fieldId="password"
                     fieldName="Password"
                     fieldType="password"
                     ref="password" />
                 </div>
+                <Button name="Forgot password?" className=" mdl-button--accent login__forgot-password" type="button" />
                 <div>
-                  <Button name="Login" type="submit" />
+                  <Button name="Login" className="mdl-cell mdl-cell--12-col mdl-button--raised mdl-button--accent" type="submit" />
                 </div>
               </form>
             </div>

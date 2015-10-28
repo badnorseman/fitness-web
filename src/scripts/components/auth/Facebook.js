@@ -35,7 +35,7 @@ class Facebook extends Component {
   render() {
     return (
       <button
-        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect auth__facebook mdl-cell mdl-cell--12-col"
         type="button"
         onClick={this._handleClick}>
         Facebook
