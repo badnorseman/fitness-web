@@ -18,27 +18,35 @@ class Login extends Component {
     this._documentClickHandler = this._documentClickHandler.bind(this);
     this._handleGoBack = this._handleGoBack.bind(this);
   }
+
   componentDidMount() {
     document.addEventListener("click", this._documentClickHandler);
   }
+
   componentWillUnmount() {
     document.removeEventListener("click", this._documentClickHandler);
   }
+
   _documentClickHandler() {
     this._handleClose();
   }
+
   _handleClick(e) {
      e.nativeEvent.stopImmediatePropagation();
   }
+
   _handleClose() {
     this.props.dispatch(changeRoute("MARKETPLACE"));
   }
+
   _goToSignup() {
     this.props.dispatch(changeRoute("SIGNUP"));
   }
+
   _handleGoBack() {
       this.props.dispatch(changeRoute("GOBACK"));
   }
+  
   _handleSubmit(event) {
     event.preventDefault();
 

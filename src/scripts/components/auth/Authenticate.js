@@ -17,27 +17,35 @@ class Authenticate extends Component {
     this._handleClick = this._handleClick.bind(this);
     this._handleGoBack = this._handleGoBack.bind(this);
   }
+  
   componentDidMount() {
     document.addEventListener("click", this._documentClickHandler);
   }
+  
   componentWillUnmount() {
     document.removeEventListener("click", this._documentClickHandler);
   }
+  
   _documentClickHandler() {
     this._handleClose();
   }
+  
   _handleClick(e) {
      e.nativeEvent.stopImmediatePropagation();
   }
+  
   _handleClose() {
       this.props.dispatch(changeRoute("MARKETPLACE"));
   }
+  
   _handleGoBack() {
       this.props.dispatch(changeRoute("GOBACK"));
   }
+  
   _goToSignup() {
       this.props.dispatch(changeRoute("SIGNUP"));
   }
+  
   _goToLogin() {
       this.props.dispatch(changeRoute("LOGIN"));
   }

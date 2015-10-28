@@ -21,20 +21,21 @@ export default class Select extends Component {
         options.push(<option key={this.props.options[i].value} value={this.props.options[i].value}>{this.props.options[i].name}</option>);
       }
     }
-    this.state = { isFlying: false, options: options };
+    this.state = { fieldValue: "", isFlying: false, options: options };
   }
 
   _handleChange(event) {
-    this.setState({ isFlying: event.target.value });
-    if (this.props.onChange)this.props.onChange(event);
+    let fieldValue = event.target.value;
+    this.setState({ fieldValue: fieldValue, isFlying: fieldValue });
+    if (this.props.onChange) this.props.onChange(event);
   }
   render() {
     const { id, name, options } = this.props;
 
     return (
        <div className={"div--inline " + this.props.className}>
-          <select disabled = {this.props.disabled} key={this.props.key} onChange={this._handleChange} className="select" id={id} name={name}>
-            <option disabled selected value=""></option>
+          <select value={this.state.fieldValue} disabled = {this.props.disabled} key={this.props.key} onChange={this._handleChange} className="select" id={id} name={name}>
+            <option disabled value=""></option>
             {this.state.options}
           </select>
           { this.state.isFlying == false && <label className="select__label" htmlFor="professsion">{name}</label>}
