@@ -7,6 +7,7 @@ import Button from "../Button";
 import Facebook from "./Facebook";
 import Google from "./Google";
 import InputField from "../InputField";
+import IconButton from "../IconButton";
 import "./login.css";
 
 class Login extends Component {
@@ -41,7 +42,9 @@ class Login extends Component {
           <div className="login mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-phone">
             <div className="mdl-card__supporting-text mdl-card--border">
               <h5 className="login__title">Log in</h5>
-              <Button name="Close" className="login__close" type="button" onClick={this._handleClose} />
+              <div className="mdl-card__menu">
+              <IconButton name="close" onClick={this._handleClose} />
+            </div>
               <div ><Facebook /></div>
               <div><Google /></div>
               <form onSubmit={this._handleSubmit}>
@@ -63,7 +66,7 @@ class Login extends Component {
                 </div>
                 <Button name="Forgot password?" className=" mdl-button--accent login__forgot-password" type="button" />
                 <div>
-                  <Button name="Login" className="mdl-cell mdl-cell--12-col mdl-button--raised mdl-button--accent" type="submit" />
+                  <Button name="LOGIN" className="mdl-cell mdl-cell--12-col mdl-button--raised mdl-button--accent" type="submit" />
                 </div>
               </form>
             </div>

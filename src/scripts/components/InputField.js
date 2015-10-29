@@ -29,9 +29,9 @@ export default class InputField extends Component {
 
   render() {
     const { fieldError, fieldId, fieldName, fieldPattern, fieldType, fieldValue, fieldClassName } = this.props;
-
+    const className = "mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label " + fieldClassName
     return (
-      <div className={"mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label " + fieldClassName}>
+      <div className={className}>
         <input
           className="mdl-textfield__input"
           id={fieldId}
