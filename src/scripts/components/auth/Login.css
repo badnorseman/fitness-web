@@ -6,11 +6,11 @@
   margin: 0 auto;
 }
 
-.button-close {
-  float: right;
+.button-login {
+  width: 100%;
 }
 
-.button-forgot-password {
+.login__forgot-password {
   float: right;
   font-size: 10px;
   margin-top:-20px;

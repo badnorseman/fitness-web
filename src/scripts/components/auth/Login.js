@@ -40,7 +40,7 @@ class Login extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login mdl-card mdl-shadow--2dp">
             <div className="mdl-card__menu">
-              <IconButton name="close" onClick={this._handleClose} />
+              <IconButton className="button-close" name="close" onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Facebook /></div>
@@ -63,13 +63,13 @@ class Login extends Component {
                     ref="password" />
                 </div>
                 <button
-                  className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent button-forgot-password"
+                  className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent login__forgot-password"
                   type="button"
                   onClick={this._handleClick}>
                   Forgot password?
                 </button>
                 <button
-                  className="mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent button-login"
                   type="submit">
                   LOG IN
                 </button>
