@@ -3,10 +3,10 @@ import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/routeActions";
 import { login } from "../../actions/authActions";
-import Button from "../Button";
 import Facebook from "./Facebook";
 import Google from "./Google";
 import InputField from "../InputField";
+import IconButton from "../IconButton";
 import "./login.css";
 
 class Login extends Component {
@@ -39,8 +39,10 @@ class Login extends Component {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login mdl-card mdl-shadow--2dp">
+            <div className="mdl-card__menu">
+              <IconButton name="close" onClick={this._handleClose} />
+            </div>
             <div className="mdl-card__supporting-text mdl-card--border">
-              <Button name="Close" type="button" onClick={this._handleClose} />
               <div><Facebook /></div>
               <div><Google /></div>
               <form onSubmit={this._handleSubmit}>
@@ -58,9 +60,17 @@ class Login extends Component {
                     fieldType="password"
                     ref="password" />
                 </div>
-                <div>
-                  <Button name="Login" type="submit" />
-                </div>
+                <button
+                  className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent login__forgot-password"
+                  type="button"
+                  onClick={this._handleClick}>
+                  Forgot password?
+                </button>
+                <button
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent button-login"
+                  type="submit">
+                  LOG IN
+                </button>
               </form>
             </div>
           </div>

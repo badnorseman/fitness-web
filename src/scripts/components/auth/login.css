@@ -1,0 +1,17 @@
+.login {
+  height: auto;
+  max-width: 400px;
+  padding: 10px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.button-login {
+  width: 100%;
+}
+
+.login__forgot-password {
+  float: right;
+  font-size: 10px;
+  margin-top:-20px;
+}

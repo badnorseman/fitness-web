@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { oauth } from "../../actions/authActions";
-import Button from "../Button";
+import "./google.css";
 
 class Google extends Component {
   constructor(props) {
@@ -16,7 +16,12 @@ class Google extends Component {
 
   render() {
     return (
-      <Button name="Continue with Google" type="button" onClick={this._handleClick} />
+      <button
+        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect google"
+        type="button"
+        onClick={this._handleClick}>
+        Google
+      </button>
     )
   }
 }
