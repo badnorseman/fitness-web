@@ -7,7 +7,7 @@ import Facebook from "./Facebook";
 import Google from "./Google";
 import InputField from "../InputField";
 import IconButton from "../IconButton";
-import "./loginn.css";
+import "./login.css";
 
 class Login extends Component {
   constructor(props) {
@@ -46,14 +46,14 @@ class Login extends Component {
               <div><Facebook /></div>
               <div><Google /></div>
               <form onSubmit={this._handleSubmit}>
-                <div className="login__input-field mdl-cell--12-col">
+                <div>
                   <InputField
                     fieldId="email"
                     fieldName="Email"
                     fieldType="text"
                     ref="email" />
                 </div>
-                <div className="mdl-cell--12-col login__input-field">
+                <div>
                   <InputField
                     fieldId="password"
                     fieldName="Password"
