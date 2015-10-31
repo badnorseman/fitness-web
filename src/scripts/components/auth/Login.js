@@ -40,7 +40,7 @@ class Login extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login mdl-card mdl-shadow--2dp">
             <div className="mdl-card__menu">
-              <IconButton className="button-close" name="close" onClick={this._handleClose} />
+              <IconButton name="close" onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Facebook /></div>
