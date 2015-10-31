@@ -38,7 +38,7 @@ class Login extends Component {
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="login mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-phone">
+          <div className="login mdl-card mdl-shadow--2dp">
             <div className="mdl-card__menu">
               <IconButton name="close" onClick={this._handleClose} />
             </div>
@@ -48,7 +48,7 @@ class Login extends Component {
               <form onSubmit={this._handleSubmit}>
                 <div>
                   <InputField
-                    fieldClassName="login__input-field"
+                    fieldClassName="login__input-field mdl-cell--12-col"
                     fieldId="email"
                     fieldName="Email"
                     fieldType="text"
@@ -56,7 +56,7 @@ class Login extends Component {
                 </div>
                 <div>
                   <InputField
-                    fieldClassName="login__input-field"
+                    fieldClassName="mdl-cell--12-col login__input-field"
                     fieldId="password"
                     fieldName="Password"
                     fieldType="password"
@@ -69,7 +69,7 @@ class Login extends Component {
                   Forgot password?
                 </button>
                 <button
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent button-login"
+                  className="mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                   type="submit">
                   LOG IN
                 </button>
