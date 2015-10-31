@@ -5,26 +5,22 @@
   width: 400px;
   margin: 0 auto;
 }
-.auth__google {
-  background-color: #d34836;
-  color: white;
+
+.button-close {
+  float: right;
 }
-.auth__facebook {
-  background-color: #3b5998;
-  color: white;
-}
-.login__forgot-password {
+
+.button-forgot-password {
   float: right;
   font-size: 10px;
   margin-top:-20px;
 }
-.login__close {
-  float: right;
+
+.button-login {
+  width: 100%;
 }
-.login__title {
-  float: left;
-  margin: 8px;
-}
-.login__input {
+
+.login__input-field {
   margin: 0 8px;
+  width: 100%;
 }

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/routeActions";
 import { oauth } from "../../actions/authActions";
-import Button from "../Button";
+import "./facebook.css";
 
 class Facebook extends Component {
   constructor(props) {
@@ -35,8 +35,12 @@ class Facebook extends Component {
 
   render() {
     return (
-
-      <Button name="Facebook" type="button" className="mdl-cell mdl-cell--12-col mdl-button--raised auth__facebook" onClick={this._handleClick} />
+      <button
+        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect facebook"
+        type="button"
+        onClick={this._handleClick}>
+        Facebook
+      </button>
     );
   }
 }

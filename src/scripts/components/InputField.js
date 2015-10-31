@@ -5,12 +5,12 @@ import React, { Component, findDOMNode, PropTypes } from "react";
 
 export default class InputField extends Component {
   static propTypes = {
+    className: PropTypes.string,
     fieldError: PropTypes.string,
     fieldId: PropTypes.string.isRequired,
     fieldName: PropTypes.string.isRequired,
     fieldPattern: PropTypes.string,
-    fieldType: PropTypes.string.isRequired,
-    fieldClassName: PropTypes.string
+    fieldType: PropTypes.string.isRequired
   }
 
   constructor(props) {
@@ -28,8 +28,9 @@ export default class InputField extends Component {
   }
 
   render() {
-    const { fieldError, fieldId, fieldName, fieldPattern, fieldType, fieldValue, fieldClassName } = this.props;
-    const className = "mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label " + fieldClassName
+    const { fieldError, fieldId, fieldName, fieldPattern, fieldType, fieldValue } = this.props;
+    const className = `mdl-textfield mdl-js-textfield mdl-textfield--floating-label this.props.className`
+
     return (
       <div className={className}>
         <input
