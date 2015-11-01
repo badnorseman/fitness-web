@@ -6,9 +6,9 @@ import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/routeActions";
 import { signup } from "../../actions/authActions";
-import Button from "../../components/Button";
 import Facebook from "./Facebook";
 import Google from "./Google";
+import IconButton from "../IconButton";
 import InputField from "../../components/InputField";
 import "./signup.css";
 
@@ -44,8 +44,12 @@ class Signup extends Component {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <div className="signup mdl-card mdl-shadow--2dp">
+            <div className="mdl-card__menu">
+              <IconButton
+                name="close"
+                onClick={this._handleClose} />
+            </div>
             <div className="mdl-card__supporting-text mdl-card--border">
-              <Button name="Close" type="button" onClick={this._handleClose} />
               <div><Facebook /></div>
               <div><Google /></div>
               <form onSubmit={this._handleSubmit}>
@@ -54,6 +58,7 @@ class Signup extends Component {
                     fieldId="email"
                     fieldName="Email"
                     fieldType="text"
+                    styles="signup__input-field"
                     ref="email" />
                 </div>
                 <div>
@@ -61,6 +66,7 @@ class Signup extends Component {
                     fieldId="password"
                     fieldName="Password"
                     fieldType="password"
+                    styles="signup__input-field"
                     ref="password" />
                 </div>
                 <div>
@@ -68,11 +74,14 @@ class Signup extends Component {
                     fieldId="passwordConfirmation"
                     fieldName="Confirm password"
                     fieldType="password"
+                    styles="signup__input-field"
                     ref="passwordConfirmation" />
                 </div>
-                <div>
-                  <Button name="Signup" type="submit" />
-                </div>
+                <button
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent button-signup"
+                  type="submit">
+                  SIGN UP
+                </button>
               </form>
             </div>
           </div>

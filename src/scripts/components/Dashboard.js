@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from "react";
 import ProductList from "./products/ProductList";
 import UserList from "./users/UserList";
-import "./Dashboard.css";
+import "./dashboard.css";
 
 export default class Dashboard extends Component {
   constructor(props) {
