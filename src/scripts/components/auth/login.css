@@ -7,6 +7,8 @@
 }
 
 .button-login {
+  margin-bottom: 20px;
+  margin-top: 20px;
   width: 100%;
 }
 
@@ -14,4 +16,8 @@
   float: right;
   font-size: 10px;
   margin-top:-20px;
+}
+
+.login__input-field {
+  width: 340px;
 }

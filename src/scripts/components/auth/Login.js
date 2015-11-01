@@ -40,7 +40,9 @@ class Login extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login mdl-card mdl-shadow--2dp">
             <div className="mdl-card__menu">
-              <IconButton name="close" onClick={this._handleClose} />
+              <IconButton
+                name="close"
+                onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Facebook /></div>
@@ -51,6 +53,7 @@ class Login extends Component {
                     fieldId="email"
                     fieldName="Email"
                     fieldType="text"
+                    styles="login__input-field"
                     ref="email" />
                 </div>
                 <div>
@@ -58,6 +61,7 @@ class Login extends Component {
                     fieldId="password"
                     fieldName="Password"
                     fieldType="password"
+                    styles="login__input-field"
                     ref="password" />
                 </div>
                 <button

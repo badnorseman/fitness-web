@@ -9,7 +9,8 @@ export default class InputField extends Component {
     fieldId: PropTypes.string.isRequired,
     fieldName: PropTypes.string.isRequired,
     fieldPattern: PropTypes.string,
-    fieldType: PropTypes.string.isRequired
+    fieldType: PropTypes.string.isRequired,
+    styles: PropTypes.string
   }
 
   constructor(props) {
@@ -27,10 +28,10 @@ export default class InputField extends Component {
   }
 
   render() {
-    const { fieldError, fieldId, fieldName, fieldPattern, fieldType, fieldValue } = this.props;
+    const { fieldError, fieldId, fieldName, fieldPattern, fieldType, fieldValue, styles } = this.props;
 
     return (
-      <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <div className={"mdl-textfield mdl-js-textfield mdl-textfield--floating-label " + styles}>
         <input
           className="mdl-textfield__input"
           id={fieldId}
