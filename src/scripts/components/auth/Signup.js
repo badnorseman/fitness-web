@@ -58,6 +58,7 @@ class Signup extends Component {
                     fieldId="email"
                     fieldName="Email"
                     fieldType="text"
+                    styles="signup__input-field"
                     ref="email" />
                 </div>
                 <div>
@@ -65,6 +66,7 @@ class Signup extends Component {
                     fieldId="password"
                     fieldName="Password"
                     fieldType="password"
+                    styles="signup__input-field"
                     ref="password" />
                 </div>
                 <div>
@@ -72,6 +74,7 @@ class Signup extends Component {
                     fieldId="passwordConfirmation"
                     fieldName="Confirm password"
                     fieldType="password"
+                    styles="signup__input-field"
                     ref="passwordConfirmation" />
                 </div>
                 <button
