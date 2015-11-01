@@ -1,6 +1,13 @@
 .signup {
   height: auto;
+  margin: 0 auto;
   max-width: 400px;
   padding: 10px;
   width: 400px;
+}
+
+.button-signup {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
 }

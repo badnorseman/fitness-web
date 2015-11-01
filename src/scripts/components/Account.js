@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from "react";
 import EditUser from "./users/EditUser";
 import TransactionList from "./transactions/TransactionList";
-import "./Account.css";
+import "./account2.css";
 
 export default class Account extends Component {
   constructor(props) {
