@@ -65,13 +65,13 @@ class Login extends Component {
                     ref="password" />
                 </div>
                 <button
-                  className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent login__forgot-password"
+                  className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent login-forgot-password"
                   type="button"
                   onClick={this._handleClick}>
                   Forgot password?
                 </button>
                 <button
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent button-login"
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button"
                   type="submit">
                   LOG IN
                 </button>

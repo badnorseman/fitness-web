@@ -78,7 +78,7 @@ class Signup extends Component {
                     ref="passwordConfirmation" />
                 </div>
                 <button
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent button-signup"
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup-button"
                   type="submit">
                   SIGN UP
                 </button>
