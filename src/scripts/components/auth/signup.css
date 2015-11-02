@@ -4,6 +4,18 @@
   max-width: 400px;
   padding: 10px;
   width: 400px;
+  animation-name: open-modal;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  -webkit-animation-name: open-modal;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-name: open-modal;
+  -moz-animation-duration: 0.3s;
+  -moz-animation-timing-function: ease-in;
+  -o-animation-name: open-modal;
+  -o-animation-duration: 0.3s;
+  -o-animation-timing-function: ease-in;
 }
 
 .signup-button {

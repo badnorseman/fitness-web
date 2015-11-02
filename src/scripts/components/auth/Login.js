@@ -37,6 +37,7 @@ class Login extends Component {
   render() {
     return (
       <div className="mdl-grid">
+      <div className="modal-backdrop"></div>
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login mdl-card mdl-shadow--2dp">
             <div className="mdl-card__menu">
@@ -64,12 +65,11 @@ class Login extends Component {
                     styles="login__input-field"
                     ref="password" />
                 </div>
-                <button
-                  className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent login-forgot-password"
-                  type="button"
-                  onClick={this._handleClick}>
+                <a
+                  className="login-forgot-password"
+                  onClick={this._handleClose}>
                   Forgot password?
-                </button>
+                </a>
                 <button
                   className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button"
                   type="submit">

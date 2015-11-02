@@ -4,6 +4,18 @@
   max-width: 400px;
   padding: 10px;
   width: 400px;
+  animation-name: open-modal;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  -webkit-animation-name: open-modal;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-name: open-modal;
+  -moz-animation-duration: 0.3s;
+  -moz-animation-timing-function: ease-in;
+  -o-animation-name: open-modal;
+  -o-animation-duration: 0.3s;
+  -o-animation-timing-function: ease-in;
 }
 
 .login-button {
@@ -16,8 +28,49 @@
   float: right;
   font-size: 10px;
   margin-top:-20px;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
 }
 
 .login__input-field {
   width: 340px;
+}
+
+.modal-backdrop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  animation-name: open-modal;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  -webkit-animation-name: open-modal;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-name: open-modal;
+  -moz-animation-duration: 0.3s;
+  -moz-animation-timing-function: ease-in;
+  -o-animation-name: open-modal;
+  -o-animation-duration: 0.3s;
+  -o-animation-timing-function: ease-in;
+}
+
+@keyframes open-modal {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-webkit-keyframes open-modal {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-moz-keyframes open-modal {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-o-keyframes open-modal {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }

@@ -42,6 +42,7 @@ class Signup extends Component {
   render() {
     return (
       <div className="mdl-grid">
+        <div className="modal-backdrop"></div>
         <div className="mdl-cell mdl-cell--12-col">
           <div className="signup mdl-card mdl-shadow--2dp">
             <div className="mdl-card__menu">
