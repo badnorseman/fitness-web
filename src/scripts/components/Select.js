@@ -40,6 +40,7 @@ export default class Select extends Component {
             { !this.state.fieldValue && <option disabled value=""></option>}
             {this.state.options}
           </select>
+          <div className="select__underline"></div>
           { !this.state.fieldValue && <label className="select__label">{name}</label>}
           { this.state.fieldValue && <label className="select__label select__label--fly">{name}</label>}
         </div>

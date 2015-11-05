@@ -4,8 +4,7 @@
 	border: none;
 	outline: none;
 	background-color: rgba(0,0,0,0);
-	border-bottom: 2px solid rgb(219,219,219);
-	-webkit-transition:border-bottom 0.4s;
+    border-bottom: 2px solid rgb(219,219,219);
 }
 
 .select__label {
@@ -18,8 +17,20 @@
     -webkit-transition: top 0.4s, color 0.4s, font-size 0.4s;
 }
 
-.select:focus {
-	border-bottom:2px solid blue;
+.select__underline {
+	display: block;
+    position: relative;
+    bottom: 2px;
+	left: 50%;
+    height: 2px;
+    width: 0;
+	background:blue;
+    transition: width .3s ease, left .3s ease;
+}
+
+.select:focus ~ .select__underline {
+	width: 100%;
+	left: 0;
 }
 
 .select:focus ~ .select__label {
