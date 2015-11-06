@@ -16,8 +16,7 @@ export default class Select extends Component {
   constructor(props) {
     super(props);
     this._handleChange = this._handleChange.bind(this);
-    let options = this.props.options ? this.props.options.map(x => <option key={x.value} value={x.value}>{x.name}</option>) : [];
-    this.state = { fieldValue: "", options: options };
+    this.state = { fieldValue: ""};
   }
 
   _handleChange(event) {
@@ -25,7 +24,8 @@ export default class Select extends Component {
     if (this.props.onChange) this.props.onChange(event);
   }
   render() {
-    const { id, key, name, styles, options, disabled } = this.props;
+    const { id, key, name, styles, disabled } = this.props;
+    const options = this.props.options ? this.props.options.map(x => <option key={x.value} value={x.value}>{x.name}</option>) : [];
 
     return (
        <div className={styles}>
@@ -38,7 +38,7 @@ export default class Select extends Component {
             disabled={disabled}
             value={this.state.fieldValue}>
             { !this.state.fieldValue && <option disabled value=""></option>}
-            {this.state.options}
+            {options}
           </select>
           <div className="select__underline"></div>
           { !this.state.fieldValue && <label className="select__label">{name}</label>}

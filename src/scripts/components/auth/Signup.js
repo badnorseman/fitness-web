@@ -16,27 +16,27 @@ import "./signup.css";
 class Signup extends Component {
 
   static defaultProps = {
-      months : [
-        {value:1, name:"January"},
-        {value:2, name:"February"},
-        {value:3, name:"March"},
-        {value:4, name:"April"},
-        {value:5, name:"May"},
-        {value:6, name:"June"},
-        {value:7, name:"July"},
-        {value:8, name:"August"},
-        {value:9, name:"September"},
-        {value:10, name:"October"},
-        {value:11, name:"November"},
-        {value:12, name:"December"}
-      ],
-      years : function() {
-        let years = [];
-        for(var i= new Date().getFullYear(); i > 1900; i--) {
-          years.push({value:i, name:i});
-        }
-        return years;
+    months : [
+      {value:1, name:"January"},
+      {value:2, name:"February"},
+      {value:3, name:"March"},
+      {value:4, name:"April"},
+      {value:5, name:"May"},
+      {value:6, name:"June"},
+      {value:7, name:"July"},
+      {value:8, name:"August"},
+      {value:9, name:"September"},
+      {value:10, name:"October"},
+      {value:11, name:"November"},
+      {value:12, name:"December"}
+    ],
+    years : function() {
+      let years = [];
+      for(let i= new Date().getFullYear(); i > 1900; i--) {
+        years.push({value:i, name:i});
       }
+      return years;
+    }
   }
 
   constructor(props) {
@@ -46,29 +46,29 @@ class Signup extends Component {
     this._handleClose = this._handleClose.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
 
-    this.state = { month: false, year: false, days: [] };
+    this.state = { month: false, year: false, calendarDays: [] };
   }
 
    _monthChanged(e) {
-    var month = e.target.value;
+    const month = e.target.value;
     this.setState({month: month});
-    this._setDays(this.state.year, month);
+    this._setCalendarDays(this.state.year, month);
   }
 
   _yearChanged(e) {
-    var year = e.target.value;
+    const year = e.target.value;
     this.setState({year: year});
-    this._setDays(year, this.state.month);
+    this._setCalendarDays(year, this.state.month);
   }
 
-  _setDays(year,month) {
+  _setCalendarDays(year,month) {
     if (year && month) {
-      var days = new Date(year, month, 0).getDate()
-      var Days = [];
-      for(var i=1; i <= days; i++) {
-        Days.push({value:i, name:i});
+      const calendarDaysTotal = new Date(year, month, 0).getDate()
+      const calendarDays = [];
+      for(let i=1; i <= calendarDaysTotal; i++) {
+        calendarDays.push({value:i, name:i});
       }
-      this.setState({days: Days});
+      this.setState({calendarDays: calendarDays});
     }
   }
 
@@ -140,16 +140,16 @@ class Signup extends Component {
                     id="birthday-year" 
                     name="Year" />
                   <Select 
-                    styles="birthday__select birthday__select--side-margin" 
+                    styles="birthday__select birthday__select-spacing" 
                     onChange={this._monthChanged} 
                     options={this.props.months} 
                     id="birthday-month" 
                     name="Month" />
                   <Select 
                     styles="birthday__select" 
-                    disabled={!this.state.days.length} 
-                    key={this.state.days.length} 
-                    options={this.state.days} 
+                    disabled={!this.state.calendarDays.length} 
+                    key={this.state.calendarDays.length} 
+                    options={this.state.calendarDays} 
                     id="birthday-day" 
                     name="Day" />
                 </div>
