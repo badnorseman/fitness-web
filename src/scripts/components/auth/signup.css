@@ -19,8 +19,10 @@
 .birthday__select {
   display: inline-block;
   width: 30%;
+  margin-top: 10px;
 }
 
 .birthday__select-spacing {
-  margin: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
