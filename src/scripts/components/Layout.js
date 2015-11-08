@@ -12,7 +12,7 @@ import NewProduct from "./products/NewProduct";
 import NewTransaction from "../containers/NewTransaction";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "../components/auth/Signup";
-import "./Layout.css";
+import "./layout.css";
 
 export default class Layout extends Component {
   constructor(props) {
