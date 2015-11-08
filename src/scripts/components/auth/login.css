@@ -13,9 +13,14 @@
 }
 
 .login-forgot-password {
+  cursor: pointer;
   float: right;
   font-size: 10px;
   margin-top:-20px;
+}
+
+.login-forgot-password:hover {
+  background-color: red
 }
 
 .login__input-field {
