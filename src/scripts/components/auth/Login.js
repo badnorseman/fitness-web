@@ -69,9 +69,7 @@ class Login extends Component {
                     styles="login__input-field"
                     ref="password" />
                 </div>
-                <a className="login-forgot-password"
-                  href="#!"
-                  onClick={this._handleForgotPassword}>
+                <a className="login-forgot-password" href="#!" onClick={this._handleForgotPassword}>
                   Forgot password?
                 </a>
                 <button

@@ -20,11 +20,11 @@ export default class InputFile extends Component {
     return (
       <div className="mdl-textfield mdl-js-textfield">
         <input
+          accept="image/jpeg, image/jpg, image/png"
           className="mdl-textfield__input"
           id="file--selected"
-          type="file"
           ref="selectedFile"
-          accept="image/jpeg, image/jpg, image/png"
+          type="file"
           onChange={this._handleChange} />
         <label
           htmlFor="file--selected">
