@@ -36,9 +36,9 @@ export default class InputField extends Component {
           className="mdl-textfield__input"
           id={fieldId}
           pattern={fieldPattern}
+          ref={fieldId}
           type={fieldType}
           value={this.state.fieldValue}
-          ref={fieldId}
           onChange={this._handleChange} />
         <label
           className="mdl-textfield__label"
