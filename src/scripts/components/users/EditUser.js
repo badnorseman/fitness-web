@@ -39,26 +39,36 @@ class EditUser extends Component {
 
   constructor(props) {
     super(props);
+    this._dayChanged = this._dayChanged.bind(this);
     this._monthChanged = this._monthChanged.bind(this);
     this._yearChanged = this._yearChanged.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
 
-    this.state = { month: false, year: false, calendarDays: [] };
+    let birthday = this.props.user.birth_date.split("-");
+    this.state = { year: birthday[0], month: birthday[1], day: birthday[2], calendarDays: [] };
+  }
+
+  componentDidMount() {
+    this._setCalendarDays(this.state.year, this.state.month);
+  }
+
+  _dayChanged(e) {
+    const day = e.target.value;
+    this.setState({day:day});
   }
 
   _monthChanged(e) {
     const month = e.target.value;
-    this.setState({month: month});
     this._setCalendarDays(this.state.year, month);
   }
 
   _yearChanged(e) {
     const year = e.target.value;
-    this.setState({year: year});
     this._setCalendarDays(year, this.state.month);
   }
 
   _setCalendarDays(year,month) {
+    this.setState({year: year, month: month});
     if (year && month) {
       const calendarDaysForMonth = new Date(year, month, 0).getDate()
       const calendarDays = [];
@@ -69,31 +79,39 @@ class EditUser extends Component {
     }
   }
 
-  _getGender() {
-    let radios = document.getElementsByName("gender");
-    for (let key in radios) {
-      if (radios[key].checked === true) return radios[key].value;
-    }
-  }
-
   _handleSubmit(event) {
     event.preventDefault();
 
     let avatar = this.refs.avatar.state.file;
-    let birthDay = this.refs.birthDay.state.fieldValue;
+    let birthdayYear = this.refs.birthdayYear.state.value;
+    let birthdayMonth = this.refs.birthdayMonth.state.value;
+    let birthdayDay = this.refs.birthdayDay.state.value;
+    let birth_date = birthdayYear+"-"+birthdayMonth+"-"+birthdayDay;
     let email = this.refs.email.state.fieldValue;
-    let gender = this._getGender();
+    let gender = this.refs.gender.state.value;
     let id = this.props.user.id;
     let name = this.refs.name.state.fieldValue;
+    let phone = this.refs.phone.state.fieldValue;
+    let address = this.refs.address.state.fieldValue;
+    let addressOther = this.refs.addressOther.state.fieldValue;
+    let city = this.refs.city.state.fieldValue;
+    let country = this.refs.country.state.fieldValue;
+    let zipCode = this.refs.zipCode.state.fieldValue;
 
     if (email && name) {
       this.props.dispatch(updateUser({
+        address: address,
+        addressOther: addressOther,
         avatar: avatar,
-        birth_date: birthDay,
-        gender: gender,
+        birth_date: birth_date,
+        city: city,
+        country: country,
         email: email,
+        gender: gender,
         id: id,
-        name: name
+        name: name,
+        phone: phone,
+        zipCode: zipCode
       }))
     };
   }
@@ -104,7 +122,7 @@ class EditUser extends Component {
 
   render() {
     const { user } = this.props;
-    const { avatar, birth_date, email, gender, name, phone, address, addressOther, city, country, zipCode } = user;
+    const { avatar, email, gender, name, phone, address, addressOther, city, country, zipCode } = user;
 
     return (
       <form className="edit-user block--center-horizontally__margin" onSubmit={this._handleSubmit}>
@@ -120,7 +138,9 @@ class EditUser extends Component {
           <Select 
             styles="gender__select"
             options={[{value:"M", name:"Male"},{value:"F", name:"Female"},{value:"O", name:"Other"}]} 
-            id="Gender" 
+            id="Gender"
+            ref="gender"
+            value={gender}
             name="I am" />
         </div>
         <div>
@@ -131,19 +151,26 @@ class EditUser extends Component {
               onChange={this._yearChanged} 
               options={this.props.years()} 
               id="birthday-year" 
+              ref="birthdayYear"
+              value={""+parseInt(this.state.year)}
               name="Year" />
             <Select 
               styles="birthday__select birthday__select-spacing" 
               onChange={this._monthChanged} 
               options={this.props.months} 
               id="birthday-month" 
+              ref="birthdayMonth"
+              value={""+parseInt(this.state.month)}
               name="Month" />
             <Select 
               styles="birthday__select" 
               disabled={!this.state.calendarDays.length} 
               key={this.state.calendarDays.length} 
+              onChange={this._dayChanged}
               options={this.state.calendarDays} 
               id="birthday-day" 
+              ref="birthdayDay"
+              value={""+parseInt(this.state.day)}
               name="Day" />
           </div>
         </div>
@@ -177,7 +204,7 @@ class EditUser extends Component {
             fieldName="Address"
             fieldType="text"
             fieldValue={addressOther}
-            ref="address-other" />
+            ref="addressOther" />
         </div>
         <div>
           <InputField
@@ -210,7 +237,12 @@ class EditUser extends Component {
           <InputFile ref="avatar" />
         </div>
         <div className="text--center">
-          <Button name="Save" type="submit" />
+          <button 
+          name="Save" 
+          className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary signup-button" 
+          type="submit" >
+          Save
+          </button>
         </div>
       </form>
     )

@@ -1,7 +1,7 @@
 .select {
   background-color: rgba(0,0,0,0);
   border: none;
-  border-bottom: 2px solid rgb(219,219,219);
+  border-bottom: 1px solid rgb(219,219,219);
   height: 25px;
   outline: none;
   width: 100%;
