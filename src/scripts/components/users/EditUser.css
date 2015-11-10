@@ -8,3 +8,9 @@
   height: 96px;
   width: 96px;
 }
+
+.gender__select {
+  display: inline-block;
+  margin-top: 10px;
+  width: 30%;
+}

@@ -49,7 +49,7 @@ class Signup extends Component {
     this.state = { month: false, year: false, calendarDays: [] };
   }
 
-   _monthChanged(e) {
+  _monthChanged(e) {
     const month = e.target.value;
     this.setState({month: month});
     this._setCalendarDays(this.state.year, month);
