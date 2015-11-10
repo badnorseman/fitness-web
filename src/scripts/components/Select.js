@@ -1,6 +1,6 @@
 "use strict";
 import React, { Component, findDOMNode, PropTypes } from "react";
-import "./selectt.css";
+import "./select.css";
 
 export default class Select extends Component {
   static propTypes = {
