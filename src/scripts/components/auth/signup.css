@@ -15,3 +15,14 @@
 .signup__input-field {
   width: 340px;
 }
+
+.birthday__select {
+  display: inline-block;
+  margin-top: 10px;
+  width: 30%;
+}
+
+.birthday__select-spacing {
+  margin-left: 5%;
+  margin-right: 5%;
+}
