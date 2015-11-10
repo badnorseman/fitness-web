@@ -13,11 +13,16 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this._handleClose = this._handleClose.bind(this);
+    this._handleForgotPassword = this._handleForgotPassword.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
   _handleClose() {
     this.props.dispatch(changeRoute("MARKETPLACE"));
+  }
+
+  _handleForgotPassword() {
+    alert("Coming soon.");
   }
 
   _handleSubmit(event) {
@@ -64,12 +69,9 @@ class Login extends Component {
                     styles="login__input-field"
                     ref="password" />
                 </div>
-                <button
-                  className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent login-forgot-password"
-                  type="button"
-                  onClick={this._handleClick}>
+                <a className="login-forgot-password" href="#!" onClick={this._handleForgotPassword}>
                   Forgot password?
-                </button>
+                </a>
                 <button
                   className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button"
                   type="submit">

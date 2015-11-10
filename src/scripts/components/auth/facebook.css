@@ -5,3 +5,7 @@
   margin-top: 40px;
   width: 100%;
 }
+
+.facebook:hover {
+  background-color: #3b5998;
+}

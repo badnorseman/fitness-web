@@ -1,3 +1,11 @@
+.mdl-layout__content {
+  background-color: #FAFAFA;
+  display: -webkit-flex;
+	display: flex;
+  -webkit-flex-direction: column;
+	flex-direction: column;
+}
+
 .layout__header {
   background-color: #FFFFFF;
 }
@@ -26,14 +34,6 @@
   font-family: 'Roboto', serif;
   font-size: 14px;
   font-weight: 500;
-}
-
-.mdl-layout__content {
-  background-color: #FAFAFA;
-  display: -webkit-flex;
-	display: flex;
-  -webkit-flex-direction: column;
-	flex-direction: column;
 }
 
 .layout__footer {

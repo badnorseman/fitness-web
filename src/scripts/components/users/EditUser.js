@@ -5,7 +5,7 @@ import { updateUser } from "../../actions/userActions";
 import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
-import "./EditUser.css";
+import "./editUser.css";
 import Select from "../Select";
 
 class EditUser extends Component {

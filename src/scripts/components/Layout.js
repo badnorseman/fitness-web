@@ -12,7 +12,7 @@ import NewProduct from "./products/NewProduct";
 import NewTransaction from "../containers/NewTransaction";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "../components/auth/Signup";
-import "./Layout.css";
+import "./layout.css";
 
 export default class Layout extends Component {
   constructor(props) {
@@ -66,7 +66,9 @@ export default class Layout extends Component {
           <header className="mdl-layout__header layout__header">
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
-                <a className="mdl-navigation__link" href="#!" onClick={this._goToMarketplace}>FitBird</a>
+                <a className="mdl-navigation__link" href="#!" onClick={this._goToMarketplace}>
+                  FitBird
+                </a>
               </span>
               <div className="mdl-layout-spacer"></div>
               <Navigation />
