@@ -63,9 +63,9 @@ class Signup extends Component {
 
   _setCalendarDays(year,month) {
     if (year && month) {
-      const calendarDaysTotal = new Date(year, month, 0).getDate()
+      const calendarDaysForMonth = new Date(year, month, 0).getDate()
       const calendarDays = [];
-      for(let i=1; i <= calendarDaysTotal; i++) {
+      for(let i=1; i <= calendarDaysForMonth; i++) {
         calendarDays.push({value:i, name:i});
       }
       this.setState({calendarDays: calendarDays});

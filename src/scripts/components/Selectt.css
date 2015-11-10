@@ -1,46 +1,52 @@
 .select {
-  width: 100%;
-  height: 25px;
-  border: none;
-  outline: none;
   background-color: rgba(0,0,0,0);
+  border: none;
   border-bottom: 2px solid rgb(219,219,219);
+  height: 25px;
+  outline: none;
+  width: 100%;
 }
 
 .select__label {
   color: rgb(219,219,219);
-  position: relative;
-  float: left;
-  z-index: -1;
-  top: -25px;
   font-size: 18px;
+  float: left;
+  position: relative;
+  top: -25px;
   -webkit-transition: top 0.4s, color 0.4s, font-size 0.4s;
+  transition: top 0.4s, color 0.4s, font-size 0.4s;
+  z-index: -1;
 }
 
 .select__underline {
-  display: block;
-  position: relative;
-  bottom: 2px;
-  left: 50%;
-  height: 2px;
-  width: 0;
   background:blue;
+  bottom: 2px;
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: relative;
+  -webkit-transition: width .3s ease, left .3s ease;
   transition: width .3s ease, left .3s ease;
+  width: 0;
+}
+
+.select_empty-value {
+  display: none;
 }
 
 .select:focus ~ .select__underline {
-  width: 100%;
   left: 0;
+  width: 100%;
 }
 
 .select:focus ~ .select__label {
-  top: -40px;
-  font-size: 12px;
   color:blue;
+  font-size: 12px;
+  top: -40px;
 }
 
 .select__label--fly {
-  top: -40px;
-  font-size: 12px;
   color:blue;
+  font-size: 12px;
+  top: -40px;
 }
