@@ -101,8 +101,7 @@ export function oauth(provider) {
     $.ajax({
       url: url,
       dataType: "script",
-      type: "GET",
-      cache: true
+      type: "GET"
     })
   );
 }
