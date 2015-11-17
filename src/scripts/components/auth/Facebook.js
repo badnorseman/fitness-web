@@ -17,12 +17,11 @@ class Facebook extends Component {
 
     FB.getLoginStatus(response => {
       if (response.status === "connected") {
-        console.log(response.authResponse);
-        this._handleLogin(response);
+        this.props.dispatch(oauth("facebook"));
       } else {
         FB.login(response => {
           if (response.authResponse) {
-            this._handleLogin(response);
+            this.props.dispatch(oauth("facebook"));
           };
         }, { scope: "public_profile,email,user_birthday" });
       };
@@ -30,18 +29,18 @@ class Facebook extends Component {
   }
 
   _handleLogin(response) {
-    const url = "http://localhost:3000/api/auth/facebook/callback";
-    $.ajax({
-      url: url,
-      async: false,
-      dataType: "json",
-      type: "GET",
-      success: (data, textStatus, xhr) => { console.log(data); },
-      error: (error, textStatus, errorThrown) => { console.error(error, textStatus, errorThrown); }
-    });
-    window.location = url;
+    // const url = "http://localhost:3000/api/auth/facebook/callback";
+    // $.ajax({
+    //   url: url,
+    //   xhrFields: { withCredentials: true },
+    //   async: false,
+    //   dataType: "json",
+    //   type: "GET",
+    //   success: (data, textStatus, xhr) => { console.log(data); },
+    //   error: (error, textStatus, errorThrown) => { console.error(error, textStatus, errorThrown); }
+    // });
+    // window.location = url;
     // this.props.dispatch(changeRoute("MARKETPLACE"));
-    // this.props.dispatch(oauth("facebook"));
   }
 
   render() {

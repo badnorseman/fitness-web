@@ -100,6 +100,7 @@ export function oauth(provider) {
   return Promise.resolve(
     $.ajax({
       url: url,
+      xhrFields: { withCredentials: true },
       dataType: "json",
       type: "GET"
     })
