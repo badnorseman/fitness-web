@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component } from "react";
+import $ from "jquery";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/routeActions";
 import { oauth } from "../../actions/authActions";
@@ -16,11 +17,12 @@ class Facebook extends Component {
 
     FB.getLoginStatus(response => {
       if (response.status === "connected") {
-        this._handleLogin(response.authResponse);
+        console.log(response.authResponse);
+        this._handleLogin(response);
       } else {
         FB.login(response => {
           if (response.authResponse) {
-            this._handleLogin(response.authResponse);
+            this._handleLogin(response);
           };
         }, { scope: "public_profile,email,user_birthday" });
       };
@@ -28,9 +30,17 @@ class Facebook extends Component {
   }
 
   _handleLogin(response) {
-    console.log(response);
-    window.location = "http://localhost:3000/api/auth/facebook/callback";
-    this.props.dispatch(changeRoute("MARKETPLACE"));
+    const url = "http://localhost:3000/api/auth/facebook/callback";
+    $.ajax({
+      url: url,
+      async: false,
+      dataType: "json",
+      type: "GET",
+      success: (data, textStatus, xhr) => { console.log(data); },
+      error: (error, textStatus, errorThrown) => { console.error(error, textStatus, errorThrown); }
+    });
+    window.location = url;
+    // this.props.dispatch(changeRoute("MARKETPLACE"));
     // this.props.dispatch(oauth("facebook"));
   }
 
