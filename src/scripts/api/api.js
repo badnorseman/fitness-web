@@ -95,11 +95,12 @@ export function logout() {
   );
 }
 
-export function oauth(provider, data) {
-  const url = `${OAUTH}/${provider}/callback?${$.param({code: data})}`;
+export function oauth(provider) {
+  const url = `${OAUTH}/${provider}/callback`;
   return Promise.resolve(
     $.ajax({
       url: url,
+      xhrFields: { withCredentials: true },
       dataType: "json",
       type: "GET"
     })
