@@ -14,23 +14,24 @@ class Facebook extends Component {
   _handleClick(event) {
     event.preventDefault();
 
-    let login;
-
     FB.getLoginStatus(response => {
       if (response.status === "connected") {
-        login = response.authResponse;
-        this.props.dispatch(oauth("facebook"));
+        this._handleLogin(response.authResponse);
+      } else {
+        FB.login(response => {
+          if (response.authResponse) {
+            this._handleLogin(response.authResponse);
+          };
+        }, { scope: "public_profile,email,user_birthday" });
       };
     });
+  }
 
-    if (!login) {
-      FB.login(response => {
-        if (response.authResponse) {
-          login = response.authResponse;
-          this.props.dispatch(oauth("facebook"));
-        };
-      }, { scope: "public_profile,email,user_birthday" });
-    };
+  _handleLogin(response) {
+    console.log(response);
+    window.location = "http://localhost:3000/api/auth/facebook/callback";
+    this.props.dispatch(changeRoute("MARKETPLACE"));
+    // this.props.dispatch(oauth("facebook"));
   }
 
   render() {

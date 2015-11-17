@@ -100,7 +100,7 @@ export function oauth(provider) {
   return Promise.resolve(
     $.ajax({
       url: url,
-      dataType: "script",
+      dataType: "json",
       type: "GET"
     })
   );
