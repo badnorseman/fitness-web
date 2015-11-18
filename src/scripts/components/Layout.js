@@ -1,5 +1,8 @@
 "use strict";
 import React, { Component } from "react";
+import {
+  AUTH0_CLIENT_ID, AUTH0_DOMAIN
+} from "../constants/auth0";
 import Account from "../containers/Account";
 import Dashboard from "../containers/Dashboard";
 import EditProduct from "./products/EditProduct";
@@ -17,11 +20,38 @@ import "./layout.css";
 export default class Layout extends Component {
   constructor(props) {
     super(props);
+    this.state = { idToken: {} };
     this._goToMarketplace = this._goToMarketplace.bind(this);
   }
 
+  componentDidMount() {
+    this._createLock();
+    this.setState({ userToken: this._getUserToken()});
+  }
+
   componentDidUpdate() {
-    componentHandler.upgradeDom()
+    componentHandler.upgradeDom();
+  }
+
+  _createLock() {
+    this.lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
+  }
+
+  _getUserToken() {
+    let userToken = localStorage.getItem("userToken");
+    let authHash = this.lock.parseHash(window.location.hash);
+
+    if (!userToken && authHash) {
+      if (authHash.id_token) {
+        userToken = authHash.id_token;
+        localStorage.setItem("userToken", authHash.id_token);
+      }
+      if (authHash.error) {
+        console.error(authHash);
+        return null;
+      }
+    }
+    return userToken;
   }
 
   _goToMarketplace() {
@@ -40,7 +70,7 @@ export default class Layout extends Component {
         content = <Dashboard />;
         break;
       case "LOGIN":
-        content = <Login />;
+        content = <Login lock={this.lock}/>;
         break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;
