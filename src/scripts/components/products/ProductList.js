@@ -40,15 +40,15 @@ export default class ProductList extends Component {
     const buttonNewStyle = {
       float: "right",
       margin: "50px 0 0 0"
-    }
+    };
     const headerElementStyle = {
       margin: "0 10px 10px 0",
       maxWidth: "800px",
       width: "25%"
-    }
+    };
     const listStyle = {
       padding: "50px 0 0 0"
-    }
+    };
 
     return (
       <div className="block--center-horizontally__margin" style={listStyle}>

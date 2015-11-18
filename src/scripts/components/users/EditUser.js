@@ -42,8 +42,8 @@ class EditUser extends Component {
         email: email,
         id: id,
         name: name
-      }))
-    };
+      }));
+    }
   }
 
   _isGender(value) {

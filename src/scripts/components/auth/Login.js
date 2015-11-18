@@ -36,8 +36,8 @@ class Login extends Component {
       this.props.dispatch(login({
         auth_key: email,
         password: password
-      }))
-    };
+      }));
+    }
   }
 
   render() {

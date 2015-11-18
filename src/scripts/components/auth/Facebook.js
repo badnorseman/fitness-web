@@ -21,9 +21,9 @@ class Facebook extends Component {
         FB.login(response => {
           if (response.authResponse) {
             this.props.dispatch(oauth("facebook"));
-          };
+          }
         }, { scope: "public_profile,email,user_birthday" });
-      };
+      }
     });
   }
 

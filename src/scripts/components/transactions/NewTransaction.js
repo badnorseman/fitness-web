@@ -27,7 +27,7 @@ export default class NewTransaction extends Component {
         container: "dropin-container",
         onPaymentMethodReceived: this._onPaymentMethodReceived
       }
-    )
+    );
   }
 
   _handleClose() {
@@ -50,8 +50,8 @@ export default class NewTransaction extends Component {
         currency: currency,
         product_id: id,
         payment_method_nonce: paymentMethodNonce
-      })
-    };
+      });
+    }
   }
 
   render() {
