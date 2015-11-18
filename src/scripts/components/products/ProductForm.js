@@ -44,8 +44,8 @@ export default class ProductForm extends Component {
         image: image,
         name: name,
         price: price
-      })
-    };
+      });
+    }
   }
 
   _isCurrency(value) {

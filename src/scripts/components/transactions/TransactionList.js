@@ -27,12 +27,12 @@ export default class TransactionList extends Component {
     let items = this._getItems();
     const listStyle = {
       padding: "50px 0 0 0"
-    }
+    };
     const headerElementStyle = {
       margin: "0 10px 10px 0",
       maxWidth: "800px",
       width: "25%"
-    }
+    };
 
     return (
       <div className="block--center-horizontally__margin" style={listStyle}>

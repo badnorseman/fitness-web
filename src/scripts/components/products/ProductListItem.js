@@ -23,7 +23,7 @@ export default class ProductListItem extends Component {
       margin: "10px 10px 10px 0",
       maxWidth:"800px",
       width: "25%"
-    }
+    };
 
     return (
       <div>

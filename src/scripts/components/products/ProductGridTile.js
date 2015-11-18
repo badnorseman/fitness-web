@@ -26,7 +26,7 @@ export default class ProductGridTile extends Component {
       height: 160,
       WebkitTransition: "all",
       msTransition: "all"
-    }
+    };
 
     return (
       <a onClick={this._handleSelect} href="#!">

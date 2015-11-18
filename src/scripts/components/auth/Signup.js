@@ -35,8 +35,8 @@ class Signup extends Component {
         email: email,
         password: password,
         password_confirmation: passwordConfirmation
-      }))
-    };
+      }));
+    }
   }
 
   render() {
