@@ -18,6 +18,33 @@ class Login extends Component {
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
+  componentWillMount() {
+    this._createLock();
+    this._getIdToken();
+  }
+
+  _createLock() {
+    this.lock = new Auth0Lock("yMLdR2C9Ojx2GlXs59oFHV9RLDezDmPJ", "fitbird.eu.auth0.com");
+  }
+
+  _getIdToken() {
+    let idToken = localStorage.getItem("userToken");
+    const authHash = this.lock.parseHash(window.location.hash);
+
+    if (!idToken && authHash) {
+      if (authHash.id_token) {
+        idToken = authHash.id_token;
+        console.log(idToken);
+        localStorage.setItem("userToken", authHash.id_token);
+      }
+      if (authHash.error) {
+        console.error(authHash);
+        return null;
+      }
+    }
+    return idToken;
+  }
+
   _handleClose() {
     this.props.dispatch(changeRoute("MARKETPLACE"));
   }
@@ -51,7 +78,7 @@ class Login extends Component {
                 onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
-              <div><Auth0 /></div>
+              <div><Auth0 lock={this.lock} /></div>
               <div><Facebook /></div>
               <div><Google /></div>
               <form onSubmit={this._handleSubmit}>
