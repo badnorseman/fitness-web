@@ -1,10 +1,12 @@
-// https://auth0.com/docs/libraries/lock/customization
 "use strict";
 import React, { Component } from "react";
 // import Auth0Lock from "auth0-lock";
+import { connect } from "react-redux";
+import { changeRoute } from "../../actions/routeActions";
+import { auth0 } from "../../actions/authActions";
 import Auth0Variables from "../../constants/auth0Variables";
 
-export default class Auth0 extends Component {
+class Auth0 extends Component {
   constructor(props) {
     super(props);
     this._showLock = this._showLock.bind(this);
@@ -12,6 +14,10 @@ export default class Auth0 extends Component {
 
   componentWillMount() {
     this._initializeLock();
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch(changeRoute("MARKETPLACE"));
   }
 
   _initializeLock() {
@@ -25,27 +31,18 @@ export default class Auth0 extends Component {
     this.lock.show({
       disableSignupAction: true,
       disableResetAction: true
-    }, (error, profile, id_token) => {
-      if (error) {
-        console.log(error);
-        return;
-      }
-      console.log(profile);
-      if (id_token) {
-        this._setIdToken(id_token);
-      }
+    }, (error, profile, token) => {
+      this.props.dispatch(auth0(error, token));
     });
-  }
-
-  _setIdToken(id_token) {
-    localStorage.setItem("idToken", id_token);
   }
 
   render() {
     return (
-      <div className="login-box">
-        <a onClick={this._showLock}>Login</a>
-      </div>
+      <a onClick={this._showLock}>
+        Login
+      </a>
     );
   }
 }
+
+export default connect()(Auth0);

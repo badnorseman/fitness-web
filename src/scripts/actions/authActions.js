@@ -6,6 +6,33 @@ import {
   signup as apiSignup
 } from "../api/api";
 
+export const AUTH0_RESPONSE = "AUTH0_RESPONSE";
+export const AUTH0_ERROR = "AUTH0_ERROR";
+
+function auth0Response(token) {
+  return {
+    type: AUTH0_RESPONSE,
+    data: token
+  };
+}
+
+function auth0Error(error) {
+  return {
+    type: AUTH0_ERROR,
+    errors: error
+  };
+}
+
+export function auth0(error, token) {
+  return dispatch => {
+    if (token) {
+      dispatch(auth0Response(token));
+    } else {
+      dispatch(auth0Error(error));
+    }
+  };
+}
+
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_RESPONSE = "LOGIN_RESPONSE";
 export const LOGIN_ERROR = "LOGIN_ERROR";

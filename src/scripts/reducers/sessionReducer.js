@@ -1,5 +1,7 @@
 "use strict";
 import {
+  AUTH0_RESPONSE,
+  AUTH0_ERROR,
   LOGIN_REQUEST,
   LOGIN_RESPONSE,
   LOGIN_ERROR,
@@ -38,6 +40,10 @@ function deleteUserToken() {
   localStorage.removeItem("userToken");
 }
 
+function setIdToken(token) {
+  localStorage.setItem("idToken", token);
+}
+
 function setUserToken(token) {
   localStorage.setItem("userToken", token);
 }
@@ -45,6 +51,12 @@ function setUserToken(token) {
 export default function sessionReducer(state = initialState, action) {
   switch (action.type) {
     case USER_UPDATE_RESPONSE:
+      return Object.assign({}, state, {
+        currentUser: action.data
+      });
+
+    case AUTH0_RESPONSE:
+      setIdToken(action.data);
       return Object.assign({}, state, {
         currentUser: action.data
       });
@@ -71,6 +83,7 @@ export default function sessionReducer(state = initialState, action) {
         currentUser: {}
       });
 
+    case AUTH0_ERROR:
     case LOGIN_ERROR:
     case LOGOUT_ERROR:
     case OAUTH_ERROR:
