@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 // import Auth0Lock from "auth0-lock";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/routeActions";
 import { auth0 } from "../../actions/authActions";
 import Auth0Variables from "../../constants/auth0Variables";
 
@@ -16,10 +15,6 @@ class Auth0 extends Component {
     this._initializeLock();
   }
 
-  componentWillUnmount() {
-    this.props.dispatch(changeRoute("MARKETPLACE"));
-  }
-
   _initializeLock() {
     this.lock = new Auth0Lock(
       Auth0Variables.CLIENT_ID,
@@ -27,7 +22,9 @@ class Auth0 extends Component {
     );
   }
 
-  _showLock() {
+  _showLock(event) {
+    event.preventDefault();
+
     this.lock.show({
       disableSignupAction: true,
       disableResetAction: true

@@ -8,9 +8,6 @@ import {
   LOGOUT_REQUEST,
   LOGOUT_RESPONSE,
   LOGOUT_ERROR,
-  OAUTH_REQUEST,
-  OAUTH_RESPONSE,
-  OAUTH_ERROR,
   SIGNUP_REQUEST,
   SIGNUP_RESPONSE,
   SIGNUP_ERROR
@@ -23,14 +20,6 @@ import {
 const initialState = {
   currentUser: {}
 };
-
-function fbLogout() {
-  FB.getLoginStatus(response => {
-    if (response.status === "connected") {
-      FB.logout();
-    }
-  });
-}
 
 function deleteIdToken() {
   localStorage.removeItem("idToken");
@@ -62,7 +51,6 @@ export default function sessionReducer(state = initialState, action) {
       });
 
     case LOGIN_RESPONSE:
-    case OAUTH_RESPONSE:
       setUserToken(action.data.token);
       return Object.assign({}, state, {
         currentUser: action.data
@@ -71,7 +59,6 @@ export default function sessionReducer(state = initialState, action) {
     case LOGOUT_RESPONSE:
       deleteIdToken();
       deleteUserToken();
-      fbLogout();
       return Object.assign({}, state, {
         currentUser: {}
       });
@@ -86,7 +73,6 @@ export default function sessionReducer(state = initialState, action) {
     case AUTH0_ERROR:
     case LOGIN_ERROR:
     case LOGOUT_ERROR:
-    case OAUTH_ERROR:
     case SIGNUP_ERROR:
       return Object.assign({}, state, {
         currentUser: {}
