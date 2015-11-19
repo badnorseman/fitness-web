@@ -1,7 +1,10 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import { changeRoute } from "../actions/routeActions";
+import { logout } from "../actions/authActions";
 
-export default class Navigation extends Component {
+class Navigation extends Component {
   constructor(props) {
     super(props);
     this._goToAccount = this._goToAccount.bind(this);
@@ -12,23 +15,23 @@ export default class Navigation extends Component {
   }
 
   _goToAccount() {
-    this.props.changeRoute("ACCOUNT");
+    this.props.dispatch(changeRoute("ACCOUNT"));
   }
 
   _goToDashboard() {
-    this.props.changeRoute("DASHBOARD");
+    this.props.dispatch(changeRoute("DASHBOARD"));
   }
 
   _goToLogin() {
-    this.props.changeRoute("LOGIN");
+    this.props.dispatch(changeRoute("LOGIN"));
   }
 
   _goToSignup() {
-    this.props.changeRoute("SIGNUP");
+    this.props.dispatch(changeRoute("SIGNUP"));
   }
 
   _handleLogout() {
-    this.props.logout();
+    this.props.dispatch(logout());
   }
 
   render() {
@@ -65,3 +68,5 @@ export default class Navigation extends Component {
     )
   }
 }
+
+export default connect()(Navigation);
