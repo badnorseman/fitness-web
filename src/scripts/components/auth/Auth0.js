@@ -1,3 +1,4 @@
+// https://auth0.com/docs/libraries/lock/customization
 "use strict";
 import React, { Component } from "react";
 // import Auth0Lock from "auth0-lock";
@@ -15,13 +16,16 @@ export default class Auth0 extends Component {
 
   _initializeLock() {
     this.lock = new Auth0Lock(
-      Auth0Variables.AUTH0_CLIENT_ID,
-      Auth0Variables.AUTH0_DOMAIN
+      Auth0Variables.CLIENT_ID,
+      Auth0Variables.DOMAIN
     );
   }
 
   _showLock() {
-    this.lock.show((error, profile, id_token) => {
+    this.lock.show({
+      disableSignupAction: true,
+      disableResetAction: true
+    }, (error, profile, id_token) => {
       if (error) {
         console.log(error);
         return;
