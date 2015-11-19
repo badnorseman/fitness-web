@@ -1,8 +1,6 @@
 "use strict";
 import React, { Component } from "react";
-import {
-  AUTH0_CLIENT_ID, AUTH0_DOMAIN
-} from "../constants/auth0";
+import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from "../constants/auth0";
 import Account from "../containers/Account";
 import Dashboard from "../containers/Dashboard";
 import EditProduct from "./products/EditProduct";
@@ -20,38 +18,34 @@ import "./layout.css";
 export default class Layout extends Component {
   constructor(props) {
     super(props);
-    this.state = { idToken: {} };
     this._goToMarketplace = this._goToMarketplace.bind(this);
   }
 
-  componentDidMount() {
-    this._createLock();
-    this.setState({ userToken: this._getUserToken()});
+  componentWillMount() {
+    this._initializeLock();
+    this._setIdToken();
   }
 
   componentDidUpdate() {
     componentHandler.upgradeDom();
   }
 
-  _createLock() {
-    this.lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
+  _initializeLock() {
+    this.lock = new Auth0Lock(`${AUTH0_CLIENT_ID}`, `${AUTH0_DOMAIN}`);
   }
 
-  _getUserToken() {
-    let userToken = localStorage.getItem("userToken");
+  _setIdToken() {
+    let idToken = localStorage.getItem("idToken");
     let authHash = this.lock.parseHash(window.location.hash);
 
-    if (!userToken && authHash) {
+    if (!idToken && authHash) {
       if (authHash.id_token) {
-        userToken = authHash.id_token;
-        localStorage.setItem("userToken", authHash.id_token);
+        localStorage.setItem("idToken", authHash.id_token);
       }
       if (authHash.error) {
         console.error(authHash);
-        return null;
       }
     }
-    return userToken;
   }
 
   _goToMarketplace() {

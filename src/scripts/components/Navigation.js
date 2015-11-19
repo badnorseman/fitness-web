@@ -28,11 +28,6 @@ export default class Navigation extends Component {
   }
 
   _handleLogout() {
-    FB.getLoginStatus(response => {
-      if (response.status === "connected") {
-        FB.logout();
-      };
-    });
     this.props.logout();
   }
 

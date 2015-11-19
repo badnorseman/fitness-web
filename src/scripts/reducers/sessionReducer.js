@@ -18,17 +18,28 @@ import {
   USER_UPDATE_RESPONSE
 } from "../actions/userActions";
 
-const AUTH_TOKEN = "token";
 const initialState = {
   currentUser: {}
 };
 
-function deleteLocalToken() {
-  localStorage.removeItem(AUTH_TOKEN);
+function fbLogout() {
+  FB.getLoginStatus(response => {
+    if (response.status === "connected") {
+      FB.logout();
+    }
+  });
 }
 
-function saveTokenLocally(token) {
-  localStorage.setItem(AUTH_TOKEN, token);
+function deleteIdToken() {
+  localStorage.removeItem("idToken");
+}
+
+function deleteUserToken() {
+  localStorage.removeItem("userToken");
+}
+
+function setUserToken(token) {
+  localStorage.setItem("userToken", token);
 }
 
 export default function sessionReducer(state = initialState, action) {
@@ -40,14 +51,22 @@ export default function sessionReducer(state = initialState, action) {
 
     case LOGIN_RESPONSE:
     case OAUTH_RESPONSE:
-      saveTokenLocally(action.data.token);
+      setUserToken(action.data.token);
       return Object.assign({}, state, {
         currentUser: action.data
       });
 
     case LOGOUT_RESPONSE:
+      deleteIdToken();
+      deleteUserToken();
+      fbLogout();
+      return Object.assign({}, state, {
+        currentUser: {}
+      });
+
     case SIGNUP_RESPONSE:
-      deleteLocalToken();
+      deleteIdToken();
+      deleteUserToken();
       return Object.assign({}, state, {
         currentUser: {}
       });
