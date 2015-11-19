@@ -13,7 +13,7 @@ export function getFormData(entityName, data) {
 
 export function getHeaders() {
   return {
-    "Authorization": `Token token=${localStorage.token}`
+    "Authorization": `Token token=${localStorage.userToken}`
   };
 }
 
