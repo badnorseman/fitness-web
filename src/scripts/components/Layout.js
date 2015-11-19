@@ -1,6 +1,5 @@
 "use strict";
 import React, { Component } from "react";
-import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from "../constants/auth0";
 import Account from "../containers/Account";
 import Dashboard from "../containers/Dashboard";
 import EditProduct from "./products/EditProduct";
@@ -21,31 +20,8 @@ export default class Layout extends Component {
     this._goToMarketplace = this._goToMarketplace.bind(this);
   }
 
-  componentWillMount() {
-    this._initializeLock();
-    this._setIdToken();
-  }
-
   componentDidUpdate() {
     componentHandler.upgradeDom();
-  }
-
-  _initializeLock() {
-    this.lock = new Auth0Lock(`${AUTH0_CLIENT_ID}`, `${AUTH0_DOMAIN}`);
-  }
-
-  _setIdToken() {
-    let idToken = localStorage.getItem("idToken");
-    let authHash = this.lock.parseHash(window.location.hash);
-
-    if (!idToken && authHash) {
-      if (authHash.id_token) {
-        localStorage.setItem("idToken", authHash.id_token);
-      }
-      if (authHash.error) {
-        console.error(authHash);
-      }
-    }
   }
 
   _goToMarketplace() {
@@ -64,7 +40,7 @@ export default class Layout extends Component {
         content = <Dashboard />;
         break;
       case "LOGIN":
-        content = <Login lock={this.lock}/>;
+        content = <Login />;
         break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;

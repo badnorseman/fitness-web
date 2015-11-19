@@ -51,7 +51,7 @@ class Login extends Component {
                 onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
-              <div><Auth0 lock={this.props.lock}/></div>
+              <div><Auth0 /></div>
               <div><Facebook /></div>
               <div><Google /></div>
               <form onSubmit={this._handleSubmit}>
