@@ -21,16 +21,8 @@ const initialState = {
   currentUser: {}
 };
 
-function deleteIdToken() {
-  localStorage.removeItem("idToken");
-}
-
 function deleteUserToken() {
   localStorage.removeItem("userToken");
-}
-
-function setIdToken(token) {
-  localStorage.setItem("idToken", token);
 }
 
 function setUserToken(token) {
@@ -45,9 +37,9 @@ export default function sessionReducer(state = initialState, action) {
       });
 
     case AUTH0_RESPONSE:
-      setIdToken(action.data);
+      setUserToken(action.data);
       return Object.assign({}, state, {
-        currentUser: action.data
+        currentUser: { id: action.data }
       });
 
     case LOGIN_RESPONSE:
@@ -57,14 +49,12 @@ export default function sessionReducer(state = initialState, action) {
       });
 
     case LOGOUT_RESPONSE:
-      deleteIdToken();
       deleteUserToken();
       return Object.assign({}, state, {
         currentUser: {}
       });
 
     case SIGNUP_RESPONSE:
-      deleteIdToken();
       deleteUserToken();
       return Object.assign({}, state, {
         currentUser: {}

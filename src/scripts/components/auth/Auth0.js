@@ -17,8 +17,8 @@ class Auth0 extends Component {
 
   _initializeLock() {
     this.lock = new Auth0Lock(
-      Auth0Variables.CLIENT_ID,
-      Auth0Variables.DOMAIN
+      Auth0Variables.AUTH0_CLIENT_ID,
+      Auth0Variables.AUTH0_DOMAIN
     );
   }
 
@@ -29,7 +29,7 @@ class Auth0 extends Component {
       disableSignupAction: true,
       disableResetAction: true
     }, (error, profile, token) => {
-      this.props.dispatch(auth0(error, token));
+      this.props.dispatch(auth0(error, profile, token));
     });
   }
 
