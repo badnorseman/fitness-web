@@ -1,11 +1,8 @@
 "use strict";
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { changeRoute } from "../../actions/routeActions";
-import { oauth } from "../../actions/authActions";
 import "./facebook.css";
 
-class Facebook extends Component {
+export default class Facebook extends Component {
   constructor(props) {
     super(props);
     this._handleClick = this._handleClick.bind(this);
@@ -13,18 +10,6 @@ class Facebook extends Component {
 
   _handleClick(event) {
     event.preventDefault();
-
-    FB.getLoginStatus(response => {
-      if (response.status === "connected") {
-        this.props.dispatch(oauth("facebook"));
-      } else {
-        FB.login(response => {
-          if (response.authResponse) {
-            this.props.dispatch(oauth("facebook"));
-          }
-        }, { scope: "public_profile,email,user_birthday" });
-      }
-    });
   }
 
   render() {
@@ -38,5 +23,3 @@ class Facebook extends Component {
     );
   }
 }
-
-export default connect()(Facebook);

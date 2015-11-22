@@ -1,7 +1,7 @@
 "use strict";
 import $ from "jquery";
 import { getFormData, getHeaders, getUrl } from "../utils/apiUtils";
-import { LOGIN, LOGOUT, OAUTH, SIGNUP } from "../constants/apiRoutes";
+import { LOGIN, SIGNUP } from "../constants/apiRoutes";
 
 export function create(entityName, data) {
   const url = getUrl(entityName);
@@ -72,49 +72,29 @@ export function fetchById(entityName, id) {
   );
 }
 
-export function login(data) {
+export function login() {
   const url = LOGIN;
+  const headers = getHeaders();
   return Promise.resolve(
     $.ajax({
       url: url,
       dataType: "json",
       type: "GET",
-      data: data
-    })
-  );
-}
-
-export function logout() {
-  const url = LOGOUT;
-  return Promise.resolve(
-    $.ajax({
-      url: url,
-      dataType: "json",
-      type: "GET"
-    })
-  );
-}
-
-export function oauth(provider) {
-  const url = `${OAUTH}/${provider}/callback`;
-  return Promise.resolve(
-    $.ajax({
-      url: url,
-      xhrFields: { withCredentials: true },
-      dataType: "json",
-      type: "GET"
+      headers: headers
     })
   );
 }
 
 export function signup(data) {
   const url = SIGNUP;
+  const headers = getHeaders();
   return Promise.resolve(
     $.ajax({
       url: url,
       dataType: "json",
       type: "POST",
-      data: data
+      data: data,
+      headers: headers
     })
   );
 }

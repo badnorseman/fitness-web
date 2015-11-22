@@ -4,8 +4,7 @@ import {
 } from "../actions/routeActions";
 import {
   LOGIN_RESPONSE,
-  LOGOUT_RESPONSE,
-  OAUTH_RESPONSE,
+  LOGOUT_REQUEST,
   SIGNUP_RESPONSE
 } from "../actions/authActions";
 import {
@@ -31,8 +30,7 @@ export default function routeReducer(state = initialState, action) {
       });
 
     case LOGIN_RESPONSE:
-    case LOGOUT_RESPONSE:
-    case OAUTH_RESPONSE:
+    case LOGOUT_REQUEST:
       return Object.assign({}, state, {
         route: "MARKETPLACE"
       });

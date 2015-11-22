@@ -37,7 +37,8 @@ class Navigation extends Component {
   render() {
     const { currentUser } = this.props;
     const { avatar, coach, email, id, name } = currentUser;
-    const isLoggedIn = currentUser.id > 0;
+    const isLoggedIn = (id) ? true : false;
+    console.log("Navigation", currentUser);
 
     return (
       <div>
