@@ -87,12 +87,14 @@ export function login() {
 
 export function signup(data) {
   const url = SIGNUP;
+  const headers = getHeaders();
   return Promise.resolve(
     $.ajax({
       url: url,
       dataType: "json",
       type: "POST",
-      data: data
+      data: data,
+      headers: headers
     })
   );
 }

@@ -14,7 +14,6 @@ export function getFormData(entityName, data) {
 export function getHeaders() {
   return {
     "Authorization": `Bearer ${localStorage.userToken}`
-    // "Authorization": `Token token=${localStorage.userToken}`
   };
 }
 

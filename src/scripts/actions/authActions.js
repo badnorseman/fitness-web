@@ -86,10 +86,9 @@ function signupResponse(response) {
 }
 
 function signupError(error) {
-  const errors = JSON.parse(error.responseText).errors;
   return {
     type: SIGNUP_ERROR,
-    errors: errors
+    errors: error
   };
 }
 
@@ -98,6 +97,6 @@ export function signup(data) {
     dispatch(signupRequest(data));
     return apiSignup(data)
     .then(response => dispatch(signupResponse(response)))
-    .catch(error => dispatch(signupError(error)))
+    .catch(error => dispatch(signupError(JSON.parse(error.responseText).errors)))
   };
 }

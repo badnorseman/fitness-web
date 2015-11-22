@@ -27,7 +27,6 @@ export default function authReducer(state = initialState, action) {
     case LOGOUT_REQUEST:
     case SIGNUP_RESPONSE:
     case SIGNUP_ERROR:
-      // deleteUserToken();
       return Object.assign({}, state, {
         currentUser: {}
       });
