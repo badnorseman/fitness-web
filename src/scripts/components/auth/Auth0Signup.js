@@ -2,10 +2,10 @@
 import React, { Component } from "react";
 // import Auth0Lock from "auth0-lock";
 import { connect } from "react-redux";
-import { login } from "../../actions/authActions";
+import { signup } from "../../actions/authActions";
 import Auth0Variables from "../../constants/auth0Variables";
 
-class Auth0 extends Component {
+class Auth0Signup extends Component {
   constructor(props) {
     super(props);
     this._showLock = this._showLock.bind(this);
@@ -36,10 +36,10 @@ class Auth0 extends Component {
   render() {
     return (
       <a onClick={this._showLock}>
-        Login
+        Signup
       </a>
     );
   }
 }
 
-export default connect()(Auth0);
+export default connect()(Auth0Signup);

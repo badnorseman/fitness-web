@@ -6,6 +6,7 @@ import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/routeActions";
 import { signup } from "../../actions/authActions";
+import Auth0Signup from "./Auth0Signup";
 import Facebook from "./Facebook";
 import Google from "./Google";
 import IconButton from "../IconButton";
@@ -50,6 +51,7 @@ class Signup extends Component {
                 onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
+              <div>Auth0Signup /></div>
               <div><Facebook /></div>
               <div><Google /></div>
               <form onSubmit={this._handleSubmit}>
