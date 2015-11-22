@@ -38,6 +38,7 @@ class Navigation extends Component {
     const { currentUser } = this.props;
     const { avatar, coach, email, id, name } = currentUser;
     const isLoggedIn = (id) ? true : false;
+    console.log("Navigation", currentUser);
 
     return (
       <div>

@@ -2,53 +2,15 @@
 import $ from "jquery";
 import {
   login as apiLogin,
-  logout as apiLogout,
   signup as apiSignup
 } from "../api/api";
 
-export const AUTH0_REQUEST = "AUTH0_REQUEST";
-export const AUTH0_RESPONSE = "AUTH0_RESPONSE";
-export const AUTH0_ERROR = "AUTH0_ERROR";
-
-function auth0Request(profile) {
-  return {
-    type: AUTH0_REQUEST,
-    data: profile
-  };
+function deleteUserToken() {
+  localStorage.removeItem("userToken");
 }
 
-function auth0Response(token) {
-  return {
-    type: AUTH0_RESPONSE,
-    data: token
-  };
-}
-
-function auth0Error(error) {
-  return {
-    type: AUTH0_ERROR,
-    errors: error
-  };
-}
-
-export function auth0(error, profile, token) {
-  console.log(profile);
-  return dispatch => {
-    dispatch(auth0Request(profile));
-    if (token) {
-      // Save token required in authorization header.
-      dispatch(auth0Response(token));
-      // Log in to api with Auth0 token.
-      $.ajax({
-        url: "http://localhost:3000/api/login",
-        headers: { "Authorization": `Bearer ${localStorage.userToken}` },
-        dataType: "json",
-        type: "GET"
-      });
-    } else {
-      dispatch(auth0Error(error));
-    }
-  };
+function setUserToken(token) {
+  localStorage.setItem("userToken", token);
 }
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
@@ -70,25 +32,27 @@ function loginResponse(response) {
 }
 
 function loginError(error) {
-  const errors = JSON.parse(error.responseText).errors;
   return {
     type: LOGIN_ERROR,
-    errors: errors
+    errors: error
   };
 }
 
-export function login(data) {
+export function login(error, profile, token) {
   return dispatch => {
-    dispatch(loginRequest(data));
-    return apiLogin(data)
-    .then(response => dispatch(loginResponse(response)))
-    .catch(error => dispatch(loginError(error)))
+    if (token) {
+      setUserToken(token);
+      dispatch(loginRequest(profile));
+      return apiLogin()
+      .then(response => dispatch(loginResponse(response)))
+      .catch(error => dispatch(loginError(JSON.parse(error.responseText).errors)))
+    } else {
+      dispatch(loginError(error))
+    }
   };
 }
 
 export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
-export const LOGOUT_RESPONSE = "LOGOUT_RESPONSE";
-export const LOGOUT_ERROR = "LOGOUT_ERROR";
 
 function logoutRequest() {
   return {
@@ -96,26 +60,10 @@ function logoutRequest() {
   };
 }
 
-function logoutResponse() {
-  return {
-    type: LOGOUT_RESPONSE
-  };
-}
-
-function logoutError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type: LOGOUT_ERROR,
-    errors: errors
-  };
-}
-
 export function logout() {
   return dispatch => {
+    deleteUserToken();
     dispatch(logoutRequest());
-    return apiLogout()
-    .then(() => dispatch(logoutResponse()))
-    .catch(error => dispatch(logoutError(error)))
   };
 }
 
