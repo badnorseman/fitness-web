@@ -34,7 +34,7 @@ class EditUser extends Component {
     let id = this.props.user.id;
     let name = this.refs.name.state.fieldValue;
 
-    if (email && name) {
+    if (email) {
       this.props.dispatch(updateUser({
         avatar: avatar,
         birth_date: birthDay,

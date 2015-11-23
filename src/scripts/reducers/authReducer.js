@@ -15,7 +15,6 @@ const initialState = {
 };
 
 export default function authReducer(state = initialState, action) {
-  console.log("authReducer", action, state);
   switch (action.type) {
     case LOGIN_RESPONSE:
     case USER_UPDATE_RESPONSE:

@@ -8,34 +8,28 @@ import Auth0Variables from "../../constants/auth0Variables";
 class Auth0Signup extends Component {
   constructor(props) {
     super(props);
-    this._showLock = this._showLock.bind(this);
+    this._handleClick = this._handleClick.bind(this);
   }
 
   componentWillMount() {
-    this._initializeLock();
-  }
-
-  _initializeLock() {
     this.lock = new Auth0Lock(
       Auth0Variables.AUTH0_CLIENT_ID,
       Auth0Variables.AUTH0_DOMAIN
     );
   }
 
-  _showLock(event) {
+  _handleClick(event) {
     event.preventDefault();
 
-    this.lock.show({
-      disableSignupAction: true,
-      disableResetAction: true
+    this.lock.showSignup({
     }, (error, profile, token) => {
-      this.props.dispatch(login(error, profile, token));
+      this.props.dispatch(signup(error, profile, token));
     });
   }
 
   render() {
     return (
-      <a onClick={this._showLock}>
+      <a onClick={this._handleClick}>
         Signup
       </a>
     );
