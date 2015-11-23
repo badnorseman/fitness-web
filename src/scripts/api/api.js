@@ -85,6 +85,7 @@ export function login() {
   );
 }
 
+// Later we will customize signup to include name, birthday
 export function signup(data) {
   const url = SIGNUP;
   const headers = getHeaders();
@@ -93,8 +94,8 @@ export function signup(data) {
       url: url,
       dataType: "json",
       type: "POST",
-      data: data,
-      headers: headers
+      headers: headers,
+      data: data
     })
   );
 }

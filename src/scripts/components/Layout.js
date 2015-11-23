@@ -30,7 +30,6 @@ export default class Layout extends Component {
 
   render() {
     const { currentUser, param, route } = this.props;
-    console.log("Layout", currentUser);
 
     let content;
     switch (route) {

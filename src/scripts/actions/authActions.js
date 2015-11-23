@@ -1,5 +1,4 @@
 "use strict";
-import $ from "jquery";
 import {
   login as apiLogin,
   signup as apiSignup
@@ -92,11 +91,19 @@ function signupError(error) {
   };
 }
 
-export function signup(data) {
+export function signup(error, profile, token) {
   return dispatch => {
-    dispatch(signupRequest(data));
-    return apiSignup(data)
-    .then(response => dispatch(signupResponse(response)))
-    .catch(error => dispatch(signupError(JSON.parse(error.responseText).errors)))
+    if (token) {
+      setUserToken(token);
+      dispatch(signupRequest(profile));
+      let data = {
+        email: profile.email
+      }
+      return apiSignup(data)
+      .then(response => dispatch(signupResponse(response)))
+      .catch(error => dispatch(signupError(JSON.parse(error.responseText).errors)))
+    } else {
+      dispatch(signupError(error))
+    }
   };
 }
