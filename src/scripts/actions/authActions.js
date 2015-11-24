@@ -1,6 +1,7 @@
 "use strict";
 import {
   login as apiLogin,
+  oauth as apiOauth,
   signup as apiSignup
 } from "../api/api";
 
@@ -63,6 +64,41 @@ export function logout() {
   return dispatch => {
     deleteUserToken();
     dispatch(logoutRequest());
+  };
+}
+
+export const OAUTH_REQUEST = "OAUTH_REQUEST";
+export const OAUTH_RESPONSE = "OAUTH_RESPONSE";
+export const OAUTH_ERROR = "OAUTH_ERROR";
+
+function oauthRequest(provider) {
+  return {
+    type: OAUTH_REQUEST,
+    provider: provider
+  };
+}
+
+function oauthResponse(response) {
+  return {
+    type: OAUTH_RESPONSE,
+    data: response
+  };
+}
+
+function oauthError(error) {
+  const errors = JSON.parse(error.responseText).errors;
+  return {
+    type: OAUTH_ERROR,
+    errors: errors
+  };
+}
+
+export function oauth(provider) {
+  return dispatch => {
+    dispatch(oauthRequest(provider));
+    return apiOauth(provider)
+    .then(response => dispatch(oauthResponse(response)))
+    .catch(error => dispatch(oauthError(error)))
   };
 }
 
