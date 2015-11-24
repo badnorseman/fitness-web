@@ -1,7 +1,44 @@
 "use strict";
-import { destroy, fetchById, update } from "../api/api";
+import { create, destroy, fetchById, update } from "../api/api";
 
 const entityName = "user";
+
+export const USER_CREATE_REQUEST = "USER_CREATE_REQUEST";
+export const USER_CREATE_RESPONSE = "USER_CREATE_RESPONSE";
+export const USER_CREATE_ERROR = "USER_CREATE_ERROR";
+
+function userCreateRequest(data) {
+  return {
+    type: USER_CREATE_REQUEST,
+    data: data
+  };
+}
+
+function userCreateResponse(response) {
+  const normalized = normalize(response, arrayOf(userSchema));
+  return {
+    type: USER_CREATE_RESPONSE,
+    data: normalized.entities.users
+  };
+}
+
+function userCreateError(error) {
+  const errors = JSON.parse(error.responseText).errors;
+  return {
+    type: USER_CREATE_ERROR,
+    errors: errors
+  };
+}
+
+export function createUser(data) {
+  return dispatch => {
+    dispatch(userCreateRequest(data));
+    return create(entityName, data)
+    .then(() => fetchAll(entityName))
+    .then(response => dispatch(userCreateResponse(response)))
+    .catch(error => dispatch(userCreateError(error)))
+  };
+}
 
 export const USER_DESTROY_REQUEST = "USER_DESTROY_REQUEST";
 export const USER_DESTROY_RESPONSE = "USER_DESTROY_RESPONSE";
