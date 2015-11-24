@@ -22,6 +22,7 @@ class Auth0Login extends Component {
     event.preventDefault();
 
     this.lock.showSignin({
+      gravatar: false
     }, (error, profile, token) => {
       this.props.dispatch(login(error, profile, token));
     });
