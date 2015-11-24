@@ -1,7 +1,6 @@
 "use strict";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/routeActions";
 import { oauth } from "../../actions/authActions";
 import "./facebook.css";
 
