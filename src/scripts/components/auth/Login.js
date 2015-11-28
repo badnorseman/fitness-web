@@ -53,7 +53,6 @@ class Login extends Component {
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Auth0Login /></div>
               <div><Facebook /></div>
-              <div><Google /></div>
               <form onSubmit={this._handleSubmit}>
                 <div>
                   <InputField

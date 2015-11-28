@@ -16,6 +16,10 @@ const initialState = {
   currentUser: {}
 };
 
+function deleteUserToken() {
+  localStorage.removeItem("userToken");
+}
+
 function setUserToken(token) {
   localStorage.setItem("userToken", token);
 }
@@ -39,6 +43,7 @@ export default function authReducer(state = initialState, action) {
     case OAUTH_ERROR:
     case SIGNUP_RESPONSE:
     case SIGNUP_ERROR:
+      deleteUserToken();
       return Object.assign({}, state, {
         currentUser: {}
       });
