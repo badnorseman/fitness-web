@@ -29,8 +29,9 @@ class Signup extends Component {
     let email = this.refs.email.state.fieldValue;
     let name = this.refs.name.state.fieldValue;
     let password = this.refs.password.state.fieldValue;
+    let passwordConfirmation = this.refs.passwordConfirmation.state.fieldValue;
 
-    if (email && name && password) {
+    if (email && name && password && passwordConfirmation) {
       this.props.dispatch(signup({
         email: email,
         password: password,
@@ -76,6 +77,14 @@ class Signup extends Component {
                     fieldType="password"
                     styles="signup__input-field"
                     ref="password" />
+                </div>
+                <div>
+                  <InputField
+                    fieldId="passwordConfirmation"
+                    fieldName="Confirm password"
+                    fieldType="password"
+                    styles="signup__input-field"
+                    ref="passwordConfirmation" />
                 </div>
                 <button
                   className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup-button"

@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 // import Auth0Lock from "auth0-lock";
 import { connect } from "react-redux";
-import { signup } from "../../actions/authActions";
+import { auth0Signup } from "../../actions/authActions";
 import Auth0Variables from "../../constants/auth0Variables";
 
 class Auth0Signup extends Component {
@@ -23,7 +23,7 @@ class Auth0Signup extends Component {
 
     this.lock.showSignup({
     }, (error, profile, token) => {
-      this.props.dispatch(signup(error, profile, token));
+      this.props.dispatch(auth0Signup(error, profile, token));
     });
   }
 

@@ -12,26 +12,27 @@ import {
   USER_UPDATE_RESPONSE
 } from "../actions/userActions";
 
+const USER_TOKEN = "userToken";
 const initialState = {
   currentUser: {}
 };
 
 function deleteUserToken() {
-  localStorage.removeItem("userToken");
+  localStorage.removeItem(USER_TOKEN);
 }
 
 function setUserToken(token) {
-  localStorage.setItem("userToken", token);
+  localStorage.setItem(USER_TOKEN, token);
 }
 
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
-    case LOGIN_RESPONSE:
     case USER_UPDATE_RESPONSE:
       return Object.assign({}, state, {
         currentUser: action.data
       });
 
+    case LOGIN_RESPONSE:
     case OAUTH_RESPONSE:
       setUserToken(action.data.token);
       return Object.assign({}, state, {

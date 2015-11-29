@@ -5,7 +5,6 @@ import { changeRoute } from "../../actions/routeActions";
 import { login } from "../../actions/authActions";
 import Auth0Login from "./Auth0Login";
 import Facebook from "./Facebook";
-import Google from "./Google";
 import IconButton from "../IconButton";
 import InputField from "../InputField";
 import "./login.css";
