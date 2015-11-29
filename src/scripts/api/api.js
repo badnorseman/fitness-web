@@ -1,34 +1,7 @@
 "use strict";
 import $ from "jquery";
 import { getFormData, getHeaders, getUrl } from "../utils/apiUtils";
-import { AUTH0LOGIN, AUTH0SIGNUP, LOGIN, LOGOUT, OAUTH, SIGNUP } from "../constants/apiRoutes";
-
-export function auth0Login() {
-  const url = AUTH0LOGIN;
-  const headers = getHeaders();
-  return Promise.resolve(
-    $.ajax({
-      url: url,
-      dataType: "json",
-      type: "GET",
-      headers: headers
-    })
-  );
-}
-
-export function auth0Signup(data) {
-  const url = AUTH0SIGNUP;
-  const headers = getHeaders();
-  return Promise.resolve(
-    $.ajax({
-      url: url,
-      dataType: "json",
-      type: "POST",
-      headers: headers,
-      data: data
-    })
-  );
-}
+import { LOGIN, LOGOUT, OAUTH, SIGNUP } from "../constants/apiRoutes";
 
 export function create(entityName, data) {
   const url = getUrl(entityName);

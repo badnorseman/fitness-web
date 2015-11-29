@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 // import Auth0Lock from "auth0-lock";
 import { connect } from "react-redux";
-import { auth0Login } from "../../actions/authActions";
+import { login } from "../../actions/auth0Actions";
 import Auth0Variables from "../../constants/auth0Variables";
 
 class Auth0Login extends Component {
@@ -24,7 +24,7 @@ class Auth0Login extends Component {
     this.lock.showSignin({
       gravatar: false
     }, (error, profile, token) => {
-      this.props.dispatch(auth0Login(error, profile, token));
+      this.props.dispatch(login(error, profile, token));
     });
   }
 

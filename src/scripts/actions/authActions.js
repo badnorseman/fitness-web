@@ -1,91 +1,10 @@
 "use strict";
 import {
-  auth0Login as apiAuth0Login,
-  auth0Signup as apiAuth0Signup,
   login as apiLogin,
   logout as apiLogout,
   oauth as apiOauth,
   signup as apiSignup
 } from "../api/api";
-
-export const AUTH0LOGIN_REQUEST = "AUTH0LOGIN_REQUEST";
-export const AUTH0LOGIN_RESPONSE = "AUTH0LOGIN_RESPONSE";
-export const AUTH0LOGIN_ERROR = "AUTH0LOGIN_ERROR";
-
-function auth0LoginRequest(token) {
-  return {
-    type: AUTH0LOGIN_REQUEST,
-    data: token
-  };
-}
-
-function auth0LoginResponse(response) {
-  return {
-    type: AUTH0LOGIN_RESPONSE,
-    data: response
-  };
-}
-
-function auth0LoginError(error) {
-  return {
-    type: AUTH0LOGIN_ERROR,
-    errors: error
-  };
-}
-
-export function auth0Login(error, profile, token) {
-  return dispatch => {
-    if (token) {
-      dispatch(auth0LoginRequest(token));
-      return apiAuth0Login()
-      .then(response => dispatch(auth0LoginResponse(response)))
-      .catch(error => dispatch(auth0LoginError(JSON.parse(error.responseText).errors)))
-    } else {
-      dispatch(auth0LoginError(error))
-    }
-  };
-}
-
-export const AUTH0SIGNUP_REQUEST = "AUTH0SIGNUP_REQUEST";
-export const AUTH0SIGNUP_RESPONSE = "AUTH0SIGNUP_RESPONSE";
-export const AUTH0SIGNUP_ERROR = "AUTH0SIGNUP_ERROR";
-
-function auth0SignupRequest(token) {
-  return {
-    type: AUTH0SIGNUP_REQUEST,
-    data: token
-  };
-}
-
-function auth0SignupResponse(response) {
-  return {
-    type: AUTH0SIGNUP_RESPONSE,
-    data: response
-  };
-}
-
-function auth0SignupError(error) {
-  return {
-    type: AUTH0SIGNUP_ERROR,
-    errors: error
-  };
-}
-
-export function auth0Signup(error, profile, token) {
-  return dispatch => {
-    if (token) {
-      dispatch(auth0SignupRequest(token));
-      let data = {
-        email: profile.email
-      }
-      return apiAuth0Signup(data)
-      .then(response => dispatch(auth0SignupResponse(response)))
-      .catch(error => dispatch(auth0SignupError(JSON.parse(error.responseText).errors)))
-    } else {
-      dispatch(auth0SignupError(error))
-    }
-  };
-}
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_RESPONSE = "LOGIN_RESPONSE";
