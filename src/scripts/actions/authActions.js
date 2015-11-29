@@ -8,22 +8,14 @@ import {
   signup as apiSignup
 } from "../api/api";
 
-function deleteUserToken() {
-  localStorage.removeItem("userToken");
-}
-
-function setUserToken(token) {
-  localStorage.setItem("userToken", token);
-}
-
 export const AUTH0LOGIN_REQUEST = "AUTH0LOGIN_REQUEST";
 export const AUTH0LOGIN_RESPONSE = "AUTH0LOGIN_RESPONSE";
 export const AUTH0LOGIN_ERROR = "AUTH0LOGIN_ERROR";
 
-function auth0LoginRequest(data) {
+function auth0LoginRequest(token) {
   return {
     type: AUTH0LOGIN_REQUEST,
-    data: data
+    data: token
   };
 }
 
@@ -44,8 +36,7 @@ function auth0LoginError(error) {
 export function auth0Login(error, profile, token) {
   return dispatch => {
     if (token) {
-      setUserToken(token);
-      dispatch(auth0LoginRequest(profile));
+      dispatch(auth0LoginRequest(token));
       return apiAuth0Login()
       .then(response => dispatch(auth0LoginResponse(response)))
       .catch(error => dispatch(auth0LoginError(JSON.parse(error.responseText).errors)))
@@ -55,29 +46,14 @@ export function auth0Login(error, profile, token) {
   };
 }
 
-export const AUTH0LOGOUT_REQUEST = "AUTH0LOGOUT_REQUEST";
-
-function auth0LogoutRequest() {
-  return {
-    type: AUTH0LOGOUT_REQUEST
-  };
-}
-
-export function auth0Logout() {
-  return dispatch => {
-    deleteUserToken();
-    dispatch(auth0LogoutRequest());
-  };
-}
-
 export const AUTH0SIGNUP_REQUEST = "AUTH0SIGNUP_REQUEST";
 export const AUTH0SIGNUP_RESPONSE = "AUTH0SIGNUP_RESPONSE";
 export const AUTH0SIGNUP_ERROR = "AUTH0SIGNUP_ERROR";
 
-function auth0SignupRequest(data) {
+function auth0SignupRequest(token) {
   return {
     type: AUTH0SIGNUP_REQUEST,
-    data: data
+    data: token
   };
 }
 
@@ -98,8 +74,7 @@ function auth0SignupError(error) {
 export function auth0Signup(error, profile, token) {
   return dispatch => {
     if (token) {
-      setUserToken(token);
-      dispatch(auth0SignupRequest(profile));
+      dispatch(auth0SignupRequest(token));
       let data = {
         email: profile.email
       }

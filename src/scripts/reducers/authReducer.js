@@ -1,5 +1,11 @@
 "use strict";
 import {
+  AUTH0LOGIN_REQUEST,
+  AUTH0LOGIN_RESPONSE,
+  AUTH0LOGIN_ERROR,
+  AUTH0SIGNUP_REQUEST,
+  AUTH0SIGNUP_RESPONSE,
+  AUTH0SIGNUP_ERROR,
   LOGIN_RESPONSE,
   LOGIN_ERROR,
   LOGOUT_REQUEST,
@@ -12,22 +18,31 @@ import {
   USER_UPDATE_RESPONSE
 } from "../actions/userActions";
 
-const USER_TOKEN = "userToken";
 const initialState = {
   currentUser: {}
 };
 
 function deleteUserToken() {
-  localStorage.removeItem(USER_TOKEN);
+  localStorage.removeItem("userToken");
 }
 
 function setUserToken(token) {
-  localStorage.setItem(USER_TOKEN, token);
+  localStorage.setItem("userToken", token);
 }
 
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
     case USER_UPDATE_RESPONSE:
+      return Object.assign({}, state, {
+        currentUser: action.data
+      });
+
+    case AUTH0LOGIN_REQUEST:
+    case AUTH0SIGNUP_REQUEST:
+      setUserToken(action.data.token);
+
+    case AUTH0LOGIN_RESPONSE:
+    case AUTH0SIGNUP_RESPONSE:
       return Object.assign({}, state, {
         currentUser: action.data
       });
@@ -39,6 +54,8 @@ export default function authReducer(state = initialState, action) {
         currentUser: action.data
       });
 
+    case AUTH0LOGIN_ERROR:
+    case AUTH0SIGNUP_ERROR:
     case LOGIN_ERROR:
     case LOGOUT_REQUEST:
     case OAUTH_ERROR:
