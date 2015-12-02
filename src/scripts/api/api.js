@@ -1,12 +1,12 @@
 "use strict";
 import $ from "jquery";
-import { getFormData, getHeaders, getUrl } from "../utils/apiUtils";
+import { buildFormData, buildHeaders, buildUrl } from "../utils/apiUtils";
 import { LOGIN, LOGOUT, OAUTH, SIGNUP } from "../constants/apiRoutes";
 
 export function create(entityName, data) {
-  const url = getUrl(entityName);
-  const headers = getHeaders();
-  const formData = getFormData(entityName, data);
+  const url = buildUrl(entityName);
+  const headers = buildHeaders();
+  const formData = buildFormData(entityName, data);
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -21,8 +21,8 @@ export function create(entityName, data) {
 }
 
 export function destroy(entityName, id) {
-  const url = getUrl(entityName, id);
-  const headers = getHeaders();
+  const url = buildUrl(entityName, id);
+  const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -34,8 +34,8 @@ export function destroy(entityName, id) {
 }
 
 export function fetchClientToken(entityName) {
-  const url = getUrl(entityName, "new");
-  const headers = getHeaders();
+  const url = buildUrl(entityName, "new");
+  const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -47,8 +47,8 @@ export function fetchClientToken(entityName) {
 }
 
 export function fetchAll(entityName) {
-  const url = getUrl(entityName);
-  const headers = getHeaders();
+  const url = buildUrl(entityName);
+  const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -60,8 +60,8 @@ export function fetchAll(entityName) {
 }
 
 export function fetchById(entityName, id) {
-  const url = getUrl(entityName, id);
-  const headers = getHeaders();
+  const url = buildUrl(entityName, id);
+  const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -120,9 +120,9 @@ export function signup(data) {
 }
 
 export function update(entityName, data) {
-  const url = getUrl(entityName, data.id);
-  const headers = getHeaders();
-  const formData = getFormData(entityName, data);
+  const url = buildUrl(entityName, data.id);
+  const headers = buildHeaders();
+  const formData = buildFormData(entityName, data);
   return Promise.resolve(
     $.ajax({
       url: url,

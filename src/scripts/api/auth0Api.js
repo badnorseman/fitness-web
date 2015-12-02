@@ -1,16 +1,16 @@
 "use strict";
 import $ from "jquery";
-import { AUTH0LOGIN, AUTH0SIGNUP } from "../constants/apiRoutes";
+import { API } from "../constants/apiRoutes";
 
-function getHeaders() {
+function buildHeaders() {
   return {
     "Authorization": `Bearer ${localStorage.userToken}`
   };
 }
 
 export function login() {
-  const url = AUTH0LOGIN;
-  const headers = getHeaders();
+  const url = `${API}/login`;
+  const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -22,8 +22,8 @@ export function login() {
 }
 
 export function signup(data) {
-  const url = AUTH0SIGNUP;
-  const headers = getHeaders();
+  const url = `${API}/signup`;
+  const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
       url: url,
