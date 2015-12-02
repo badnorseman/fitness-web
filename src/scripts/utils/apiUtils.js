@@ -1,7 +1,7 @@
 "use strict";
 import { API } from "../constants/apiRoutes";
 
-export function getFormData(entityName, data) {
+export function buildFormData(entityName, data) {
   let formData = new FormData();
   for (let key in data) {
     if (data.hasOwnProperty(key)) {
@@ -11,16 +11,16 @@ export function getFormData(entityName, data) {
   return formData;
 }
 
-export function getHeaders() {
+export function buildHeaders() {
   return {
     "Authorization": `Token token=${localStorage.userToken}`
   };
 }
 
-export function getUrl(entityName, params) {
-  return `${API}/${entityName.toLowerCase()}s${getUrlParams(params)}`;
+export function buildUrl(entityName, params) {
+  return `${API}/${entityName.toLowerCase()}s${buildParams(params)}`;
 }
 
-function getUrlParams(params = "") {
+function buildParams(params = "") {
   return (params === "") ? "" : `/${params}`;
 }
