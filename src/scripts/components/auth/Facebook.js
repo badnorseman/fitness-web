@@ -21,7 +21,7 @@ class Facebook extends Component {
           if (response.authResponse) {
             this.props.dispatch(oauth("facebook"));
           };
-        }, { scope: "public_profile,email,user_birthday" });
+        }, { scope: "email,public_profile", info_fields: "email,name" });
       };
     });
   }
