@@ -1,7 +1,7 @@
 "use strict";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/routeActions";
+import { changeRoute } from "../actions/route_actions";
 import Dashboard from "../components/Dashboard";
 
 function mapDispatchToProps(dispatch) {

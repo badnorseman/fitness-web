@@ -1,12 +1,12 @@
 "use strict";
 import {
   RESET_ERROR_MESSAGE
-} from "../actions/errorActions";
+} from "../actions/error_actions";
 import {
   ROUTE_CHANGE
-} from "../actions/routeActions";
+} from "../actions/route_actions";
 
-export default function errorMessage(state = null, action) {
+export default function errorMessageReducer(state = null, action) {
   const { type, errors } = action;
 
   if (type === RESET_ERROR_MESSAGE || type === ROUTE_CHANGE) {

@@ -1,6 +1,6 @@
 "use strict";
 import $ from "jquery";
-import { API } from "../constants/apiRoutes";
+import { API } from "../constants/api_routes";
 
 function buildHeaders() {
   return {

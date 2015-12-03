@@ -1,8 +1,8 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/routeActions";
-import { createProduct } from "../../actions/productActions";
+import { changeRoute } from "../../actions/route_actions";
+import { createProduct } from "../../actions/product_actions";
 import ProductForm from "./ProductForm";
 import Button from "../Button";
 import IconButton from "../IconButton";

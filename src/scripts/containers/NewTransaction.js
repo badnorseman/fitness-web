@@ -1,8 +1,8 @@
 "use strict";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/routeActions";
-import { createTransaction, getClientToken } from "../actions/transactionActions";
+import { changeRoute } from "../actions/route_actions";
+import { createTransaction, getClientToken } from "../actions/transaction_actions";
 import NewTransaction from "../components/transactions/NewTransaction";
 
 function mapDispatchToProps(dispatch) {

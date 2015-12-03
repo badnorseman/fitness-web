@@ -1,17 +1,17 @@
 "use strict";
 import { combineReducers } from "redux";
-import authReducer from "./authReducer";
-import cartReducer from "./cartReducer";
-import errorMessage from "./errorMessage";
-import productReducer from "./productReducer";
-import routeReducer from "./routeReducer";
-import transactionReducer from "./transactionReducer";
-import userReducer from "./userReducer";
+import authReducer from "./auth_reducer";
+import cartReducer from "./cart_reducer";
+import errorMessageReducer from "./error_message_reducer";
+import productReducer from "./product_reducer";
+import routeReducer from "./route_reducer";
+import transactionReducer from "./transaction_reducer";
+import userReducer from "./user_reducer";
 
 const combinedReducer = combineReducers({
   authReducer,
   cartReducer,
-  errorMessage,
+  errorMessageReducer,
   productReducer,
   routeReducer,
   transactionReducer,

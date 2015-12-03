@@ -2,7 +2,7 @@
 import {
   login as apiLogin,
   signup as apiSignup
-} from "../api/auth0Api";
+} from "../api/auth0_api";
 
 export const AUTH0LOGIN_REQUEST = "AUTH0LOGIN_REQUEST";
 export const AUTH0LOGIN_RESPONSE = "AUTH0LOGIN_RESPONSE";

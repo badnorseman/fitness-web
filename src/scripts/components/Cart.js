@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/routeActions";
+import { changeRoute } from "../actions/route_actions";
 import IconButton from "./IconButton";
 
 class Cart extends Component {
