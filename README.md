@@ -1,11 +1,10 @@
-#Web app
-##Development mode
-###Install app
+#Getting started
+##Install application
 Clone app. Read more https://help.github.com/articles/cloning-a-repository/  
 Run `npm install`
-###Run app
+##Run application
 Run `npm start`  
 Open browser and http://localhost:8080/
-###Code change
-Create pull request with change  
-Assign label ready to review when change is completed and tested
+#Request change
+Create pull request with the change  
+Assign label ready to review when the change is completed and tested
