@@ -1,7 +1,7 @@
 "use strict";
 import $ from "jquery";
 
-export default function fetchAllProducts(status, result = {}) {
+export default function fetchProducts(status, result = {}) {
   return (status === 200) ? status : result
   // return (
   //   $.ajax({
