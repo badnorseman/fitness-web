@@ -1,5 +1,5 @@
 "use strict";
-import { API } from "../constants/apiRoutes";
+import { API } from "../constants/api_routes";
 
 export function buildFormData(entityName, data) {
   let formData = new FormData();

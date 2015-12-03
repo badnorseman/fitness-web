@@ -1,8 +1,8 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/routeActions";
-import { login } from "../../actions/authActions";
+import { changeRoute } from "../../actions/route_actions";
+import { login } from "../../actions/auth_actions";
 import Auth0Login from "./Auth0Login";
 import Facebook from "./Facebook";
 import IconButton from "../IconButton";

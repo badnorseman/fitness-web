@@ -1,8 +1,8 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/routeActions";
-import { logout } from "../actions/authActions";
+import { changeRoute } from "../actions/route_actions";
+import { logout } from "../actions/auth_actions";
 
 class Navigation extends Component {
   constructor(props) {

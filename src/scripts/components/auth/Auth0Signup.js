@@ -2,8 +2,8 @@
 import React, { Component } from "react";
 // import Auth0Lock from "auth0-lock";
 import { connect } from "react-redux";
-import { signup } from "../../actions/auth0Actions";
-import Auth0Variables from "../../constants/auth0Variables";
+import { signup } from "../../actions/auth0_actions";
+import Auth0Variables from "../../constants/auth0_variables";
 
 class Auth0Signup extends Component {
   constructor(props) {

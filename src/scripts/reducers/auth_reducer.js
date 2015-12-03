@@ -13,10 +13,10 @@ import {
   OAUTH_ERROR,
   SIGNUP_RESPONSE,
   SIGNUP_ERROR
-} from "../actions/authActions";
+} from "../actions/auth_actions";
 import {
   USER_UPDATE_RESPONSE
-} from "../actions/userActions";
+} from "../actions/user_actions";
 
 const initialState = {
   currentUser: {}

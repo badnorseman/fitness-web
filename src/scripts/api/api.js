@@ -1,7 +1,7 @@
 "use strict";
 import $ from "jquery";
-import { buildFormData, buildHeaders, buildUrl } from "../utils/apiUtils";
-import { LOGIN, LOGOUT, OAUTH, SIGNUP } from "../constants/apiRoutes";
+import { buildFormData, buildHeaders, buildUrl } from "../utils/api_utils";
+import { LOGIN, LOGOUT, OAUTH, SIGNUP } from "../constants/api_routes";
 
 export function create(entityName, data) {
   const url = buildUrl(entityName);

@@ -2,7 +2,7 @@
 import {
   USER_FETCH_REQUEST,
   USER_FETCH_RESPONSE
-} from "../actions/userActions";
+} from "../actions/user_actions";
 
 const initialState = {
   isFetching: false,

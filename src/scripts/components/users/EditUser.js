@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import { updateUser } from "../../actions/userActions";
+import { updateUser } from "../../actions/user_actions";
 import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";

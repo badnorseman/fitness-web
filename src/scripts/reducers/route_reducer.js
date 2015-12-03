@@ -1,7 +1,7 @@
 "use strict";
 import {
   ROUTE_CHANGE
-} from "../actions/routeActions";
+} from "../actions/route_actions";
 import {
   AUTH0LOGIN_RESPONSE,
   AUTH0SIGNUP_RESPONSE,
@@ -9,7 +9,7 @@ import {
   LOGOUT_REQUEST,
   OAUTH_RESPONSE,
   SIGNUP_RESPONSE
-} from "../actions/authActions";
+} from "../actions/auth_actions";
 import {
   PRODUCT_CREATE_RESPONSE,
   PRODUCT_CREATE_ERROR,
@@ -17,7 +17,7 @@ import {
   PRODUCT_DESTROY_ERROR,
   PRODUCT_UPDATE_RESPONSE,
   PRODUCT_UPDATE_ERROR
-} from "../actions/productActions";
+} from "../actions/product_actions";
 
 const initialState = {
   param: "",
