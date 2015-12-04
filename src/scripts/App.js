@@ -1,6 +1,7 @@
 "use strict";
 import "babel-core/polyfill";
 import React from "react";
+import { render } from "react-dom";
 import injectTapEventPlugin from "react-tap-event-plugin";
 import { Provider } from "react-redux";
 import configureStore from "./store/configure_store";
@@ -13,7 +14,7 @@ injectTapEventPlugin();
 
 window.React = React;
 
-React.render(
+render(
   <Provider store={store}>
     {() => <Layout />}
   </Provider>,
