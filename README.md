@@ -1,5 +1,5 @@
 #Getting Started
-First you need to clone the repository and install dependencies.
+First you need to clone the repository and install dependencies.  
 Open your terminal and enter `git clone https://github.com/fitbird/web-app.git`.
 Then enter `npm install`.
 Now you can run the application.
