@@ -1,8 +1,8 @@
 // Enable to pass in validators e.g. required, number, amount etc.
 // Each validators would have own pattern and each pattern world have an error message.
 "use strict";
-import React, { Component, findDOMNode, PropTypes } from "react";
-import { render } from "react-dom";
+import React, { Component, PropTypes } from "react";
+import { findDOMNode, render } from "react-dom";
 
 export default class InputField extends Component {
   static propTypes = {
