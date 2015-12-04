@@ -18,6 +18,6 @@ app.listen(port, function(error) {
   if (error) {
     console.error(error);
   } else {
-    console.info("Listening on port %s.", port);
+    console.info("Listening on port %s. Open http://localhost:%s/ in browser", port, port);
   }
 });
