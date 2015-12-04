@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component } from "react";
+import { render } from "react-dom";
 // import Auth0Lock from "auth0-lock";
 import { connect } from "react-redux";
 import { signup } from "../../actions/auth0_actions";

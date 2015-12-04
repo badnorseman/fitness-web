@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { render } from "react-dom";
 import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";

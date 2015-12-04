@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { render } from "react-dom";
 import ProductGridList from "./products/ProductGridList";
 
 export default class Marketplace extends Component {

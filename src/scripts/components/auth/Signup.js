@@ -3,6 +3,7 @@
 // Add avatar, paperclip functionality
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/route_actions";
 import { signup } from "../../actions/auth_actions";

@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { render } from "react-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions/user_actions";
 import Button from "../Button";

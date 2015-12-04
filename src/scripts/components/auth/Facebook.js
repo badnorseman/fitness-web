@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component } from "react";
+import { render } from "react-dom";
 import { connect } from "react-redux";
 import { oauth } from "../../actions/auth_actions";
 import "./facebook.css";

@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { render } from "react-dom";
 import ProductList from "./products/ProductList";
 import UserList from "./users/UserList";
 import "./dashboard.css";

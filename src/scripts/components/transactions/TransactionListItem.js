@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { render } from "react-dom";
 
 export default class TransactionListItem extends Component {
   static propTypes = {
