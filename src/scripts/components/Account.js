@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { render } from "react-dom";
 import EditUser from "./users/EditUser";
 import TransactionList from "./transactions/TransactionList";
 import "./account.css";

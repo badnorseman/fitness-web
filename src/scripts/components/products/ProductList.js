@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { render } from "react-dom";
 import ProductListItem from "./ProductListItem";
 
 export default class ProductList extends Component {

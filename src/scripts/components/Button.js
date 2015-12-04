@@ -1,6 +1,7 @@
 "use strict";
 import $ from "jquery";
 import React, { Component, PropTypes } from "react";
+import { render } from "react-dom";
 
 export default class Button extends Component {
   static propTypes = {

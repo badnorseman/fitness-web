@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component } from "react";
+import { render } from "react-dom";
 import Account from "../containers/Account";
 import Dashboard from "../containers/Dashboard";
 import EditProduct from "./products/EditProduct";
