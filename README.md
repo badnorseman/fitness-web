@@ -5,7 +5,7 @@ Then enter `npm install`.
 
 Now you can run the application.  
 Enter `npm start` in the terminal.  
-Then open a browser and enter `http://localhost:8080/`
+Then open a browser and enter `http://localhost:8080/`.
 #Request Change
 First you fork the repository or create a branch to work on.  
 After you have completed the change and tested that everything works, you create a pull request with the change.  
