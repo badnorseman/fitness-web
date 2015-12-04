@@ -4,8 +4,7 @@ var webpack = require("webpack");
 module.exports = {
   devtool: "eval-source-map",
   entry: [
-    "webpack-dev-server/client?http://localhost:8080/",
-    "webpack/hot/dev-server",
+    "webpack-hot-middleware/client",
     "./src/scripts/App.js"
   ],
   output: {
@@ -14,6 +13,7 @@ module.exports = {
     publicPath: "/"
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
@@ -23,8 +23,9 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      include: path.join(__dirname, "/src/scripts"),
-      loader: "babel?stage=0"
+      loaders: ["babel?stage=0"],
+      exclude: /node_modules/,
+      include: path.join(__dirname, "/src/scripts")
     }, {
       test: /\.css$/,
       loader: "style-loader!css-loader"

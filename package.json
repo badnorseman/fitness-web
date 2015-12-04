@@ -1,7 +1,16 @@
 {
   "name": "fitbird",
   "version": "1.0.0",
-  "main": "src/scripts/app.js",
+  "description": "FitBird web application",
+  "scripts": {
+    "start": "node server.js",
+    "test": "./node_modules/jasmine/bin/jasmine.js",
+    "pretest": "webpack --config webpack_spec.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fitbird/web-app.git"
+  },
   "dependencies": {
     "auth0-lock": "^7.12.3",
     "braintree-web": "^2.17.4",
@@ -28,14 +37,7 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
-  },
-  "engines": {
-    "node": ">= 4.2.2"
-  },
-  "scripts": {
-    "start": "webpack-dev-server --content-base dist/",
-    "test": "./node_modules/jasmine/bin/jasmine.js",
-    "pretest": "webpack --config webpack_spec.config.js"
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.6.0"
   }
 }
