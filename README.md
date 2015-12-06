@@ -9,4 +9,4 @@ Then open a browser and enter `http://localhost:8080/`.
 #Request Change
 First you fork the repository or create a branch to work on.  
 After you have completed the change and tested that everything works, you create a pull request with the change.  
-Assign label `ready for review` .
+Assign label `ready for review`.
