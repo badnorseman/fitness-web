@@ -21,18 +21,20 @@ export default function productReducer(state = initialState, action) {
     case PRODUCT_DESTROY_REQUEST:
     case PRODUCT_FETCH_REQUEST:
     case PRODUCT_UPDATE_REQUEST:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: true
-      });
+      };
 
     case PRODUCT_CREATE_RESPONSE:
     case PRODUCT_DESTROY_RESPONSE:
     case PRODUCT_FETCH_RESPONSE:
     case PRODUCT_UPDATE_RESPONSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: false,
         products: action.data
-      });
+      };
 
     default:
       return state;

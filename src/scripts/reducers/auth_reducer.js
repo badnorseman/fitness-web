@@ -33,26 +33,30 @@ function setUserToken(token) {
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
     case USER_UPDATE_RESPONSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         currentUser: action.data
-      });
+      };
 
     case AUTH0LOGIN_REQUEST:
     case AUTH0SIGNUP_REQUEST:
       setUserToken(action.data.token);
+      return state;
 
     case AUTH0LOGIN_RESPONSE:
     case AUTH0SIGNUP_RESPONSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         currentUser: action.data
-      });
+      };
 
     case LOGIN_RESPONSE:
     case OAUTH_RESPONSE:
       setUserToken(action.data.token);
-      return Object.assign({}, state, {
+      return {
+        ...state,
         currentUser: action.data
-      });
+      };
 
     case AUTH0LOGIN_ERROR:
     case AUTH0SIGNUP_ERROR:
@@ -62,9 +66,10 @@ export default function authReducer(state = initialState, action) {
     case SIGNUP_RESPONSE:
     case SIGNUP_ERROR:
       deleteUserToken();
-      return Object.assign({}, state, {
+      return {
+        ...state,
         currentUser: {}
-      });
+      };
 
     default:
       return state;

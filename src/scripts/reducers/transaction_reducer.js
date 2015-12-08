@@ -16,22 +16,25 @@ const initialState = {
 export default function transactionReducer(state = initialState, action) {
   switch (action.type) {
     case CLIENT_TOKEN_RESPONSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         clientToken: action.clientToken
-      });
+      };
 
     case TRANSACTION_CREATE_REQUEST:
     case TRANSACTION_FETCH_REQUEST:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: true
-      });
+      };
 
     case TRANSACTION_CREATE_RESPONSE:
     case TRANSACTION_FETCH_RESPONSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: false,
         transactions: action.data
-      });
+      };
 
     default:
       return state;
