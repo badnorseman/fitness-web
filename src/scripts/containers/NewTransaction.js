@@ -10,9 +10,12 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { transaction } = state;
-  const { clientToken } = transaction;
-  return { clientToken };
+  return {
+    clientToken: state.transaction.clientToken
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewTransaction);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NewTransaction);
