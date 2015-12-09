@@ -1,11 +1,8 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
-import { connect } from "react-redux";
-import { changeRoute } from "../actions/route_actions";
-import { logout } from "../actions/auth_actions";
 
-class Navigation extends Component {
+export default class Navigation extends Component {
   constructor(props) {
     super(props);
     this._goToAccount = this._goToAccount.bind(this);
@@ -16,19 +13,19 @@ class Navigation extends Component {
   }
 
   _goToAccount() {
-    this.props.dispatch(changeRoute("ACCOUNT"));
+    this.props.changeRoute("ACCOUNT");
   }
 
   _goToDashboard() {
-    this.props.dispatch(changeRoute("DASHBOARD"));
+    this.props.changeRoute("DASHBOARD");
   }
 
   _goToLogin() {
-    this.props.dispatch(changeRoute("LOGIN"));
+    this.props.changeRoute("LOGIN");
   }
 
   _goToSignup() {
-    this.props.dispatch(changeRoute("SIGNUP"));
+    this.props.changeRoute("SIGNUP");
   }
 
   _handleLogout() {
@@ -37,12 +34,11 @@ class Navigation extends Component {
         FB.logout();
       };
     });
-    this.props.dispatch(logout());
+    this.props.logout();
   }
 
   render() {
-    const { currentUser } = this.props;
-    const { avatar, coach, email, id, name } = currentUser;
+    const { avatar, coach, email, id, name } = this.props.currentUser;
     const isLoggedIn = (id) ? true : false;
 
     return (
@@ -74,5 +70,3 @@ class Navigation extends Component {
     )
   }
 }
-
-export default connect()(Navigation);

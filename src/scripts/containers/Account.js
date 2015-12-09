@@ -9,10 +9,13 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { auth, transaction } = state;
-  const { currentUser } = auth;
-  const { transactions } = transaction;
-  return { currentUser, transactions };
+  return {
+    currentUser: state.auth.currentUser,
+    transactions: state.transaction.transactions
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Account);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Account);

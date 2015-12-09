@@ -9,9 +9,13 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { product } = state;
-  const { isFetching, products } = product;
-  return { isFetching, products };
+  return {
+    isFetching: state.product.isFetching,
+    products: state.product.products
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dashboard);

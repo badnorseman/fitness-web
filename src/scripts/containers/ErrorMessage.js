@@ -9,8 +9,12 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { errorMessage } = state;
-  return { errorMessage };
+  return {
+    errorMessage: state.errorMessage
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ErrorMessage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ErrorMessage);

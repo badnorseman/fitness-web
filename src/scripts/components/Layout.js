@@ -8,7 +8,7 @@ import ErrorMessage from "../containers/ErrorMessage";
 import Footer from "../components/Footer";
 import Login from "../components/auth/Login";
 import Marketplace from "../containers/Marketplace";
-import Navigation from "./Navigation";
+import Navigation from "../containers/Navigation";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "../containers/NewTransaction";
 import ShowProduct from "./products/ShowProduct";
@@ -30,7 +30,7 @@ export default class Layout extends Component {
   }
 
   render() {
-    const { currentUser, param, route } = this.props;
+    const { param, route } = this.props;
 
     let content;
     switch (route) {
@@ -72,7 +72,7 @@ export default class Layout extends Component {
                 </a>
               </span>
               <div className="mdl-layout-spacer"></div>
-              <Navigation currentUser={currentUser} />
+              <Navigation />
             </div>
           </header>
           <main className="mdl-layout__content">

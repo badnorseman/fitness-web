@@ -2,20 +2,20 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/route_actions";
-import Layout from "../components/Layout";
+import { logout } from "../actions/auth_actions";
+import Navigation from "../components/Navigation";
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeRoute }, dispatch);
+  return bindActionCreators({ changeRoute, logout }, dispatch);
 }
 
 function mapStateToProps(state) {
   return {
-    param: state.router.param,
-    route: state.router.route
+    currentUser: state.auth.currentUser
   };
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Layout);
+)(Navigation);
