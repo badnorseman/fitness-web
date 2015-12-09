@@ -4,7 +4,6 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/route_actions";
 import { login } from "../../actions/auth_actions";
-import Auth0Login from "./Auth0Login";
 import Facebook from "./Facebook";
 import IconButton from "../IconButton";
 import InputField from "../InputField";
@@ -51,7 +50,6 @@ class Login extends Component {
                 onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
-              <div><Auth0Login /></div>
               <div><Facebook /></div>
               <form onSubmit={this._handleSubmit}>
                 <div>

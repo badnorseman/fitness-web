@@ -7,7 +7,6 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/route_actions";
 import { signup } from "../../actions/auth_actions";
-import Auth0Signup from "./Auth0Signup";
 import Facebook from "./Facebook";
 import IconButton from "../IconButton";
 import InputField from "../../components/InputField";
@@ -52,7 +51,6 @@ class Signup extends Component {
                 onClick={this._handleClose} />
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
-              <div><Auth0Signup /></div>
               <div><Facebook /></div>
               <form onSubmit={this._handleSubmit}>
                 <div>
