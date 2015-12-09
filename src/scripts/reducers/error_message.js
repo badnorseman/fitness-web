@@ -6,7 +6,7 @@ import {
   ROUTE_CHANGE
 } from "../actions/route_actions";
 
-export default function errorMessageReducer(state = null, action) {
+export default function errorMessage(state = null, action) {
   const { type, errors } = action;
 
   if (type === RESET_ERROR_MESSAGE || type === ROUTE_CHANGE) {

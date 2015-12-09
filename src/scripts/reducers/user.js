@@ -9,18 +9,20 @@ const initialState = {
   users: {}
 };
 
-export default function userReducer(state = initialState, action) {
+export default function user(state = initialState, action) {
   switch (action.type) {
     case USER_FETCH_REQUEST:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: true
-      });
+      };
 
     case USER_FETCH_RESPONSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: false,
         users: action.data
-      });
+      };
 
     default:
       return state;

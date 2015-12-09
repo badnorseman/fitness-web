@@ -24,34 +24,38 @@ const initialState = {
   route: ""
 };
 
-export default function routeReducer(state = initialState, action) {
+export default function router(state = initialState, action) {
   switch (action.type) {
     case ROUTE_CHANGE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         route: action.route,
         param: action.param
-      });
+      };
 
     case AUTH0LOGIN_RESPONSE:
     case AUTH0SIGNUP_RESPONSE:
     case LOGIN_RESPONSE:
     case LOGOUT_REQUEST:
     case OAUTH_RESPONSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         route: "MARKETPLACE"
-      });
+      };
 
     case PRODUCT_CREATE_RESPONSE:
     case PRODUCT_DESTROY_RESPONSE:
     case PRODUCT_UPDATE_RESPONSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         route: "DASHBOARD"
-      });
+      };
 
     case SIGNUP_RESPONSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         route: "LOGIN"
-      });
+      };
 
     default:
       return state;

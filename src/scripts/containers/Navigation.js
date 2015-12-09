@@ -2,20 +2,20 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/route_actions";
-import { createTransaction, getClientToken } from "../actions/transaction_actions";
-import NewTransaction from "../components/transactions/NewTransaction";
+import { logout } from "../actions/auth_actions";
+import Navigation from "../components/Navigation";
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeRoute, createTransaction, getClientToken }, dispatch);
+  return bindActionCreators({ changeRoute, logout }, dispatch);
 }
 
 function mapStateToProps(state) {
   return {
-    clientToken: state.transaction.clientToken
+    currentUser: state.auth.currentUser
   };
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NewTransaction);
+)(Navigation);
