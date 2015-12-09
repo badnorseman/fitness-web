@@ -10,7 +10,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { clientToken } = state.transactionReducer;
+  const { transaction } = state;
+  const { clientToken } = transaction;
   return { clientToken };
 }
 

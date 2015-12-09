@@ -9,9 +9,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { authReducer, routeReducer } = state;
-  const { currentUser } = authReducer;
-  const { param, route } = routeReducer;
+  const { auth, router } = state;
+  const { currentUser } = auth;
+  const { param, route } = router;
   return { currentUser, param, route };
 }
 

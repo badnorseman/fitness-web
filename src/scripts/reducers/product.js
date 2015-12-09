@@ -15,7 +15,7 @@ const initialState = {
   products: {}
 };
 
-export default function productReducer(state = initialState, action) {
+export default function product(state = initialState, action) {
   switch (action.type) {
     case PRODUCT_CREATE_REQUEST:
     case PRODUCT_DESTROY_REQUEST:

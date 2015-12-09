@@ -30,7 +30,7 @@ function setUserToken(token) {
   localStorage.setItem("userToken", token);
 }
 
-export default function authReducer(state = initialState, action) {
+export default function auth(state = initialState, action) {
   switch (action.type) {
     case USER_UPDATE_RESPONSE:
       return {

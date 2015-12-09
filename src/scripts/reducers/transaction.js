@@ -13,7 +13,7 @@ const initialState = {
   transactions: {}
 };
 
-export default function transactionReducer(state = initialState, action) {
+export default function transaction(state = initialState, action) {
   switch (action.type) {
     case CLIENT_TOKEN_RESPONSE:
       return {

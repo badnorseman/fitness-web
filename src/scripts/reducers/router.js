@@ -24,7 +24,7 @@ const initialState = {
   route: ""
 };
 
-export default function routeReducer(state = initialState, action) {
+export default function router(state = initialState, action) {
   switch (action.type) {
     case ROUTE_CHANGE:
       return {

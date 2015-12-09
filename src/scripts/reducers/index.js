@@ -1,21 +1,21 @@
 "use strict";
 import { combineReducers } from "redux";
-import authReducer from "./auth_reducer";
-import cartReducer from "./cart_reducer";
-import errorMessageReducer from "./error_message_reducer";
-import productReducer from "./product_reducer";
-import routeReducer from "./route_reducer";
-import transactionReducer from "./transaction_reducer";
-import userReducer from "./user_reducer";
+import auth from "./auth";
+import cart from "./cart";
+import errorMessage from "./error_message";
+import product from "./product";
+import router from "./router";
+import transaction from "./transaction";
+import user from "./user";
 
 const combinedReducer = combineReducers({
-  authReducer,
-  cartReducer,
-  errorMessageReducer,
-  productReducer,
-  routeReducer,
-  transactionReducer,
-  userReducer
+  auth,
+  cart,
+  errorMessage,
+  product,
+  router,
+  transaction,
+  user
 });
 
 export default combinedReducer;

@@ -11,9 +11,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { productReducer, transactionReducer } = state;
-  const { clientToken } = transactionReducer;
-  const { isFetching, products } = productReducer;
+  const { product, transaction } = state;
+  const { clientToken } = transaction;
+  const { isFetching, products } = product;
   return { clientToken, isFetching, products };
 }
 

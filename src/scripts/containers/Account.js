@@ -9,9 +9,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { authReducer, transactionReducer } = state;
-  const { currentUser } = authReducer;
-  const { transactions } = transactionReducer;
+  const { auth, transaction } = state;
+  const { currentUser } = auth;
+  const { transactions } = transaction;
   return { currentUser, transactions };
 }
 

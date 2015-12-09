@@ -9,8 +9,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { productReducer } = state;
-  const { isFetching, products } = productReducer;
+  const { product } = state;
+  const { isFetching, products } = product;
   return { isFetching, products };
 }
 
