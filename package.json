@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "FitBird web application",
   "scripts": {
+    "build": "./node_modules/webpack/bin/webpack.js",
+    "pretest": "webpack --config webpack_spec.config.js",
     "start": "node server.js",
-    "test": "./node_modules/jasmine/bin/jasmine.js",
-    "pretest": "webpack --config webpack_spec.config.js"
+    "test": "./node_modules/jasmine/bin/jasmine.js"
   },
   "repository": {
     "type": "git",

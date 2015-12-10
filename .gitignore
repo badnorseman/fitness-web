@@ -5,12 +5,13 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore build files.
-#/dist
+/dist
 
 # Ignore node modules.
 /node_modules
 
 # Ignore temporary files.
-/tmp
+.DS_Store
 *.log
 /log
+/tmp

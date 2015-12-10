@@ -3,13 +3,13 @@ var webpack = require("webpack");
 
 module.exports = {
   entry: [
-    "./spec/sumSpec",
-    "./spec/fetchAllProductsSpec"
+    "./spec/sum_spec",
+    "./spec/fetch_products_spec"
   ],
   output: {
     path: path.join(__dirname, "spec"),
-    publicPath: "/spec/",
-    filename: "spec.js"
+    filename: "spec.js",
+    publicPath: "/spec/"
   },
   resolve: {
     extensions: ["", ".js"]
@@ -17,8 +17,9 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      include: path.join(__dirname, "/spec"),
-      loader: "babel?stage=0"
+      loader: "babel",
+      exclude: /node_modules/,
+      include: path.join(__dirname, "/spec")
     }]
   }
 };
