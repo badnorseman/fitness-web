@@ -18,8 +18,7 @@ export default class ProductListItem extends Component {
   }
 
   render() {
-    const { item } = this.props;
-    const { currency, name, price } = item;
+    const { currency, name, price } = this.props.item;
     const itemElementStyle = {
       margin: "10px 10px 10px 0",
       maxWidth:"800px",
@@ -30,9 +29,9 @@ export default class ProductListItem extends Component {
       <div>
         <hr />
         <a className="block--center-horizontally__flex" onClick={this._handleSelect} href="#!">
-          <div style={itemElementStyle}>name</div>
-          <div style={itemElementStyle}>currency</div>
-          <div style={itemElementStyle}>price</div>
+          <div style={itemElementStyle}>{name}</div>
+          <div style={itemElementStyle}>{currency}</div>
+          <div style={itemElementStyle}>{price}</div>
           <div style={itemElementStyle}></div>
         </a>
       </div>
