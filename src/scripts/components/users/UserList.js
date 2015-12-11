@@ -5,7 +5,7 @@ import UserListItem from "./UserListItem";
 
 export default class UserList extends Component {
   static propTypes = {
-    items: PropTypes.object.isRequired
+    users: PropTypes.object
   }
 
   constructor(props) {
@@ -14,10 +14,10 @@ export default class UserList extends Component {
 
   _getItems() {
     let items = [];
-    for (let key in this.props.items) {
-      if (this.props.items.hasOwnProperty(key)) {
+    for (let key in this.props.users) {
+      if (this.props.users.hasOwnProperty(key)) {
         items.push(
-          <UserListItem key={key} item={this.props.items[key]}/>
+          <UserListItem key={key} item={this.props.users[key]}/>
         );
       }
     }
