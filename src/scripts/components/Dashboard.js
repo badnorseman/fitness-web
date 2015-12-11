@@ -36,12 +36,12 @@ export default class Dashboard extends Component {
                 </div>
                 <div className="mdl-tabs__panel is-active" id="products-panel">
                   <ProductList
-                    items={products}
+                    products={products}
                     onEdit={this._goToEditProduct}
                     onNew={this._goToNewProduct} />
                 </div>
                 <div className="mdl-tabs__panel" id="clients-panel">
-                  <UserList items={users} />
+                  <UserList users={users} />
                 </div>
               </div>
             </div>

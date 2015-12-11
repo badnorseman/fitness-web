@@ -5,7 +5,7 @@ import ProductListItem from "./ProductListItem";
 
 export default class ProductList extends Component {
   static propTypes = {
-    items: PropTypes.object.isRequired,
+    products: PropTypes.object,
     onEdit: PropTypes.func.isRequired,
     onNew: PropTypes.func.isRequired
   }
@@ -18,18 +18,18 @@ export default class ProductList extends Component {
 
   _getItems() {
     let items = [];
-    for (let key in this.props.items) {
-      if (this.props.items.hasOwnProperty(key)) {
+    for (let key in this.props.products) {
+      if (this.props.products.hasOwnProperty(key)) {
         items.push(
-          <ProductListItem key={key} item={this.props.items[key]} onSelect={this._handleEdit} />
+          <ProductListItem key={key} item={this.props.products[key]} onSelect={this._handleEdit} />
         );
       }
     }
     return items;
   }
 
-  _handleEdit(item) {
-    this.props.onEdit(item);
+  _handleEdit(product) {
+    this.props.onEdit(product);
   }
 
   _handleNew() {

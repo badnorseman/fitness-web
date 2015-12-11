@@ -5,7 +5,7 @@ import TransactionListItem from "./TransactionListItem";
 
 export default class TransactionList extends Component {
   static propTypes = {
-    transactions: PropTypes.object.isRequired
+    transactions: PropTypes.object
   }
 
   constructor(props) {
