@@ -26,22 +26,22 @@ export default class UserList extends Component {
 
   render() {
     let items = this._getItems();
-    const listStyle = {
-      padding: "50px 0 0 0"
-    }
-    const headerElementStyle = {
+    const headerStyle = {
       margin: "0 10px 10px 0",
       maxWidth: "800px",
       width: "25%"
+    }
+    const listStyle = {
+      padding: "50px 0 0 0"
     }
 
     return (
       <div className="block--center-horizontally__margin" style={listStyle}>
         <div className="block--center-horizontally__flex">
-          <div style={headerElementStyle}>STATUS</div>
-          <div style={headerElementStyle}>NAME</div>
-          <div style={headerElementStyle}>PRODUCT</div>
-          <div style={headerElementStyle}>CURRENT END DATE</div>
+          <div style={headerStyle}>STATUS</div>
+          <div style={headerStyle}>NAME</div>
+          <div style={headerStyle}>PRODUCT</div>
+          <div style={headerStyle}>CURRENT END DATE</div>
         </div>
         {items}
       </div>

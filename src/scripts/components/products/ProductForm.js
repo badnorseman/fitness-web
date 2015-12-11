@@ -54,8 +54,7 @@ export default class ProductForm extends Component {
   }
 
   render() {
-    const { product } = this.props;
-    const { description, image, name, price } = product || {
+    const { description, image, name, price } = this.props.product || {
       description: "", image: "", name: "", price: ""
     };
 

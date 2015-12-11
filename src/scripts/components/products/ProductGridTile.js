@@ -18,8 +18,7 @@ export default class ProductGridTile extends Component {
   }
 
   render() {
-    const { tile } = this.props;
-    const { currency, image, name, price } = tile;
+    const { currency, image, name, price } = this.props.tile;
     const style = {
       backgroundImage: "url(" + image + ")",
       backgroundRepeat: "no-repeat",

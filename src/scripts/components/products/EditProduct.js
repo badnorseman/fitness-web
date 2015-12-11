@@ -35,7 +35,6 @@ class EditProduct extends Component {
 
   render() {
     const { product } = this.props;
-    const { currency, description, id, image, name, price } = product;
 
     return (
       <div className="mdl-grid">

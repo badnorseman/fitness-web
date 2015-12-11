@@ -10,8 +10,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    isFetching: state.product.isFetching,
-    products: state.product.products
+    products: state.product.products,
+    users: state.user.users
   };
 }
 

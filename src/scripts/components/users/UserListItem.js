@@ -12,7 +12,7 @@ export default class UserListItem extends Component {
   }
 
   render() {
-    const { item } = this.props;
+    const { name } = this.props.item;
     const itemElementStyle = {
       margin: "10px 10px 10px 0",
       maxWidth:"800px",
@@ -23,8 +23,8 @@ export default class UserListItem extends Component {
       <div>
         <hr />
         <div className="block--center-horizontally__flex">
+          <div style={itemElementStyle}>{name}</div>
           <div style={itemElementStyle}>Status</div>
-          <div style={itemElementStyle}>Name</div>
           <div style={itemElementStyle}>Product</div>
           <div style={itemElementStyle}>Current end date</div>
         </div>

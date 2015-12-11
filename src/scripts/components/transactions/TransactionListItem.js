@@ -12,8 +12,7 @@ export default class TransactionListItem extends Component {
   }
 
   render() {
-    const { item } = this.props;
-    const { amount, currency, date, transaction_id } = item;
+    const { amount, currency, date, transaction_id } = this.props.item;
     const itemElementStyle = {
       margin: "10px 10px 10px 0",
       maxWidth:"800px",

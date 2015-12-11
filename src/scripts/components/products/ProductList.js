@@ -38,11 +38,11 @@ export default class ProductList extends Component {
 
   render() {
     let items = this._getItems();
-    const buttonNewStyle = {
+    const buttonStyle = {
       float: "right",
       margin: "50px 0 0 0"
     };
-    const headerElementStyle = {
+    const headerStyle = {
       margin: "0 10px 10px 0",
       maxWidth: "800px",
       width: "25%"
@@ -50,19 +50,18 @@ export default class ProductList extends Component {
     const listStyle = {
       padding: "50px 0 0 0"
     };
-
     return (
       <div className="block--center-horizontally__margin" style={listStyle}>
         <div className="block--center-horizontally__flex">
-          <div style={headerElementStyle}>NAME</div>
-          <div style={headerElementStyle}>CURRENCY</div>
-          <div style={headerElementStyle}>PRICE</div>
-          <div style={headerElementStyle}>NUMBERS OF USERS</div>
+          <div style={headerStyle}>NAME</div>
+          <div style={headerStyle}>CURRENCY</div>
+          <div style={headerStyle}>PRICE</div>
+          <div style={headerStyle}>NUMBERS OF USERS</div>
         </div>
         {items}
         <button
           className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
-          style={buttonNewStyle}
+          style={buttonStyle}
           onClick={this._handleNew}>
           <i className="material-icons">add</i>
         </button>

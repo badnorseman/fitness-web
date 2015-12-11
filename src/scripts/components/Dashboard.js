@@ -21,7 +21,7 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    const { products } = this.props;
+    const { products, users } = this.props;
 
     return (
       <div className="mdl-grid">
@@ -41,7 +41,7 @@ export default class Dashboard extends Component {
                     onNew={this._goToNewProduct} />
                 </div>
                 <div className="mdl-tabs__panel" id="clients-panel">
-                  <UserList items={products} />
+                  <UserList items={users} />
                 </div>
               </div>
             </div>
