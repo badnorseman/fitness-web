@@ -5,7 +5,7 @@ import ProductGridTile from "./ProductGridTile";
 
 export default class ProductGridList extends Component {
   static propTypes = {
-    products: PropTypes.object.isRequired,
+    products: PropTypes.object,
     onSelect: PropTypes.func.isRequired
   }
 
