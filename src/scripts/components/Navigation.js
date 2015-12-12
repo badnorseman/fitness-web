@@ -3,6 +3,12 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 
 export default class Navigation extends Component {
+  static propTypes = {
+    currentUser: PropTypes.object.isRequired,
+    changeRoute: PropTypes.func.isRequired,
+    logout: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props);
     this._goToAccount = this._goToAccount.bind(this);

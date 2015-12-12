@@ -1,9 +1,15 @@
 "use strict";
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import ProductGridList from "./products/ProductGridList";
 
 export default class Marketplace extends Component {
+  static propTypes = {
+    products: PropTypes.object,
+    changeRoute: PropTypes.func.isRequired,
+    getProducts: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props);
     this._goToShowProduct = this._goToShowProduct.bind(this);
@@ -24,7 +30,8 @@ export default class Marketplace extends Component {
       <div>
         <ProductGridList
           products={products}
-          onSelect={this._goToShowProduct} />
+          onSelect={this._goToShowProduct}
+        />
       </div>
     );
   }

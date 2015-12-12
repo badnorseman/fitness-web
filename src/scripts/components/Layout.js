@@ -1,5 +1,5 @@
 "use strict";
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import Account from "../containers/Account";
 import Dashboard from "../containers/Dashboard";
@@ -16,6 +16,12 @@ import Signup from "../components/auth/Signup";
 import "./layout.css";
 
 export default class Layout extends Component {
+  static propTypes = {
+    param: PropTypes.object,
+    route: PropTypes.string,
+    changeRoute: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props);
     this._goToMarketplace = this._goToMarketplace.bind(this);

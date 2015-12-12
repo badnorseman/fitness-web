@@ -3,22 +3,22 @@ import { connect } from "react-redux";
 import { changeRoute } from "../actions/route_actions";
 import Dashboard from "../components/Dashboard";
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (
+  dispatch
+) => {
   return {
     onEdit: (product) => {
-      dispatch(
-        changeRoute("EDITPRODUCT", product)
-      );
+      dispatch(changeRoute("EDITPRODUCT", product));
     },
     onNew: () => {
-      dispatch(
-        changeRoute("NEWPRODUCT")
-      );
+      dispatch(changeRoute("NEWPRODUCT"));
     }
   };
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (
+  state
+) => {
   return {
     products: state.product.products,
     users: state.user.users

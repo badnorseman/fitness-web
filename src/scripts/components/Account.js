@@ -6,6 +6,12 @@ import TransactionList from "./transactions/TransactionList";
 import "./account.css";
 
 export default class Account extends Component {
+  static propTypes = {
+    currentUser: PropTypes.object.isRequired,
+    transactions: PropTypes.object,
+    getTransactions: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props);
   }
@@ -30,13 +36,17 @@ export default class Account extends Component {
                   <a href="#payment-history-panel" className="mdl-tabs__tab">Payment History</a>
                 </div>
                 <div className="mdl-tabs__panel is-active" id="profile-panel">
-                  <EditUser user={currentUser} />
+                  <EditUser
+                    user={currentUser}
+                  />
                 </div>
                 <div className="mdl-tabs__panel" id="security-panel">
                   <p>Edit email and/or password. Current password is required.</p>
                 </div>
                 <div className="mdl-tabs__panel" id="payment-history-panel">
-                  <TransactionList transactions={transactions} />
+                  <TransactionList
+                    transactions={transactions}
+                  />
                 </div>
               </div>
             </div>

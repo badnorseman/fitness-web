@@ -1,7 +1,8 @@
 "use strict";
 
 const ErrorMessage = ({
-  errorMessage
+  errorMessage,
+  onClose
 }) => (
   <div>
     {errorMessage}
