@@ -22,11 +22,13 @@ const ProductList = ({
     float: "right",
     margin: "50px 0 0 0"
   };
-  const headerStyle = {
+
+  const headerElementStyle = {
     margin: "0 10px 10px 0",
     maxWidth: "800px",
     width: "25%"
   };
+
   const listStyle = {
     padding: "50px 0 0 0"
   };
@@ -34,10 +36,10 @@ const ProductList = ({
   return (
     <div className="block--center-horizontally__margin" style={listStyle}>
       <div className="block--center-horizontally__flex">
-        <div style={headerStyle}>NAME</div>
-        <div style={headerStyle}>CURRENCY</div>
-        <div style={headerStyle}>PRICE</div>
-        <div style={headerStyle}>NUMBERS OF USERS</div>
+        <div style={headerElementStyle}>NAME</div>
+        <div style={headerElementStyle}>CURRENCY</div>
+        <div style={headerElementStyle}>PRICE</div>
+        <div style={headerElementStyle}>NUMBERS OF USERS</div>
       </div>
       {items}
       <button

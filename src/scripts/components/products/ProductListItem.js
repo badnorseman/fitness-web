@@ -5,7 +5,8 @@ const ProductListItem = ({
   onEdit
 }) => {
   const { currency, name, price } = product;
-  const columnStyle = {
+
+  const itemElementStyle = {
     margin: "10px 10px 10px 0",
     maxWidth:"800px",
     width: "25%"
@@ -20,10 +21,10 @@ const ProductListItem = ({
           onEdit(product);
         }}
       >
-        <div style={columnStyle}>{name}</div>
-        <div style={columnStyle}>{currency}</div>
-        <div style={columnStyle}>{price}</div>
-        <div style={columnStyle}></div>
+        <div style={itemElementStyle}>{name}</div>
+        <div style={itemElementStyle}>{currency}</div>
+        <div style={itemElementStyle}>{price}</div>
+        <div style={itemElementStyle}></div>
       </a>
     </div>
   );
