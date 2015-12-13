@@ -8,7 +8,7 @@ import router from "./router";
 import transaction from "./transaction";
 import user from "./user";
 
-const combinedReducer = combineReducers({
+const reducer = combineReducers({
   auth,
   cart,
   errorMessage,
@@ -18,4 +18,4 @@ const combinedReducer = combineReducers({
   user
 });
 
-export default combinedReducer;
+export default reducer;
