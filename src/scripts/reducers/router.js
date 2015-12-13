@@ -1,7 +1,7 @@
 "use strict";
 import {
   ROUTE_CHANGE
-} from "../actions/route_actions";
+} from "../actions/router_actions";
 import {
   AUTH0LOGIN_RESPONSE,
   AUTH0SIGNUP_RESPONSE,

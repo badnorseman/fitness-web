@@ -4,7 +4,7 @@ import {
 } from "../actions/error_actions";
 import {
   ROUTE_CHANGE
-} from "../actions/route_actions";
+} from "../actions/router_actions";
 
 const errorMessage = (state = null, action) => {
   const { type, errors } = action;

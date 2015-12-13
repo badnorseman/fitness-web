@@ -1,5 +1,4 @@
 "use strict";
-import { API } from "../constants/api_routes";
 
 export function buildFormData(entityName, data) {
   let formData = new FormData();
@@ -17,8 +16,8 @@ export function buildHeaders() {
   };
 }
 
-export function buildUrl(entityName, params) {
-  return `${API}/${entityName.toLowerCase()}s${buildParams(params)}`;
+export function buildUrl(serverName, entityName, params) {
+  return `${serverName}/${entityName.toLowerCase()}s${buildParams(params)}`;
 }
 
 function buildParams(params = "") {

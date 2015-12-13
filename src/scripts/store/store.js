@@ -1,6 +1,6 @@
 "use strict";
 import { applyMiddleware, createStore } from "redux";
-import reducer from "../reducers/reducer";
+import reducers from "../reducers/reducers";
 import thunkMiddleware from "redux-thunk";
 
 const createStoreWithMiddleware = applyMiddleware(
@@ -8,7 +8,7 @@ const createStoreWithMiddleware = applyMiddleware(
 )(createStore);
 
 const configureStore = (initialState) => {
-  return createStoreWithMiddleware(reducer, initialState);
+  return createStoreWithMiddleware(reducers, initialState);
 };
 
 const store = configureStore();

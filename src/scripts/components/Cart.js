@@ -1,6 +1,6 @@
 "use strict";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/route_actions";
+import { changeRoute } from "../actions/router_actions";
 import IconButton from "./IconButton";
 
 const Cart = ({ dispatch }) => {

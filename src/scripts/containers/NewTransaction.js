@@ -1,7 +1,7 @@
 "use strict";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/route_actions";
+import { changeRoute } from "../actions/router_actions";
 import { createTransaction, getClientToken } from "../actions/transaction_actions";
 import NewTransaction from "../components/transactions/NewTransaction";
 

@@ -1,7 +1,7 @@
 "use strict";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/route_actions";
+import { changeRoute } from "../actions/router_actions";
 import { getProducts } from "../actions/product_actions";
 import Marketplace from "../components/Marketplace";
 

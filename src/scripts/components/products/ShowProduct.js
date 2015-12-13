@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/route_actions";
+import { changeRoute } from "../../actions/router_actions";
 import Button from "../Button";
 import IconButton from "../IconButton";
 import "./products.css";
