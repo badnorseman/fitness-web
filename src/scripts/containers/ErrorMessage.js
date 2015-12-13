@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import { resetErrorMessage } from "../actions/error_actions";
 import ErrorMessage from "../components/ErrorMessage";
 
-const mapDispatchToProps = (
-  dispatch
-) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onClose: () => {
       dispatch(resetErrorMessage());
@@ -13,9 +11,7 @@ const mapDispatchToProps = (
   };
 };
 
-const mapStateToProps = (
-  state
-) => {
+const mapStateToProps = (state) => {
   return {
     errorMessage: state.errorMessage
   };

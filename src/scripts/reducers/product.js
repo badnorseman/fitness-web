@@ -15,7 +15,7 @@ const initialState = {
   products: {}
 };
 
-export default function product(state = initialState, action) {
+const product = (state = initialState, action) => {
   switch (action.type) {
     case PRODUCT_CREATE_REQUEST:
     case PRODUCT_DESTROY_REQUEST:
@@ -39,4 +39,6 @@ export default function product(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default product;

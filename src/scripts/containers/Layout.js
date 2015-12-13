@@ -4,16 +4,18 @@ import { connect } from "react-redux";
 import { changeRoute } from "../actions/route_actions";
 import Layout from "../components/Layout";
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeRoute }, dispatch);
-}
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    changeRoute
+  }, dispatch);
+};
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     param: state.router.param,
     route: state.router.route
   };
-}
+};
 
 export default connect(
   mapStateToProps,

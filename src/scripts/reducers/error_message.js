@@ -6,7 +6,7 @@ import {
   ROUTE_CHANGE
 } from "../actions/route_actions";
 
-export default function errorMessage(state = null, action) {
+const errorMessage = (state = null, action) => {
   const { type, errors } = action;
 
   if (type === RESET_ERROR_MESSAGE || type === ROUTE_CHANGE) {
@@ -16,4 +16,6 @@ export default function errorMessage(state = null, action) {
   }
 
   return state;
-}
+};
+
+export default errorMessage;

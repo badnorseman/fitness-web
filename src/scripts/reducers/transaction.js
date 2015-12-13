@@ -13,7 +13,7 @@ const initialState = {
   transactions: {}
 };
 
-export default function transaction(state = initialState, action) {
+const transaction = (state = initialState, action) => {
   switch (action.type) {
     case CLIENT_TOKEN_RESPONSE:
       return {
@@ -39,4 +39,6 @@ export default function transaction(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default transaction;

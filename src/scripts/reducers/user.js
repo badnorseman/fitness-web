@@ -9,7 +9,7 @@ const initialState = {
   users: {}
 };
 
-export default function user(state = initialState, action) {
+const user = (state = initialState, action) => {
   switch (action.type) {
     case USER_FETCH_REQUEST:
       return {
@@ -27,4 +27,6 @@ export default function user(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default user;

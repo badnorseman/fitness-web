@@ -17,8 +17,6 @@ import "./layout.css";
 
 export default class Layout extends Component {
   static propTypes = {
-    param: PropTypes.object,
-    route: PropTypes.string,
     changeRoute: PropTypes.func.isRequired
   }
 

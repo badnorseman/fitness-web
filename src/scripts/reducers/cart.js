@@ -8,7 +8,7 @@ const initialState = {
   products: {}
 };
 
-export default function cart(state = initialState, action) {
+const cart = (state = initialState, action) => {
   switch (action.type) {
     case CART_ADD_PRODUCT:
       return {
@@ -27,4 +27,6 @@ export default function cart(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default cart;
