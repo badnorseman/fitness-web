@@ -1,50 +1,42 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
-import { render } from "react-dom";
 import TransactionListItem from "./TransactionListItem";
 
-export default class TransactionList extends Component {
-  static propTypes = {
-    transactions: PropTypes.object
-  }
-
-  constructor(props) {
-    super(props);
-  }
-
-  _getItems() {
+const TransactionList = ({
+  transactions
+}) => {
+  let items = (transactions) => {
     let items = [];
-    for (let key in this.props.transactions) {
-      if (this.props.transactions.hasOwnProperty(key)) {
+    for (let key in transactions) {
+      if (transactions.hasOwnProperty(key)) {
         items.push(
-          <TransactionListItem key={key} item={this.props.transactions[key]}/>
+          <TransactionListItem key={key} transaction={transactions[key]}/>
         );
       }
     }
     return items;
-  }
+  }(transactions);
 
-  render() {
-    let items = this._getItems();
-    const headerStyle = {
-      margin: "0 10px 10px 0",
-      maxWidth: "800px",
-      width: "25%"
-    };
-    const listStyle = {
-      padding: "50px 0 0 0"
-    };
+  const headerElementStyle = {
+    margin: "0 10px 10px 0",
+    maxWidth: "800px",
+    width: "25%"
+  };
 
-    return (
-      <div className="block--center-horizontally__margin" style={listStyle}>
-        <div className="block--center-horizontally__flex">
-          <div style={headerStyle}>DATE</div>
-          <div style={headerStyle}>CURRENCY</div>
-          <div style={headerStyle}>AMOUNT</div>
-          <div style={headerStyle}>TRANSACTION ID</div>
-        </div>
-        {items}
+  const listStyle = {
+    padding: "50px 0 0 0"
+  };
+
+  return (
+    <div className="block--center-horizontally__margin" style={listStyle}>
+      <div className="block--center-horizontally__flex">
+        <div style={headerElementStyle}>DATE</div>
+        <div style={headerElementStyle}>CURRENCY</div>
+        <div style={headerElementStyle}>AMOUNT</div>
+        <div style={headerElementStyle}>TRANSACTION ID</div>
       </div>
-    )
-  }
-}
+      {items}
+    </div>
+  );
+};
+
+export default TransactionList;

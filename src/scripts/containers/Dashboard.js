@@ -1,19 +1,25 @@
 "use strict";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/route_actions";
+import { changeRoute } from "../actions/router_actions";
 import Dashboard from "../components/Dashboard";
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeRoute }, dispatch);
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onEdit: (product) => {
+      dispatch(changeRoute("EDITPRODUCT", product));
+    },
+    onNew: () => {
+      dispatch(changeRoute("NEWPRODUCT"));
+    }
+  };
+};
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     products: state.product.products,
     users: state.user.users
   };
-}
+};
 
 export default connect(
   mapStateToProps,

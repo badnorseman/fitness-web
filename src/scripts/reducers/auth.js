@@ -22,15 +22,15 @@ const initialState = {
   currentUser: {}
 };
 
-function deleteUserToken() {
+const deleteUserToken = () => {
   localStorage.removeItem("userToken");
-}
+};
 
-function setUserToken(token) {
+const setUserToken = (token) => {
   localStorage.setItem("userToken", token);
-}
+};
 
-export default function auth(state = initialState, action) {
+const auth = (state = initialState, action) => {
   switch (action.type) {
     case USER_UPDATE_RESPONSE:
       return {
@@ -74,4 +74,6 @@ export default function auth(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default auth;

@@ -1,18 +1,21 @@
 "use strict";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { resetErrorMessage } from "../actions/error_actions";
 import ErrorMessage from "../components/ErrorMessage";
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ resetErrorMessage }, dispatch);
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClose: () => {
+      dispatch(resetErrorMessage());
+    }
+  };
+};
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     errorMessage: state.errorMessage
   };
-}
+};
 
 export default connect(
   mapStateToProps,

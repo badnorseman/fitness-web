@@ -1,7 +1,7 @@
 "use strict";
 import {
   ROUTE_CHANGE
-} from "../actions/route_actions";
+} from "../actions/router_actions";
 import {
   AUTH0LOGIN_RESPONSE,
   AUTH0SIGNUP_RESPONSE,
@@ -24,7 +24,7 @@ const initialState = {
   route: ""
 };
 
-export default function router(state = initialState, action) {
+const router = (state = initialState, action) => {
   switch (action.type) {
     case ROUTE_CHANGE:
       return {
@@ -60,4 +60,6 @@ export default function router(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default router;

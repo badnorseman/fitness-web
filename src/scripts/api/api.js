@@ -1,10 +1,10 @@
 "use strict";
 import $ from "jquery";
 import { buildFormData, buildHeaders, buildUrl } from "../utils/api_utils";
-import { LOGIN, LOGOUT, OAUTH, SIGNUP } from "../constants/api_routes";
+import { SERVER, LOGIN, LOGOUT, OAUTH, SIGNUP } from "../constants/api_routes";
 
 export function create(entityName, data) {
-  const url = buildUrl(entityName);
+  const url = buildUrl(SERVER, entityName);
   const headers = buildHeaders();
   const formData = buildFormData(entityName, data);
   return Promise.resolve(
@@ -21,7 +21,7 @@ export function create(entityName, data) {
 }
 
 export function destroy(entityName, id) {
-  const url = buildUrl(entityName, id);
+  const url = buildUrl(SERVER, entityName, id);
   const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
@@ -34,7 +34,7 @@ export function destroy(entityName, id) {
 }
 
 export function fetchClientToken(entityName) {
-  const url = buildUrl(entityName, "new");
+  const url = buildUrl(SERVER, entityName, "new");
   const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
@@ -47,7 +47,7 @@ export function fetchClientToken(entityName) {
 }
 
 export function fetchAll(entityName) {
-  const url = buildUrl(entityName);
+  const url = buildUrl(SERVER, entityName);
   const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
@@ -60,7 +60,7 @@ export function fetchAll(entityName) {
 }
 
 export function fetchById(entityName, id) {
-  const url = buildUrl(entityName, id);
+  const url = buildUrl(SERVER, entityName, id);
   const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
@@ -73,7 +73,7 @@ export function fetchById(entityName, id) {
 }
 
 export function login(data) {
-  const url = LOGIN;
+  const url = `${SERVER}${LOGIN}`;
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -85,7 +85,7 @@ export function login(data) {
 }
 
 export function logout() {
-  const url = LOGOUT;
+  const url = `${SERVER}${LOGOUT}`;
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -96,7 +96,7 @@ export function logout() {
 }
 
 export function oauth(provider) {
-  const url = `${OAUTH}/${provider}/callback`;
+  const url = `${SERVER}${OAUTH}/${provider}/callback`;
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -108,7 +108,7 @@ export function oauth(provider) {
 }
 
 export function signup(data) {
-  const url = SIGNUP;
+  const url = `${SERVER}${SIGNUP}`;
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -120,7 +120,7 @@ export function signup(data) {
 }
 
 export function update(entityName, data) {
-  const url = buildUrl(entityName, data.id);
+  const url = buildUrl(SERVER, entityName, data.id);
   const headers = buildHeaders();
   const formData = buildFormData(entityName, data);
   return Promise.resolve(

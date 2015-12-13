@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/route_actions";
+import { changeRoute } from "../../actions/router_actions";
 import { destroyProduct, updateProduct } from "../../actions/product_actions";
 import ProductForm from "./ProductForm";
 import Button from "../Button";

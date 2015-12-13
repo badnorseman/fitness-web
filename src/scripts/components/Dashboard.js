@@ -6,22 +6,19 @@ import UserList from "./users/UserList";
 import "./dashboard.css";
 
 export default class Dashboard extends Component {
+  static propTypes = {
+    products: PropTypes.object,
+    users: PropTypes.object,
+    onEdit: PropTypes.func.isRequired,
+    onNew: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props);
-    this._goToEditProduct = this._goToEditProduct.bind(this);
-    this._goToNewProduct = this._goToNewProduct.bind(this);
-  }
-
-  _goToEditProduct(product) {
-    this.props.changeRoute("EDITPRODUCT", product);
-  }
-
-  _goToNewProduct() {
-    this.props.changeRoute("NEWPRODUCT");
   }
 
   render() {
-    const { products, users } = this.props;
+    const { products, users, onEdit, onNew } = this.props;
 
     return (
       <div className="mdl-grid">
@@ -37,11 +34,14 @@ export default class Dashboard extends Component {
                 <div className="mdl-tabs__panel is-active" id="products-panel">
                   <ProductList
                     products={products}
-                    onEdit={this._goToEditProduct}
-                    onNew={this._goToNewProduct} />
+                    onEdit={onEdit}
+                    onNew={onNew}
+                  />
                 </div>
                 <div className="mdl-tabs__panel" id="clients-panel">
-                  <UserList users={users} />
+                  <UserList
+                    users={users}
+                  />
                 </div>
               </div>
             </div>
