@@ -13,4 +13,4 @@ const configureStore = (initialState) => {
 
 const store = configureStore();
 
-export default store;
+export default store

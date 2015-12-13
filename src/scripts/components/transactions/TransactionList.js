@@ -39,4 +39,4 @@ const TransactionList = ({
   );
 };
 
-export default TransactionList;
+export default TransactionList

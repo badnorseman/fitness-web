@@ -25,4 +25,4 @@ const Cart = ({ dispatch }) => {
 };
 Cart = connect()(Cart);
 
-export default Cart;
+export default Cart

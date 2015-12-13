@@ -41,4 +41,4 @@ const transaction = (state = initialState, action) => {
   }
 };
 
-export default transaction;
+export default transaction

@@ -1,6 +1,6 @@
 "use strict";
 
-export function buildFormData(entityName, data) {
+const buildFormData = (entityName, data) => {
   let formData = new FormData();
   for (let key in data) {
     if (data.hasOwnProperty(key)) {
@@ -8,18 +8,22 @@ export function buildFormData(entityName, data) {
     }
   }
   return formData;
-}
+};
 
-export function buildHeaders() {
+const buildHeaders = () => {
   return {
     "Authorization": `Token token=${localStorage.userToken}`
   };
-}
+};
 
-export function buildUrl(serverName, entityName, params) {
+const buildUrl = (serverName, entityName, params) => {
   return `${serverName}/${entityName.toLowerCase()}s${buildParams(params)}`;
-}
+};
 
-function buildParams(params = "") {
+const buildParams = (params = "") => {
   return (params === "") ? "" : `/${params}`;
-}
+};
+
+export { buildFormData };
+export { buildHeaders };
+export { buildUrl };

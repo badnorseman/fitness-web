@@ -18,4 +18,4 @@ const errorMessage = (state = null, action) => {
   return state;
 };
 
-export default errorMessage;
+export default errorMessage

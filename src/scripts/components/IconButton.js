@@ -12,4 +12,4 @@ const IconButton = ({
   </button>
 );
 
-export default IconButton;
+export default IconButton

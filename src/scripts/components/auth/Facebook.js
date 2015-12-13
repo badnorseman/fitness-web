@@ -39,4 +39,4 @@ class Facebook extends Component {
   }
 }
 
-export default connect()(Facebook);
+export default connect()(Facebook)

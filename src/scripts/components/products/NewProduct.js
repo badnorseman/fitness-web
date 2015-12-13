@@ -43,4 +43,4 @@ class NewProduct extends Component {
   }
 }
 
-export default connect()(NewProduct);
+export default connect()(NewProduct)

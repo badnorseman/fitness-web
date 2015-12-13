@@ -24,4 +24,4 @@ const UserListItem = ({
   );
 };
 
-export default UserListItem;
+export default UserListItem

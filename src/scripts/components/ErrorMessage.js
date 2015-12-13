@@ -9,4 +9,4 @@ const ErrorMessage = ({
   </div>
 );
 
-export default ErrorMessage;
+export default ErrorMessage

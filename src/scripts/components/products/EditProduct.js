@@ -56,4 +56,4 @@ class EditProduct extends Component {
   }
 }
 
-export default connect()(EditProduct);
+export default connect()(EditProduct)

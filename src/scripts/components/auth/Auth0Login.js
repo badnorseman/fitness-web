@@ -38,4 +38,4 @@ class Auth0Login extends Component {
   }
 }
 
-export default connect()(Auth0Login);
+export default connect()(Auth0Login)
