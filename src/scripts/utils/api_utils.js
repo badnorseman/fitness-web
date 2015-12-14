@@ -21,7 +21,7 @@ const buildUrl = (serverName, entityName, params) => {
 };
 
 const buildUrlParams = (params) => {
-  return (typeof params === "undefined") ? "" : `/${params}`;
+  return (params) ? `/${params}` : "";
 };
 
 export { buildFormData };
