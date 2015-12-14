@@ -1,17 +1,13 @@
 "use strict";
 import $ from "jquery";
 import {
+  SERVER
+} from "../constants/server";
+import {
   buildFormData,
   buildHeaders,
   buildUrl
 } from "../utils/api_utils";
-import {
-  SERVER,
-  LOGIN,
-  LOGOUT,
-  OAUTH,
-  SIGNUP
-} from "../constants/api_routes";
 
 const create = (entityName, data) => {
   const url = buildUrl(SERVER, entityName);
@@ -83,7 +79,7 @@ const fetchById = (entityName, id) => {
 };
 
 const login = (data) => {
-  const url = `${SERVER}${LOGIN}`;
+  const url = `${SERVER}/auth/identity/callback`;
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -95,7 +91,7 @@ const login = (data) => {
 };
 
 const logout = () => {
-  const url = `${SERVER}${LOGOUT}`;
+  const url = `${SERVER}/logout`;
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -106,7 +102,7 @@ const logout = () => {
 };
 
 const oauth = (provider) => {
-  const url = `${SERVER}${OAUTH}/${provider}/callback`;
+  const url = `${SERVER}/auth/${provider}/callback`;
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -118,7 +114,7 @@ const oauth = (provider) => {
 };
 
 const signup = (data) => {
-  const url = `${SERVER}${SIGNUP}`;
+  const url = `${SERVER}/auth/identity/register`;
   return Promise.resolve(
     $.ajax({
       url: url,

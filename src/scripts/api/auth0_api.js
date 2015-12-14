@@ -1,6 +1,8 @@
 "use strict";
 import $ from "jquery";
-import { SERVER } from "../constants/api_routes";
+import {
+  SERVER
+} from "../constants/server";
 
 const buildHeaders = () => {
   const token = localStorage.userToken;
