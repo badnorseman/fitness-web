@@ -13,7 +13,7 @@ import {
   SIGNUP
 } from "../constants/api_routes";
 
-export function create(entityName, data) {
+const create = (entityName, data) => {
   const url = buildUrl(SERVER, entityName);
   const headers = buildHeaders();
   const formData = buildFormData(entityName, data);
@@ -28,9 +28,9 @@ export function create(entityName, data) {
       data: formData
     })
   );
-}
+};
 
-export function destroy(entityName, id) {
+const destroy = (entityName, id) => {
   const url = buildUrl(SERVER, entityName, id);
   const headers = buildHeaders();
   return Promise.resolve(
@@ -41,9 +41,9 @@ export function destroy(entityName, id) {
       headers: headers
     })
   );
-}
+};
 
-export function fetchClientToken(entityName) {
+const fetchClientToken = (entityName) => {
   const url = buildUrl(SERVER, entityName, "new");
   const headers = buildHeaders();
   return Promise.resolve(
@@ -54,9 +54,9 @@ export function fetchClientToken(entityName) {
       headers: headers
     })
   );
-}
+};
 
-export function fetchAll(entityName) {
+const fetchAll = (entityName) => {
   const url = buildUrl(SERVER, entityName);
   const headers = buildHeaders();
   return Promise.resolve(
@@ -67,9 +67,9 @@ export function fetchAll(entityName) {
       headers: headers
     })
   );
-}
+};
 
-export function fetchById(entityName, id) {
+const fetchById = (entityName, id) => {
   const url = buildUrl(SERVER, entityName, id);
   const headers = buildHeaders();
   return Promise.resolve(
@@ -80,9 +80,9 @@ export function fetchById(entityName, id) {
       headers: headers
     })
   );
-}
+};
 
-export function login(data) {
+const login = (data) => {
   const url = `${SERVER}${LOGIN}`;
   return Promise.resolve(
     $.ajax({
@@ -92,9 +92,9 @@ export function login(data) {
       data: data
     })
   );
-}
+};
 
-export function logout() {
+const logout = () => {
   const url = `${SERVER}${LOGOUT}`;
   return Promise.resolve(
     $.ajax({
@@ -103,9 +103,9 @@ export function logout() {
       type: "GET"
     })
   );
-}
+};
 
-export function oauth(provider) {
+const oauth = (provider) => {
   const url = `${SERVER}${OAUTH}/${provider}/callback`;
   return Promise.resolve(
     $.ajax({
@@ -115,9 +115,9 @@ export function oauth(provider) {
       type: "GET"
     })
   );
-}
+};
 
-export function signup(data) {
+const signup = (data) => {
   const url = `${SERVER}${SIGNUP}`;
   return Promise.resolve(
     $.ajax({
@@ -127,9 +127,9 @@ export function signup(data) {
       data: data
     })
   );
-}
+};
 
-export function update(entityName, data) {
+const update = (entityName, data) => {
   const url = buildUrl(SERVER, entityName, data.id);
   const headers = buildHeaders();
   const formData = buildFormData(entityName, data);
@@ -144,4 +144,15 @@ export function update(entityName, data) {
       data: formData
     })
   );
-}
+};
+
+export { create };
+export { destroy };
+export { fetchAll };
+export { fetchById };
+export { fetchClientToken };
+export { login };
+export { logout };
+export { oauth };
+export { signup };
+export { update };
