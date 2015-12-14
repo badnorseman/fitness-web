@@ -52,4 +52,4 @@ const ProductList = ({
   );
 };
 
-export default ProductList;
+export default ProductList

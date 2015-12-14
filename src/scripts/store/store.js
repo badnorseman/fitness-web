@@ -7,10 +7,8 @@ const createStoreWithMiddleware = applyMiddleware(
   thunkMiddleware
 )(createStore);
 
-const configureStore = (initialState) => {
+const store = (initialState => {
   return createStoreWithMiddleware(reducers, initialState);
-};
+})();
 
-const store = configureStore();
-
-export default store;
+export default store

@@ -62,4 +62,4 @@ const router = (state = initialState, action) => {
   }
 };
 
-export default router;
+export default router

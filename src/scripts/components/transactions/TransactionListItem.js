@@ -23,4 +23,4 @@ const TransactionListItem = ({
   );
 };
 
-export default TransactionListItem;
+export default TransactionListItem

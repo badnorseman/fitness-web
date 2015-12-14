@@ -64,4 +64,4 @@ class ShowProduct extends Component {
   }
 }
 
-export default connect()(ShowProduct);
+export default connect()(ShowProduct)

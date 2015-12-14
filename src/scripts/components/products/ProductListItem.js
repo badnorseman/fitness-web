@@ -30,4 +30,4 @@ const ProductListItem = ({
   );
 };
 
-export default ProductListItem;
+export default ProductListItem

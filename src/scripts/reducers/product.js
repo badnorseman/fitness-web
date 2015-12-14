@@ -41,4 +41,4 @@ const product = (state = initialState, action) => {
   }
 };
 
-export default product;
+export default product

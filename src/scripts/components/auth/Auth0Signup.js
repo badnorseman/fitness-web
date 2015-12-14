@@ -37,4 +37,4 @@ class Auth0Signup extends Component {
   }
 }
 
-export default connect()(Auth0Signup);
+export default connect()(Auth0Signup)

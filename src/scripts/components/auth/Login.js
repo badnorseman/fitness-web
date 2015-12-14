@@ -85,4 +85,4 @@ class Login extends Component {
   }
 }
 
-export default connect()(Login);
+export default connect()(Login)

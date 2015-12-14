@@ -99,4 +99,4 @@ class Signup extends Component {
   }
 }
 
-export default connect()(Signup);
+export default connect()(Signup)
