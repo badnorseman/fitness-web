@@ -1,10 +1,9 @@
 "use strict";
 import React, { Component } from "react";
 import { render } from "react-dom";
-// import Auth0Lock from "auth0-lock";
 import { connect } from "react-redux";
 import { login } from "../../actions/auth0_actions";
-import Auth0Variables from "../../constants/auth0_variables";
+import { AUTH0_VARIABLES } from "../../constants/auth0_variables";
 
 class Auth0Login extends Component {
   constructor(props) {
@@ -14,8 +13,8 @@ class Auth0Login extends Component {
 
   componentWillMount() {
     this.lock = new Auth0Lock(
-      Auth0Variables.AUTH0_CLIENT_ID,
-      Auth0Variables.AUTH0_DOMAIN
+      AUTH0_VARIABLES.AUTH0_CLIENT_ID,
+      AUTH0_VARIABLES.AUTH0_DOMAIN
     );
   }
 
