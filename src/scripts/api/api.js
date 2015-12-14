@@ -146,13 +146,15 @@ const update = (entityName, data) => {
   );
 };
 
-export { create };
-export { destroy };
-export { fetchAll };
-export { fetchById };
-export { fetchClientToken };
-export { login };
-export { logout };
-export { oauth };
-export { signup };
-export { update };
+export {
+  create,
+  destroy,
+  fetchAll,
+  fetchById,
+  fetchClientToken,
+  login,
+  logout,
+  oauth,
+  signup,
+  update
+};

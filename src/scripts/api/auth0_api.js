@@ -2,14 +2,14 @@
 import $ from "jquery";
 import { SERVER } from "../constants/api_routes";
 
-function buildHeaders() {
+const buildHeaders = () => {
   const token = localStorage.userToken;
   return {
     "Authorization": `Bearer ${token}`
   };
-}
+};
 
-export function login() {
+const login = () => {
   const url = `${SERVER}/login`;
   const headers = buildHeaders();
   return Promise.resolve(
@@ -20,9 +20,9 @@ export function login() {
       headers: headers
     })
   );
-}
+};
 
-export function signup(data) {
+const signup = (data) => {
   const url = `${SERVER}/signup`;
   const headers = buildHeaders();
   return Promise.resolve(
@@ -34,4 +34,9 @@ export function signup(data) {
       data: data
     })
   );
-}
+};
+
+export {
+  login,
+  signup
+};
