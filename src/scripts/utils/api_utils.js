@@ -11,17 +11,17 @@ const buildFormData = (entityName, data) => {
 };
 
 const buildHeaders = () => {
-  return {
-    "Authorization": `Token token=${localStorage.userToken}`
-  };
+  const token = localStorage.userToken;
+  return { "Authorization": `Token token=${token}` };
 };
 
 const buildUrl = (serverName, entityName, params) => {
-  return `${serverName}/${entityName.toLowerCase()}s${buildParams(params)}`;
+  const urlParams = buildUrlParams(params);
+  return `${serverName}/${entityName.toLowerCase()}s${urlParams}`;
 };
 
-const buildParams = (params = "") => {
-  return (params === "") ? "" : `/${params}`;
+const buildUrlParams = (params) => {
+  return (typeof params === "undefined") ? "" : `/${params}`;
 };
 
 export { buildFormData };
