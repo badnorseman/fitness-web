@@ -4,6 +4,7 @@ const TransactionListItem = ({
   transaction
 }) => {
   const { amount, currency, date, transaction_id } = transaction;
+
   const itemElementStyle = {
     margin: "10px 10px 10px 0",
     maxWidth:"800px",
