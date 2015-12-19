@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
-import Account from "../containers/Account";
+import Account from "../components/Account";
 import Dashboard from "../components/Dashboard";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "../components/ErrorMessage";
