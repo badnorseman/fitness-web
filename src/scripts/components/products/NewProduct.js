@@ -9,7 +9,7 @@ import "./products.css";
 
 const NewProduct = ({
   onAdd,
-  onClick
+  onClose
 }) => (
   <div className="mdl-grid">
     <div className="mdl-cell mdl-cell--12-col">
@@ -22,7 +22,7 @@ const NewProduct = ({
         <div className="mdl-card__menu">
           <IconButton
             name="close"
-            onClick={onClick}
+            onClick={onClose}
           />
         </div>
       </div>
@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
     onAdd: (product) => {
       dispatch(createProduct(product));
     },
-    onClick: () => {
+    onClose: () => {
       dispatch(changeRoute("DASHBOARD"));
     }
   };

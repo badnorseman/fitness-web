@@ -8,7 +8,7 @@ import "./products.css";
 const ShowProduct = ({
   product,
   onBuy,
-  onClick
+  onClose
 }) => {
   const { currency, description, image, name, price} = product;
 
@@ -46,7 +46,7 @@ const ShowProduct = ({
           <div className="mdl-card__menu">
             <IconButton
               name="close"
-              onClick={onClick}
+              onClick={onClose}
             />
           </div>
         </div>
@@ -60,7 +60,7 @@ const mapDispatchToProps = (dispatch) => {
     onBuy: (product) => {
       dispatch(changeRoute("NEWTRANSACTION", product));
     },
-    onClick: () => {
+    onClose: () => {
       dispatch(changeRoute("MARKETPLACE"));
     }
   };

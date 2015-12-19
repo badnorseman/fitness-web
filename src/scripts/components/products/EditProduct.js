@@ -9,7 +9,7 @@ import "./products.css";
 
 const EditProduct = ({
   product,
-  onClick,
+  onClose,
   onEdit,
   onRemove
 }) => (
@@ -34,7 +34,7 @@ const EditProduct = ({
         <div className="mdl-card__menu">
           <IconButton
             name="close"
-            onClick={onClick}
+            onClick={onClose}
           />
         </div>
       </div>
@@ -44,7 +44,7 @@ const EditProduct = ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: () => {
+    onClose: () => {
       dispatch(changeRoute("DASHBOARD"));
     },
     onEdit: (product) => {
