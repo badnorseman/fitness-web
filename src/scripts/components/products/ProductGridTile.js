@@ -5,7 +5,7 @@ import { render } from "react-dom";
 export default class ProductGridTile extends Component {
   static propTypes = {
     tile: PropTypes.object.isRequired,
-    onSelect: PropTypes.func.isRequired
+    onShow: PropTypes.func.isRequired
   }
 
   constructor(props) {
@@ -14,7 +14,7 @@ export default class ProductGridTile extends Component {
   }
 
   _handleSelect() {
-    this.props.onSelect(this.props.tile);
+    this.props.onShow(this.props.tile);
   }
 
   render() {

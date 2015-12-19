@@ -6,7 +6,7 @@ import ProductGridTile from "./ProductGridTile";
 export default class ProductGridList extends Component {
   static propTypes = {
     products: PropTypes.object,
-    onSelect: PropTypes.func.isRequired
+    onShow: PropTypes.func.isRequired
   }
 
   constructor(props) {
@@ -19,7 +19,7 @@ export default class ProductGridList extends Component {
     for (let key in this.props.products) {
       if (this.props.products.hasOwnProperty(key)) {
         tiles.push(
-          <ProductGridTile key={key} tile={this.props.products[key]} onSelect={this._handleSelect} />
+          <ProductGridTile key={key} tile={this.props.products[key]} onShow={this._handleSelect} />
         );
       }
     }
@@ -27,7 +27,7 @@ export default class ProductGridList extends Component {
   }
 
   _handleSelect(product) {
-    this.props.onSelect(product);
+    this.props.onShow(product);
   }
 
   render() {

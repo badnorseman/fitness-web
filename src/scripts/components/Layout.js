@@ -9,7 +9,7 @@ import EditProduct from "./products/EditProduct";
 import ErrorMessage from "../containers/ErrorMessage";
 import Footer from "../components/Footer";
 import Login from "../components/auth/Login";
-import Marketplace from "../containers/Marketplace";
+import Marketplace from "../components/Marketplace";
 import Navigation from "../containers/Navigation";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "../containers/NewTransaction";
