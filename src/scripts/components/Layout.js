@@ -1,6 +1,8 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
+import { connect } from "react-redux";
+import { changeRoute } from "../actions/router_actions";
 import Account from "../containers/Account";
 import Dashboard from "../components/Dashboard";
 import EditProduct from "./products/EditProduct";
@@ -15,26 +17,13 @@ import ShowProduct from "./products/ShowProduct";
 import Signup from "../components/auth/Signup";
 import "./layout.css";
 
-export default class Layout extends Component {
-  static propTypes = {
-    changeRoute: PropTypes.func.isRequired
-  }
-
-  constructor(props) {
-    super(props);
-    this._goToMarketplace = this._goToMarketplace.bind(this);
-  }
-
+class Layout extends Component {
   componentDidUpdate() {
     componentHandler.upgradeDom();
   }
 
-  _goToMarketplace() {
-    this.props.changeRoute("MARKETPLACE");
-  }
-
   render() {
-    const { param, route } = this.props;
+    const { onHome, param, route } = this.props;
 
     let content;
     switch (route) {
@@ -71,7 +60,7 @@ export default class Layout extends Component {
           <header className="mdl-layout__header layout__header">
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
-                <a className="mdl-navigation__link" href="#!" onClick={this._goToMarketplace}>
+                <a className="mdl-navigation__link" href="#!" onClick={onHome}>
                   FitBird
                 </a>
               </span>
@@ -92,3 +81,23 @@ export default class Layout extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onHome: () => {
+      dispatch(changeRoute("MARKETPLACE"));
+    }
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    param: state.router.param,
+    route: state.router.route
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Layout)

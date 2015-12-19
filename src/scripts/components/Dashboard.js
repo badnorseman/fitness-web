@@ -5,24 +5,6 @@ import ProductList from "./products/ProductList";
 import UserList from "./users/UserList";
 import "./dashboard.css";
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onEdit: (product) => {
-      dispatch(changeRoute("EDITPRODUCT", product));
-    },
-    onNew: () => {
-      dispatch(changeRoute("NEWPRODUCT"));
-    }
-  };
-};
-
-const mapStateToProps = (state) => {
-  return {
-    products: state.product.products,
-    users: state.user.users
-  };
-};
-
 const Dashboard = ({
   products,
   users,
@@ -58,6 +40,23 @@ const Dashboard = ({
   </div>
 );
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onEdit: (product) => {
+      dispatch(changeRoute("EDITPRODUCT", product));
+    },
+    onNew: () => {
+      dispatch(changeRoute("NEWPRODUCT"));
+    }
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.product.products,
+    users: state.user.users
+  };
+};
 
 export default connect(
   mapStateToProps,
