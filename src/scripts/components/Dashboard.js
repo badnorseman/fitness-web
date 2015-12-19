@@ -1,22 +1,31 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
+import { connect } from "react-redux";
+import { changeRoute } from "../actions/router_actions";
 import ProductList from "./products/ProductList";
 import UserList from "./users/UserList";
 import "./dashboard.css";
 
-export default class Dashboard extends Component {
-  static propTypes = {
-    products: PropTypes.object,
-    users: PropTypes.object,
-    onEdit: PropTypes.func.isRequired,
-    onNew: PropTypes.func.isRequired
-  }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onEdit: (product) => {
+      dispatch(changeRoute("EDITPRODUCT", product));
+    },
+    onNew: () => {
+      dispatch(changeRoute("NEWPRODUCT"));
+    }
+  };
+};
 
-  constructor(props) {
-    super(props);
-  }
+const mapStateToProps = (state) => {
+  return {
+    products: state.product.products,
+    users: state.user.users
+  };
+};
 
+class Dashboard extends Component {
   render() {
     const { products, users, onEdit, onNew } = this.props;
 
@@ -51,3 +60,8 @@ export default class Dashboard extends Component {
     );
   }
 }
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dashboard)

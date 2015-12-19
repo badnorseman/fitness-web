@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import Account from "../containers/Account";
-import Dashboard from "../containers/Dashboard";
+import Dashboard from "../components/Dashboard";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "../containers/ErrorMessage";
 import Footer from "../components/Footer";
