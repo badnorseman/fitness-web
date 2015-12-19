@@ -12,7 +12,7 @@ class Marketplace extends Component {
   }
 
   render() {
-    const { onShow, products } = this.props;
+    const { products, onShow } = this.props;
 
     return (
       <div>

@@ -6,7 +6,7 @@ import { changeRoute } from "../actions/router_actions";
 import Account from "../containers/Account";
 import Dashboard from "../components/Dashboard";
 import EditProduct from "./products/EditProduct";
-import ErrorMessage from "../containers/ErrorMessage";
+import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
 import Login from "../components/auth/Login";
 import Marketplace from "../components/Marketplace";
@@ -23,7 +23,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { onHome, param, route } = this.props;
+    const { param, route, onClick } = this.props;
 
     let content;
     switch (route) {
@@ -33,11 +33,11 @@ class Layout extends Component {
       case "DASHBOARD":
         content = <Dashboard />;
         break;
-      case "LOGIN":
-        content = <Login />;
-        break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;
+        break;
+      case "LOGIN":
+        content = <Login />;
         break;
       case "NEWPRODUCT":
         content = <NewProduct />;
@@ -60,7 +60,9 @@ class Layout extends Component {
           <header className="mdl-layout__header layout__header">
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
-                <a className="mdl-navigation__link" href="#!" onClick={onHome}>
+                <a href="#!" className="mdl-navigation__link"
+                  onClick={onClick}
+                >
                   FitBird
                 </a>
               </span>
@@ -84,7 +86,7 @@ class Layout extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onHome: () => {
+    onClick: () => {
       dispatch(changeRoute("MARKETPLACE"));
     }
   };
