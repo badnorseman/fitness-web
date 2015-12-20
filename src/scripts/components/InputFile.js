@@ -2,15 +2,15 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-export default class InputFile extends Component {
+class InputFile extends Component {
   constructor() {
     super();
     this.state = { file: "" };
     this._handleChange = this._handleChange.bind(this);
   }
 
-  _handleChange(event) {
-    event.preventDefault();
+  _handleChange(e) {
+    e.preventDefault();
 
     let file = document.getElementById("file--selected").files[0];
 
@@ -34,3 +34,5 @@ export default class InputFile extends Component {
     )
   }
 }
+
+export default InputFile

@@ -2,11 +2,14 @@
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import Braintree from "braintree-web";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { changeRoute } from "../../actions/router_actions";
+import { createTransaction, getClientToken } from "../../actions/transaction_actions";
 import Button from "../Button";
 
-export default class NewTransaction extends Component {
+class NewTransaction extends Component {
   static propTypes = {
-    clientToken: PropTypes.string,
     product: PropTypes.object.isRequired
   }
 
@@ -35,8 +38,8 @@ export default class NewTransaction extends Component {
     this.props.changeRoute("MARKETPLACE");
   }
 
-  _handleSubmit(event) {
-    event.preventDefault();
+  _handleSubmit(e) {
+    e.preventDefault();
   }
 
   _onPaymentMethodReceived(paymentMethod) {
@@ -73,3 +76,22 @@ export default class NewTransaction extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    changeRoute,
+    createTransaction,
+    getClientToken
+  }, dispatch);
+};
+
+const mapStateToProps = (state) => {
+  return {
+    clientToken: state.transaction.clientToken
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NewTransaction)

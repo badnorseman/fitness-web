@@ -4,7 +4,7 @@
 import React, { Component, PropTypes } from "react";
 import { findDOMNode, render } from "react-dom";
 
-export default class InputField extends Component {
+class InputField extends Component {
   static propTypes = {
     fieldError: PropTypes.string,
     fieldId: PropTypes.string.isRequired,
@@ -20,8 +20,8 @@ export default class InputField extends Component {
     this._handleChange = this._handleChange.bind(this);
   }
 
-  _handleChange(event) {
-    event.preventDefault();
+  _handleChange(e) {
+    e.preventDefault();
 
     let fieldValue = findDOMNode(this.refs[this.props.fieldId]).value;
 
@@ -54,3 +54,5 @@ export default class InputField extends Component {
     )
   }
 }
+
+export default InputField

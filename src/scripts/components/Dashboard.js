@@ -9,6 +9,10 @@ import UserList from "./users/UserList";
 import "./dashboard.css";
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.getProducts();
   }

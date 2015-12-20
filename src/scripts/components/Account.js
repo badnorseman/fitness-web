@@ -8,6 +8,10 @@ import TransactionList from "./transactions/TransactionList";
 import "./account.css";
 
 class Account extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.getTransactions();
   }

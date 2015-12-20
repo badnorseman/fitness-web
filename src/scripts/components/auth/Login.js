@@ -1,5 +1,5 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
@@ -25,8 +25,8 @@ class Login extends Component {
     alert("Coming soon.");
   }
 
-  _handleSubmit(event) {
-    event.preventDefault();
+  _handleSubmit(e) {
+    e.preventDefault();
 
     let email = this.refs.email.state.fieldValue;
     let password = this.refs.password.state.fieldValue;

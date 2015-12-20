@@ -25,8 +25,8 @@ class EditUser extends Component {
     }
   }
 
-  _handleSubmit(event) {
-    event.preventDefault();
+  _handleSubmit(e) {
+    e.preventDefault();
 
     let avatar = this.refs.avatar.state.file;
     let birthDay = this.refs.birthDay.state.fieldValue;
