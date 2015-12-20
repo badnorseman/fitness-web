@@ -1,8 +1,12 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { changeRoute } from "../actions/router_actions";
+import { logout } from "../actions/auth_actions";
 
-export default class Navigation extends Component {
+class Navigation extends Component {
   static propTypes = {
     currentUser: PropTypes.object.isRequired,
     changeRoute: PropTypes.func.isRequired,
@@ -76,3 +80,21 @@ export default class Navigation extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    changeRoute,
+    logout
+  }, dispatch);
+};
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.auth.currentUser
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navigation)

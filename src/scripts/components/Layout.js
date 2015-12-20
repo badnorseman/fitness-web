@@ -10,7 +10,7 @@ import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
 import Login from "../components/auth/Login";
 import Marketplace from "../components/Marketplace";
-import Navigation from "../containers/Navigation";
+import Navigation from "../components/Navigation";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "../containers/NewTransaction";
 import ShowProduct from "./products/ShowProduct";
