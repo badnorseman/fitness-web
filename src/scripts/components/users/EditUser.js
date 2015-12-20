@@ -6,7 +6,7 @@ import { updateUser } from "../../actions/user_actions";
 import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
-import "./editUser.css";
+import "./edit_user.css";
 
 class EditUser extends Component {
   static propTypes = {

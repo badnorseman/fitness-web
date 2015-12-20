@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
 import { createProduct } from "../../actions/product_actions";
 import ProductForm from "./ProductForm";
-import Button from "../Button";
 import IconButton from "../IconButton";
 import "./products.css";
 

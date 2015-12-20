@@ -7,6 +7,8 @@ import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
 import { createTransaction, getClientToken } from "../../actions/transaction_actions";
 import Button from "../Button";
+import IconButton from "../IconButton";
+import "./new_transaction.css";
 
 class NewTransaction extends Component {
   static propTypes = {
@@ -64,11 +66,19 @@ class NewTransaction extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="mdl-card mdl-shadow--2dp">
             <div className="mdl-card__supporting-text">
-              <Button name="close" type="button" onClick={this._handleClose} />
               <form onSubmit={this._handleSubmit}>
-                <div id="dropin-container"></div>
-                <Button name="Buy" type="submit" />
+                <div className="braintree-dropin" id="dropin-container"></div>
+                <Button
+                  name="Buy"
+                  type="submit"
+                />
               </form>
+            </div>
+            <div className="mdl-card__menu">
+              <IconButton
+                name="close"
+                onClick={this._handleClose}
+              />
             </div>
           </div>
         </div>
