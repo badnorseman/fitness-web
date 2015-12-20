@@ -1,38 +1,48 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
+import { connect } from "react-redux";
+import { changeRoute } from "../actions/router_actions";
+import { getProducts } from "../actions/product_actions";
 import ProductGridList from "./products/ProductGridList";
 
-export default class Marketplace extends Component {
-  static propTypes = {
-    products: PropTypes.object,
-    changeRoute: PropTypes.func.isRequired,
-    getProducts: PropTypes.func.isRequired
-  }
-
-  constructor(props) {
-    super(props);
-    this._goToShowProduct = this._goToShowProduct.bind(this);
-  }
-
+class Marketplace extends Component {
   componentDidMount() {
     this.props.getProducts();
   }
 
-  _goToShowProduct(product) {
-    this.props.changeRoute("SHOWPRODUCT", product);
-  }
-
   render() {
-    const { products } = this.props;
+    const { products, onShow } = this.props;
 
     return (
       <div>
         <ProductGridList
           products={products}
-          onSelect={this._goToShowProduct}
+          onShow={onShow}
         />
       </div>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProducts: () => {
+      dispatch(getProducts());
+    },
+    onShow: (product) => {
+      dispatch(changeRoute("SHOWPRODUCT", product));
+    }
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.product.products
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Marketplace)

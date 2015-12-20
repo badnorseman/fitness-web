@@ -5,14 +5,20 @@ import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
 
-export default class ProductForm extends Component {
+class ProductForm extends Component {
   static propTypes = {
     product: PropTypes.object,
     onSubmit: PropTypes.func.isRequired
   }
 
   static defaultProps = {
-    product: { currency: "DKK" }
+    product: {
+      currency: "DKK",
+      description: "",
+      image: "",
+      name: "",
+      price: ""
+    }
   }
 
   constructor(props) {
@@ -27,8 +33,8 @@ export default class ProductForm extends Component {
     }
   }
 
-  _handleSubmit(event) {
-    event.preventDefault();
+  _handleSubmit(e) {
+    e.preventDefault();
 
     let currency = this._getCurrency();
     let description = this.refs.description.state.fieldValue;
@@ -54,9 +60,7 @@ export default class ProductForm extends Component {
   }
 
   render() {
-    const { description, image, name, price } = this.props.product || {
-      description: "", image: "", name: "", price: ""
-    };
+    const { description, image, name, price } = this.props.product;
 
     return (
       <form onSubmit={this._handleSubmit}>
@@ -117,3 +121,5 @@ export default class ProductForm extends Component {
     )
   }
 }
+
+export default ProductForm

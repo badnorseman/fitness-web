@@ -1,21 +1,13 @@
 "use strict";
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
+import { connect } from "react-redux";
+import { getTransactions } from "../actions/transaction_actions";
 import EditUser from "./users/EditUser";
 import TransactionList from "./transactions/TransactionList";
 import "./account.css";
 
-export default class Account extends Component {
-  static propTypes = {
-    currentUser: PropTypes.object.isRequired,
-    transactions: PropTypes.object,
-    getTransactions: PropTypes.func.isRequired
-  }
-
-  constructor(props) {
-    super(props);
-  }
-
+class Account extends Component {
   componentDidMount() {
     this.props.getTransactions();
   }
@@ -56,3 +48,23 @@ export default class Account extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getTransactions: () => {
+      dispatch(getTransactions());
+    }
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.auth.currentUser,
+    transactions: state.transaction.transactions
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Account)
