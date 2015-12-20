@@ -5,7 +5,7 @@ import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
 
-class ProductForm extends Component {
+export default class ProductForm extends Component {
   static propTypes = {
     product: PropTypes.object,
     onSubmit: PropTypes.func.isRequired
@@ -121,5 +121,3 @@ class ProductForm extends Component {
     )
   }
 }
-
-export default ProductForm

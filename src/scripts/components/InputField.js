@@ -4,7 +4,7 @@
 import React, { Component, PropTypes } from "react";
 import { findDOMNode, render } from "react-dom";
 
-class InputField extends Component {
+export default class InputField extends Component {
   static propTypes = {
     fieldError: PropTypes.string,
     fieldId: PropTypes.string.isRequired,
@@ -54,5 +54,3 @@ class InputField extends Component {
     )
   }
 }
-
-export default InputField
