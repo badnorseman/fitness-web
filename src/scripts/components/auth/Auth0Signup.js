@@ -18,8 +18,8 @@ class Auth0Signup extends Component {
     );
   }
 
-  _handleClick(event) {
-    event.preventDefault();
+  _handleClick(ev) {
+    ev.preventDefault();
 
     this.lock.showSignup({
     }, (error, profile, token) => {

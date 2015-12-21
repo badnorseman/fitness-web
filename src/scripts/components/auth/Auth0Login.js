@@ -18,8 +18,8 @@ class Auth0Login extends Component {
     );
   }
 
-  _handleClick(event) {
-    event.preventDefault();
+  _handleClick(ev) {
+    ev.preventDefault();
 
     this.lock.showSignin({
       gravatar: false

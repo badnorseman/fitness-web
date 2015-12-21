@@ -7,6 +7,10 @@ import { getProducts } from "../actions/product_actions";
 import ProductGridList from "./products/ProductGridList";
 
 class Marketplace extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.getProducts();
   }

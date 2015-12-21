@@ -2,11 +2,16 @@
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import Braintree from "braintree-web";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { changeRoute } from "../../actions/router_actions";
+import { createTransaction, getClientToken } from "../../actions/transaction_actions";
 import Button from "../Button";
+import IconButton from "../IconButton";
+import "./new_transaction.css";
 
-export default class NewTransaction extends Component {
+class NewTransaction extends Component {
   static propTypes = {
-    clientToken: PropTypes.string,
     product: PropTypes.object.isRequired
   }
 
@@ -35,8 +40,8 @@ export default class NewTransaction extends Component {
     this.props.changeRoute("MARKETPLACE");
   }
 
-  _handleSubmit(event) {
-    event.preventDefault();
+  _handleSubmit(ev) {
+    ev.preventDefault();
   }
 
   _onPaymentMethodReceived(paymentMethod) {
@@ -61,11 +66,19 @@ export default class NewTransaction extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="mdl-card mdl-shadow--2dp">
             <div className="mdl-card__supporting-text">
-              <Button name="close" type="button" onClick={this._handleClose} />
               <form onSubmit={this._handleSubmit}>
-                <div id="dropin-container"></div>
-                <Button name="Buy" type="submit" />
+                <div className="braintree-dropin" id="dropin-container"></div>
+                <Button
+                  name="Buy"
+                  type="submit"
+                />
               </form>
+            </div>
+            <div className="mdl-card__menu">
+              <IconButton
+                name="close"
+                onClick={this._handleClose}
+              />
             </div>
           </div>
         </div>
@@ -73,3 +86,22 @@ export default class NewTransaction extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    changeRoute,
+    createTransaction,
+    getClientToken
+  }, dispatch);
+};
+
+const mapStateToProps = (state) => {
+  return {
+    clientToken: state.transaction.clientToken
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NewTransaction)

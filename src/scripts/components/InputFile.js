@@ -9,8 +9,8 @@ export default class InputFile extends Component {
     this._handleChange = this._handleChange.bind(this);
   }
 
-  _handleChange(event) {
-    event.preventDefault();
+  _handleChange(ev) {
+    ev.preventDefault();
 
     let file = document.getElementById("file--selected").files[0];
 

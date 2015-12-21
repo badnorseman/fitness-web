@@ -20,8 +20,8 @@ const EditProduct = ({
           <Button
             name="Remove"
             type="button"
-            onClick={e => {
-              e.preventDefault();
+            onClick={ev => {
+              ev.preventDefault();
               onRemove(product.id);
             }}
           />

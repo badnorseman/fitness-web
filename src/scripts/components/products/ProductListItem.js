@@ -16,8 +16,8 @@ const ProductListItem = ({
     <div>
       <hr />
       <a href="#!" className="block--center-horizontally__flex"
-        onClick={e => {
-          e.preventDefault();
+        onClick={ev => {
+          ev.preventDefault();
           onEdit(product);
         }}
       >

@@ -6,7 +6,7 @@ import { updateUser } from "../../actions/user_actions";
 import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
-import "./editUser.css";
+import "./edit_user.css";
 
 class EditUser extends Component {
   static propTypes = {
@@ -25,8 +25,8 @@ class EditUser extends Component {
     }
   }
 
-  _handleSubmit(event) {
-    event.preventDefault();
+  _handleSubmit(ev) {
+    ev.preventDefault();
 
     let avatar = this.refs.avatar.state.file;
     let birthDay = this.refs.birthDay.state.fieldValue;

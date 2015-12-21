@@ -5,7 +5,7 @@ import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
 
-class ProductForm extends Component {
+export default class ProductForm extends Component {
   static propTypes = {
     product: PropTypes.object,
     onSubmit: PropTypes.func.isRequired
@@ -33,8 +33,8 @@ class ProductForm extends Component {
     }
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  _handleSubmit(ev) {
+    ev.preventDefault();
 
     let currency = this._getCurrency();
     let description = this.refs.description.state.fieldValue;
@@ -121,5 +121,3 @@ class ProductForm extends Component {
     )
   }
 }
-
-export default ProductForm

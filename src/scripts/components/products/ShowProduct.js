@@ -29,8 +29,8 @@ const ShowProduct = ({
                 <Button
                   name="Buy"
                   type="button"
-                  onClick={e => {
-                    e.preventDefault();
+                  onClick={ev => {
+                    ev.preventDefault();
                     onBuy(product);
                   }}
                 />

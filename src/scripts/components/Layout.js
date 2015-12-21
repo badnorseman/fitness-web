@@ -3,21 +3,25 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
-import Account from "../components/Account";
-import Dashboard from "../components/Dashboard";
+import Account from "./Account";
+import Dashboard from "./Dashboard";
 import EditProduct from "./products/EditProduct";
-import ErrorMessage from "../components/ErrorMessage";
-import Footer from "../components/Footer";
-import Login from "../components/auth/Login";
-import Marketplace from "../components/Marketplace";
-import Navigation from "../components/Navigation";
+import ErrorMessage from "./ErrorMessage";
+import Footer from "./Footer";
+import Login from "./auth/Login";
+import Marketplace from "./Marketplace";
+import Navigation from "./Navigation";
 import NewProduct from "./products/NewProduct";
-import NewTransaction from "../containers/NewTransaction";
+import NewTransaction from "./transactions/NewTransaction";
 import ShowProduct from "./products/ShowProduct";
-import Signup from "../components/auth/Signup";
+import Signup from "./auth/Signup";
 import "./layout.css";
 
 class Layout extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidUpdate() {
     componentHandler.upgradeDom();
   }
