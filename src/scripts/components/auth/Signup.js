@@ -23,8 +23,8 @@ class Signup extends Component {
     this.props.dispatch(changeRoute("MARKETPLACE"));
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  _handleSubmit(ev) {
+    ev.preventDefault();
 
     let email = this.refs.email.state.fieldValue;
     let name = this.refs.name.state.fieldValue;

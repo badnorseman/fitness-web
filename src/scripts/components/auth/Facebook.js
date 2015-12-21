@@ -11,8 +11,8 @@ class Facebook extends Component {
     this._handleClick = this._handleClick.bind(this);
   }
 
-  _handleClick(e) {
-    e.preventDefault();
+  _handleClick(ev) {
+    ev.preventDefault();
 
     FB.getLoginStatus(response => {
       if (response.status === "connected") {

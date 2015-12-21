@@ -25,8 +25,8 @@ class Login extends Component {
     alert("Coming soon.");
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  _handleSubmit(ev) {
+    ev.preventDefault();
 
     let email = this.refs.email.state.fieldValue;
     let password = this.refs.password.state.fieldValue;

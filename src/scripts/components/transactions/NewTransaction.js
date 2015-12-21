@@ -40,8 +40,8 @@ class NewTransaction extends Component {
     this.props.changeRoute("MARKETPLACE");
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  _handleSubmit(ev) {
+    ev.preventDefault();
   }
 
   _onPaymentMethodReceived(paymentMethod) {

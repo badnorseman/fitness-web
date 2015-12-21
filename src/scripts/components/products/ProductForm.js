@@ -33,8 +33,8 @@ export default class ProductForm extends Component {
     }
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  _handleSubmit(ev) {
+    ev.preventDefault();
 
     let currency = this._getCurrency();
     let description = this.refs.description.state.fieldValue;

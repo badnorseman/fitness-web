@@ -17,8 +17,8 @@ const ProductGridTile = ({
 
   return (
     <a href="#!"
-      onClick={e => {
-        e.preventDefault();
+      onClick={ev => {
+        ev.preventDefault();
         onShow(product);
       }}
     >
