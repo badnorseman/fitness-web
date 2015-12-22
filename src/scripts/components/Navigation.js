@@ -16,6 +16,10 @@ class Navigation extends Component {
     this._handleLogout = this._handleLogout.bind(this);
   }
 
+  _onLink = route => {
+    this.props.changeRoute(route);
+  };
+
   _goToAccount() {
     this.props.changeRoute("ACCOUNT");
   }
@@ -48,9 +52,15 @@ class Navigation extends Component {
     return (
       <div>
         <nav className="mdl-navigation">
-          {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToLogin}>Log in</a></div>}
-          {!isLoggedIn && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToSignup}>Sign up</a></div>}
-          {coach && <div className="mdl-layout--large-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToDashboard}>Dashboard</a></div>}
+          {!isLoggedIn && <div className="mdl-layout--large-screen-only">
+            <Link name="Login" styles="" onClick={this._goToLogin} />
+          </div>}
+          {!isLoggedIn && <div className="mdl-layout--large-screen-only">
+            <Link name="Sign up" onClick={this._goToSignup} />
+          </div>}
+          {coach && <div className="mdl-layout--large-screen-only">
+            <Link name="Dashboard" onClick={this._goToDashboard} />
+          </div>}
           {isLoggedIn && <div className="mdl-layout--large-screen-only">
             <button
               id="account-menu"
@@ -64,16 +74,55 @@ class Navigation extends Component {
               <li className="mdl-menu__item" onClick={this._handleLogout}>Log out</li>
             </ul>
           </div>}
-          {!isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToLogin}><i className="material-icons">lock_open</i></a></div>}
-          {!isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToSignup}><i className="material-icons">mood</i></a></div>}
-          {coach && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToDashboard}><i className="material-icons">dashboard</i></a></div>}
-          {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._goToAccount}><i className="material-icons">account_circle</i></a></div>}
-          {isLoggedIn && <div className="mdl-layout--small-screen-only"><a className="mdl-navigation__link" href="#!" onClick={this._handleLogout}><i className="material-icons">lock</i></a></div>}
+          {!isLoggedIn && <div className="mdl-layout--small-screen-only">
+            <IconLink name="lock_open" onClick={this._goToLogin} />
+          </div>}
+          {!isLoggedIn && <div className="mdl-layout--small-screen-only">
+            <IconLink name="mood" onClick={this._goToSignup} />
+          </div>}
+          {coach && <div className="mdl-layout--small-screen-only">
+            <IconLink name="dashboard" onClick={this._goToDashboard} />
+          </div>}
+          {isLoggedIn && <div className="mdl-layout--small-screen-only">
+            <IconLink name="account_circle" onClick={this._goToAccount} />
+          </div>}
+          {isLoggedIn && <div className="mdl-layout--small-screen-only">
+            <IconLink name="lock" onClick={this._handleLogout} />
+          </div>}
         </nav>
       </div>
     )
   }
 }
+
+const Link = ({
+  name,
+  styles,
+  onClick
+}) => (
+  <a href="#!" className="mdl-navigation__link"
+    onClick={ev => {
+      ev.preventDefault();
+      onClick();
+    }}
+  >
+    {name}
+  </a>
+);
+
+const IconLink = ({
+  name,
+  onClick
+}) => (
+  <a href="#!" className="mdl-navigation__link"
+    onClick={ev => {
+      ev.preventDefault();
+      onClick();
+    }}
+  >
+    <i className="material-icons">{name}</i>
+  </a>
+);
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
