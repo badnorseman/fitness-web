@@ -16,10 +16,6 @@ class Navigation extends Component {
     this._handleLogout = this._handleLogout.bind(this);
   }
 
-  _onLink = route => {
-    this.props.changeRoute(route);
-  };
-
   _goToAccount() {
     this.props.changeRoute("ACCOUNT");
   }
@@ -53,7 +49,7 @@ class Navigation extends Component {
       <div>
         <nav className="mdl-navigation">
           {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-            <Link name="Login" styles="" onClick={this._goToLogin} />
+            <Link name="Login" onClick={this._goToLogin} />
           </div>}
           {!isLoggedIn && <div className="mdl-layout--large-screen-only">
             <Link name="Sign up" onClick={this._goToSignup} />
@@ -97,7 +93,6 @@ class Navigation extends Component {
 
 const Link = ({
   name,
-  styles,
   onClick
 }) => (
   <a href="#!" className="mdl-navigation__link"
