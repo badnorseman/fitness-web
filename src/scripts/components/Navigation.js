@@ -7,39 +7,30 @@ import { changeRoute } from "../actions/router_actions";
 import { logout } from "../actions/auth_actions";
 
 class Navigation extends Component {
-  constructor(props) {
-    super(props);
-    this._goToAccount = this._goToAccount.bind(this);
-    this._goToDashboard = this._goToDashboard.bind(this);
-    this._goToLogin = this._goToLogin.bind(this);
-    this._goToSignup = this._goToSignup.bind(this);
-    this._handleLogout = this._handleLogout.bind(this);
-  }
-
-  _goToAccount() {
+  _goToAccount = () => {
     this.props.changeRoute("ACCOUNT");
-  }
+  };
 
-  _goToDashboard() {
+  _goToDashboard = () => {
     this.props.changeRoute("DASHBOARD");
-  }
+  };
 
-  _goToLogin() {
+  _goToLogin = () => {
     this.props.changeRoute("LOGIN");
-  }
+  };
 
-  _goToSignup() {
+  _goToSignup = () => {
     this.props.changeRoute("SIGNUP");
-  }
+  };
 
-  _handleLogout() {
+  _handleLogout = () => {
     FB.getLoginStatus(response => {
       if (response.status === "connected") {
         FB.logout();
       };
     });
     this.props.logout();
-  }
+  };
 
   render() {
     const { avatar, coach, email, id, name } = this.props.currentUser;
