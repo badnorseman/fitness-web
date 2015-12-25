@@ -6,13 +6,12 @@ import { logout } from "../actions/auth_actions";
 import Link from "./Link";
 
 class Navigation extends Component {
-  _handleLogout = () => {
+  _handleFBLogout = () => {
     FB.getLoginStatus(response => {
       if (response.status === "connected") {
         FB.logout();
       };
     });
-    this.props.logout();
   };
 
   render() {
@@ -79,7 +78,8 @@ class Navigation extends Component {
               className="mdl-navigation__link"
               onClick={ev => {
                 ev.preventDefault();
-                this._handleLogout;
+                this._handleFBLogout();
+                this.props.logout;
               }}
             >
               <i className="material-icons">lock</i>
