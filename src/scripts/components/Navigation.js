@@ -111,10 +111,14 @@ const IconLink = ({
 );
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    changeRoute,
-    logout
-  }, dispatch);
+  return {
+    changeRoute: (route) => {
+      dispatch(changeRoute(route));
+    },
+    logout: () => {
+      dispatch(logout);
+    }
+  };
 };
 
 const mapStateToProps = (state) => {
