@@ -1,10 +1,11 @@
 "use strict";
 import React, { Component } from "react";
 import { render } from "react-dom";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
 import { logout } from "../actions/auth_actions";
+import IconLink from "./IconLink";
+import Link from "./Link";
 
 class Navigation extends Component {
   _goToAccount = () => {
@@ -81,34 +82,6 @@ class Navigation extends Component {
     )
   }
 }
-
-const Link = ({
-  name,
-  onClick
-}) => (
-  <a href="#!" className="mdl-navigation__link"
-    onClick={ev => {
-      ev.preventDefault();
-      onClick();
-    }}
-  >
-    {name}
-  </a>
-);
-
-const IconLink = ({
-  name,
-  onClick
-}) => (
-  <a href="#!" className="mdl-navigation__link"
-    onClick={ev => {
-      ev.preventDefault();
-      onClick();
-    }}
-  >
-    <i className="material-icons">{name}</i>
-  </a>
-);
 
 const mapDispatchToProps = (dispatch) => {
   return {
