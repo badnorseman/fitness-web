@@ -1,17 +1,33 @@
 "use strict";
+import { connect } from "react-redux";
+import { changeRoute } from "../actions/router_actions";
 
 const Link = ({
   name,
+  route,
+  styles,
   onClick
 }) => (
-  <a href="#!" className="mdl-navigation__link"
+  <a href="#!"
+    className={styles}
     onClick={ev => {
       ev.preventDefault();
-      onClick();
+      onClick(route);
     }}
   >
     {name}
   </a>
 );
 
-export default Link
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClick: (route) => {
+      dispatch(changeRoute(route));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Link)

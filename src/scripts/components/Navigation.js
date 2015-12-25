@@ -2,28 +2,11 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/router_actions";
 import { logout } from "../actions/auth_actions";
 import IconLink from "./IconLink";
 import Link from "./Link";
 
 class Navigation extends Component {
-  _goToAccount = () => {
-    this.props.changeRoute("ACCOUNT");
-  };
-
-  _goToDashboard = () => {
-    this.props.changeRoute("DASHBOARD");
-  };
-
-  _goToLogin = () => {
-    this.props.changeRoute("LOGIN");
-  };
-
-  _goToSignup = () => {
-    this.props.changeRoute("SIGNUP");
-  };
-
   _handleLogout = () => {
     FB.getLoginStatus(response => {
       if (response.status === "connected") {
@@ -41,13 +24,13 @@ class Navigation extends Component {
       <div>
         <nav className="mdl-navigation">
           {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-            <Link name="Login" onClick={this._goToLogin} />
+            <Link name="Login" styles="mdl-navigation__link" route="LOGIN" />
           </div>}
           {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-            <Link name="Sign up" onClick={this._goToSignup} />
+            <Link name="Sign up" styles="mdl-navigation__link" route="SIGNUP" />
           </div>}
           {coach && <div className="mdl-layout--large-screen-only">
-            <Link name="Dashboard" onClick={this._goToDashboard} />
+            <Link name="Dashboard" styles="mdl-navigation__link" route="DASHBOARD" />
           </div>}
           {isLoggedIn && <div className="mdl-layout--large-screen-only">
             <button
@@ -58,21 +41,23 @@ class Navigation extends Component {
             <ul
               className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
               htmlFor="account-menu">
-              <li className="mdl-menu__item" onClick={this._goToAccount}>Account</li>
+              <li>
+                <Link name="Account" styles="mdl-menu__item" route="ACCOUNT" />
+              </li>
               <li className="mdl-menu__item" onClick={this._handleLogout}>Log out</li>
             </ul>
           </div>}
           {!isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <IconLink name="lock_open" onClick={this._goToLogin} />
+            <IconLink name="lock_open" route="LOGIN" />
           </div>}
           {!isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <IconLink name="mood" onClick={this._goToSignup} />
+            <IconLink name="mood" route="SIGNUP" />
           </div>}
           {coach && <div className="mdl-layout--small-screen-only">
-            <IconLink name="dashboard" onClick={this._goToDashboard} />
+            <IconLink name="dashboard" route="DASHBOARD" />
           </div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <IconLink name="account_circle" onClick={this._goToAccount} />
+            <IconLink name="account_circle" route="ACCOUNT" />
           </div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only">
             <IconLink name="lock" onClick={this._handleLogout} />
@@ -85,9 +70,6 @@ class Navigation extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeRoute: (route) => {
-      dispatch(changeRoute(route));
-    },
     logout: () => {
       dispatch(logout);
     }

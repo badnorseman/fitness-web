@@ -1,17 +1,33 @@
 "use strict";
+import { connect } from "react-redux";
+import { changeRoute } from "../actions/router_actions";
 
 const IconLink = ({
   name,
+  route,
   onClick
 }) => (
-  <a href="#!" className="mdl-navigation__link"
+  <a href="#!"
+    className="mdl-navigation__link"
     onClick={ev => {
       ev.preventDefault();
-      onClick();
+      onClick(route);
     }}
   >
     <i className="material-icons">{name}</i>
   </a>
 );
 
-export default IconLink
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClick: (route) => {
+      dispatch(changeRoute(route));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(IconLink)
