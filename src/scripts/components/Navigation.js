@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { logout } from "../actions/auth_actions";
-import IconLink from "./IconLink";
 import Link from "./Link";
 
 class Navigation extends Component {
@@ -56,19 +55,35 @@ class Navigation extends Component {
             </ul>
           </div>}
           {!isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <IconLink name="lock_open" route="LOGIN" />
+            <Link styles="mdl-navigation__link" route="LOGIN">
+              <i className="material-icons">lock_open</i>
+            </Link>
           </div>}
           {!isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <IconLink name="mood" route="SIGNUP" />
+            <Link styles="mdl-navigation__link" route="SIGNUP">
+              <i className="material-icons">mood</i>
+            </Link>
           </div>}
           {coach && <div className="mdl-layout--small-screen-only">
-            <IconLink name="dashboard" route="DASHBOARD" />
+            <Link styles="mdl-navigation__link" route="DASHBOARD">
+              <i className="material-icons">dashboard</i>
+            </Link>
           </div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <IconLink name="account_circle" route="ACCOUNT" />
+            <Link styles="mdl-navigation__link" route="ACCOUNT">
+              <i className="material-icons">account_circle</i>
+            </Link>
           </div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <IconLink name="lock" onClick={this._handleLogout} />
+            <a href="#!"
+              className="mdl-navigation__link"
+              onClick={ev => {
+                ev.preventDefault();
+                this._handleLogout;
+              }}
+            >
+              <i className="material-icons">lock</i>
+            </a>
           </div>}
         </nav>
       </div>
