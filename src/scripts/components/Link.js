@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
 
 const Link = ({
-  name,
+  children,
   route,
   styles,
   onClick
@@ -15,7 +15,7 @@ const Link = ({
       onClick(route);
     }}
   >
-    {name}
+    {children}
   </a>
 );
 

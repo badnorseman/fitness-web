@@ -24,13 +24,19 @@ class Navigation extends Component {
       <div>
         <nav className="mdl-navigation">
           {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-            <Link name="Login" styles="mdl-navigation__link" route="LOGIN" />
+            <Link styles="mdl-navigation__link" route="LOGIN">
+              Login
+            </Link>
           </div>}
           {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-            <Link name="Sign up" styles="mdl-navigation__link" route="SIGNUP" />
+            <Link styles="mdl-navigation__link" route="SIGNUP">
+              Sign up
+            </Link>
           </div>}
           {coach && <div className="mdl-layout--large-screen-only">
-            <Link name="Dashboard" styles="mdl-navigation__link" route="DASHBOARD" />
+            <Link styles="mdl-navigation__link" route="DASHBOARD">
+              Dashboard
+            </Link>
           </div>}
           {isLoggedIn && <div className="mdl-layout--large-screen-only">
             <button
@@ -42,7 +48,9 @@ class Navigation extends Component {
               className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
               htmlFor="account-menu">
               <li>
-                <Link name="Account" styles="mdl-menu__item" route="ACCOUNT" />
+                <Link styles="mdl-menu__item" route="ACCOUNT">
+                  Account
+                </Link>
               </li>
               <li className="mdl-menu__item" onClick={this._handleLogout}>Log out</li>
             </ul>
