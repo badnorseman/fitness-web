@@ -92,15 +92,9 @@ class Navigation extends Component {
             </Link>
           </div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <a href="#!"
-              className="mdl-navigation__link"
-              onClick={ev => {
-                ev.preventDefault();
-                this._handleLogout();
-              }}
-            >
+            <Link styles="mdl-navigation__link" onClick={this._handleLogout}>
               <i className="material-icons">lock</i>
-            </a>
+            </Link>
           </div>}
         </nav>
       </div>

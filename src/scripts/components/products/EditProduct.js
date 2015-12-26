@@ -4,7 +4,7 @@ import { changeRoute } from "../../actions/router_actions";
 import { destroyProduct, updateProduct } from "../../actions/product_actions";
 import ProductForm from "./ProductForm";
 import Button from "../Button";
-import IconButton from "../IconButton";
+import Link from "../Link";
 import "./products.css";
 
 const EditProduct = ({
@@ -16,6 +16,14 @@ const EditProduct = ({
   <div className="mdl-grid">
     <div className="mdl-cell mdl-cell--12-col">
       <div className="product-card mdl-card mdl-shadow--2dp">
+        <div className="mdl-card__menu">
+          <Link
+            styles="mdl-button mdl-js-button mdl-button--icon"
+            onClick={onClose}
+          >
+            <i className="material-icons">close</i>
+          </Link>
+        </div>
         <div className="mdl-card__supporting-text">
           <Button
             name="Remove"
@@ -29,12 +37,6 @@ const EditProduct = ({
           <ProductForm
             product={product}
             onSubmit={onEdit}
-          />
-        </div>
-        <div className="mdl-card__menu">
-          <IconButton
-            name="close"
-            onClick={onClose}
           />
         </div>
       </div>
