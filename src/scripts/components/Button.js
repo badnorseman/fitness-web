@@ -2,10 +2,11 @@
 
 const Button = ({
   children,
+  styles,
   onClick
 }) => (
   <button
-    className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+    className={styles}
     onClick={onClick}
   >
     {children}

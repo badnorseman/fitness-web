@@ -4,7 +4,6 @@ import { changeRoute } from "../../actions/router_actions";
 import { destroyProduct, updateProduct } from "../../actions/product_actions";
 import ProductForm from "./ProductForm";
 import Button from "../Button";
-import Link from "../Link";
 import "./products.css";
 
 const EditProduct = ({
@@ -17,15 +16,16 @@ const EditProduct = ({
     <div className="mdl-cell mdl-cell--12-col">
       <div className="product-card mdl-card mdl-shadow--2dp">
         <div className="mdl-card__menu">
-          <Link
+          <Button
             styles="mdl-button mdl-js-button mdl-button--icon"
             onClick={onClose}
           >
             <i className="material-icons">close</i>
-          </Link>
+          </Button>
         </div>
         <div className="mdl-card__supporting-text">
           <Button
+            styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={ev => {
               ev.preventDefault();
               onRemove(product.id);
@@ -33,7 +33,6 @@ const EditProduct = ({
           >
             Remove
           </Button>
-
           <ProductForm
             product={product}
             onSubmit={onEdit}

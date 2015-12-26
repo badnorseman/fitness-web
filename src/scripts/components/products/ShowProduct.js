@@ -2,7 +2,6 @@
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
 import Button from "../Button";
-import Link from "../Link";
 import "./products.css";
 
 const ShowProduct = ({
@@ -17,12 +16,12 @@ const ShowProduct = ({
       <div className="mdl-cell mdl-cell--12-col">
         <div className="product-card block--center-horizontally__margin mdl-card mdl-shadow--2dp">
           <div className="mdl-card__menu">
-            <Link
+            <Button
               styles="mdl-button mdl-js-button mdl-button--icon"
               onClick={onClose}
             >
               <i className="material-icons">close</i>
-            </Link>
+            </Button>
           </div>
           <div className="mdl-card__supporting-text">
             <div className="block--center-horizontally__flex">
@@ -35,6 +34,7 @@ const ShowProduct = ({
                   <h6>{currency} {price}</h6>
                 </div>
                 <Button
+                  styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
                   onClick={ev => {
                     ev.preventDefault();
                     onBuy(product);

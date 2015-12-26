@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
 import { createProduct } from "../../actions/product_actions";
 import ProductForm from "./ProductForm";
-import Link from "../Link";
+import Button from "../Button";
 import "./products.css";
 
 const NewProduct = ({
@@ -14,12 +14,12 @@ const NewProduct = ({
     <div className="mdl-cell mdl-cell--12-col">
       <div className="product-card mdl-card mdl-shadow--2dp">
         <div className="mdl-card__menu">
-          <Link
+          <Button
             styles="mdl-button mdl-js-button mdl-button--icon"
             onClick={onClose}
           >
             <i className="material-icons">close</i>
-          </Link>
+          </Button>
         </div>
         <div className="mdl-card__supporting-text">
           <ProductForm

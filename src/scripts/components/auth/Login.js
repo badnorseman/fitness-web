@@ -4,9 +4,9 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
 import { login } from "../../actions/auth_actions";
+import Button from "../Button";
 import Facebook from "./Facebook";
 import InputField from "../InputField";
-import Link from "../Link";
 import "./login.css";
 
 class Login extends Component {
@@ -45,16 +45,16 @@ class Login extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="login mdl-card mdl-shadow--2dp">
             <div className="mdl-card__menu">
-              <Link
+              <Button
                 styles="mdl-button mdl-js-button mdl-button--icon"
                 onClick={this._handleClose}
               >
                 <i className="material-icons">close</i>
-              </Link>
+              </Button>
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Facebook /></div>
-              <form onSubmit={this._handleSubmit}>
+              <form>
                 <div>
                   <InputField
                     fieldId="email"
@@ -74,11 +74,12 @@ class Login extends Component {
                 <a className="login-forgot-password" href="#!" onClick={this._handleForgotPassword}>
                   Forgot password?
                 </a>
-                <button
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button"
-                  type="submit">
+                <Button
+                  styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button"
+                  onClick={this._handleSubmit}
+                >
                   LOG IN
-                </button>
+                </Button>
               </form>
             </div>
           </div>

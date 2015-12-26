@@ -55,11 +55,9 @@ class Navigation extends Component {
             </Link>
           </div>}
           {isLoggedIn && <div className="mdl-layout--large-screen-only">
-            <button
-              id="account-menu"
-              className="mdl-button mdl-js-button mdl-button--icon">
+            <div id="account-menu">
               <img className="layout__header-avatar" src={avatar} alt="" />
-            </button>
+            </div>
             <ul
               className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
               htmlFor="account-menu">
