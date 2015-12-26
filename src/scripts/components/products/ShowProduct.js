@@ -1,7 +1,7 @@
 "use strict";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
-import Button from "../Button";
+import Link from "../Link";
 import "./products.css";
 
 const ShowProduct = ({
@@ -16,12 +16,12 @@ const ShowProduct = ({
       <div className="mdl-cell mdl-cell--12-col">
         <div className="product-card block--center-horizontally__margin mdl-card mdl-shadow--2dp">
           <div className="mdl-card__menu">
-            <Button
+            <Link
               styles="mdl-button mdl-js-button mdl-button--icon"
               onClick={onClose}
             >
               <i className="material-icons">close</i>
-            </Button>
+            </Link>
           </div>
           <div className="mdl-card__supporting-text">
             <div className="block--center-horizontally__flex">

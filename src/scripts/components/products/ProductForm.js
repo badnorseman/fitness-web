@@ -1,13 +1,13 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
-import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
 
 export default class ProductForm extends Component {
   static propTypes = {
     product: PropTypes.object,
+    onRemove: PropTypes.func,
     onSubmit: PropTypes.func.isRequired
   }
 
@@ -60,7 +60,7 @@ export default class ProductForm extends Component {
   }
 
   render() {
-    const { description, image, name, price } = this.props.product;
+    const { description, id, image, name, price } = this.props.product;
 
     return (
       <form>
@@ -114,12 +114,23 @@ export default class ProductForm extends Component {
         <div>
           <InputFile ref="image" />
         </div>
-        <div>
-          <Button
+        <div className="text--center">
+          {id && <button
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+            onClick={ev => {
+              ev.preventDefault();
+              this.props.onRemove(id);
+            }}
+          >
+            Remove
+          </button>}
+          <div className="block--divider"></div>
+          <button
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={this._handleSubmit}
           >
             Save
-          </Button>
+          </button>
         </div>
       </form>
     )

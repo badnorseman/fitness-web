@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { oauth } from "../../actions/auth_actions";
-import Button from "../Button";
 import "./facebook.css";
 
 class Facebook extends Component {
@@ -30,12 +29,12 @@ class Facebook extends Component {
 
   render() {
     return (
-      <Button
-        styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect facebook"
+      <button
+        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect facebook"
         onClick={this._handleClick}
       >
         Facebook
-      </Button>
+      </button>
     );
   }
 }

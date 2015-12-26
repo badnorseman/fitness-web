@@ -2,8 +2,8 @@
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
 import { destroyProduct, updateProduct } from "../../actions/product_actions";
+import Link from "../Link";
 import ProductForm from "./ProductForm";
-import Button from "../Button";
 import "./products.css";
 
 const EditProduct = ({
@@ -16,25 +16,17 @@ const EditProduct = ({
     <div className="mdl-cell mdl-cell--12-col">
       <div className="product-card mdl-card mdl-shadow--2dp">
         <div className="mdl-card__menu">
-          <Button
+          <Link
             styles="mdl-button mdl-js-button mdl-button--icon"
             onClick={onClose}
           >
             <i className="material-icons">close</i>
-          </Button>
+          </Link>
         </div>
         <div className="mdl-card__supporting-text">
-          <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            onClick={ev => {
-              ev.preventDefault();
-              onRemove(product.id);
-            }}
-          >
-            Remove
-          </button>
           <ProductForm
             product={product}
+            onRemove={onRemove}
             onSubmit={onEdit}
           />
         </div>

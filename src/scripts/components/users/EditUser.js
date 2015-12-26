@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions/user_actions";
-import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
 import "./edit_user.css";
@@ -100,11 +99,12 @@ class EditUser extends Component {
           <InputFile ref="avatar" />
         </div>
         <div className="text--center">
-          <Button
+          <button
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={this._handleSubmit}
           >
             Save
-          </Button>
+          </button>
         </div>
       </form>
     )

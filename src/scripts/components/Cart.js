@@ -1,7 +1,7 @@
 "use strict";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
-import Button from "./Button";
+import Link from "./Link";
 
 const Cart = (
   onClick
@@ -10,12 +10,12 @@ const Cart = (
     <div className="mdl-cell mdl-cell--12-col">
       <div className="mdl-card mdl-shadow--2dp">
         <div className="mdl-card__menu">
-          <Button
+          <Link
             styles="mdl-button mdl-js-button mdl-button--icon"
             onClick={onClick}
           >
             <i className="material-icons">close</i>
-          </Button>
+          </Link>
         </div>
         <div className="mdl-card__supporting-text">
         </div>
