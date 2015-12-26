@@ -2,16 +2,20 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-export default class InputFile extends Component {
-  state = { file: "" };
+class InputFile extends Component {
+  constructor() {
+    super();
+    this.state = { file: "" };
+    this._handleChange = this._handleChange.bind(this);
+  }
 
-  change = ev => {
-    ev.preventDefault();
+  _handleChange(e) {
+    e.preventDefault();
 
-    this.setState({
-      file: document.getElementById("file--selected").files[0]
-    });
-  };
+    let file = document.getElementById("file--selected").files[0];
+
+    this.setState({ file: file });
+  }
 
   render() {
     return (
@@ -22,7 +26,7 @@ export default class InputFile extends Component {
           id="file--selected"
           ref="selectedFile"
           type="file"
-          onChange={this.change} />
+          onChange={this._handleChange} />
         <label
           htmlFor="file--selected">
         </label>
@@ -30,3 +34,5 @@ export default class InputFile extends Component {
     )
   }
 }
+
+export default InputFile
