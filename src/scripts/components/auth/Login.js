@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
+import { changeRoute } from "../../actions/router_actions";
 import { login } from "../../actions/auth_actions";
 import Facebook from "./Facebook";
 import InputField from "../InputField";
@@ -11,8 +12,13 @@ import "./login.css";
 class Login extends Component {
   constructor(props) {
     super(props);
+    this._handleClose = this._handleClose.bind(this);
     this._handleForgotPassword = this._handleForgotPassword.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+  }
+
+  _handleClose() {
+    this.props.dispatch(changeRoute("MARKETPLACE"));
   }
 
   _handleForgotPassword() {
@@ -41,7 +47,7 @@ class Login extends Component {
             <div className="mdl-card__menu">
               <Link
                 styles="mdl-button mdl-js-button mdl-button--icon"
-                route="MARKETPLACE"
+                onClick={this._handleClose}
               >
                 <i className="material-icons">close</i>
               </Link>

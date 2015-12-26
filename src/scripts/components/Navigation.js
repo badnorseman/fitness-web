@@ -2,16 +2,34 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
+import { changeRoute } from "../actions/router_actions";
 import { logout } from "../actions/auth_actions";
 import Link from "./Link";
 
 class Navigation extends Component {
-  _handleFBLogout = () => {
+  _goToAccount = () => {
+    this.props.changeRoute("ACCOUNT");
+  };
+
+  _goToDashboard = () => {
+    this.props.changeRoute("DASHBOARD");
+  };
+
+  _goToLogin = () => {
+    this.props.changeRoute("LOGIN");
+  };
+
+  _goToSignup = () => {
+    this.props.changeRoute("SIGNUP");
+  };
+
+  _handleLogout = () => {
     FB.getLoginStatus(response => {
       if (response.status === "connected") {
         FB.logout();
       };
     });
+    this.props.logout();
   };
 
   render() {
@@ -22,17 +40,17 @@ class Navigation extends Component {
       <div>
         <nav className="mdl-navigation">
           {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-            <Link styles="mdl-navigation__link" route="LOGIN">
+            <Link styles="mdl-navigation__link" onClick={this._goToLogin}>
               Login
             </Link>
           </div>}
           {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-            <Link styles="mdl-navigation__link" route="SIGNUP">
+            <Link styles="mdl-navigation__link" onClick={this._goToSignup}>
               Sign up
             </Link>
           </div>}
           {coach && <div className="mdl-layout--large-screen-only">
-            <Link styles="mdl-navigation__link" route="DASHBOARD">
+            <Link styles="mdl-navigation__link" onClick={this._goToDashboard}>
               Dashboard
             </Link>
           </div>}
@@ -46,7 +64,7 @@ class Navigation extends Component {
               className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
               htmlFor="account-menu">
               <li>
-                <Link styles="mdl-menu__item" route="ACCOUNT">
+                <Link styles="mdl-menu__item" onClick={this._goToAccount}>
                   Account
                 </Link>
               </li>
@@ -54,22 +72,22 @@ class Navigation extends Component {
             </ul>
           </div>}
           {!isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <Link styles="mdl-navigation__link" route="LOGIN">
+            <Link styles="mdl-navigation__link" onClick={this._goToLogin}>
               <i className="material-icons">lock_open</i>
             </Link>
           </div>}
           {!isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <Link styles="mdl-navigation__link" route="SIGNUP">
+            <Link styles="mdl-navigation__link" onClick={this._goToSignup}>
               <i className="material-icons">mood</i>
             </Link>
           </div>}
           {coach && <div className="mdl-layout--small-screen-only">
-            <Link styles="mdl-navigation__link" route="DASHBOARD">
+            <Link styles="mdl-navigation__link" onClick={this._goToDashboard}>
               <i className="material-icons">dashboard</i>
             </Link>
           </div>}
           {isLoggedIn && <div className="mdl-layout--small-screen-only">
-            <Link styles="mdl-navigation__link" route="ACCOUNT">
+            <Link styles="mdl-navigation__link" onClick={this._goToAccount}>
               <i className="material-icons">account_circle</i>
             </Link>
           </div>}
@@ -78,8 +96,7 @@ class Navigation extends Component {
               className="mdl-navigation__link"
               onClick={ev => {
                 ev.preventDefault();
-                this._handleFBLogout();
-                this.props.logout;
+                this._handleLogout();
               }}
             >
               <i className="material-icons">lock</i>
@@ -93,6 +110,9 @@ class Navigation extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    changeRoute: (route) => {
+      dispatch(changeRoute(route));
+    },
     logout: () => {
       dispatch(logout);
     }

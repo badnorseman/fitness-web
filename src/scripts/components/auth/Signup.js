@@ -5,6 +5,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
+import { changeRoute } from "../../actions/router_actions";
 import { signup } from "../../actions/auth_actions";
 import Facebook from "./Facebook";
 import InputField from "../../components/InputField";
@@ -14,7 +15,12 @@ import "./signup.css";
 class Signup extends Component {
   constructor(props) {
     super(props);
+    this._handleClose = this._handleClose.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+  }
+
+  _handleClose() {
+    this.props.dispatch(changeRoute("MARKETPLACE"));
   }
 
   _handleSubmit(ev) {
@@ -42,7 +48,7 @@ class Signup extends Component {
             <div className="mdl-card__menu">
               <Link
                 styles="mdl-button mdl-js-button mdl-button--icon"
-                route="MARKETPLACE"
+                onClick={this._handleClose}
               >
                 <i className="material-icons">close</i>
               </Link>
