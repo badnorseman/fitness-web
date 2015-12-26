@@ -24,7 +24,7 @@ const EditProduct = ({
           </Button>
         </div>
         <div className="mdl-card__supporting-text">
-          <Button
+          <button
             styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={ev => {
               ev.preventDefault();
@@ -32,7 +32,7 @@ const EditProduct = ({
             }}
           >
             Remove
-          </Button>
+          </button>
           <ProductForm
             product={product}
             onSubmit={onEdit}
