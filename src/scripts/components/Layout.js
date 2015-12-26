@@ -8,6 +8,7 @@ import Dashboard from "./Dashboard";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
 import Footer from "./Footer";
+import Help from "./Help";
 import Login from "./auth/Login";
 import Marketplace from "./Marketplace";
 import Navigation from "./Navigation";
@@ -15,6 +16,7 @@ import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "./auth/Signup";
+import Terms from "./Terms";
 import "./layout.css";
 
 class Layout extends Component {
@@ -40,6 +42,9 @@ class Layout extends Component {
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;
         break;
+      case "HELP":
+        content = <Help />;
+        break;
       case "LOGIN":
         content = <Login />;
         break;
@@ -54,6 +59,9 @@ class Layout extends Component {
         break;
       case "SIGNUP":
         content = <Signup />;
+        break;
+      case "TERMS":
+        content = <Terms />;
         break;
       default:
         content = <Marketplace />;

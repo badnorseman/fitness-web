@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
 import Link from "./Link";
 
-const Cart = ({
+const Terms = ({
   onClick
 }) => (
   <div className="mdl-grid">
@@ -18,6 +18,7 @@ const Cart = ({
           </Link>
         </div>
         <div className="mdl-card__supporting-text">
+          Terms...
         </div>
       </div>
     </div>
@@ -35,4 +36,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   null,
   mapDispatchToProps
-)(Cart)
+)(Terms)
