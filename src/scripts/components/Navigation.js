@@ -1,6 +1,4 @@
 "use strict";
-import React, { Component } from "react";
-import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
 import { logout } from "../actions/auth_actions";

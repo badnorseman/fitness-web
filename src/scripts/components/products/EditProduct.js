@@ -25,7 +25,7 @@ const EditProduct = ({
         </div>
         <div className="mdl-card__supporting-text">
           <button
-            styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={ev => {
               ev.preventDefault();
               onRemove(product.id);

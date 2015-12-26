@@ -33,15 +33,15 @@ const ShowProduct = ({
                   <h3>{name}</h3>
                   <h6>{currency} {price}</h6>
                 </div>
-                <Button
-                  styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                <button
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
                   onClick={ev => {
                     ev.preventDefault();
                     onBuy(product);
                   }}
                 >
                   Buy
-                </Button>
+                </button>
               </div>
             </div>
           </div>
