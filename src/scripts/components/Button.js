@@ -1,16 +1,14 @@
 "use strict";
 
 const Button = ({
-  name,
-  type,
+  children,
   onClick
 }) => (
   <button
     className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-    type={type}
     onClick={onClick}
   >
-    {name}
+    {children}
   </button>
 );
 

@@ -56,7 +56,7 @@ class EditUser extends Component {
     const { avatar, birth_date, email, gender, name } = user;
 
     return (
-      <form className="edit-user block--center-horizontally__margin" onSubmit={this._handleSubmit}>
+      <form className="edit-user block--center-horizontally__margin">
         <div>
           <InputField
             fieldId="name"
@@ -100,7 +100,11 @@ class EditUser extends Component {
           <InputFile ref="avatar" />
         </div>
         <div className="text--center">
-          <Button name="Save" type="submit" />
+          <Button
+            onClick={this._handleSubmit}
+          >
+            Save
+          </Button>
         </div>
       </form>
     )

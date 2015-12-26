@@ -26,13 +26,13 @@ const EditProduct = ({
         </div>
         <div className="mdl-card__supporting-text">
           <Button
-            name="Remove"
-            type="button"
             onClick={ev => {
               ev.preventDefault();
               onRemove(product.id);
             }}
-          />
+          >
+            Remove
+          </Button>
 
           <ProductForm
             product={product}

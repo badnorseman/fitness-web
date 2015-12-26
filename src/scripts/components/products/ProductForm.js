@@ -63,7 +63,7 @@ export default class ProductForm extends Component {
     const { description, image, name, price } = this.props.product;
 
     return (
-      <form onSubmit={this._handleSubmit}>
+      <form>
         <div>
           <InputField
             fieldError="Use letter, number, .,: or -"
@@ -115,7 +115,11 @@ export default class ProductForm extends Component {
           <InputFile ref="image" />
         </div>
         <div>
-          <Button name="Save" type="submit" />
+          <Button
+            onClick={this._handleSubmit}
+          >
+            Save
+          </Button>
         </div>
       </form>
     )

@@ -35,13 +35,13 @@ const ShowProduct = ({
                   <h6>{currency} {price}</h6>
                 </div>
                 <Button
-                  name="Buy"
-                  type="button"
                   onClick={ev => {
                     ev.preventDefault();
                     onBuy(product);
                   }}
-                />
+                >
+                  Buy
+                </Button>
               </div>
             </div>
           </div>

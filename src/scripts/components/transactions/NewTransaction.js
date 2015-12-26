@@ -74,12 +74,13 @@ class NewTransaction extends Component {
               </Link>
             </div>
             <div className="mdl-card__supporting-text">
-              <form onSubmit={this._handleSubmit}>
+              <form>
                 <div className="braintree-dropin" id="dropin-container"></div>
                 <Button
-                  name="Buy"
-                  type="submit"
-                />
+                  onClick={this._handleSubmit}
+                >
+                  Buy
+                </Button>
               </form>
             </div>
           </div>
