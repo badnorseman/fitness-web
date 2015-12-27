@@ -14,14 +14,18 @@ const Footer = ({
   return (
     <div>
       <div className="mdl-mini-footer">
-        <div className="mdl-mini-footer--left-section">
-          <ul className="mdl-mini-footer--link-list">
+        <div className="mdl-mini-footer__left-section">
+          <ul className="mdl-mini-footer__link-list">
             <li><Link onClick={goToAbout}>About</Link></li>
             <li><Link onClick={goToHelp}>Help</Link></li>
             <li><Link onClick={goToTerms}>Privacy & Terms</Link></li>
           </ul>
         </div>
-        <div className="mdl-mini-footer--right-section">
+        <div className="mdl-mini-footer__right-section">
+          <ul className="mdl-mini-footer__link-list">
+            <li>
+            </li>
+          </ul>
         </div>
       </div>
       <div className="mdl-mini-footer">
