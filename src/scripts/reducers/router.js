@@ -1,17 +1,6 @@
 "use strict";
 import * as types from "../constants/action_types";
 import {
-  ROUTE_CHANGE
-} from "../actions/router_actions";
-// import {
-//   AUTH0LOGIN_RESPONSE,
-//   AUTH0SIGNUP_RESPONSE,
-//   LOGIN_RESPONSE,
-//   LOGOUT_REQUEST,
-//   OAUTH_RESPONSE,
-//   SIGNUP_RESPONSE
-// } from "../actions/auth_actions";
-import {
   PRODUCT_CREATE_RESPONSE,
   PRODUCT_CREATE_ERROR,
   PRODUCT_DESTROY_RESPONSE,
@@ -27,7 +16,7 @@ const initialState = {
 
 const router = (state = initialState, action) => {
   switch (action.type) {
-    case ROUTE_CHANGE:
+    case types.ROUTE_CHANGE:
       return {
         ...state,
         route: action.route,

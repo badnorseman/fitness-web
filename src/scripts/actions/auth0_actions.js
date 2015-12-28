@@ -5,10 +5,6 @@ import {
   signup as apiSignup
 } from "../api/auth0_api";
 
-// export const AUTH0LOGIN_REQUEST = "AUTH0LOGIN_REQUEST";
-// export const AUTH0LOGIN_RESPONSE = "AUTH0LOGIN_RESPONSE";
-// export const AUTH0LOGIN_ERROR = "AUTH0LOGIN_ERROR";
-
 function loginRequest(token) {
   return {
     type: types.AUTH0LOGIN_REQUEST,
@@ -42,10 +38,6 @@ export function login(error, profile, token) {
     }
   };
 }
-
-// export const AUTH0SIGNUP_REQUEST = "AUTH0SIGNUP_REQUEST";
-// export const AUTH0SIGNUP_RESPONSE = "AUTH0SIGNUP_RESPONSE";
-// export const AUTH0SIGNUP_ERROR = "AUTH0SIGNUP_ERROR";
 
 function signupRequest(token) {
   return {

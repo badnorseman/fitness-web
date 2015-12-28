@@ -1,10 +1,10 @@
 "use strict";
-export const ROUTE_CHANGE = "ROUTE_CHANGE";
+import * as types from "../constants/action_types";
 
 export function changeRoute(route, param) {
   return dispatch => {
     dispatch({
-      type: ROUTE_CHANGE,
+      type: types.ROUTE_CHANGE,
       route: route,
       param: param
     });

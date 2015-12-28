@@ -54,33 +54,22 @@ const Facebook = () => {
     }, function(response){});
   };
 
-  const linkStyle = {
-    color: "#3b5998"
-  };
-
   return (
     <a href="#!"
-      style={linkStyle}
       onClick={ev => {
         ev.preventDefault();
         onClick();
       }}
     >
-      <i className="fa fa-facebook fa-2x"></i>
+      <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
     </a>
   );
 };
 
 const Instagram = () => {
-  const linkStyle = {
-    color: "#3f729b"
-  };
-
   return (
-    <a
-      style={linkStyle}
-    >
-      <i className="fa fa-instagram fa-2x"></i>
+    <a href="#!">
+      <i className="zmdi zmdi-instagram zmdi-hc-2x"></i>
     </a>
   );
 };
@@ -91,18 +80,13 @@ const Twitter = () => {
   const via = encodeURIComponent("fitbirdinc");
   const href = `${url}?text=${text}&via=${via}`;
 
-  const linkStyle = {
-    color: "#55acee"
-  };
-
   return (
     <a href={href}
-      style={linkStyle}
       onClick={ev => {
         ev.preventDefault();
       }}
     >
-      <i className="fa fa-twitter fa-2x"></i>
+      <i className="zmdi zmdi-twitter-box zmdi-hc-2x"></i>
     </a>
   );
 };

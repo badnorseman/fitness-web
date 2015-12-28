@@ -7,10 +7,6 @@ import {
   signup as apiSignup
 } from "../api/api";
 
-// export const LOGIN_REQUEST = "LOGIN_REQUEST";
-// export const LOGIN_RESPONSE = "LOGIN_RESPONSE";
-// export const LOGIN_ERROR = "LOGIN_ERROR";
-
 function loginRequest(data) {
   return {
     type: types.LOGIN_REQUEST,
@@ -42,10 +38,6 @@ export function login(data) {
   };
 }
 
-// export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
-// export const LOGOUT_RESPONSE = "LOGOUT_RESPONSE";
-// export const LOGOUT_ERROR = "LOGOUT_ERROR";
-
 function logoutRequest() {
   return {
     type: types.LOGOUT_REQUEST
@@ -74,10 +66,6 @@ export function logout() {
     .catch(error => dispatch(logoutError(error)))
   };
 }
-
-// export const OAUTH_REQUEST = "OAUTH_REQUEST";
-// export const OAUTH_RESPONSE = "OAUTH_RESPONSE";
-// export const OAUTH_ERROR = "OAUTH_ERROR";
 
 function oauthRequest(provider) {
   return {
@@ -109,10 +97,6 @@ export function oauth(provider) {
     .catch(error => dispatch(oauthError(error)))
   };
 }
-
-// export const SIGNUP_REQUEST = "SIGNUP_REQUEST";
-// export const SIGNUP_RESPONSE = "SIGNUP_RESPONSE";
-// export const SIGNUP_ERROR = "SIGNUP_ERROR";
 
 function signupRequest(data) {
   return {

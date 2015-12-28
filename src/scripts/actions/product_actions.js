@@ -1,17 +1,14 @@
 "use strict";
+import * as types from "../constants/action_types";
 import { Schema, arrayOf, normalize } from "normalizr";
 import { create, destroy, fetchAll, update } from "../api/api";
 
 const productSchema = new Schema("products", { idAttribute: "id" });
 const entityName = "product";
 
-export const PRODUCT_CREATE_REQUEST = "PRODUCT_CREATE_REQUEST";
-export const PRODUCT_CREATE_RESPONSE = "PRODUCT_CREATE_RESPONSE";
-export const PRODUCT_CREATE_ERROR = "PRODUCT_CREATE_ERROR";
-
 function productCreateRequest(data) {
   return {
-    type: PRODUCT_CREATE_REQUEST,
+    type: types.PRODUCT_CREATE_REQUEST,
     data: data
   };
 }
@@ -19,7 +16,7 @@ function productCreateRequest(data) {
 function productCreateResponse(response) {
   const normalized = normalize(response, arrayOf(productSchema));
   return {
-    type: PRODUCT_CREATE_RESPONSE,
+    type: types.PRODUCT_CREATE_RESPONSE,
     data: normalized.entities.products
   };
 }
@@ -27,7 +24,7 @@ function productCreateResponse(response) {
 function productCreateError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: PRODUCT_CREATE_ERROR,
+    type: types.PRODUCT_CREATE_ERROR,
     errors: errors
   };
 }
@@ -42,13 +39,9 @@ export function createProduct(data) {
   };
 }
 
-export const PRODUCT_DESTROY_REQUEST = "PRODUCT_DESTROY_REQUEST";
-export const PRODUCT_DESTROY_RESPONSE = "PRODUCT_DESTROY_RESPONSE";
-export const PRODUCT_DESTROY_ERROR = "PRODUCT_DESTROY_ERROR";
-
 function productDestroyRequest(id) {
   return {
-    type: PRODUCT_DESTROY_REQUEST,
+    type: types.PRODUCT_DESTROY_REQUEST,
     id: id
   };
 }
@@ -56,7 +49,7 @@ function productDestroyRequest(id) {
 function productDestroyResponse(response) {
   const normalized = normalize(response, arrayOf(productSchema));
   return {
-    type: PRODUCT_DESTROY_RESPONSE,
+    type: types.PRODUCT_DESTROY_RESPONSE,
     data: normalized.entities.products
   };
 }
@@ -64,7 +57,7 @@ function productDestroyResponse(response) {
 function productDestroyError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: PRODUCT_DESTROY_ERROR,
+    type: types.PRODUCT_DESTROY_ERROR,
     errors: errors
   };
 }
@@ -79,20 +72,16 @@ export function destroyProduct(id) {
   };
 }
 
-export const PRODUCT_FETCH_REQUEST = "PRODUCT_FETCH_REQUEST";
-export const PRODUCT_FETCH_RESPONSE = "PRODUCT_FETCH_RESPONSE";
-export const PRODUCT_FETCH_ERROR = "PRODUCT_FETCH_ERROR";
-
 function productFetchRequest() {
   return {
-    type: PRODUCT_FETCH_REQUEST
+    type: types.PRODUCT_FETCH_REQUEST
   };
 }
 
 function productFetchResponse(response) {
   const normalized = normalize(response, arrayOf(productSchema));
   return {
-    type: PRODUCT_FETCH_RESPONSE,
+    type: types.PRODUCT_FETCH_RESPONSE,
     data: normalized.entities.products
   };
 }
@@ -100,7 +89,7 @@ function productFetchResponse(response) {
 function productFetchError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: PRODUCT_FETCH_ERROR,
+    type: types.PRODUCT_FETCH_ERROR,
     errors: errors
   };
 }
@@ -114,13 +103,9 @@ export function getProducts() {
   };
 }
 
-export const PRODUCT_UPDATE_REQUEST = "PRODUCT_UPDATE_REQUEST";
-export const PRODUCT_UPDATE_RESPONSE = "PRODUCT_UPDATE_RESPONSE";
-export const PRODUCT_UPDATE_ERROR = "PRODUCT_UPDATE_ERROR";
-
 function productUpdateRequest(data) {
   return {
-    type: PRODUCT_UPDATE_REQUEST,
+    type: types.PRODUCT_UPDATE_REQUEST,
     data: data
   };
 }
@@ -128,7 +113,7 @@ function productUpdateRequest(data) {
 function productUpdateResponse(response) {
   const normalized = normalize(response, arrayOf(productSchema));
   return {
-    type: PRODUCT_UPDATE_RESPONSE,
+    type: types.PRODUCT_UPDATE_RESPONSE,
     data: normalized.entities.products
   };
 }
@@ -136,7 +121,7 @@ function productUpdateResponse(response) {
 function productUpdateError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: PRODUCT_UPDATE_ERROR,
+    type: types.PRODUCT_UPDATE_ERROR,
     errors: errors
   };
 }
