@@ -47,14 +47,20 @@ const Company = () => {
 };
 
 const Facebook = () => {
-  const url = "https://www.facebook.com/dialog/feed?"
-    + "app_id=722603254511776"
-    + "&display=popup&caption=" + encodeURIComponent("FitBird")
-    + "&link=" + encodeURIComponent("https://www.facebook.com/fitbirdinc")
-    + "&redirect_uri=" + encodeURIComponent("https://www.facebook.com/")
+  const onClick = () => {
+    FB.ui({
+      method: "share",
+      href: "https://developers.facebook.com/docs/",
+    }, function(response){});
+  };
 
   return (
-    <a href={url}>
+    <a href="#!"
+      onClick={ev => {
+        ev.preventDefault();
+        onClick();
+      }}
+    >
       <i className="zmdi zmdi-facebook"></i>
     </a>
   );
@@ -67,11 +73,17 @@ const Instagram = () => (
 );
 
 const Twitter = () => {
-  const url = "https://twitter.com/intent/tweet?text="
-    + encodeURIComponent("https://twitter.com/fitbirdinc");
+  const url = "https://twitter.com/intent/tweet";
+  const text = encodeURIComponent("FitBird");
+  const via = encodeURIComponent("fitbirdinc");
+  const href = `${url}?text=${text}&via=${via}`;
 
   return (
-    <a href={url}>
+    <a href={href}
+      onClick={ev => {
+        ev.preventDefault();
+      }}
+    >
       <i className="zmdi zmdi-twitter"></i>
     </a>
   );
