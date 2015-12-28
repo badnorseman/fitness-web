@@ -1,4 +1,4 @@
-.facebook {
+.facebook-button {
   background-color: #3b5998;
   color: white;
   margin-bottom: 20px;
@@ -6,6 +6,6 @@
   width: 100%;
 }
 
-.facebook:hover {
+.facebook-button:hover {
   background-color: #3b5998;
 }
