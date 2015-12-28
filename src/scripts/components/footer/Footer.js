@@ -36,7 +36,7 @@ const Company = () => {
   return (
     <div className="mdl-mini-footer">
       <span>
-        &copy;&nbsp;2014&ndash;{currentYear}&nbsp;&nbsp;
+        &copy;&nbsp;{currentYear}&nbsp;&nbsp;
         FitBird&nbsp;ApS&nbsp;&nbsp;
         Esromgade&nbsp;15&nbsp;&nbsp;Suite&nbsp;1102&nbsp;&nbsp;
         2200&nbsp;Copenhagen&nbsp;N&nbsp;&nbsp;Denmark&nbsp;&nbsp;
@@ -54,23 +54,36 @@ const Facebook = () => {
     }, function(response){});
   };
 
+  const linkStyle = {
+    color: "#3b5998"
+  };
+
   return (
     <a href="#!"
+      style={linkStyle}
       onClick={ev => {
         ev.preventDefault();
         onClick();
       }}
     >
-      <i className="fa fa-facebook"></i>
+      <i className="fa fa-facebook fa-2x"></i>
     </a>
   );
 };
 
-const Instagram = () => (
-  <a>
-    <i className="fa fa-instagram"></i>
-  </a>
-);
+const Instagram = () => {
+  const linkStyle = {
+    color: "#3f729b"
+  };
+
+  return (
+    <a
+      style={linkStyle}
+    >
+      <i className="fa fa-instagram fa-2x"></i>
+    </a>
+  );
+};
 
 const Twitter = () => {
   const url = "https://twitter.com/intent/tweet";
@@ -78,13 +91,18 @@ const Twitter = () => {
   const via = encodeURIComponent("fitbirdinc");
   const href = `${url}?text=${text}&via=${via}`;
 
+  const linkStyle = {
+    color: "#55acee"
+  };
+
   return (
     <a href={href}
+      style={linkStyle}
       onClick={ev => {
         ev.preventDefault();
       }}
     >
-      <i className="fa fa-twitter"></i>
+      <i className="fa fa-twitter fa-2x"></i>
     </a>
   );
 };
