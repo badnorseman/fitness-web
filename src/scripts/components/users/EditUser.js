@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions/user_actions";
-import Button from "../Button";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
 import "./edit_user.css";
@@ -56,7 +55,7 @@ class EditUser extends Component {
     const { avatar, birth_date, email, gender, name } = user;
 
     return (
-      <form className="edit-user block--center-horizontally__margin" onSubmit={this._handleSubmit}>
+      <form className="edit-user block--center-horizontally__margin">
         <div>
           <InputField
             fieldId="name"
@@ -100,7 +99,12 @@ class EditUser extends Component {
           <InputFile ref="avatar" />
         </div>
         <div className="text--center">
-          <Button name="Save" type="submit" />
+          <button
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+            onClick={this._handleSubmit}
+          >
+            Save
+          </button>
         </div>
       </form>
     )

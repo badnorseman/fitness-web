@@ -1,42 +1,45 @@
 "use strict";
-import React, { Component } from "react";
-import { render } from "react-dom";
 import { connect } from "react-redux";
 import { oauth } from "../../actions/auth_actions";
 import "./facebook.css";
 
-class Facebook extends Component {
-  constructor(props) {
-    super(props);
-    this._handleClick = this._handleClick.bind(this);
-  }
+const Facebook = ({
+  onClick
+}) => (
+  <button
+    className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect facebook"
+    onClick={ev => {
+      ev.preventDefault();
+      onClick();
+    }}
+  >
+    Facebook
+  </button>
+);
 
-  _handleClick(ev) {
-    ev.preventDefault();
+const loginFacebook = (dispatch) => {
+  FB.getLoginStatus(response => {
+    if (response.status === "connected") {
+      dispatch(oauth("facebook"));
+    } else {
+      FB.login(response => {
+        if (response.authResponse) {
+          dispatch(oauth("facebook"));
+        };
+      }, { scope: "email,public_profile", info_fields: "email,name" });
+    };
+  });
+};
 
-    FB.getLoginStatus(response => {
-      if (response.status === "connected") {
-        this.props.dispatch(oauth("facebook"));
-      } else {
-        FB.login(response => {
-          if (response.authResponse) {
-            this.props.dispatch(oauth("facebook"));
-          };
-        }, { scope: "email,public_profile", info_fields: "email,name" });
-      };
-    });
-  }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClick: () => {
+      loginFacebook(dispatch);
+    }
+  };
+};
 
-  render() {
-    return (
-      <button
-        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect facebook"
-        type="button"
-        onClick={this._handleClick}>
-        Facebook
-      </button>
-    );
-  }
-}
-
-export default connect()(Facebook)
+export default connect(
+  null,
+  mapDispatchToProps
+)(Facebook)

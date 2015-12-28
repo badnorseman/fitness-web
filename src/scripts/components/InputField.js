@@ -4,16 +4,29 @@
 import React, { Component, PropTypes } from "react";
 import { findDOMNode, render } from "react-dom";
 
-export default class InputField extends Component {
-  state = { fieldValue: this.props.fieldValue };
+class InputField extends Component {
+  static propTypes = {
+    fieldError: PropTypes.string,
+    fieldId: PropTypes.string.isRequired,
+    fieldName: PropTypes.string.isRequired,
+    fieldPattern: PropTypes.string,
+    fieldType: PropTypes.string.isRequired,
+    styles: PropTypes.string
+  }
 
-  change = ev => {
-    ev.preventDefault();
+  constructor(props) {
+    super(props);
+    this.state = { fieldValue: this.props.fieldValue };
+    this._handleChange = this._handleChange.bind(this);
+  }
 
-    this.setState({
-      fieldValue: findDOMNode(this.refs[this.props.fieldId]).value
-    });
-  };
+  _handleChange(e) {
+    e.preventDefault();
+
+    let fieldValue = findDOMNode(this.refs[this.props.fieldId]).value;
+
+    this.setState({ fieldValue: fieldValue });
+  }
 
   render() {
     const { fieldError, fieldId, fieldName, fieldPattern, fieldType, fieldValue, styles } = this.props;
@@ -27,7 +40,7 @@ export default class InputField extends Component {
           ref={fieldId}
           type={fieldType}
           value={this.state.fieldValue}
-          onChange={this.change} />
+          onChange={this._handleChange} />
         <label
           className="mdl-textfield__label"
           htmlFor={fieldId}>
@@ -42,11 +55,4 @@ export default class InputField extends Component {
   }
 }
 
-InputField.propTypes = {
-  fieldError: PropTypes.string,
-  fieldId: PropTypes.string.isRequired,
-  fieldName: PropTypes.string.isRequired,
-  fieldPattern: PropTypes.string,
-  fieldType: PropTypes.string.isRequired,
-  styles: PropTypes.string
-};
+export default InputField

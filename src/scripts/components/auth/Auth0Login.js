@@ -11,7 +11,7 @@ class Auth0Login extends Component {
     this._handleClick = this._handleClick.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.lock = new Auth0Lock(
       AUTH0_VARIABLES.AUTH0_CLIENT_ID,
       AUTH0_VARIABLES.AUTH0_DOMAIN

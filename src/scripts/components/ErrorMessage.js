@@ -1,7 +1,7 @@
 "use strict";
 import { connect } from "react-redux";
 import { resetErrorMessage } from "../actions/error_actions";
-import IconButton from "./IconButton";
+import Link from "./Link";
 
 const ErrorMessage = ({
   errorMessage,
@@ -9,10 +9,12 @@ const ErrorMessage = ({
 }) => (
   <div>
     {errorMessage}
-    {errorMessage && <IconButton
-      name="close"
-      onClick={() => { onClick; }}
-    />}
+    {errorMessage && <Link
+      styles="mdl-button mdl-js-button mdl-button--icon"
+      onClick={onClick}
+    >
+      <i className="material-icons">close</i>
+    </Link>}
   </div>
 );
 

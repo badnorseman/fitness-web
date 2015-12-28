@@ -8,8 +8,8 @@ import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
 import { signup } from "../../actions/auth_actions";
 import Facebook from "./Facebook";
-import IconButton from "../IconButton";
 import InputField from "../../components/InputField";
+import Link from "../Link";
 import "./signup.css";
 
 class Signup extends Component {
@@ -46,13 +46,16 @@ class Signup extends Component {
         <div className="mdl-cell mdl-cell--12-col">
           <div className="signup mdl-card mdl-shadow--2dp">
             <div className="mdl-card__menu">
-              <IconButton
-                name="close"
-                onClick={this._handleClose} />
+              <Link
+                styles="mdl-button mdl-js-button mdl-button--icon"
+                onClick={this._handleClose}
+              >
+                <i className="material-icons">close</i>
+              </Link>
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Facebook /></div>
-              <form onSubmit={this._handleSubmit}>
+              <form>
                 <div>
                   <InputField
                     fieldId="Name"
@@ -87,7 +90,8 @@ class Signup extends Component {
                 </div>
                 <button
                   className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup-button"
-                  type="submit">
+                  onClick={this._handleSubmit}
+                >
                   SIGN UP
                 </button>
               </form>

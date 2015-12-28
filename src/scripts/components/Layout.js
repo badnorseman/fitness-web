@@ -3,11 +3,13 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
+import About from "./footer/About";
 import Account from "./Account";
 import Dashboard from "./Dashboard";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
+import Help from "./footer/Help";
 import Login from "./auth/Login";
 import Marketplace from "./Marketplace";
 import Navigation from "./Navigation";
@@ -15,6 +17,7 @@ import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "./auth/Signup";
+import Terms from "./footer/Terms";
 import "./layout.css";
 
 class Layout extends Component {
@@ -31,6 +34,9 @@ class Layout extends Component {
 
     let content;
     switch (route) {
+      case "ABOUT":
+        content = <About />;
+        break;
       case "ACCOUNT":
         content = <Account />;
         break;
@@ -39,6 +45,9 @@ class Layout extends Component {
         break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;
+        break;
+      case "HELP":
+        content = <Help />;
         break;
       case "LOGIN":
         content = <Login />;
@@ -54,6 +63,9 @@ class Layout extends Component {
         break;
       case "SIGNUP":
         content = <Signup />;
+        break;
+      case "TERMS":
+        content = <Terms />;
         break;
       default:
         content = <Marketplace />;
