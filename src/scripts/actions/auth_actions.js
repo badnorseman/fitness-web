@@ -1,4 +1,5 @@
 "use strict";
+import * as types from "../constants/action_types";
 import {
   login as apiLogin,
   logout as apiLogout,
@@ -6,20 +7,20 @@ import {
   signup as apiSignup
 } from "../api/api";
 
-export const LOGIN_REQUEST = "LOGIN_REQUEST";
-export const LOGIN_RESPONSE = "LOGIN_RESPONSE";
-export const LOGIN_ERROR = "LOGIN_ERROR";
+// export const LOGIN_REQUEST = "LOGIN_REQUEST";
+// export const LOGIN_RESPONSE = "LOGIN_RESPONSE";
+// export const LOGIN_ERROR = "LOGIN_ERROR";
 
 function loginRequest(data) {
   return {
-    type: LOGIN_REQUEST,
+    type: types.LOGIN_REQUEST,
     data: data
   };
 }
 
 function loginResponse(response) {
   return {
-    type: LOGIN_RESPONSE,
+    type: types.LOGIN_RESPONSE,
     data: response
   };
 }
@@ -27,7 +28,7 @@ function loginResponse(response) {
 function loginError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: LOGIN_ERROR,
+    type: types.LOGIN_ERROR,
     errors: errors
   };
 }
@@ -41,26 +42,26 @@ export function login(data) {
   };
 }
 
-export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
-export const LOGOUT_RESPONSE = "LOGOUT_RESPONSE";
-export const LOGOUT_ERROR = "LOGOUT_ERROR";
+// export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
+// export const LOGOUT_RESPONSE = "LOGOUT_RESPONSE";
+// export const LOGOUT_ERROR = "LOGOUT_ERROR";
 
 function logoutRequest() {
   return {
-    type: LOGOUT_REQUEST
+    type: types.LOGOUT_REQUEST
   };
 }
 
 function logoutResponse() {
   return {
-    type: LOGOUT_RESPONSE
+    type: types.LOGOUT_RESPONSE
   };
 }
 
 function logoutError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: LOGOUT_ERROR,
+    type: types.LOGOUT_ERROR,
     errors: errors
   };
 }
@@ -74,20 +75,20 @@ export function logout() {
   };
 }
 
-export const OAUTH_REQUEST = "OAUTH_REQUEST";
-export const OAUTH_RESPONSE = "OAUTH_RESPONSE";
-export const OAUTH_ERROR = "OAUTH_ERROR";
+// export const OAUTH_REQUEST = "OAUTH_REQUEST";
+// export const OAUTH_RESPONSE = "OAUTH_RESPONSE";
+// export const OAUTH_ERROR = "OAUTH_ERROR";
 
 function oauthRequest(provider) {
   return {
-    type: OAUTH_REQUEST,
+    type: types.OAUTH_REQUEST,
     provider: provider
   };
 }
 
 function oauthResponse(response) {
   return {
-    type: OAUTH_RESPONSE,
+    type: types.OAUTH_RESPONSE,
     data: response
   };
 }
@@ -95,7 +96,7 @@ function oauthResponse(response) {
 function oauthError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: OAUTH_ERROR,
+    type: types.OAUTH_ERROR,
     errors: errors
   };
 }
@@ -109,20 +110,20 @@ export function oauth(provider) {
   };
 }
 
-export const SIGNUP_REQUEST = "SIGNUP_REQUEST";
-export const SIGNUP_RESPONSE = "SIGNUP_RESPONSE";
-export const SIGNUP_ERROR = "SIGNUP_ERROR";
+// export const SIGNUP_REQUEST = "SIGNUP_REQUEST";
+// export const SIGNUP_RESPONSE = "SIGNUP_RESPONSE";
+// export const SIGNUP_ERROR = "SIGNUP_ERROR";
 
 function signupRequest(data) {
   return {
-    type: SIGNUP_REQUEST,
+    type: types.SIGNUP_REQUEST,
     data: data
   };
 }
 
 function signupResponse(response) {
   return {
-    type: SIGNUP_RESPONSE,
+    type: types.SIGNUP_RESPONSE,
     data: response
   };
 }
@@ -130,7 +131,7 @@ function signupResponse(response) {
 function signupError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: SIGNUP_ERROR,
+    type: types.SIGNUP_ERROR,
     errors: errors
   };
 }

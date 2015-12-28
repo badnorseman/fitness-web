@@ -1,15 +1,16 @@
 "use strict";
+import * as types from "../constants/action_types";
 import {
   ROUTE_CHANGE
 } from "../actions/router_actions";
-import {
-  AUTH0LOGIN_RESPONSE,
-  AUTH0SIGNUP_RESPONSE,
-  LOGIN_RESPONSE,
-  LOGOUT_REQUEST,
-  OAUTH_RESPONSE,
-  SIGNUP_RESPONSE
-} from "../actions/auth_actions";
+// import {
+//   AUTH0LOGIN_RESPONSE,
+//   AUTH0SIGNUP_RESPONSE,
+//   LOGIN_RESPONSE,
+//   LOGOUT_REQUEST,
+//   OAUTH_RESPONSE,
+//   SIGNUP_RESPONSE
+// } from "../actions/auth_actions";
 import {
   PRODUCT_CREATE_RESPONSE,
   PRODUCT_CREATE_ERROR,
@@ -33,11 +34,11 @@ const router = (state = initialState, action) => {
         param: action.param
       };
 
-    case AUTH0LOGIN_RESPONSE:
-    case AUTH0SIGNUP_RESPONSE:
-    case LOGIN_RESPONSE:
-    case LOGOUT_REQUEST:
-    case OAUTH_RESPONSE:
+    case types.AUTH0LOGIN_RESPONSE:
+    case types.AUTH0SIGNUP_RESPONSE:
+    case types.LOGIN_RESPONSE:
+    case types.LOGOUT_REQUEST:
+    case types.OAUTH_RESPONSE:
       return {
         ...state,
         route: "MARKETPLACE"
@@ -51,7 +52,7 @@ const router = (state = initialState, action) => {
         route: "DASHBOARD"
       };
 
-    case SIGNUP_RESPONSE:
+    case types.SIGNUP_RESPONSE:
       return {
         ...state,
         route: "LOGIN"
