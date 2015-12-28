@@ -61,14 +61,14 @@ const Facebook = () => {
         onClick();
       }}
     >
-      <i className="zmdi zmdi-facebook"></i>
+      <i className="fa fa-facebook"></i>
     </a>
   );
 };
 
 const Instagram = () => (
   <a>
-    <i className="zmdi zmdi-instagram"></i>
+    <i className="fa fa-instagram"></i>
   </a>
 );
 
@@ -84,7 +84,7 @@ const Twitter = () => {
         ev.preventDefault();
       }}
     >
-      <i className="zmdi zmdi-twitter"></i>
+      <i className="fa fa-twitter"></i>
     </a>
   );
 };
