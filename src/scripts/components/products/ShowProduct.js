@@ -2,7 +2,6 @@
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
 import Link from "../Link";
-import "./products.css";
 
 const ShowProduct = ({
   product,
@@ -11,10 +10,28 @@ const ShowProduct = ({
 }) => {
   const { currency, description, image, name, price} = product;
 
+  const cardStyle = {
+    height: "auto",
+    maxWidth: "800px",
+    width: "800px"
+  };
+
+  const blockStyle = {
+    float: "left",
+    overflow: "hidden",
+    width: "50%"
+  };
+
+  const imageStyle = {
+    height: "320px",
+    width: "320px"
+  };
+
   return (
     <div className="mdl-grid">
       <div className="mdl-cell mdl-cell--12-col">
-        <div className="product-card block--center-horizontally__margin mdl-card mdl-shadow--2dp">
+        <div className="block--center-horizontally__margin mdl-card mdl-shadow--2dp"
+          style={cardStyle}>
           <div className="mdl-card__menu">
             <Link
               styles="mdl-button mdl-js-button mdl-button--icon"
@@ -25,10 +42,10 @@ const ShowProduct = ({
           </div>
           <div className="mdl-card__supporting-text">
             <div className="block--center-horizontally__flex">
-              <div className="product-card__left">
-                <img className="product-card__image" src={image} alt="" />
+              <div style={blockStyle}>
+                <img src={image} alt="" style={imageStyle} />
               </div>
-              <div className="product-card__right">
+              <div style={blockStyle}>
                 <div>
                   <h3>{name}</h3>
                   <h6>{currency} {price}</h6>

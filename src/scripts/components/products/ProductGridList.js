@@ -17,8 +17,12 @@ const ProductGridList = ({
     return tiles;
   }(products);
 
+  const gridStyle = {
+    padding: "0"
+  };
+
   return (
-    <div className="mdl-grid">
+    <div className="mdl-grid" style={gridStyle}>
       {tiles}
     </div>
   );

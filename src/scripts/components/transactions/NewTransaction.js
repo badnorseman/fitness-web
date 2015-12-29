@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
 import { createTransaction, getClientToken } from "../../actions/transaction_actions";
 import Link from "../Link";
-import "./transactions.css";
 
 class NewTransaction extends Component {
   static propTypes = {
@@ -60,10 +59,25 @@ class NewTransaction extends Component {
   }
 
   render() {
+    const cardStyle = {
+      height: "auto",
+      margin: "0 auto",
+      maxWidth: "400px",
+      padding: "10px",
+      width: "400px"
+    };
+
+    const dropinStyle = {
+      marginBottom: "20px",
+      marginTop: "40px",
+      width: "100%"
+    };
+
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="transaction-card mdl-card mdl-shadow--2dp">
+          <div className="mdl-card mdl-shadow--2dp"
+            style={cardStyle}>
             <div className="mdl-card__menu">
               <Link
                 styles="mdl-button mdl-js-button mdl-button--icon"
@@ -74,7 +88,9 @@ class NewTransaction extends Component {
             </div>
             <div className="mdl-card__supporting-text">
               <form onSubmit={this._handleSubmit}>
-                <div className="braintree-dropin" id="dropin-container"></div>
+                <div id="dropin-container"
+                  style={dropinStyle}>
+                </div>
                 <div className="text--center">
                   <button
                     className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"

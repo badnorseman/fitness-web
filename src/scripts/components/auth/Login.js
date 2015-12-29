@@ -41,9 +41,9 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login-grid mdl-grid">
-        <div className="login-cell mdl-cell mdl-cell--12-col">
-          <div className="login-card mdl-card mdl-shadow--2dp">
+      <div className="mdl-grid login-grid">
+        <div className="mdl-cell mdl-cell--12-col login-grid__cell">
+          <div className="mdl-card mdl-shadow--2dp login-card">
             <div className="mdl-card__menu">
               <Link
                 styles="mdl-button mdl-js-button mdl-button--icon"
