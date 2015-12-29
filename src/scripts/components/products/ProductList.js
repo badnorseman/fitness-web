@@ -20,17 +20,17 @@ const ProductList = ({
 
   const buttonStyle = {
     float: "right",
-    margin: "50px 0 0 0"
+    margin: "50px 0 10px 0"
   };
 
   const headerElementStyle = {
-    margin: "0 10px 10px 0",
+    margin: "0 0 10px 0",
     maxWidth: "800px",
     width: "25%"
   };
 
   const listStyle = {
-    padding: "50px 0 0 0"
+    padding: "20px 0 0 0"
   };
 
   return (

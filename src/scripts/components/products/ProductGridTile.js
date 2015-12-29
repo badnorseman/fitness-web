@@ -6,6 +6,19 @@ const ProductGridTile = ({
 }) => {
   const { currency, image, name, price } = product;
 
+  const cellStyle = {
+    margin: "0"
+  };
+
+  const cardStyle = {
+    height: "auto",
+    margin: "0 auto",
+    marginBottom: "10px",
+    marginRight: "10px",
+    maxWidth: "320px",
+    width: "320px"
+  };
+
   const imageStyle = {
     backgroundImage: "url(" + image + ")",
     backgroundRepeat: "no-repeat",
@@ -22,8 +35,10 @@ const ProductGridTile = ({
         onShow(product);
       }}
     >
-      <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop">
-        <div className="mdl-card mdl-shadow--2dp">
+      <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop"
+        style={cellStyle}
+       >
+        <div className="mdl-card mdl-shadow--2dp" style={cardStyle}>
           <div className="mdl-card__title" style={imageStyle}></div>
           <div className="mdl-card__supporting-text">
             <h5>{name}</h5>

@@ -42,9 +42,9 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="signup-grid mdl-grid">
-        <div className="signup-cell mdl-cell mdl-cell--12-col">
-          <div className="signup-card mdl-card mdl-shadow--2dp">
+      <div className="mdl-grid signup-grid">
+        <div className="mdl-cell mdl-cell--12-col signup-grid__cell">
+          <div className="mdl-card mdl-shadow--2dp signup-card">
             <div className="mdl-card__menu">
               <Link
                 styles="mdl-button mdl-js-button mdl-button--icon"

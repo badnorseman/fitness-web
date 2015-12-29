@@ -20,7 +20,7 @@ const Footer = ({
       </div>
       <div className="mdl-mini-footer__right-section">
         <ul className="mdl-mini-footer__link-list">
-          <li><Link onClick={goToAbout}>About</Link></li>
+          <li><Link onClick={goToAbout}>About Us</Link></li>
           <li><Link onClick={goToHelp}>Help</Link></li>
           <li><Link onClick={goToTerms}>Terms of Use</Link></li>
         </ul>

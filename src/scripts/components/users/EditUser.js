@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { updateUser } from "../../actions/user_actions";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
-import "./edit_user.css";
 
 class EditUser extends Component {
   static propTypes = {
@@ -54,8 +53,19 @@ class EditUser extends Component {
     const { user } = this.props;
     const { avatar, birth_date, email, gender, name } = user;
 
+    const avatarStyle = {
+      borderRadius: "48px",
+      height: "96px",
+      width: "96px"
+    };
+
+    const formStyle = {
+      padding: "50px 0 0 0",
+      width: "300px"
+    };
+
     return (
-      <form className="edit-user block--center-horizontally__margin">
+      <form className="edit-user block--center-horizontally__margin" style={formStyle}>
         <div>
           <InputField
             fieldId="name"
@@ -93,7 +103,7 @@ class EditUser extends Component {
             ref="email" />
         </div>
         <div>
-          <img className="user__avatar" src={avatar} alt="" />
+          <img src={avatar} alt="" style={avatarStyle} />
         </div>
         <div>
           <InputFile ref="avatar" />
