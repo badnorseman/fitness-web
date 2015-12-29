@@ -15,6 +15,7 @@ const Footer = ({
           <li><Facebook /></li>
           <li><Twitter /></li>
           <li><Instagram /></li>
+          <li><Email /></li>
         </ul>
       </div>
       <div className="mdl-mini-footer__right-section">
@@ -45,6 +46,12 @@ const Company = () => {
   );
 };
 
+const Email = () => (
+  <a href="mailto:hello@fitbird.com">
+    <i className="zmdi zmdi-email zmdi-hc-2x"></i>
+  </a>
+);
+
 const Facebook = () => {
   const onClick = () => {
     FB.ui({
@@ -72,22 +79,11 @@ const Instagram = () => (
   </a>
 );
 
-const Twitter = () => {
-  const url = "https://twitter.com/intent/tweet";
-  const text = encodeURIComponent("FitBird");
-  const via = encodeURIComponent("fitbirdinc");
-  const href = `${url}?text=${text}&via=${via}`;
-
-  return (
-    <a href={href}
-      onClick={ev => {
-        ev.preventDefault();
-      }}
-    >
-      <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
-    </a>
-  );
-};
+const Twitter = () => (
+  <a href="https://twitter.com/intent/tweet?via=fitbirdinc">
+    <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
+  </a>
+);
 
 const mapDispatchToProps = (dispatch) => {
   return {
