@@ -50,7 +50,7 @@ class Signup extends Component {
                 styles="mdl-button mdl-js-button mdl-button--icon"
                 onClick={this._handleClose}
               >
-                <i className="material-icons">close</i>
+                <i className="zmdi zmdi-close"></i>
               </Link>
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">

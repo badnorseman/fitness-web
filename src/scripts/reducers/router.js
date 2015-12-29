@@ -1,13 +1,5 @@
 "use strict";
 import * as types from "../constants/action_types";
-import {
-  PRODUCT_CREATE_RESPONSE,
-  PRODUCT_CREATE_ERROR,
-  PRODUCT_DESTROY_RESPONSE,
-  PRODUCT_DESTROY_ERROR,
-  PRODUCT_UPDATE_RESPONSE,
-  PRODUCT_UPDATE_ERROR
-} from "../actions/product_actions";
 
 const initialState = {
   param: "",
@@ -33,9 +25,9 @@ const router = (state = initialState, action) => {
         route: "MARKETPLACE"
       };
 
-    case PRODUCT_CREATE_RESPONSE:
-    case PRODUCT_DESTROY_RESPONSE:
-    case PRODUCT_UPDATE_RESPONSE:
+    case types.PRODUCT_CREATE_RESPONSE:
+    case types.PRODUCT_DESTROY_RESPONSE:
+    case types.PRODUCT_UPDATE_RESPONSE:
       return {
         ...state,
         route: "DASHBOARD"

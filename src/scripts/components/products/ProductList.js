@@ -46,7 +46,7 @@ const ProductList = ({
         className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
         style={buttonStyle}
         onClick={onNew}>
-        <i className="material-icons">add</i>
+        <i className="zmdi zmdi-plus"></i>
       </button>
     </div>
   );

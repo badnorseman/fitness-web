@@ -21,7 +21,7 @@ const Footer = ({
         <ul className="mdl-mini-footer__link-list">
           <li><Link onClick={goToAbout}>About</Link></li>
           <li><Link onClick={goToHelp}>Help</Link></li>
-          <li><Link onClick={goToTerms}>Privacy & Terms</Link></li>
+          <li><Link onClick={goToTerms}>Terms of Use</Link></li>
         </ul>
       </div>
     </div>
@@ -36,8 +36,7 @@ const Company = () => {
   return (
     <div className="mdl-mini-footer">
       <span>
-        &copy;&nbsp;{currentYear}&nbsp;&nbsp;
-        FitBird&nbsp;ApS&nbsp;&nbsp;
+        &copy;&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS&nbsp;&nbsp;
         Esromgade&nbsp;15&nbsp;&nbsp;Suite&nbsp;1102&nbsp;&nbsp;
         2200&nbsp;Copenhagen&nbsp;N&nbsp;&nbsp;Denmark&nbsp;&nbsp;
         CVR&nbsp;35418067
@@ -66,13 +65,12 @@ const Facebook = () => {
   );
 };
 
-const Instagram = () => {
-  return (
-    <a href="#!">
-      <i className="zmdi zmdi-instagram zmdi-hc-2x"></i>
-    </a>
-  );
-};
+const Instagram = () => (
+  <a href="https://www.instagram.com/fitbirdinc/"
+    target="_blank">
+    <i className="zmdi zmdi-instagram zmdi-hc-2x"></i>
+  </a>
+);
 
 const Twitter = () => {
   const url = "https://twitter.com/intent/tweet";
@@ -86,7 +84,7 @@ const Twitter = () => {
         ev.preventDefault();
       }}
     >
-      <i className="zmdi zmdi-twitter-box zmdi-hc-2x"></i>
+      <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
     </a>
   );
 };
