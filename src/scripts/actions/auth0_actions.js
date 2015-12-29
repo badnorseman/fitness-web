@@ -1,30 +1,27 @@
 "use strict";
+import * as types from "../constants/action_types";
 import {
   login as apiLogin,
   signup as apiSignup
 } from "../api/auth0_api";
 
-export const AUTH0LOGIN_REQUEST = "AUTH0LOGIN_REQUEST";
-export const AUTH0LOGIN_RESPONSE = "AUTH0LOGIN_RESPONSE";
-export const AUTH0LOGIN_ERROR = "AUTH0LOGIN_ERROR";
-
 function loginRequest(token) {
   return {
-    type: AUTH0LOGIN_REQUEST,
+    type: types.AUTH0LOGIN_REQUEST,
     data: token
   };
 }
 
 function loginResponse(response) {
   return {
-    type: AUTH0LOGIN_RESPONSE,
+    type: types.AUTH0LOGIN_RESPONSE,
     data: response
   };
 }
 
 function loginError(error) {
   return {
-    type: AUTH0LOGIN_ERROR,
+    type: types.AUTH0LOGIN_ERROR,
     errors: error
   };
 }
@@ -42,27 +39,23 @@ export function login(error, profile, token) {
   };
 }
 
-export const AUTH0SIGNUP_REQUEST = "AUTH0SIGNUP_REQUEST";
-export const AUTH0SIGNUP_RESPONSE = "AUTH0SIGNUP_RESPONSE";
-export const AUTH0SIGNUP_ERROR = "AUTH0SIGNUP_ERROR";
-
 function signupRequest(token) {
   return {
-    type: AUTH0SIGNUP_REQUEST,
+    type: types.AUTH0SIGNUP_REQUEST,
     data: token
   };
 }
 
 function signupResponse(response) {
   return {
-    type: AUTH0SIGNUP_RESPONSE,
+    type: types.AUTH0SIGNUP_RESPONSE,
     data: response
   };
 }
 
 function signupError(error) {
   return {
-    type: AUTH0SIGNUP_ERROR,
+    type: types.AUTH0SIGNUP_ERROR,
     errors: error
   };
 }

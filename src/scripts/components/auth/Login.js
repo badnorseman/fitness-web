@@ -41,15 +41,15 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--12-col">
-          <div className="login mdl-card mdl-shadow--2dp">
+      <div className="login-grid mdl-grid">
+        <div className="login-cell mdl-cell mdl-cell--12-col">
+          <div className="login-card mdl-card mdl-shadow--2dp">
             <div className="mdl-card__menu">
               <Link
                 styles="mdl-button mdl-js-button mdl-button--icon"
                 onClick={this._handleClose}
               >
-                <i className="material-icons">close</i>
+                <i className="zmdi zmdi-close"></i>
               </Link>
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
@@ -60,7 +60,7 @@ class Login extends Component {
                     fieldId="email"
                     fieldName="Email"
                     fieldType="text"
-                    styles="login__input-field"
+                    styles="login-card__input-field"
                     ref="email" />
                 </div>
                 <div>
@@ -68,14 +68,14 @@ class Login extends Component {
                     fieldId="password"
                     fieldName="Password"
                     fieldType="password"
-                    styles="login__input-field"
+                    styles="login-card__input-field"
                     ref="password" />
                 </div>
-                <a className="login-forgot-password" href="#!" onClick={this._handleForgotPassword}>
+                <a className="login-card__forgot-password-forgot-password" href="#!" onClick={this._handleForgotPassword}>
                   Forgot password?
                 </a>
                 <button
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button"
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-card__login-button"
                   onClick={this._handleSubmit}
                 >
                   LOG IN

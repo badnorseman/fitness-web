@@ -1,27 +1,34 @@
-.login {
-  height: auto;
-  margin: 0 auto;
-  max-width: 400px;
-  padding: 10px;
-  width: 400px;
+.login-grid {
+  padding: 0;
 }
 
-.login-button {
+.login-cell {
+  margin: 0;
+}
+
+.login-card {
+  height: auto;
+  margin: 0 auto;
+  max-width: 320px;
+  width: 320px;
+}
+
+.login-card__login-button {
   margin-bottom: 20px;
   margin-top: 20px;
   width: 100%;
 }
 
-.login-forgot-password {
+.login-card__forgot-password {
   float: right;
   font-size: 10px;
   text-decoration: none;
 }
 
-.login-forgot-password a:hover {
+.login-card__forgot-password a:hover {
   cursor: pointer;
 }
 
-.login__input-field {
+.login-card__input-field {
   width: 340px;
 }

@@ -6,11 +6,11 @@ const ProductGridTile = ({
 }) => {
   const { currency, image, name, price } = product;
 
-  const tileStyle = {
+  const imageStyle = {
     backgroundImage: "url(" + image + ")",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    height: 160,
+    height: "160px",
     WebkitTransition: "all",
     msTransition: "all"
   };
@@ -24,8 +24,7 @@ const ProductGridTile = ({
     >
       <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop">
         <div className="mdl-card mdl-shadow--2dp">
-          <div className="mdl-card__title" style={tileStyle}>
-          </div>
+          <div className="mdl-card__title" style={imageStyle}></div>
           <div className="mdl-card__supporting-text">
             <h5>{name}</h5>
             <h6>{currency} {price}</h6>

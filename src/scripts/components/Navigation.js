@@ -49,27 +49,27 @@ const Navigation = ({
       </div>}
       {!isLoggedIn && <div className="mdl-layout--small-screen-only">
         <Link styles="mdl-navigation__link" onClick={goToLogin}>
-          <i className="material-icons">lock_open</i>
+          <i className="zmdi zmdi-lock-open zmdi-hc-lg"></i>
         </Link>
       </div>}
       {!isLoggedIn && <div className="mdl-layout--small-screen-only">
         <Link styles="mdl-navigation__link" onClick={goToSignup}>
-          <i className="material-icons">mood</i>
+          <i className="zmdi zmdi-mood zmdi-hc-lg"></i>
         </Link>
       </div>}
       {coach && <div className="mdl-layout--small-screen-only">
         <Link styles="mdl-navigation__link" onClick={goToDashboard}>
-          <i className="material-icons">dashboard</i>
+          <i className="zmdi zmdi-view-dashboard zmdi-hc-lg"></i>
         </Link>
       </div>}
       {isLoggedIn && <div className="mdl-layout--small-screen-only">
         <Link styles="mdl-navigation__link" onClick={goToAccount}>
-          <i className="material-icons">account_circle</i>
+          <i className="zmdi zmdi-account-box zmdi-hc-lg"></i>
         </Link>
       </div>}
       {isLoggedIn && <div className="mdl-layout--small-screen-only">
         <Link styles="mdl-navigation__link" onClick={logout}>
-          <i className="material-icons">lock</i>
+          <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
         </Link>
       </div>}
     </nav>

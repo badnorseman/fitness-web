@@ -14,7 +14,7 @@ const Cart = ({
             styles="mdl-button mdl-js-button mdl-button--icon"
             onClick={onClick}
           >
-            <i className="material-icons">close</i>
+            <i className="zmdi zmdi-close"></i>
           </Link>
         </div>
         <div className="mdl-card__supporting-text">

@@ -15,13 +15,14 @@ const Footer = ({
           <li><Facebook /></li>
           <li><Twitter /></li>
           <li><Instagram /></li>
+          <li><Email /></li>
         </ul>
       </div>
       <div className="mdl-mini-footer__right-section">
         <ul className="mdl-mini-footer__link-list">
           <li><Link onClick={goToAbout}>About</Link></li>
           <li><Link onClick={goToHelp}>Help</Link></li>
-          <li><Link onClick={goToTerms}>Privacy & Terms</Link></li>
+          <li><Link onClick={goToTerms}>Terms of Use</Link></li>
         </ul>
       </div>
     </div>
@@ -36,8 +37,7 @@ const Company = () => {
   return (
     <div className="mdl-mini-footer">
       <span>
-        &copy;&nbsp;{currentYear}&nbsp;&nbsp;
-        FitBird&nbsp;ApS&nbsp;&nbsp;
+        &copy;&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS&nbsp;&nbsp;
         Esromgade&nbsp;15&nbsp;&nbsp;Suite&nbsp;1102&nbsp;&nbsp;
         2200&nbsp;Copenhagen&nbsp;N&nbsp;&nbsp;Denmark&nbsp;&nbsp;
         CVR&nbsp;35418067
@@ -45,6 +45,12 @@ const Company = () => {
     </div>
   );
 };
+
+const Email = () => (
+  <a href="mailto:hello@fitbird.com">
+    <i className="zmdi zmdi-email zmdi-hc-2x"></i>
+  </a>
+);
 
 const Facebook = () => {
   const onClick = () => {
@@ -54,58 +60,30 @@ const Facebook = () => {
     }, function(response){});
   };
 
-  const linkStyle = {
-    color: "#3b5998"
-  };
-
   return (
     <a href="#!"
-      style={linkStyle}
       onClick={ev => {
         ev.preventDefault();
         onClick();
       }}
     >
-      <i className="fa fa-facebook fa-2x"></i>
+      <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
     </a>
   );
 };
 
-const Instagram = () => {
-  const linkStyle = {
-    color: "#3f729b"
-  };
+const Instagram = () => (
+  <a href="https://www.instagram.com/fitbirdinc/"
+    target="_blank">
+    <i className="zmdi zmdi-instagram zmdi-hc-2x"></i>
+  </a>
+);
 
-  return (
-    <a
-      style={linkStyle}
-    >
-      <i className="fa fa-instagram fa-2x"></i>
-    </a>
-  );
-};
-
-const Twitter = () => {
-  const url = "https://twitter.com/intent/tweet";
-  const text = encodeURIComponent("FitBird");
-  const via = encodeURIComponent("fitbirdinc");
-  const href = `${url}?text=${text}&via=${via}`;
-
-  const linkStyle = {
-    color: "#55acee"
-  };
-
-  return (
-    <a href={href}
-      style={linkStyle}
-      onClick={ev => {
-        ev.preventDefault();
-      }}
-    >
-      <i className="fa fa-twitter fa-2x"></i>
-    </a>
-  );
-};
+const Twitter = () => (
+  <a href="https://twitter.com/intent/tweet?via=fitbirdinc">
+    <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
+  </a>
+);
 
 const mapDispatchToProps = (dispatch) => {
   return {

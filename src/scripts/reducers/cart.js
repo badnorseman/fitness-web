@@ -1,8 +1,5 @@
 "use strict";
-import {
-  CART_ADD_PRODUCT,
-  CART_REMOVE_PRODUCT
-} from "../actions/cart_actions";
+import * as types from "../constants/action_types";
 
 const initialState = {
   products: {}
@@ -10,14 +7,14 @@ const initialState = {
 
 const cart = (state = initialState, action) => {
   switch (action.type) {
-    case CART_ADD_PRODUCT:
+    case types.CART_ADD_PRODUCT:
       return {
         ...state,
         // Add single product to products
         product: action.data
       };
 
-    case CART_REMOVE_PRODUCT:
+    case types.CART_REMOVE_PRODUCT:
       return {
         ...state,
         // Remove single product from products

@@ -1,17 +1,24 @@
-.signup {
-  height: auto;
-  margin: 0 auto;
-  max-width: 400px;
-  padding: 10px;
-  width: 400px;
+.signup-grid {
+  padding: 0;
 }
 
-.signup-button {
+.signup-cell {
+  margin: 0;
+}
+
+.signup-card {
+  height: auto;
+  margin: 0 auto;
+  max-width: 320px;
+  width: 320px;
+}
+
+.signup-card__signup-button {
   margin-bottom: 20px;
   margin-top: 20px;
   width: 100%;
 }
 
-.signup__input-field {
+.signup-card__input-field {
   width: 340px;
 }

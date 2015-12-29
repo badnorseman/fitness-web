@@ -68,12 +68,12 @@ class EditUser extends Component {
           <p>I am</p>
           <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="gender-male">
             <input className="mdl-radio__button" id="gender-male" type="radio" value="M" name="gender" defaultChecked={this._isGender("M")} />
-            <span className="mdl-radio__label"><i className="material-icons">call_merge</i></span>
+            <span className="mdl-radio__label"><i className="zmdi zmdi-male-alt zmdi-hc-lg"></i></span>
           </label>
           <div className="block--divider"></div>
           <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="gender-female">
             <input className="mdl-radio__button" id="gender-female" type="radio" value="F" name="gender" defaultChecked={this._isGender("F")} />
-            <span className="mdl-radio__label"><i className="material-icons">call_split</i></span>
+            <span className="mdl-radio__label"><i className="zmdi zmdi-female zmdi-hc-lg"></i></span>
           </label>
         </div>
         <div>

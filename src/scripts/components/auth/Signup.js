@@ -42,15 +42,15 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--12-col">
-          <div className="signup mdl-card mdl-shadow--2dp">
+      <div className="signup-grid mdl-grid">
+        <div className="signup-cell mdl-cell mdl-cell--12-col">
+          <div className="signup-card mdl-card mdl-shadow--2dp">
             <div className="mdl-card__menu">
               <Link
                 styles="mdl-button mdl-js-button mdl-button--icon"
                 onClick={this._handleClose}
               >
-                <i className="material-icons">close</i>
+                <i className="zmdi zmdi-close"></i>
               </Link>
             </div>
             <div className="mdl-card__supporting-text mdl-card--border">
@@ -61,7 +61,7 @@ class Signup extends Component {
                     fieldId="Name"
                     fieldName="Name"
                     fieldType="text"
-                    styles="signup__input-field"
+                    styles="signup-card__input-field"
                     ref="name" />
                 </div>
                 <div>
@@ -69,7 +69,7 @@ class Signup extends Component {
                     fieldId="email"
                     fieldName="Email"
                     fieldType="text"
-                    styles="signup__input-field"
+                    styles="signup-card__input-field"
                     ref="email" />
                 </div>
                 <div>
@@ -77,7 +77,7 @@ class Signup extends Component {
                     fieldId="password"
                     fieldName="Password"
                     fieldType="password"
-                    styles="signup__input-field"
+                    styles="signup-card__input-field"
                     ref="password" />
                 </div>
                 <div>
@@ -85,11 +85,11 @@ class Signup extends Component {
                     fieldId="passwordConfirmation"
                     fieldName="Confirm password"
                     fieldType="password"
-                    styles="signup__input-field"
+                    styles="signup-card__input-field"
                     ref="passwordConfirmation" />
                 </div>
                 <button
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup-button"
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup-card__signup-button"
                   onClick={this._handleSubmit}
                 >
                   SIGN UP
