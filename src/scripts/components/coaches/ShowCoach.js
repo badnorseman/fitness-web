@@ -3,12 +3,11 @@ import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
 import Link from "../Link";
 
-const ShowProduct = ({
-  product,
-  onBuy,
+const ShowCoach = ({
+  coach,
   onClose
 }) => {
-  const { currency, description, image, name, price } = product;
+  const { avatar, email, name } = coach;
 
   const cardStyle = {
     height: "auto",
@@ -22,7 +21,7 @@ const ShowProduct = ({
     width: "50%"
   };
 
-  const imageStyle = {
+  const avatarStyle = {
     height: "320px",
     width: "320px"
   };
@@ -43,29 +42,19 @@ const ShowProduct = ({
           <div className="mdl-card__supporting-text">
             <div className="block--center-horizontally__flex">
               <div style={blockStyle}>
-                <img src={image} alt="" style={imageStyle} />
+                <img src={avatar} alt="" style={avatarStyle} />
               </div>
               <div style={blockStyle}>
                 <div>
                   <h3>{name}</h3>
-                  <h6>{currency} {price}</h6>
                 </div>
-                <button
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-                  onClick={ev => {
-                    ev.preventDefault();
-                    onBuy(product);
-                  }}
-                >
-                  Buy
-                </button>
               </div>
             </div>
           </div>
           <div className="mdl-card__supporting-text">
             <div>
-              <h3>Description</h3>
-              <p>{description}</p>
+              <h3>Contact</h3>
+              <p>{email}</p>
             </div>
           </div>
         </div>
@@ -76,9 +65,6 @@ const ShowProduct = ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onBuy: (product) => {
-      dispatch(changeRoute("NEWTRANSACTION", product));
-    },
     onClose: () => {
       dispatch(changeRoute("MARKETPLACE"));
     }
@@ -88,4 +74,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   null,
   mapDispatchToProps
-)(ShowProduct)
+)(ShowCoach)

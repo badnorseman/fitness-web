@@ -15,6 +15,7 @@ import Marketplace from "./Marketplace";
 import Navigation from "./Navigation";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
+import ShowCoach from "./coaches/ShowCoach";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "./auth/Signup";
 import Terms from "./footer/Terms";
@@ -57,6 +58,9 @@ class Layout extends Component {
         break;
       case "NEWTRANSACTION":
         content = <NewTransaction product={param} />;
+        break;
+      case "SHOWCOACH":
+        content = <ShowCoach coach={param} />;
         break;
       case "SHOWPRODUCT":
         content = <ShowProduct product={param} />;

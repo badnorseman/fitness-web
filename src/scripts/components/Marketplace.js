@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
 import { getCoaches } from "../actions/coach_actions";
 import { getProducts } from "../actions/product_actions";
+import CoachGridList from "./coaches/CoachGridList";
 import ProductGridList from "./products/ProductGridList";
 
 class Marketplace extends Component {
@@ -18,14 +19,17 @@ class Marketplace extends Component {
   }
 
   render() {
-    const { coaches, products, onShow } = this.props;
+    const { coaches, products, showCoach, showProduct } = this.props;
 
     return (
       <div>
         <ProductGridList
-          coaches={coaches}
           products={products}
-          onShow={onShow}
+          onShow={showProduct}
+        />
+        <CoachGridList
+          coaches={coaches}
+          onShow={showCoach}
         />
       </div>
     );
@@ -40,7 +44,10 @@ const mapDispatchToProps = (dispatch) => {
     getProducts: () => {
       dispatch(getProducts());
     },
-    onShow: (product) => {
+    showCoach: (coach) => {
+      dispatch(changeRoute("SHOWCOACH", coach));
+    },
+    showProduct: (product) => {
       dispatch(changeRoute("SHOWPRODUCT", product));
     }
   };
