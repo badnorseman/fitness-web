@@ -5,16 +5,16 @@ import { Schema, arrayOf, normalize } from "normalizr";
 import { SERVER } from "../constants/server";
 import { buildHeaders } from "../utils/build_http";
 
-const coachSchema = new Schema("coaches", { idAttribute: "id" });
-const entityName = "coach";
+const SCHEMA = new Schema("coaches", { idAttribute: "id" });
+const ENTITY = "coach";
 
-const buildUrl = (serverName, entityName) => {
-  const pluralized = `${entityName.toLowerCase()}es`;
-  return `${serverName}/${pluralized}`;
+const buildUrl = () => {
+  const pluralized = `${ENTITY.toLowerCase()}es`;
+  return `${SERVER}/${pluralized}`;
 };
 
-const fetchAll = (entityName) => {
-  const url = buildUrl(SERVER, entityName);
+const fetchAll = () => {
+  const url = buildUrl(SERVER, ENTITY);
   const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
@@ -33,7 +33,7 @@ function coachFetchRequest() {
 }
 
 function coachFetchResponse(response) {
-  const normalized = normalize(response, arrayOf(coachSchema));
+  const normalized = normalize(response, arrayOf(SCHEMA));
   return {
     type: types.COACH_FETCH_RESPONSE,
     data: normalized.entities.coaches
@@ -51,7 +51,7 @@ function coachFetchError(error) {
 export function getCoaches() {
   return dispatch => {
     dispatch(coachFetchRequest());
-    return fetchAll(entityName)
+    return fetchAll(ENTITY)
       .then(response => dispatch(coachFetchResponse(response)))
       .catch(error => dispatch(coachFetchError(error)))
   };

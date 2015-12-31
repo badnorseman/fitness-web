@@ -17,12 +17,14 @@ const CoachGridList = ({
     return tiles;
   }(coaches);
 
-  const gridStyle = {
-    padding: "0"
+  const styles = {
+    grid: {
+      padding: "0"
+    }
   };
 
   return (
-    <div className="mdl-grid" style={gridStyle}>
+    <div className="mdl-grid" style={styles.grid}>
       {tiles}
     </div>
   );
