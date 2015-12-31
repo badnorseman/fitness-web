@@ -36,9 +36,12 @@ const Company = () => {
 
   return (
     <div className="mdl-mini-footer">
-      <span>
+      <span className="mdl-layout--small-screen-only block--center-horizontally__margin">
+        Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
+      </span>
+      <span className="mdl-layout--large-screen-only">
         Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS.
-        Esromgade&nbsp;15&nbsp;Suite&nbsp;1102&nbsp;Copenhagen&nbsp;2200&nbsp;Denmark.
+        Esromgade&nbsp;15,&nbsp;Suite&nbsp;1102,&nbsp;Copenhagen&nbsp;2200,&nbsp;Denmark.
         CVR&nbsp;35418067
       </span>
     </div>
