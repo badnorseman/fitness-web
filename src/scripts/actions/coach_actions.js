@@ -3,18 +3,14 @@ import $ from "jquery";
 import * as types from "../constants/action_types";
 import { Schema, arrayOf, normalize } from "normalizr";
 import { SERVER } from "../constants/server";
+import { buildHeaders } from "../utils/build_http";
 
 const coachSchema = new Schema("coaches", { idAttribute: "id" });
 const entityName = "coach";
 
-const buildHeaders = () => {
-  const token = localStorage.userToken;
-  return { "Authorization": `Token token=${token}` };
-};
-
 const buildUrl = (serverName, entityName) => {
-  const pluralizedEntityName = `${entityName.toLowerCase()}es`;
-  return `${serverName}/${pluralizedEntityName}`;
+  const pluralized = `${entityName.toLowerCase()}es`;
+  return `${serverName}/${pluralized}`;
 };
 
 const fetchAll = (entityName) => {
