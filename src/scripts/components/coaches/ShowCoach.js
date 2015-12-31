@@ -7,12 +7,17 @@ const ShowCoach = ({
   coach,
   onClose
 }) => {
-  const { avatar, email, name } = coach;
+  // const { avatar, email, name } = coach;
+  const avatar = "https://s3.amazonaws.com/images.fitbird.us/production/users/default/avatars/small.jpeg";
+  const image = "https://s3.amazonaws.com/images.fitbird.us/production/products/default/images/small.png";
+  const email = "hello@fitbird.com";
+  const name = "Coach"
 
   const styles = {
     avatar: {
-      height: "320px",
-      width: "320px"
+      borderRadius: "48px",
+      height: "96px",
+      width: "96px"
     },
     block: {
       float: "left",
@@ -23,7 +28,15 @@ const ShowCoach = ({
       height: "auto",
       maxWidth: "800px",
       width: "800px"
-    }
+    },
+    image: {
+      backgroundImage: "url(" + image + ")",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      height: "160px",
+      WebkitTransition: "all",
+      msTransition: "all"
+    },
   };
 
   return (
@@ -39,6 +52,7 @@ const ShowCoach = ({
               <i className="zmdi zmdi-close"></i>
             </Link>
           </div>
+          <div className="mdl-card__title" style={styles.image}></div>
           <div className="mdl-card__supporting-text">
             <div className="block--center-horizontally__flex">
               <div style={styles.block}>
