@@ -17,14 +17,17 @@ const ShowCoach = ({
     avatar: {
       borderRadius: "48px",
       float: "right",
-      height: "96px",
       marginTop: "160px",
+      height: "96px",
       width: "96px"
     },
     card: {
       height: "auto",
-      minHeight: "320px",
+      margin: "0 auto",
+      marginBottom: "10px",
+      marginRight: "10px",
       maxWidth: "800px",
+      minHeight: "320px",
       width: "800px"
     },
     image: {
@@ -32,8 +35,7 @@ const ShowCoach = ({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       height: "320px",
-      maxWidth: "800px",
-      width: "800px",
+      width: "auto",
       WebkitTransition: "all",
       msTransition: "all"
     },
@@ -41,9 +43,9 @@ const ShowCoach = ({
 
   return (
     <div className="mdl-grid">
-      <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col block--center-horizontally__margin"
-        style={styles.image}>
-        <div className="mdl-card__supporting-text">
+      <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col"
+        style={styles.card}>
+        <div className="mdl-card__supporting-text" style={styles.image}>
           <img src={avatar} alt="" style={styles.avatar} />
         </div>
       </div>
