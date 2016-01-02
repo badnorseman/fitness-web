@@ -5,13 +5,18 @@ import Link from "../Link";
 
 const ShowCoach = ({
   coach,
+  products,
   onClose
 }) => {
   // const { avatar, email, name } = coach;
   const avatar = "https://s3.amazonaws.com/images.fitbird.us/production/users/default/avatars/small.jpeg";
   const image = "https://s3.amazonaws.com/images.fitbird.us/production/products/default/images/small.png";
   const email = "hello@fitbird.com";
-  const name = "Coach"
+  const name = "Coach";
+
+  coach.products.forEach(el => {
+    console.log(products[el.id]);
+  });
 
   const styles = {
     avatar: {
@@ -82,7 +87,13 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+const mapStateToProps = (state) => {
+  return {
+    products: state.product.products
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ShowCoach)
