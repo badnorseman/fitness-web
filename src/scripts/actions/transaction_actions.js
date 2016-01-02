@@ -1,5 +1,5 @@
 "use strict";
-import * as types from "../constants/action_types";
+import * as  ACTION_TYPES from "../constants/action_types";
 import { Schema, arrayOf, normalize } from "normalizr";
 import { create, fetchAll, fetchClientToken } from "../api/api";
 
@@ -8,13 +8,13 @@ const entityName = "transaction";
 
 function clientTokenRequest() {
   return {
-    type: types.CLIENT_TOKEN_REQUEST
+    type:  ACTION_TYPES.CLIENT_TOKEN_REQUEST
   };
 }
 
 function clientTokenResponse(response) {
   return {
-    type: types.CLIENT_TOKEN_RESPONSE,
+    type:  ACTION_TYPES.CLIENT_TOKEN_RESPONSE,
     clientToken: response.client_token
   };
 }
@@ -22,7 +22,7 @@ function clientTokenResponse(response) {
 function clientTokenError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.CLIENT_TOKEN_ERROR,
+    type:  ACTION_TYPES.CLIENT_TOKEN_ERROR,
     errors: errors
   };
 }
@@ -38,7 +38,7 @@ export function getClientToken() {
 
 function transactionCreateRequest(data) {
   return {
-    type: types.TRANSACTION_CREATE_REQUEST,
+    type:  ACTION_TYPES.TRANSACTION_CREATE_REQUEST,
     data: data
   };
 }
@@ -46,7 +46,7 @@ function transactionCreateRequest(data) {
 function transactionCreateResponse(response) {
   const normalized = normalize(response, arrayOf(transactionSchema));
   return {
-    type: types.TRANSACTION_CREATE_RESPONSE,
+    type:  ACTION_TYPES.TRANSACTION_CREATE_RESPONSE,
     data: normalized.entities.transactions
   };
 }
@@ -54,7 +54,7 @@ function transactionCreateResponse(response) {
 function transactionCreateError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.TRANSACTION_CREATE_ERROR,
+    type:  ACTION_TYPES.TRANSACTION_CREATE_ERROR,
     errors: errors
   };
 }
@@ -71,14 +71,14 @@ export function createTransaction(data) {
 
 function transactionFetchRequest() {
   return {
-    type: types.TRANSACTION_FETCH_REQUEST
+    type:  ACTION_TYPES.TRANSACTION_FETCH_REQUEST
   };
 }
 
 function transactionFetchResponse(response) {
   const normalized = normalize(response, arrayOf(transactionSchema));
   return {
-    type: types.TRANSACTION_FETCH_RESPONSE,
+    type:  ACTION_TYPES.TRANSACTION_FETCH_RESPONSE,
     data: normalized.entities.transactions
   };
 }
@@ -86,7 +86,7 @@ function transactionFetchResponse(response) {
 function transactionFetchError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.TRANSACTION_FETCH_ERROR,
+    type:  ACTION_TYPES.TRANSACTION_FETCH_ERROR,
     errors: errors
   };
 }

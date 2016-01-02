@@ -1,12 +1,12 @@
 "use strict";
-import * as types from "../constants/action_types";
+import * as  ACTION_TYPES from "../constants/action_types";
 import { create, destroy, fetchById, update } from "../api/api";
 
 const entityName = "user";
 
 function userCreateRequest(data) {
   return {
-    type: types.USER_CREATE_REQUEST,
+    type:  ACTION_TYPES.USER_CREATE_REQUEST,
     data: data
   };
 }
@@ -14,7 +14,7 @@ function userCreateRequest(data) {
 function userCreateResponse(response) {
   const normalized = normalize(response, arrayOf(userSchema));
   return {
-    type: types.USER_CREATE_RESPONSE,
+    type:  ACTION_TYPES.USER_CREATE_RESPONSE,
     data: normalized.entities.users
   };
 }
@@ -22,7 +22,7 @@ function userCreateResponse(response) {
 function userCreateError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.USER_CREATE_ERROR,
+    type:  ACTION_TYPES.USER_CREATE_ERROR,
     errors: errors
   };
 }
@@ -39,14 +39,14 @@ export function createUser(data) {
 
 function userDestroyRequest(id) {
   return {
-    type: types.USER_DESTROY_REQUEST,
+    type:  ACTION_TYPES.USER_DESTROY_REQUEST,
     id: id
   };
 }
 
 function userDestroyResponse(response) {
   return {
-    type: types.USER_DESTROY_RESPONSE,
+    type:  ACTION_TYPES.USER_DESTROY_RESPONSE,
     data: response
   };
 }
@@ -54,7 +54,7 @@ function userDestroyResponse(response) {
 function userDestroyError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.USER_DESTROY_ERROR,
+    type:  ACTION_TYPES.USER_DESTROY_ERROR,
     errors: errors
   };
 }
@@ -70,14 +70,14 @@ export function destroyUser(id) {
 
 function userFetchRequest(id) {
   return {
-    type: types.USER_FETCH_REQUEST,
+    type:  ACTION_TYPES.USER_FETCH_REQUEST,
     id: id
   };
 }
 
 function userFetchResponse(response) {
   return {
-    type: types.USER_FETCH_RESPONSE,
+    type:  ACTION_TYPES.USER_FETCH_RESPONSE,
     data: response
   };
 }
@@ -85,7 +85,7 @@ function userFetchResponse(response) {
 function userFetchError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.USER_FETCH_ERROR,
+    type:  ACTION_TYPES.USER_FETCH_ERROR,
     errors: errors
   };
 }
@@ -101,14 +101,14 @@ export function getUser(id) {
 
 function userUpdateRequest(data) {
   return {
-    type: types.USER_UPDATE_REQUEST,
+    type:  ACTION_TYPES.USER_UPDATE_REQUEST,
     data: data
   };
 }
 
 function userUpdateResponse(response) {
   return {
-    type: types.USER_UPDATE_RESPONSE,
+    type:  ACTION_TYPES.USER_UPDATE_RESPONSE,
     data: response
   };
 }
@@ -116,7 +116,7 @@ function userUpdateResponse(response) {
 function userUpdateError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.USER_UPDATE_ERROR,
+    type:  ACTION_TYPES.USER_UPDATE_ERROR,
     errors: errors
   };
 }

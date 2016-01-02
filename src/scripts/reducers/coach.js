@@ -1,5 +1,5 @@
 "use strict";
-import * as types from "../constants/action_types";
+import * as  ACTION_TYPES from "../constants/action_types";
 
 const initialState = {
   isFetching: false,
@@ -8,13 +8,13 @@ const initialState = {
 
 const coach = (state = initialState, action) => {
   switch (action.type) {
-    case types.COACH_FETCH_REQUEST:
+    case  ACTION_TYPES.COACH_FETCH_REQUEST:
       return {
         ...state,
         isFetching: true
       };
 
-    case types.COACH_FETCH_RESPONSE:
+    case  ACTION_TYPES.COACH_FETCH_RESPONSE:
       return {
         ...state,
         isFetching: false,

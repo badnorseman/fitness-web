@@ -1,5 +1,5 @@
 "use strict";
-import * as types from "../constants/action_types";
+import * as  ACTION_TYPES from "../constants/action_types";
 
 const initialState = {
   param: "",
@@ -8,32 +8,32 @@ const initialState = {
 
 const router = (state = initialState, action) => {
   switch (action.type) {
-    case types.ROUTE_CHANGE:
+    case  ACTION_TYPES.ROUTE_CHANGE:
       return {
         ...state,
         route: action.route,
         param: action.param
       };
 
-    case types.AUTH0LOGIN_RESPONSE:
-    case types.AUTH0SIGNUP_RESPONSE:
-    case types.LOGIN_RESPONSE:
-    case types.LOGOUT_REQUEST:
-    case types.OAUTH_RESPONSE:
+    case  ACTION_TYPES.AUTH0LOGIN_RESPONSE:
+    case  ACTION_TYPES.AUTH0SIGNUP_RESPONSE:
+    case  ACTION_TYPES.LOGIN_RESPONSE:
+    case  ACTION_TYPES.LOGOUT_REQUEST:
+    case  ACTION_TYPES.OAUTH_RESPONSE:
       return {
         ...state,
         route: "MARKETPLACE"
       };
 
-    case types.PRODUCT_CREATE_RESPONSE:
-    case types.PRODUCT_DESTROY_RESPONSE:
-    case types.PRODUCT_UPDATE_RESPONSE:
+    case  ACTION_TYPES.PRODUCT_CREATE_RESPONSE:
+    case  ACTION_TYPES.PRODUCT_DESTROY_RESPONSE:
+    case  ACTION_TYPES.PRODUCT_UPDATE_RESPONSE:
       return {
         ...state,
         route: "DASHBOARD"
       };
 
-    case types.SIGNUP_RESPONSE:
+    case  ACTION_TYPES.SIGNUP_RESPONSE:
       return {
         ...state,
         route: "LOGIN"

@@ -1,6 +1,6 @@
 "use strict";
 import $ from "jquery";
-import * as types from "../constants/action_types";
+import * as  ACTION_TYPES from "../constants/action_types";
 import { Schema, arrayOf, normalize } from "normalizr";
 import { SERVER } from "../constants/server";
 import { buildHeaders } from "../utils/build_http";
@@ -28,14 +28,14 @@ const fetchAll = () => {
 
 function coachFetchRequest() {
   return {
-    type: types.COACH_FETCH_REQUEST
+    type:  ACTION_TYPES.COACH_FETCH_REQUEST
   };
 }
 
 function coachFetchResponse(response) {
   const normalized = normalize(response, arrayOf(coachSchema));
   return {
-    type: types.COACH_FETCH_RESPONSE,
+    type:  ACTION_TYPES.COACH_FETCH_RESPONSE,
     data: normalized.entities.coaches
   };
 }
@@ -43,7 +43,7 @@ function coachFetchResponse(response) {
 function coachFetchError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.COACH_FETCH_ERROR,
+    type:  ACTION_TYPES.COACH_FETCH_ERROR,
     errors: errors
   };
 }

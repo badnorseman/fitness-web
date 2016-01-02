@@ -1,5 +1,5 @@
 "use strict";
-import * as types from "../constants/action_types";
+import * as  ACTION_TYPES from "../constants/action_types";
 
 const initialState = {
   currentUser: {}
@@ -15,39 +15,39 @@ const setUserToken = (token) => {
 
 const auth = (state = initialState, action) => {
   switch (action.type) {
-    case types.USER_UPDATE_RESPONSE:
+    case  ACTION_TYPES.USER_UPDATE_RESPONSE:
       return {
         ...state,
         currentUser: action.data
       };
 
-    case types.AUTH0LOGIN_REQUEST:
-    case types.AUTH0SIGNUP_REQUEST:
+    case  ACTION_TYPES.AUTH0LOGIN_REQUEST:
+    case  ACTION_TYPES.AUTH0SIGNUP_REQUEST:
       setUserToken(action.data.token);
       return state;
 
-    case types.AUTH0LOGIN_RESPONSE:
-    case types.AUTH0SIGNUP_RESPONSE:
+    case  ACTION_TYPES.AUTH0LOGIN_RESPONSE:
+    case  ACTION_TYPES.AUTH0SIGNUP_RESPONSE:
       return {
         ...state,
         currentUser: action.data
       };
 
-    case types.LOGIN_RESPONSE:
-    case types.OAUTH_RESPONSE:
+    case  ACTION_TYPES.LOGIN_RESPONSE:
+    case  ACTION_TYPES.OAUTH_RESPONSE:
       setUserToken(action.data.token);
       return {
         ...state,
         currentUser: action.data
       };
 
-    case types.AUTH0LOGIN_ERROR:
-    case types.AUTH0SIGNUP_ERROR:
-    case types.LOGIN_ERROR:
-    case types.LOGOUT_REQUEST:
-    case types.OAUTH_ERROR:
-    case types.SIGNUP_RESPONSE:
-    case types.SIGNUP_ERROR:
+    case  ACTION_TYPES.AUTH0LOGIN_ERROR:
+    case  ACTION_TYPES.AUTH0SIGNUP_ERROR:
+    case  ACTION_TYPES.LOGIN_ERROR:
+    case  ACTION_TYPES.LOGOUT_REQUEST:
+    case  ACTION_TYPES.OAUTH_ERROR:
+    case  ACTION_TYPES.SIGNUP_RESPONSE:
+    case  ACTION_TYPES.SIGNUP_ERROR:
       deleteUserToken();
       return {
         ...state,

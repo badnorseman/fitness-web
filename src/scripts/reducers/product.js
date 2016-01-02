@@ -1,5 +1,5 @@
 "use strict";
-import * as types from "../constants/action_types";
+import * as  ACTION_TYPES from "../constants/action_types";
 
 const initialState = {
   isFetching: false,
@@ -8,19 +8,19 @@ const initialState = {
 
 const product = (state = initialState, action) => {
   switch (action.type) {
-    case types.PRODUCT_CREATE_REQUEST:
-    case types.PRODUCT_DESTROY_REQUEST:
-    case types.PRODUCT_FETCH_REQUEST:
-    case types.PRODUCT_UPDATE_REQUEST:
+    case  ACTION_TYPES.PRODUCT_CREATE_REQUEST:
+    case  ACTION_TYPES.PRODUCT_DESTROY_REQUEST:
+    case  ACTION_TYPES.PRODUCT_FETCH_REQUEST:
+    case  ACTION_TYPES.PRODUCT_UPDATE_REQUEST:
       return {
         ...state,
         isFetching: true
       };
 
-    case types.PRODUCT_CREATE_RESPONSE:
-    case types.PRODUCT_DESTROY_RESPONSE:
-    case types.PRODUCT_FETCH_RESPONSE:
-    case types.PRODUCT_UPDATE_RESPONSE:
+    case  ACTION_TYPES.PRODUCT_CREATE_RESPONSE:
+    case  ACTION_TYPES.PRODUCT_DESTROY_RESPONSE:
+    case  ACTION_TYPES.PRODUCT_FETCH_RESPONSE:
+    case  ACTION_TYPES.PRODUCT_UPDATE_RESPONSE:
       return {
         ...state,
         isFetching: false,
