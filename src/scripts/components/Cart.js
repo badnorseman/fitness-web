@@ -7,18 +7,16 @@ const Cart = ({
   onClick
 }) => (
   <div className="mdl-grid">
-    <div className="mdl-cell mdl-cell--12-col">
-      <div className="mdl-card mdl-shadow--2dp">
-        <div className="mdl-card__menu">
-          <Link
-            styles="mdl-button mdl-js-button mdl-button--icon"
-            onClick={onClick}
-          >
-            <i className="zmdi zmdi-close"></i>
-          </Link>
-        </div>
-        <div className="mdl-card__supporting-text">
-        </div>
+    <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+      <div className="mdl-card__menu">
+        <Link
+          styles="mdl-button mdl-js-button mdl-button--icon"
+          onClick={onClick}
+        >
+          <i className="zmdi zmdi-close"></i>
+        </Link>
+      </div>
+      <div className="mdl-card__supporting-text">
       </div>
     </div>
   </div>

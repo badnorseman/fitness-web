@@ -29,44 +29,42 @@ const ShowProduct = ({
 
   return (
     <div className="mdl-grid">
-      <div className="mdl-cell mdl-cell--12-col">
-        <div className="block--center-horizontally__margin mdl-card mdl-shadow--2dp"
-          style={cardStyle}>
-          <div className="mdl-card__menu">
-            <Link
-              styles="mdl-button mdl-js-button mdl-button--icon"
-              onClick={onClose}
-            >
-              <i className="zmdi zmdi-close"></i>
-            </Link>
-          </div>
-          <div className="mdl-card__supporting-text">
-            <div className="block--center-horizontally__flex">
-              <div style={blockStyle}>
-                <img src={image} alt="" style={imageStyle} />
+      <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col block--center-horizontally__margin"
+        style={cardStyle}>
+        <div className="mdl-card__menu">
+          <Link
+            styles="mdl-button mdl-js-button mdl-button--icon"
+            onClick={onClose}
+          >
+            <i className="zmdi zmdi-close"></i>
+          </Link>
+        </div>
+        <div className="mdl-card__supporting-text">
+          <div className="block--center-horizontally__flex">
+            <div style={blockStyle}>
+              <img src={image} alt="" style={imageStyle} />
+            </div>
+            <div style={blockStyle}>
+              <div>
+                <h3>{name}</h3>
+                <h6>{currency} {price}</h6>
               </div>
-              <div style={blockStyle}>
-                <div>
-                  <h3>{name}</h3>
-                  <h6>{currency} {price}</h6>
-                </div>
-                <button
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-                  onClick={ev => {
-                    ev.preventDefault();
-                    onBuy(product);
-                  }}
-                >
-                  Buy
-                </button>
-              </div>
+              <button
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                onClick={ev => {
+                  ev.preventDefault();
+                  onBuy(product);
+                }}
+              >
+                Buy
+              </button>
             </div>
           </div>
-          <div className="mdl-card__supporting-text">
-            <div>
-              <h3>Description</h3>
-              <p>{description}</p>
-            </div>
+        </div>
+        <div className="mdl-card__supporting-text">
+          <div>
+            <h3>Description</h3>
+            <p>{description}</p>
           </div>
         </div>
       </div>
