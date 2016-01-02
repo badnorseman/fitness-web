@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { getTransactions } from "../actions/transaction_actions";
 import EditUser from "./users/EditUser";
 import TransactionList from "./transactions/TransactionList";
-import "./account.css";
 
 class Account extends Component {
   constructor(props) {
@@ -19,12 +18,23 @@ class Account extends Component {
   render() {
     const { currentUser, transactions } = this.props;
 
+    const styles = {
+      card: {
+        height: "auto",
+        width: "80%"
+      }
+    };
+
     return (
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
-          <div className="account-card block--center-horizontally__margin"><h3>Account</h3></div>
-          <div className="account-card block--center-horizontally__margin mdl-card mdl-shadow--2dp">
-            <div className="block--center-horizontally__margin mdl-card__supporting-text">
+          <div className="block--center-horizontally__margin"
+            style={styles.card}>
+            <h3>Account</h3>
+          </div>
+          <div className="mdl-card mdl-shadow--2dp block--center-horizontally__margin"
+            style={styles.card}>
+            <div className="mdl-card__supporting-text block--center-horizontally__margin">
               <div className="mdl-tabs mdl-js-tabs">
                 <div className="mdl-tabs__tab-bar">
                   <a href="#profile-panel" className="mdl-tabs__tab is-active">Profile</a>
