@@ -3,21 +3,22 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
-import About from "./footer/About";
+import About from "./About";
 import Account from "./Account";
 import Dashboard from "./Dashboard";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
-import Footer from "./footer/Footer";
-import Help from "./footer/Help";
+import Footer from "./Footer";
+import Help from "./Help";
 import Login from "./auth/Login";
 import Marketplace from "./Marketplace";
 import Navigation from "./Navigation";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
+import ShowCoach from "./coaches/ShowCoach";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "./auth/Signup";
-import Terms from "./footer/Terms";
+import Terms from "./Terms";
 import "./layout.css";
 
 class Layout extends Component {
@@ -57,6 +58,9 @@ class Layout extends Component {
         break;
       case "NEWTRANSACTION":
         content = <NewTransaction product={param} />;
+        break;
+      case "SHOWCOACH":
+        content = <ShowCoach coach={param} />;
         break;
       case "SHOWPRODUCT":
         content = <ShowProduct product={param} />;

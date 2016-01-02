@@ -1,14 +1,19 @@
 "use strict";
 
-const ProductGridTile = ({
-  product,
+const CoachGridTile = ({
+  coach,
   onShow
 }) => {
-  const { currency, image, name, price } = product;
+  const { avatar, name } = coach;
 
   const styles = {
-    cell: {
-      margin: "0"
+    avatar: {
+      backgroundImage: "url(" + avatar + ")",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      height: "160px",
+      WebkitTransition: "all",
+      msTransition: "all"
     },
     card: {
       height: "auto",
@@ -18,13 +23,8 @@ const ProductGridTile = ({
       maxWidth: "320px",
       width: "320px"
     },
-      image: {
-      backgroundImage: "url(" + image + ")",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      height: "160px",
-      WebkitTransition: "all",
-      msTransition: "all"
+    cell: {
+      margin: "0"
     }
   };
 
@@ -32,17 +32,16 @@ const ProductGridTile = ({
     <a href="#!"
       onClick={ev => {
         ev.preventDefault();
-        onShow(product);
+        onShow(coach);
       }}
     >
       <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop"
         style={styles.cell}
        >
         <div className="mdl-card mdl-shadow--2dp" style={styles.card}>
-          <div className="mdl-card__title" style={styles.image}></div>
+          <div className="mdl-card__title" style={styles.avatar}></div>
           <div className="mdl-card__supporting-text">
             <h5>{name}</h5>
-            <h6>{currency}&nbsp;{price}</h6>
           </div>
         </div>
       </div>
@@ -50,4 +49,4 @@ const ProductGridTile = ({
   );
 };
 
-export default ProductGridTile
+export default CoachGridTile

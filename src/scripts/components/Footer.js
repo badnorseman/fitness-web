@@ -1,7 +1,7 @@
 "use strict";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
-import Link from "../Link";
+import { changeRoute } from "../actions/router_actions";
+import Link from "./Link";
 
 const Footer = ({
   goToAbout,
@@ -20,9 +20,9 @@ const Footer = ({
       </div>
       <div className="mdl-mini-footer__right-section">
         <ul className="mdl-mini-footer__link-list">
-          <li><Link onClick={goToAbout}>About Us</Link></li>
+          <li><Link onClick={goToAbout}>About</Link></li>
           <li><Link onClick={goToHelp}>Help</Link></li>
-          <li><Link onClick={goToTerms}>Terms of Use</Link></li>
+          <li><Link onClick={goToTerms}>Terms</Link></li>
         </ul>
       </div>
     </div>
@@ -36,10 +36,12 @@ const Company = () => {
 
   return (
     <div className="mdl-mini-footer">
-      <span>
-        &copy;&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS&nbsp;&nbsp;
-        Esromgade&nbsp;15&nbsp;&nbsp;Suite&nbsp;1102&nbsp;&nbsp;
-        2200&nbsp;Copenhagen&nbsp;N&nbsp;&nbsp;Denmark&nbsp;&nbsp;
+      <span className="mdl-layout--small-screen-only block--center-horizontally__margin">
+        Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
+      </span>
+      <span className="mdl-layout--large-screen-only">
+        Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS.
+        Esromgade&nbsp;15,&nbsp;Suite&nbsp;1102,&nbsp;Copenhagen&nbsp;2200,&nbsp;Denmark.
         CVR&nbsp;35418067
       </span>
     </div>

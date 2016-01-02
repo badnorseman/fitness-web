@@ -1,5 +1,5 @@
 "use strict";
-import * as types from "../constants/action_types";
+import * as  ACTION_TYPES from "../constants/action_types";
 import {
   login as apiLogin,
   logout as apiLogout,
@@ -9,14 +9,14 @@ import {
 
 function loginRequest(data) {
   return {
-    type: types.LOGIN_REQUEST,
+    type:  ACTION_TYPES.LOGIN_REQUEST,
     data: data
   };
 }
 
 function loginResponse(response) {
   return {
-    type: types.LOGIN_RESPONSE,
+    type:  ACTION_TYPES.LOGIN_RESPONSE,
     data: response
   };
 }
@@ -24,7 +24,7 @@ function loginResponse(response) {
 function loginError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.LOGIN_ERROR,
+    type:  ACTION_TYPES.LOGIN_ERROR,
     errors: errors
   };
 }
@@ -40,20 +40,20 @@ export function login(data) {
 
 function logoutRequest() {
   return {
-    type: types.LOGOUT_REQUEST
+    type:  ACTION_TYPES.LOGOUT_REQUEST
   };
 }
 
 function logoutResponse() {
   return {
-    type: types.LOGOUT_RESPONSE
+    type:  ACTION_TYPES.LOGOUT_RESPONSE
   };
 }
 
 function logoutError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.LOGOUT_ERROR,
+    type:  ACTION_TYPES.LOGOUT_ERROR,
     errors: errors
   };
 }
@@ -69,14 +69,14 @@ export function logout() {
 
 function oauthRequest(provider) {
   return {
-    type: types.OAUTH_REQUEST,
+    type:  ACTION_TYPES.OAUTH_REQUEST,
     provider: provider
   };
 }
 
 function oauthResponse(response) {
   return {
-    type: types.OAUTH_RESPONSE,
+    type:  ACTION_TYPES.OAUTH_RESPONSE,
     data: response
   };
 }
@@ -84,7 +84,7 @@ function oauthResponse(response) {
 function oauthError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.OAUTH_ERROR,
+    type:  ACTION_TYPES.OAUTH_ERROR,
     errors: errors
   };
 }
@@ -100,14 +100,14 @@ export function oauth(provider) {
 
 function signupRequest(data) {
   return {
-    type: types.SIGNUP_REQUEST,
+    type:  ACTION_TYPES.SIGNUP_REQUEST,
     data: data
   };
 }
 
 function signupResponse(response) {
   return {
-    type: types.SIGNUP_RESPONSE,
+    type:  ACTION_TYPES.SIGNUP_RESPONSE,
     data: response
   };
 }
@@ -115,7 +115,7 @@ function signupResponse(response) {
 function signupError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.SIGNUP_ERROR,
+    type:  ACTION_TYPES.SIGNUP_ERROR,
     errors: errors
   };
 }

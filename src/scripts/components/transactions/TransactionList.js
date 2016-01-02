@@ -16,23 +16,25 @@ const TransactionList = ({
     return items;
   }(transactions);
 
-  const headerElementStyle = {
-    margin: "0 10px 10px 0",
-    maxWidth: "800px",
-    width: "25%"
-  };
-
-  const listStyle = {
-    padding: "20px 0 0 0"
+  const styles = {
+    headerElement: {
+      margin: "0 0 10px 0",
+      maxWidth: "800px",
+      width: "25%"
+    },
+    list: {
+      padding: "20px 0 0 0"
+    }
   };
 
   return (
-    <div className="block--center-horizontally__margin" style={listStyle}>
+    <div className="block--center-horizontally__margin"
+      style={styles.list}>
       <div className="block--center-horizontally__flex">
-        <div style={headerElementStyle}>DATE</div>
-        <div style={headerElementStyle}>CURRENCY</div>
-        <div style={headerElementStyle}>AMOUNT</div>
-        <div style={headerElementStyle}>TRANSACTION ID</div>
+        <div style={styles.headerElement}>DATE</div>
+        <div style={styles.headerElement}>CURRENCY</div>
+        <div style={styles.headerElement}>AMOUNT</div>
+        <div style={styles.headerElement}>TRANSACTION ID</div>
       </div>
       {items}
     </div>

@@ -1,5 +1,5 @@
 "use strict";
-import * as types from "../constants/action_types";
+import * as  ACTION_TYPES from "../constants/action_types";
 import { Schema, arrayOf, normalize } from "normalizr";
 import { create, destroy, fetchAll, update } from "../api/api";
 
@@ -8,7 +8,7 @@ const entityName = "product";
 
 function productCreateRequest(data) {
   return {
-    type: types.PRODUCT_CREATE_REQUEST,
+    type:  ACTION_TYPES.PRODUCT_CREATE_REQUEST,
     data: data
   };
 }
@@ -16,7 +16,7 @@ function productCreateRequest(data) {
 function productCreateResponse(response) {
   const normalized = normalize(response, arrayOf(productSchema));
   return {
-    type: types.PRODUCT_CREATE_RESPONSE,
+    type:  ACTION_TYPES.PRODUCT_CREATE_RESPONSE,
     data: normalized.entities.products
   };
 }
@@ -24,7 +24,7 @@ function productCreateResponse(response) {
 function productCreateError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.PRODUCT_CREATE_ERROR,
+    type:  ACTION_TYPES.PRODUCT_CREATE_ERROR,
     errors: errors
   };
 }
@@ -41,7 +41,7 @@ export function createProduct(data) {
 
 function productDestroyRequest(id) {
   return {
-    type: types.PRODUCT_DESTROY_REQUEST,
+    type:  ACTION_TYPES.PRODUCT_DESTROY_REQUEST,
     id: id
   };
 }
@@ -49,7 +49,7 @@ function productDestroyRequest(id) {
 function productDestroyResponse(response) {
   const normalized = normalize(response, arrayOf(productSchema));
   return {
-    type: types.PRODUCT_DESTROY_RESPONSE,
+    type:  ACTION_TYPES.PRODUCT_DESTROY_RESPONSE,
     data: normalized.entities.products
   };
 }
@@ -57,7 +57,7 @@ function productDestroyResponse(response) {
 function productDestroyError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.PRODUCT_DESTROY_ERROR,
+    type:  ACTION_TYPES.PRODUCT_DESTROY_ERROR,
     errors: errors
   };
 }
@@ -74,14 +74,14 @@ export function destroyProduct(id) {
 
 function productFetchRequest() {
   return {
-    type: types.PRODUCT_FETCH_REQUEST
+    type:  ACTION_TYPES.PRODUCT_FETCH_REQUEST
   };
 }
 
 function productFetchResponse(response) {
   const normalized = normalize(response, arrayOf(productSchema));
   return {
-    type: types.PRODUCT_FETCH_RESPONSE,
+    type:  ACTION_TYPES.PRODUCT_FETCH_RESPONSE,
     data: normalized.entities.products
   };
 }
@@ -89,7 +89,7 @@ function productFetchResponse(response) {
 function productFetchError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.PRODUCT_FETCH_ERROR,
+    type:  ACTION_TYPES.PRODUCT_FETCH_ERROR,
     errors: errors
   };
 }
@@ -105,7 +105,7 @@ export function getProducts() {
 
 function productUpdateRequest(data) {
   return {
-    type: types.PRODUCT_UPDATE_REQUEST,
+    type:  ACTION_TYPES.PRODUCT_UPDATE_REQUEST,
     data: data
   };
 }
@@ -113,7 +113,7 @@ function productUpdateRequest(data) {
 function productUpdateResponse(response) {
   const normalized = normalize(response, arrayOf(productSchema));
   return {
-    type: types.PRODUCT_UPDATE_RESPONSE,
+    type:  ACTION_TYPES.PRODUCT_UPDATE_RESPONSE,
     data: normalized.entities.products
   };
 }
@@ -121,7 +121,7 @@ function productUpdateResponse(response) {
 function productUpdateError(error) {
   const errors = JSON.parse(error.responseText).errors;
   return {
-    type: types.PRODUCT_UPDATE_ERROR,
+    type:  ACTION_TYPES.PRODUCT_UPDATE_ERROR,
     errors: errors
   };
 }

@@ -53,19 +53,21 @@ class EditUser extends Component {
     const { user } = this.props;
     const { avatar, birth_date, email, gender, name } = user;
 
-    const avatarStyle = {
-      borderRadius: "48px",
-      height: "96px",
-      width: "96px"
-    };
-
-    const formStyle = {
-      padding: "50px 0 0 0",
-      width: "300px"
+    const styles = {
+      avatar: {
+        borderRadius: "48px",
+        height: "96px",
+        width: "96px"
+      },
+      form: {
+        padding: "50px 0 0 0",
+        width: "300px"
+      }
     };
 
     return (
-      <form className="edit-user block--center-horizontally__margin" style={formStyle}>
+      <form className="block--center-horizontally__margin"
+        style={styles.form}>
         <div>
           <InputField
             fieldId="name"
@@ -103,7 +105,7 @@ class EditUser extends Component {
             ref="email" />
         </div>
         <div>
-          <img src={avatar} alt="" style={avatarStyle} />
+          <img src={avatar} alt="" style={styles.avatar} />
         </div>
         <div>
           <InputFile ref="avatar" />
