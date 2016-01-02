@@ -9,16 +9,18 @@ const NewProduct = ({
   onAdd,
   onClose
 }) => {
-  const cardStyle = {
-    height: "auto",
-    maxWidth: "800px",
-    width: "800px"
+  const styles = {
+    card: {
+      height: "auto",
+      maxWidth: "800px",
+      width: "800px"
+    }
   };
 
   return (
     <div className="mdl-grid">
       <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col block--center-horizontally__margin"
-        style={cardStyle}>
+        style={styles.card}>
         <div className="mdl-card__menu">
           <Link
             styles="mdl-button mdl-js-button mdl-button--icon"

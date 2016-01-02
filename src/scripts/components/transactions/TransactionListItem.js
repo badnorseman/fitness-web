@@ -5,20 +5,22 @@ const TransactionListItem = ({
 }) => {
   const { amount, currency, date, transaction_id } = transaction;
 
-  const itemElementStyle = {
-    margin: "10px 10px 10px 0",
-    maxWidth:"800px",
-    width: "25%"
+  const styles = {
+    itemElement: {
+      margin: "10px 10px 10px 0",
+      maxWidth:"800px",
+      width: "25%"
+    }
   };
 
   return (
     <div>
       <hr />
       <div className="block--center-horizontally__flex">
-        <div style={itemElementStyle}>{date}</div>
-        <div style={itemElementStyle}>{currency}</div>
-        <div style={itemElementStyle}>{amount}</div>
-        <div style={itemElementStyle}>{transaction_id}</div>
+        <div style={styles.itemElement}>{date}</div>
+        <div style={styles.itemElement}>{currency}</div>
+        <div style={styles.itemElement}>{amount}</div>
+        <div style={styles.itemElement}>{transaction_id}</div>
       </div>
     </div>
   );

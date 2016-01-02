@@ -6,26 +6,26 @@ const ProductGridTile = ({
 }) => {
   const { currency, image, name, price } = product;
 
-  const cellStyle = {
-    margin: "0"
-  };
-
-  const cardStyle = {
-    height: "auto",
-    margin: "0 auto",
-    marginBottom: "10px",
-    marginRight: "10px",
-    maxWidth: "320px",
-    width: "320px"
-  };
-
-  const imageStyle = {
-    backgroundImage: "url(" + image + ")",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    height: "160px",
-    WebkitTransition: "all",
-    msTransition: "all"
+  const styles = {
+    cell: {
+      margin: "0"
+    },
+    card: {
+      height: "auto",
+      margin: "0 auto",
+      marginBottom: "10px",
+      marginRight: "10px",
+      maxWidth: "320px",
+      width: "320px"
+    },
+      image: {
+      backgroundImage: "url(" + image + ")",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      height: "160px",
+      WebkitTransition: "all",
+      msTransition: "all"
+    }
   };
 
   return (
@@ -36,13 +36,13 @@ const ProductGridTile = ({
       }}
     >
       <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop"
-        style={cellStyle}
+        style={styles.cell}
        >
-        <div className="mdl-card mdl-shadow--2dp" style={cardStyle}>
-          <div className="mdl-card__title" style={imageStyle}></div>
+        <div className="mdl-card mdl-shadow--2dp" style={styles.card}>
+          <div className="mdl-card__title" style={styles.image}></div>
           <div className="mdl-card__supporting-text">
             <h5>{name}</h5>
-            <h6>{currency} {price}</h6>
+            <h6>{currency}&nbsp;{price}</h6>
           </div>
         </div>
       </div>

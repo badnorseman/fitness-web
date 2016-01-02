@@ -59,24 +59,25 @@ class NewTransaction extends Component {
   }
 
   render() {
-    const cardStyle = {
-      height: "auto",
-      margin: "0 auto",
-      maxWidth: "400px",
-      padding: "10px",
-      width: "400px"
-    };
-
-    const dropinStyle = {
-      marginBottom: "20px",
-      marginTop: "40px",
-      width: "100%"
+    const styles = {
+      card: {
+        height: "auto",
+        margin: "0 auto",
+        maxWidth: "400px",
+        padding: "10px",
+        width: "400px"
+      },
+      dropin: {
+        marginBottom: "20px",
+        marginTop: "40px",
+        width: "100%"
+      }
     };
 
     return (
       <div className="mdl-grid">
         <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col block--center-horizontally__margin"
-          style={cardStyle}>
+          style={styles.card}>
           <div className="mdl-card__menu">
             <Link
               styles="mdl-button mdl-js-button mdl-button--icon"
@@ -88,7 +89,7 @@ class NewTransaction extends Component {
           <div className="mdl-card__supporting-text">
             <form onSubmit={this._handleSubmit}>
               <div id="dropin-container"
-                style={dropinStyle}>
+                style={styles.dropin}>
               </div>
               <div className="text--center">
                 <button
