@@ -1,7 +1,7 @@
 "use strict";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
-import Link from "../Link";
+import { changeRoute } from "../actions/router_actions";
+import Link from "./Link";
 
 const Footer = ({
   goToAbout,

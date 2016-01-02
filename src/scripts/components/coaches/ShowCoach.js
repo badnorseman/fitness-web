@@ -14,10 +14,6 @@ const ShowCoach = ({
   const email = "hello@fitbird.com";
   const name = "Coach";
 
-  coach.products.forEach(el => {
-    console.log(products[el.id]);
-  });
-
   const styles = {
     avatar: {
       borderRadius: "96px",
@@ -28,8 +24,6 @@ const ShowCoach = ({
     },
     card: {
       height: "320px",
-      marginBottom: "10px",
-      marginRight: "10px",
       width: "800px"
     },
     grid: {
@@ -61,19 +55,63 @@ const ShowCoach = ({
       <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col"
         style={styles.card}>
         <div className="mdl-card__supporting-text">
-          <div>
-            <h3>{name}</h3>
-          </div>
+          <h3>{name}</h3>
         </div>
       </div>
       <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col"
         style={styles.card}>
         <div className="mdl-card__supporting-text">
-          <div>
-            <h3>Contact</h3>
-            <p>{email}</p>
-          </div>
+          <h3>Contact</h3>
+          <p>{email}</p>
         </div>
+      </div>
+      <ProductList
+        coach={coach}
+        products={products} />
+    </div>
+  );
+};
+
+const ProductList = ({
+  coach,
+  products
+}) => {
+  let items = (products) => {
+    let items = [];
+    coach.products.forEach(el => {
+      items.push(
+        <ProductListItem key={el.id} product={products[el.id]} />
+      );
+    })
+    return items;
+  }(products);
+
+  return (
+    <div>
+      {items}
+    </div>
+  );
+};
+
+const ProductListItem = ({
+  product
+}) => {
+  const { currency, description, name, price } = product;
+
+  const styles = {
+    card: {
+      height: "320px",
+      width: "800px"
+    }
+  };
+
+  return (
+    <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col"
+      style={styles.card}>
+      <div className="mdl-card__supporting-text">
+        <h3>{name}</h3>
+        <p>{description}</p>
+        <p>{currency}&nbsp;{price}</p>
       </div>
     </div>
   );
