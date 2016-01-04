@@ -13,7 +13,6 @@
     "url": "https://github.com/fitbird/web-app.git"
   },
   "dependencies": {
-    "auth0-lock": "^7.12.3",
     "braintree-web": "^2.17.4",
     "jquery": "^2.1.4",
     "normalizr": "^1.4.0",

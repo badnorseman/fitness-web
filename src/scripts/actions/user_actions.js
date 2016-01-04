@@ -1,74 +1,12 @@
 "use strict";
 import * as  ACTION_TYPES from "../constants/action_types";
-import { create, destroy, fetchById, update } from "../api/api";
+import { Schema, arrayOf, normalize } from "normalizr";
+import { fetchAll, update } from "../api/api";
 
+const userSchema = new Schema("users", { idAttribute: "id" });
 const entityName = "user";
 
-function userCreateRequest(data) {
-  return {
-    type:  ACTION_TYPES.USER_CREATE_REQUEST,
-    data: data
-  };
-}
-
-function userCreateResponse(response) {
-  const normalized = normalize(response, arrayOf(userSchema));
-  return {
-    type:  ACTION_TYPES.USER_CREATE_RESPONSE,
-    data: normalized.entities.users
-  };
-}
-
-function userCreateError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.USER_CREATE_ERROR,
-    errors: errors
-  };
-}
-
-export function createUser(data) {
-  return dispatch => {
-    dispatch(userCreateRequest(data));
-    return create(entityName, data)
-    .then(() => fetchAll(entityName))
-    .then(response => dispatch(userCreateResponse(response)))
-    .catch(error => dispatch(userCreateError(error)))
-  };
-}
-
-function userDestroyRequest(id) {
-  return {
-    type:  ACTION_TYPES.USER_DESTROY_REQUEST,
-    id: id
-  };
-}
-
-function userDestroyResponse(response) {
-  return {
-    type:  ACTION_TYPES.USER_DESTROY_RESPONSE,
-    data: response
-  };
-}
-
-function userDestroyError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.USER_DESTROY_ERROR,
-    errors: errors
-  };
-}
-
-export function destroyUser(id) {
-  return dispatch => {
-    dispatch(userDestroyRequest(id));
-    return destroy(entityName, id)
-    .then(response => dispatch(userDestroyResponse(response)))
-    .catch(error => dispatch(userDestroyError(error)))
-  };
-}
-
-function userFetchRequest(id) {
+function userFetchRequest() {
   return {
     type:  ACTION_TYPES.USER_FETCH_REQUEST,
     id: id
@@ -76,9 +14,10 @@ function userFetchRequest(id) {
 }
 
 function userFetchResponse(response) {
+  const normalized = normalize(response, arrayOf(userSchema));
   return {
     type:  ACTION_TYPES.USER_FETCH_RESPONSE,
-    data: response
+    data: normalized.entities.users
   };
 }
 
@@ -90,10 +29,10 @@ function userFetchError(error) {
   };
 }
 
-export function getUser(id) {
+export function getUsers() {
   return dispatch => {
-    dispatch(userFetchRequest(id));
-    return fetchById(entityName, id)
+    dispatch(userFetchRequest());
+    return fetchAll(entityName)
       .then(response => dispatch(userFetchResponse(response)))
       .catch(error => dispatch(userFetchError(error)))
   };
