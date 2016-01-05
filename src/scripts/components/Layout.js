@@ -13,9 +13,9 @@ import Help from "./Help";
 import Login from "./auth/Login";
 import Marketplace from "./Marketplace";
 import Navigation from "./Navigation";
+import NewPassword from "./auth/NewPassword";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
-import PasswordReset from "./auth/PasswordReset";
 import ShowCoach from "./coaches/ShowCoach";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "./auth/Signup";
@@ -54,14 +54,14 @@ class Layout extends Component {
       case "LOGIN":
         content = <Login />;
         break;
+      case "NEWPASSWORD":
+        content = <NewPassword />;
+        break;
       case "NEWPRODUCT":
         content = <NewProduct />;
         break;
       case "NEWTRANSACTION":
         content = <NewTransaction product={param} />;
-        break;
-      case "PASSWORDRESET":
-        content = <PasswordReset />;
         break;
       case "SHOWCOACH":
         content = <ShowCoach coach={param} />;

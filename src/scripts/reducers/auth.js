@@ -21,18 +21,6 @@ const auth = (state = initialState, action) => {
         currentUser: action.data
       };
 
-    case  ACTION_TYPES.AUTH0LOGIN_REQUEST:
-    case  ACTION_TYPES.AUTH0SIGNUP_REQUEST:
-      setUserToken(action.data.token);
-      return state;
-
-    case  ACTION_TYPES.AUTH0LOGIN_RESPONSE:
-    case  ACTION_TYPES.AUTH0SIGNUP_RESPONSE:
-      return {
-        ...state,
-        currentUser: action.data
-      };
-
     case  ACTION_TYPES.LOGIN_RESPONSE:
     case  ACTION_TYPES.OAUTH_RESPONSE:
       setUserToken(action.data.token);
@@ -41,8 +29,7 @@ const auth = (state = initialState, action) => {
         currentUser: action.data
       };
 
-    case  ACTION_TYPES.AUTH0LOGIN_ERROR:
-    case  ACTION_TYPES.AUTH0SIGNUP_ERROR:
+    case  ACTION_TYPES.LOGIN_UPDATE_RESPONSE:
     case  ACTION_TYPES.LOGIN_ERROR:
     case  ACTION_TYPES.LOGOUT_REQUEST:
     case  ACTION_TYPES.OAUTH_ERROR:

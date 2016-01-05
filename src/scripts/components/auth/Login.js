@@ -22,7 +22,7 @@ class Login extends Component {
   }
 
   _handleForgotPassword() {
-    this.props.dispatch(changeRoute("PASSWORDRESET"));
+    this.props.dispatch(changeRoute("NEWPASSWORD"));
   }
 
   _handleSubmit(ev) {
