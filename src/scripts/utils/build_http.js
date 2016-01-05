@@ -18,12 +18,11 @@ const buildHeaders = () => {
 const buildUrl = (serverName, entityName, params) => {
   const urlParams = buildUrlParams(params);
 
-  let pluralized = "";
-  if (entityName === "coach") { pluralized = "coaches"; }
-  else if (entityName === "identity") { pluralized = "identities"; }
-  else { pluralized = `${entityName.toLowerCase()}s`; }
-
-  return `${serverName}/${pluralized}${urlParams}`;
+  if (entityName === "coach") {
+    return `${serverName}/coaches${urlParams}`;
+  } else {
+    return `${serverName}/${entityName.toLowerCase()}s${urlParams}`;
+  }
 };
 
 const buildUrlParams = (params) => {

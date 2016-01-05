@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { getTransactions } from "../actions/transaction_actions";
+import EditLogin from "./auth/EditLogin";
 import EditUser from "./users/EditUser";
 import TransactionList from "./transactions/TransactionList";
 
@@ -47,7 +48,9 @@ class Account extends Component {
                   />
                 </div>
                 <div className="mdl-tabs__panel" id="security-panel">
-                  <p>Edit email and/or password. Current password is required.</p>
+                  <EditLogin
+                    user={currentUser}
+                  />
                 </div>
                 <div className="mdl-tabs__panel" id="payment-history-panel">
                   <TransactionList

@@ -33,7 +33,7 @@ class EditUser extends Component {
     let id = this.props.user.id;
     let name = this.refs.name.state.fieldValue;
 
-    if (email) {
+    if (email && gender) {
       this.props.dispatch(updateUser({
         avatar: avatar,
         birth_date: birthDay,
@@ -115,7 +115,7 @@ class EditUser extends Component {
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={this._handleSubmit}
           >
-            Save
+            SAVE
           </button>
         </div>
       </form>

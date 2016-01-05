@@ -3,12 +3,12 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
-import { createPassword } from "../../actions/password_actions";
+import { createPassword } from "../../actions/auth_actions";
 import InputField from "../InputField";
 import Link from "../Link";
 import "./login.css";
 
-class PasswordReset extends Component {
+class NewPassword extends Component {
   constructor(props) {
     super(props);
     this._handleClose = this._handleClose.bind(this);
@@ -69,4 +69,4 @@ class PasswordReset extends Component {
   }
 }
 
-export default connect()(PasswordReset)
+export default connect()(NewPassword)

@@ -6,7 +6,6 @@ import { changeRoute } from "../actions/router_actions";
 import About from "./About";
 import Account from "./Account";
 import Dashboard from "./Dashboard";
-import EditPassword from "./auth/EditPassword";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
 import Footer from "./Footer";
@@ -45,9 +44,6 @@ class Layout extends Component {
         break;
       case "DASHBOARD":
         content = <Dashboard />;
-        break;
-      case "EDITPASSWORD":
-        content = <EditPassword />;
         break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;

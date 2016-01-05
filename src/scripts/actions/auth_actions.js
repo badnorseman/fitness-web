@@ -4,7 +4,9 @@ import {
   login as apiLogin,
   logout as apiLogout,
   oauth as apiOauth,
-  signup as apiSignup
+  signup as apiSignup,
+  updateLogin as apiUpdateLogin,
+  createPassword as apiCreatePassword
 } from "../api/api";
 
 function loginRequest(data) {
@@ -126,5 +128,67 @@ export function signup(data) {
     return apiSignup(data)
     .then(response => dispatch(signupResponse(response)))
     .catch(error => dispatch(signupError(error)))
+  };
+}
+
+function loginUpdateRequest(data) {
+  return {
+    type:  ACTION_TYPES.LOGIN_UPDATE_REQUEST,
+    data: data
+  };
+}
+
+function loginUpdateResponse(response) {
+  return {
+    type:  ACTION_TYPES.LOGIN_UPDATE_RESPONSE,
+    data: response
+  };
+}
+
+function loginUpdateError(error) {
+  const errors = JSON.parse(error.responseText).errors;
+  return {
+    type:  ACTION_TYPES.LOGIN_UPDATE_ERROR,
+    errors: errors
+  };
+}
+
+export function updateLogin(data) {
+  return dispatch => {
+    dispatch(loginUpdateRequest(data));
+    return apiUpdateLogin(data)
+      .then(response => dispatch(loginUpdateResponse(response)))
+      .catch(error => dispatch(loginUpdateError(error)))
+  };
+}
+
+function passwordCreateRequest(data) {
+  return {
+    type:  ACTION_TYPES.PASSWORD_CREATE_REQUEST,
+    data: data
+  };
+}
+
+function passwordCreateResponse(response) {
+  return {
+    type:  ACTION_TYPES.PASSWORD_CREATE_RESPONSE,
+    data: response
+  };
+}
+
+function passwordCreateError(error) {
+  const errors = JSON.parse(error.responseText).errors;
+  return {
+    type:  ACTION_TYPES.PASSWORD_CREATE_ERROR,
+    errors: errors
+  };
+}
+
+export function createPassword(data) {
+  return dispatch => {
+    dispatch(passwordCreateRequest(data));
+    return apiCreatePassword(data)
+    .then(response => dispatch(passwordCreateResponse(response)))
+    .catch(error => dispatch(passwordCreateError(error)))
   };
 }
