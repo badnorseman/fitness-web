@@ -1,30 +1,10 @@
 "use strict";
-import $ from "jquery";
 import * as  ACTION_TYPES from "../constants/action_types";
 import { Schema, arrayOf, normalize } from "normalizr";
-import { SERVER } from "../constants/server";
-import { buildHeaders } from "../utils/build_http";
+import { fetchAll } from "../api/api";
 
 const coachSchema = new Schema("coaches", { idAttribute: "id" });
 const entityName = "coach";
-
-const buildUrl = () => {
-  const pluralized = `${entityName.toLowerCase()}es`;
-  return `${SERVER}/${pluralized}`;
-};
-
-const fetchAll = () => {
-  const url = buildUrl(SERVER, entityName);
-  const headers = buildHeaders();
-  return Promise.resolve(
-    $.ajax({
-      url: url,
-      dataType: "json",
-      type: "GET",
-      headers: headers
-    })
-  );
-};
 
 function coachFetchRequest() {
   return {

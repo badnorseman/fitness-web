@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../../actions/router_actions";
-import { createPasswordReset } from "../../actions/password_reset_actions";
+import { createPassword } from "../../actions/password_actions";
 import InputField from "../InputField";
 import Link from "../Link";
 import "./login.css";
@@ -25,7 +25,7 @@ class PasswordReset extends Component {
     let email = this.refs.email.state.fieldValue;
 
     if (email) {
-      this.props.dispatch(createPasswordReset({
+      this.props.dispatch(createPassword({
         email: email
       }));
     }

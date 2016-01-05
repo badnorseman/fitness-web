@@ -6,6 +6,7 @@ import { changeRoute } from "../actions/router_actions";
 import About from "./About";
 import Account from "./Account";
 import Dashboard from "./Dashboard";
+import EditPassword from "./auth/EditPassword";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
 import Footer from "./Footer";
@@ -13,9 +14,9 @@ import Help from "./Help";
 import Login from "./auth/Login";
 import Marketplace from "./Marketplace";
 import Navigation from "./Navigation";
+import NewPassword from "./auth/NewPassword";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
-import PasswordReset from "./auth/PasswordReset";
 import ShowCoach from "./coaches/ShowCoach";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "./auth/Signup";
@@ -45,6 +46,9 @@ class Layout extends Component {
       case "DASHBOARD":
         content = <Dashboard />;
         break;
+      case "EDITPASSWORD":
+        content = <EditPassword />;
+        break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;
         break;
@@ -54,14 +58,14 @@ class Layout extends Component {
       case "LOGIN":
         content = <Login />;
         break;
+      case "NEWPASSWORD":
+        content = <NewPassword />;
+        break;
       case "NEWPRODUCT":
         content = <NewProduct />;
         break;
       case "NEWTRANSACTION":
         content = <NewTransaction product={param} />;
-        break;
-      case "PASSWORDRESET":
-        content = <PasswordReset />;
         break;
       case "SHOWCOACH":
         content = <ShowCoach coach={param} />;
