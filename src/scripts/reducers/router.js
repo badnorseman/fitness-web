@@ -15,8 +15,6 @@ const router = (state = initialState, action) => {
         param: action.param
       };
 
-    case  ACTION_TYPES.AUTH0LOGIN_RESPONSE:
-    case  ACTION_TYPES.AUTH0SIGNUP_RESPONSE:
     case  ACTION_TYPES.LOGIN_RESPONSE:
     case  ACTION_TYPES.LOGOUT_REQUEST:
     case  ACTION_TYPES.OAUTH_RESPONSE:
@@ -33,6 +31,8 @@ const router = (state = initialState, action) => {
         route: "DASHBOARD"
       };
 
+    case  ACTION_TYPES.LOGIN_UPDATE_RESPONSE:
+    case  ACTION_TYPES.PASSWORD_CREATE_RESPONSE:
     case  ACTION_TYPES.SIGNUP_RESPONSE:
       return {
         ...state,

@@ -160,7 +160,7 @@ const updateLogin = (data) => {
 };
 
 const createPassword = (data) => {
-  const url = `${SERVER}/auth/identities`;
+  const url = `${SERVER}/identities`;
   const headers = buildHeaders();
   const formData = buildFormData("identity", data);
   return Promise.resolve(
