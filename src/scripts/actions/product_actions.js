@@ -2,9 +2,12 @@
 import * as  ACTION_TYPES from "../constants/action_types";
 import { Schema, arrayOf, normalize } from "normalizr";
 import { create, destroy, fetchAll, update } from "../api/api";
+import { makeErrorActionCreator } from "../utils/make_action_creators";
 
 const productSchema = new Schema("products", { idAttribute: "id" });
 const entityName = "product";
+
+const productCreateError = makeErrorActionCreator(ACTION_TYPES.PRODUCT_CREATE_ERROR, "error");
 
 const productCreateRequest = (data) => {
   return {
@@ -18,14 +21,6 @@ const productCreateResponse = (response) => {
   return {
     type:  ACTION_TYPES.PRODUCT_CREATE_RESPONSE,
     data: normalized.entities.products
-  };
-};
-
-const productCreateError = (error) => {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.PRODUCT_CREATE_ERROR,
-    errors: errors
   };
 };
 
