@@ -6,28 +6,28 @@ import { create, destroy, fetchAll, update } from "../api/api";
 const productSchema = new Schema("products", { idAttribute: "id" });
 const entityName = "product";
 
-function productCreateRequest(data) {
+const productCreateRequest = (data) => {
   return {
     type:  ACTION_TYPES.PRODUCT_CREATE_REQUEST,
     data: data
   };
-}
+};
 
-function productCreateResponse(response) {
+const productCreateResponse = (response) => {
   const normalized = normalize(response, arrayOf(productSchema));
   return {
     type:  ACTION_TYPES.PRODUCT_CREATE_RESPONSE,
     data: normalized.entities.products
   };
-}
+};
 
-function productCreateError(error) {
+const productCreateError = (error) => {
   const errors = JSON.parse(error.responseText).errors;
   return {
     type:  ACTION_TYPES.PRODUCT_CREATE_ERROR,
     errors: errors
   };
-}
+};
 
 export function createProduct(data) {
   return dispatch => {

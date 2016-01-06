@@ -10,6 +10,7 @@ const Navigation = ({
   goToDashboard,
   goToLogin,
   goToSignup,
+  goToLink,
   logout
 }) => {
   const { avatar, coach, email, id, name } = currentUser;
@@ -18,7 +19,7 @@ const Navigation = ({
   return (
     <nav className="mdl-navigation">
       {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-        <Link styles="mdl-navigation__link" onClick={goToLogin}>
+        <Link styles="mdl-navigation__link" onClick={() => goToLink("LOGIN")}>
           Login
         </Link>
       </div>}
@@ -97,6 +98,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     goToSignup: () => {
       dispatch(changeRoute("SIGNUP"));
+    },
+    goToLink: (route) => {
+      dispatch(changeRoute(route));
     },
     changeRoute: (route) => {
       dispatch(changeRoute(route));

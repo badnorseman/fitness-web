@@ -76,15 +76,10 @@ const ProductList = ({
   coach,
   products
 }) => {
-  let items = (products) => {
-    let items = [];
-    coach.products.forEach(el => {
-      items.push(
-        <ProductListItem key={el.id} product={products[el.id]} />
-      );
-    })
-    return items;
-  }(products);
+  let items = [];
+  coach.products.forEach(el => {
+    items.push(<ProductListItem key={el.id} product={products[el.id]} />);
+  });
 
   return (
     <div>
