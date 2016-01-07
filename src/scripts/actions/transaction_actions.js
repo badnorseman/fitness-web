@@ -1,101 +1,58 @@
 "use strict";
 import * as  ACTION_TYPES from "../constants/action_types";
-import { Schema, arrayOf, normalize } from "normalizr";
+import { arrayOf, normalize, Schema } from "normalizr";
 import { create, fetchAll, fetchClientToken } from "../api/api";
+import { makeAction, makeErrorAction } from "../utils/make_actions";
 
 const transactionSchema = new Schema("transactions", { idAttribute: "id" });
 const entityName = "transaction";
 
-function clientTokenRequest() {
-  return {
-    type:  ACTION_TYPES.CLIENT_TOKEN_REQUEST
-  };
-}
+const clientTokenRequest = makeAction(ACTION_TYPES.CLIENT_TOKEN_REQUEST);
+const clientTokenResponse = makeAction(ACTION_TYPES.CLIENT_TOKEN_RESPONSE, "clientToken");
+const clientTokenError = makeErrorAction(ACTION_TYPES.CLIENT_TOKEN_ERROR, "error");
 
-function clientTokenResponse(response) {
-  return {
-    type:  ACTION_TYPES.CLIENT_TOKEN_RESPONSE,
-    clientToken: response.client_token
-  };
-}
-
-function clientTokenError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.CLIENT_TOKEN_ERROR,
-    errors: errors
-  };
-}
-
-export function getClientToken() {
+const getClientToken = () => {
   return dispatch => {
     dispatch(clientTokenRequest());
     return fetchClientToken(entityName)
-      .then(response => dispatch(clientTokenResponse(response)))
+      .then(response => dispatch(clientTokenResponse(response.client_token)))
       .catch(error => dispatch(clientTokenError(error)))
   };
-}
+};
 
-function transactionCreateRequest(data) {
-  return {
-    type:  ACTION_TYPES.TRANSACTION_CREATE_REQUEST,
-    data: data
-  };
-}
+const transactionCreateRequest = makeAction(ACTION_TYPES.TRANSACTION_CREATE_REQUEST, "data");
+const transactionCreateResponse = makeAction(ACTION_TYPES.TRANSACTION_CREATE_RESPONSE, "data");
+const transactionCreateError = makeErrorAction(ACTION_TYPES.TRANSACTION_CREATE_ERROR, "error");
 
-function transactionCreateResponse(response) {
-  const normalized = normalize(response, arrayOf(transactionSchema));
-  return {
-    type:  ACTION_TYPES.TRANSACTION_CREATE_RESPONSE,
-    data: normalized.entities.transactions
-  };
-}
-
-function transactionCreateError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.TRANSACTION_CREATE_ERROR,
-    errors: errors
-  };
-}
-
-export function createTransaction(data) {
+const createTransaction = (data) => {
   return dispatch => {
     dispatch(transactionCreateRequest(data));
     return create(entityName, data)
     .then(() => fetchAll(entityName))
-    .then(response => dispatch(transactionCreateResponse(response)))
+    .then(response => {
+      const normalized = normalize(response, arrayOf(transactionSchema));
+      dispatch(transactionCreateResponse(normalized.entities.transactions))})
     .catch(error => dispatch(transactionCreateError(error)))
   };
-}
+};
 
-function transactionFetchRequest() {
-  return {
-    type:  ACTION_TYPES.TRANSACTION_FETCH_REQUEST
-  };
-}
+const transactionFetchRequest = makeAction(ACTION_TYPES.TRANSACTION_FETCH_REQUEST);
+const transactionFetchResponse = makeAction(ACTION_TYPES.TRANSACTION_FETCH_RESPONSE, "data");
+const transactionFetchError = makeErrorAction(ACTION_TYPES.TRANSACTION_FETCH_ERROR, "error");
 
-function transactionFetchResponse(response) {
-  const normalized = normalize(response, arrayOf(transactionSchema));
-  return {
-    type:  ACTION_TYPES.TRANSACTION_FETCH_RESPONSE,
-    data: normalized.entities.transactions
-  };
-}
-
-function transactionFetchError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.TRANSACTION_FETCH_ERROR,
-    errors: errors
-  };
-}
-
-export function getTransactions() {
+const getTransactions = () => {
   return dispatch => {
     dispatch(transactionFetchRequest());
     return fetchAll(entityName)
-      .then(response => dispatch(transactionFetchResponse(response)))
+      .then(response => {
+        const normalized = normalize(response, arrayOf(transactionSchema));
+        dispatch(transactionFetchResponse(normalized.entities.transactions))})
       .catch(error => dispatch(transactionFetchError(error)))
   };
-}
+};
+
+export {
+  getClientToken,
+  createTransaction,
+  getTransactions
+};

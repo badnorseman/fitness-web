@@ -29,6 +29,8 @@ const buildUrlParams = (params) => {
   return (params) ? `/${params}` : "";
 };
 
-export { buildFormData };
-export { buildHeaders };
-export { buildUrl };
+export {
+  buildFormData,
+  buildHeaders,
+  buildUrl
+};

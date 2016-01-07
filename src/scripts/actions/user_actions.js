@@ -1,70 +1,41 @@
 "use strict";
 import * as  ACTION_TYPES from "../constants/action_types";
-import { Schema, arrayOf, normalize } from "normalizr";
+import { arrayOf, normalize, Schema } from "normalizr";
 import { fetchAll, update } from "../api/api";
+import { makeAction, makeErrorAction } from "../utils/make_actions";
 
 const userSchema = new Schema("users", { idAttribute: "id" });
 const entityName = "user";
 
-function userFetchRequest() {
-  return {
-    type:  ACTION_TYPES.USER_FETCH_REQUEST,
-    id: id
-  };
-}
+const userFetchRequest = makeAction(ACTION_TYPES.USER_FETCH_REQUEST);
+const userFetchResponse = makeAction(ACTION_TYPES.USER_FETCH_RESPONSE, "data");
+const userFetchError = makeErrorAction(ACTION_TYPES.USER_FETCH_ERROR, "error");
 
-function userFetchResponse(response) {
-  const normalized = normalize(response, arrayOf(userSchema));
-  return {
-    type:  ACTION_TYPES.USER_FETCH_RESPONSE,
-    data: normalized.entities.users
-  };
-}
-
-function userFetchError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.USER_FETCH_ERROR,
-    errors: errors
-  };
-}
-
-export function getUsers() {
+const getUsers = () => {
   return dispatch => {
     dispatch(userFetchRequest());
     return fetchAll(entityName)
-      .then(response => dispatch(userFetchResponse(response)))
+      .then(response => {
+        const normalized = normalize(response, arrayOf(userSchema));
+        dispatch(userFetchResponse(normalized.entities.users))})
       .catch(error => dispatch(userFetchError(error)))
   };
-}
+};
 
-function userUpdateRequest(data) {
-  return {
-    type:  ACTION_TYPES.USER_UPDATE_REQUEST,
-    data: data
-  };
-}
+const userUpdateRequest = makeAction(ACTION_TYPES.USER_UPDATE_REQUEST, "data");
+const userUpdateResponse = makeAction(ACTION_TYPES.USER_UPDATE_RESPONSE, "data");
+const userUpdateError = makeErrorAction(ACTION_TYPES.USER_UPDATE_ERROR, "error");
 
-function userUpdateResponse(response) {
-  return {
-    type:  ACTION_TYPES.USER_UPDATE_RESPONSE,
-    data: response
-  };
-}
-
-function userUpdateError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.USER_UPDATE_ERROR,
-    errors: errors
-  };
-}
-
-export function updateUser(data) {
+const updateUser = (data) => {
   return dispatch => {
     dispatch(userUpdateRequest(data));
     return update(entityName, data)
       .then(response => dispatch(userUpdateResponse(response)))
       .catch(error => dispatch(userUpdateError(error)))
   };
-}
+};
+
+export {
+  getUsers,
+  updateUser
+};
