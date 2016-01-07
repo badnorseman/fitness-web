@@ -1,6 +1,6 @@
 "use strict";
 
-const makeErrorActionCreator = (type, error) => {
+const makeErrorAction = (type, error) => {
   return function(...args) {
     const errors = JSON.parse(error.responseText).errors;
     return {
@@ -10,7 +10,7 @@ const makeErrorActionCreator = (type, error) => {
   }
 };
 
-const makeRequestActionCreator = (type, ...argNames) => {
+const makeRequestAction = (type, ...argNames) => {
   return function(...args) {
     let action = { type }
     argNames.forEach((arg, key) => {
@@ -20,5 +20,5 @@ const makeRequestActionCreator = (type, ...argNames) => {
   }
 };
 
-export { makeErrorActionCreator };
-export { makeRequestActionCreator };
+export { makeErrorAction };
+export { makeRequestAction };
