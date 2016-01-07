@@ -6,11 +6,7 @@ import Link from "./Link";
 
 const Navigation = ({
   currentUser,
-  goToAccount,
-  goToDashboard,
-  goToLogin,
-  goToSignup,
-  goToLink,
+  goTo,
   logout
 }) => {
   const { avatar, coach, email, id, name } = currentUser;
@@ -19,17 +15,17 @@ const Navigation = ({
   return (
     <nav className="mdl-navigation">
       {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-        <Link styles="mdl-navigation__link" onClick={() => goToLink("LOGIN")}>
+        <Link styles="mdl-navigation__link" onClick={() => goTo("LOGIN")}>
           Login
         </Link>
       </div>}
       {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-        <Link styles="mdl-navigation__link" onClick={goToSignup}>
+        <Link styles="mdl-navigation__link" onClick={() => goTo("SIGNUP")}>
           Sign up
         </Link>
       </div>}
       {coach && <div className="mdl-layout--large-screen-only">
-        <Link styles="mdl-navigation__link" onClick={goToDashboard}>
+        <Link styles="mdl-navigation__link" onClick={() => goTo("DASHBOARD")}>
           Dashboard
         </Link>
       </div>}
@@ -41,7 +37,7 @@ const Navigation = ({
           className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
           htmlFor="account-menu">
           <li>
-            <Link styles="mdl-menu__item" onClick={goToAccount}>
+            <Link styles="mdl-menu__item" onClick={() => goTo("ACCOUNT")}>
               Account
             </Link>
           </li>
@@ -49,22 +45,22 @@ const Navigation = ({
         </ul>
       </div>}
       {!isLoggedIn && <div className="mdl-layout--small-screen-only">
-        <Link styles="mdl-navigation__link" onClick={goToLogin}>
+        <Link styles="mdl-navigation__link" onClick={() => goTo("LOGIN")}>
           <i className="zmdi zmdi-lock-open zmdi-hc-lg"></i>
         </Link>
       </div>}
       {!isLoggedIn && <div className="mdl-layout--small-screen-only">
-        <Link styles="mdl-navigation__link" onClick={goToSignup}>
+        <Link styles="mdl-navigation__link" onClick={() => goTo("SIGNUP")}>
           <i className="zmdi zmdi-mood zmdi-hc-lg"></i>
         </Link>
       </div>}
       {coach && <div className="mdl-layout--small-screen-only">
-        <Link styles="mdl-navigation__link" onClick={goToDashboard}>
+        <Link styles="mdl-navigation__link" onClick={() => goTo("DASHBOARD")}>
           <i className="zmdi zmdi-view-dashboard zmdi-hc-lg"></i>
         </Link>
       </div>}
       {isLoggedIn && <div className="mdl-layout--small-screen-only">
-        <Link styles="mdl-navigation__link" onClick={goToAccount}>
+        <Link styles="mdl-navigation__link" onClick={() => goTo("ACCOUNT")}>
           <i className="zmdi zmdi-account-box zmdi-hc-lg"></i>
         </Link>
       </div>}
@@ -87,22 +83,7 @@ const logoutFacebook = () => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    goToAccount: () => {
-      dispatch(changeRoute("ACCOUNT"));
-    },
-    goToDashboard: () => {
-      dispatch(changeRoute("DASHBOARD"));
-    },
-    goToLogin: () => {
-      dispatch(changeRoute("LOGIN"));
-    },
-    goToSignup: () => {
-      dispatch(changeRoute("SIGNUP"));
-    },
-    goToLink: (route) => {
-      dispatch(changeRoute(route));
-    },
-    changeRoute: (route) => {
+    goTo: (route) => {
       dispatch(changeRoute(route));
     },
     logout: () => {
