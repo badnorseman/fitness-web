@@ -5,17 +5,14 @@ const CoachGridList = ({
   coaches,
   onShow
 }) => {
-  let tiles = (coaches) => {
-    let tiles = [];
-    for (let key in coaches) {
-      if (coaches.hasOwnProperty(key)) {
-        tiles.push(
-          <CoachGridTile key={key} coach={coaches[key]} onShow={onShow} />
-        );
-      }
+  let tiles = [];
+  for (let key in coaches) {
+    if (coaches.hasOwnProperty(key)) {
+      tiles.push(
+        <CoachGridTile key={key} coach={coaches[key]} onShow={onShow} />
+      );
     }
-    return tiles;
-  }(coaches);
+  }
 
   const styles = {
     grid: {

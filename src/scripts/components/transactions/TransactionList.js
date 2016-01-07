@@ -4,17 +4,14 @@ import TransactionListItem from "./TransactionListItem";
 const TransactionList = ({
   transactions
 }) => {
-  let items = (transactions) => {
-    let items = [];
-    for (let key in transactions) {
-      if (transactions.hasOwnProperty(key)) {
-        items.push(
-          <TransactionListItem key={key} transaction={transactions[key]}/>
-        );
-      }
+  let items = [];
+  for (let key in transactions) {
+    if (transactions.hasOwnProperty(key)) {
+      items.push(
+        <TransactionListItem key={key} transaction={transactions[key]}/>
+      );
     }
-    return items;
-  }(transactions);
+  }
 
   const styles = {
     headerElement: {

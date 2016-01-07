@@ -6,17 +6,14 @@ const ProductList = ({
   onEdit,
   onNew
 }) => {
-  let items = (products) => {
-    let items = [];
-    for (let key in products) {
-      if (products.hasOwnProperty(key)) {
-        items.push(
-          <ProductListItem key={key} product={products[key]} onEdit={onEdit} />
-        );
-      }
+  let items = [];
+  for (let key in products) {
+    if (products.hasOwnProperty(key)) {
+      items.push(
+        <ProductListItem key={key} product={products[key]} onEdit={onEdit} />
+      );
     }
-    return items;
-  }(products);
+  }
 
   const styles = {
     button: {
