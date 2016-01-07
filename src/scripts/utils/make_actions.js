@@ -1,5 +1,15 @@
 "use strict";
 
+const makeAction = (type, ...argNames) => {
+  return function(...args) {
+    let action = { type }
+    argNames.forEach((arg, key) => {
+      action[argNames[key]] = args[key]
+    })
+    return action
+  }
+};
+
 const makeErrorAction = (type, error) => {
   return function(...args) {
     const errors = JSON.parse(error.responseText).errors;
@@ -10,15 +20,7 @@ const makeErrorAction = (type, error) => {
   }
 };
 
-const makeRequestAction = (type, ...argNames) => {
-  return function(...args) {
-    let action = { type }
-    argNames.forEach((arg, key) => {
-      action[argNames[key]] = args[key]
-    })
-    return action
-  }
+export {
+  makeAction,
+  makeErrorAction
 };
-
-export { makeErrorAction };
-export { makeRequestAction };
