@@ -8,20 +8,20 @@ const transactionSchema = new Schema("transactions", { idAttribute: "id" });
 const entityName = "transaction";
 
 const clientTokenRequest = makeAction(ACTION_TYPES.CLIENT_TOKEN_REQUEST);
-const clientTokenResponse = makeAction(ACTION_TYPES.CLIENT_TOKEN_RESPONSE, "clientToken");
+const clientTokenSuccess = makeAction(ACTION_TYPES.CLIENT_TOKEN_SUCCESS, "clientToken");
 const clientTokenError = makeAction(ACTION_TYPES.CLIENT_TOKEN_ERROR, "errors");
 
 const getClientToken = () => {
   return dispatch => {
     dispatch(clientTokenRequest());
     return fetchClientToken(entityName)
-      .then(success => dispatch(clientTokenResponse(success.client_token)))
+      .then(success => dispatch(clientTokenSuccess(success.client_token)))
       .catch(error => dispatch(clientTokenError(error.statusText)))
   };
 };
 
 const transactionCreateRequest = makeAction(ACTION_TYPES.TRANSACTION_CREATE_REQUEST, "data");
-const transactionCreateResponse = makeAction(ACTION_TYPES.TRANSACTION_CREATE_RESPONSE, "data");
+const transactionCreateSuccess = makeAction(ACTION_TYPES.TRANSACTION_CREATE_SUCCESS, "data");
 const transactionCreateError = makeAction(ACTION_TYPES.TRANSACTION_CREATE_ERROR, "errors");
 
 const createTransaction = (data) => {
@@ -31,7 +31,7 @@ const createTransaction = (data) => {
       .then(() => fetchAll(entityName))
       .then(success => {
         const normalized = normalize(success, arrayOf(transactionSchema));
-        dispatch(transactionCreateResponse(normalized.entities.transactions))})
+        dispatch(transactionCreateSuccess(normalized.entities.transactions))})
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(transactionCreateError(errors))})
@@ -39,7 +39,7 @@ const createTransaction = (data) => {
 };
 
 const transactionFetchRequest = makeAction(ACTION_TYPES.TRANSACTION_FETCH_REQUEST);
-const transactionFetchResponse = makeAction(ACTION_TYPES.TRANSACTION_FETCH_RESPONSE, "data");
+const transactionFetchSuccess = makeAction(ACTION_TYPES.TRANSACTION_FETCH_SUCCESS, "data");
 const transactionFetchError = makeAction(ACTION_TYPES.TRANSACTION_FETCH_ERROR, "errors");
 
 const getTransactions = () => {
@@ -48,7 +48,7 @@ const getTransactions = () => {
     return fetchAll(entityName)
       .then(success => {
         const normalized = normalize(success, arrayOf(transactionSchema));
-        dispatch(transactionFetchResponse(normalized.entities.transactions))})
+        dispatch(transactionFetchSuccess(normalized.entities.transactions))})
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(transactionFetchError(errors))})

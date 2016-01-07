@@ -9,7 +9,7 @@ const initialState = {
 
 const transaction = (state = initialState, action) => {
   switch (action.type) {
-    case  ACTION_TYPES.CLIENT_TOKEN_RESPONSE:
+    case  ACTION_TYPES.CLIENT_TOKEN_SUCCESS:
       return {
         ...state,
         clientToken: action.clientToken
@@ -22,8 +22,8 @@ const transaction = (state = initialState, action) => {
         isFetching: true
       };
 
-    case  ACTION_TYPES.TRANSACTION_CREATE_RESPONSE:
-    case  ACTION_TYPES.TRANSACTION_FETCH_RESPONSE:
+    case  ACTION_TYPES.TRANSACTION_CREATE_SUCCESS:
+    case  ACTION_TYPES.TRANSACTION_FETCH_SUCCESS:
       return {
         ...state,
         isFetching: false,

@@ -8,7 +8,7 @@ const productSchema = new Schema("products", { idAttribute: "id" });
 const entityName = "product";
 
 const productCreateRequest = makeAction(ACTION_TYPES.PRODUCT_CREATE_REQUEST, "data");
-const productCreateResponse = makeAction(ACTION_TYPES.PRODUCT_CREATE_RESPONSE, "data");
+const productCreateSuccess = makeAction(ACTION_TYPES.PRODUCT_CREATE_SUCCESS, "data");
 const productCreateError = makeAction(ACTION_TYPES.PRODUCT_CREATE_ERROR, "errors");
 
 const createProduct = (data) => {
@@ -18,7 +18,7 @@ const createProduct = (data) => {
       .then(() => fetchAll(entityName))
       .then(success => {
         const normalized = normalize(success, arrayOf(productSchema));
-        dispatch(productCreateResponse(normalized.entities.products))})
+        dispatch(productCreateSuccess(normalized.entities.products))})
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(productCreateError(errors))})
@@ -26,7 +26,7 @@ const createProduct = (data) => {
 };
 
 const productDestroyRequest = makeAction(ACTION_TYPES.PRODUCT_DESTROY_REQUEST, "id");
-const productDestroyResponse = makeAction(ACTION_TYPES.PRODUCT_DESTROY_RESPONSE, "data");
+const productDestroySuccess = makeAction(ACTION_TYPES.PRODUCT_DESTROY_SUCCESS, "data");
 const productDestroyError = makeAction(ACTION_TYPES.PRODUCT_DESTROY_ERROR, "errors");
 
 const destroyProduct = (id) => {
@@ -36,7 +36,7 @@ const destroyProduct = (id) => {
       .then(() => fetchAll(entityName))
       .then(success => {
         const normalized = normalize(success, arrayOf(productSchema));
-        dispatch(productDestroyResponse(normalized.entities.products))})
+        dispatch(productDestroySuccess(normalized.entities.products))})
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(productDestroyError(errors))})
@@ -44,7 +44,7 @@ const destroyProduct = (id) => {
 };
 
 const productFetchRequest = makeAction(ACTION_TYPES.PRODUCT_FETCH_REQUEST);
-const productFetchResponse = makeAction(ACTION_TYPES.PRODUCT_FETCH_RESPONSE, "data");
+const productFetchSuccess = makeAction(ACTION_TYPES.PRODUCT_FETCH_SUCCESS, "data");
 const productFetchError = makeAction(ACTION_TYPES.PRODUCT_FETCH_ERROR, "errors");
 
 const getProducts = () => {
@@ -53,7 +53,7 @@ const getProducts = () => {
     return fetchAll(entityName)
       .then(success => {
         const normalized = normalize(success, arrayOf(productSchema));
-        dispatch(productFetchResponse(normalized.entities.products))})
+        dispatch(productFetchSuccess(normalized.entities.products))})
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(productFetchError(errors))})
@@ -61,7 +61,7 @@ const getProducts = () => {
 };
 
 const productUpdateRequest = makeAction(ACTION_TYPES.PRODUCT_UPDATE_REQUEST, "data");
-const productUpdateResponse = makeAction(ACTION_TYPES.PRODUCT_UPDATE_RESPONSE, "data");
+const productUpdateSuccess = makeAction(ACTION_TYPES.PRODUCT_UPDATE_SUCCESS, "data");
 const productUpdateError = makeAction(ACTION_TYPES.PRODUCT_UPDATE_ERROR, "errors");
 
 const updateProduct = (data) => {
@@ -71,7 +71,7 @@ const updateProduct = (data) => {
       .then(() => fetchAll(entityName))
       .then(success => {
         const normalized = normalize(success, arrayOf(productSchema));
-        dispatch(productUpdateResponse(normalized.entities.products))})
+        dispatch(productUpdateSuccess(normalized.entities.products))})
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(productUpdateError(errors))})

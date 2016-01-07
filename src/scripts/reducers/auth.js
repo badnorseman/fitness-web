@@ -15,25 +15,25 @@ const setUserToken = (token) => {
 
 const auth = (state = initialState, action) => {
   switch (action.type) {
-    case  ACTION_TYPES.USER_UPDATE_RESPONSE:
+    case  ACTION_TYPES.USER_UPDATE_SUCCESS:
       return {
         ...state,
         currentUser: action.data
       };
 
-    case  ACTION_TYPES.LOGIN_RESPONSE:
-    case  ACTION_TYPES.OAUTH_RESPONSE:
+    case  ACTION_TYPES.LOGIN_SUCCESS:
+    case  ACTION_TYPES.OAUTH_SUCCESS:
       setUserToken(action.data.token);
       return {
         ...state,
         currentUser: action.data
       };
 
-    case  ACTION_TYPES.LOGIN_UPDATE_RESPONSE:
+    case  ACTION_TYPES.LOGIN_UPDATE_SUCCESS:
     case  ACTION_TYPES.LOGIN_ERROR:
     case  ACTION_TYPES.LOGOUT_REQUEST:
     case  ACTION_TYPES.OAUTH_ERROR:
-    case  ACTION_TYPES.SIGNUP_RESPONSE:
+    case  ACTION_TYPES.SIGNUP_SUCCESS:
     case  ACTION_TYPES.SIGNUP_ERROR:
       deleteUserToken();
       return {

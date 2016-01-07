@@ -17,10 +17,10 @@ const product = (state = initialState, action) => {
         isFetching: true
       };
 
-    case  ACTION_TYPES.PRODUCT_CREATE_RESPONSE:
-    case  ACTION_TYPES.PRODUCT_DESTROY_RESPONSE:
-    case  ACTION_TYPES.PRODUCT_FETCH_RESPONSE:
-    case  ACTION_TYPES.PRODUCT_UPDATE_RESPONSE:
+    case  ACTION_TYPES.PRODUCT_CREATE_SUCCESS:
+    case  ACTION_TYPES.PRODUCT_DESTROY_SUCCESS:
+    case  ACTION_TYPES.PRODUCT_FETCH_SUCCESS:
+    case  ACTION_TYPES.PRODUCT_UPDATE_SUCCESS:
       return {
         ...state,
         isFetching: false,

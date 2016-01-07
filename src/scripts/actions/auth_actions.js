@@ -11,14 +11,14 @@ import {
 import { makeAction } from "../utils/make_action";
 
 const loginRequest = makeAction(ACTION_TYPES.LOGIN_REQUEST, "data");
-const loginResponse = makeAction(ACTION_TYPES.LOGIN_RESPONSE, "data");
+const loginSuccess = makeAction(ACTION_TYPES.LOGIN_SUCCESS, "data");
 const loginError = makeAction(ACTION_TYPES.LOGIN_ERROR, "errors");
 
 const login = (data) => {
   return dispatch => {
     dispatch(loginRequest(data));
     return apiLogin(data)
-      .then(success => dispatch(loginResponse(success)))
+      .then(success => dispatch(loginSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(loginError(errors))})
@@ -26,14 +26,14 @@ const login = (data) => {
 }
 
 const logoutRequest = makeAction(ACTION_TYPES.LOGOUT_REQUEST);
-const logoutResponse = makeAction(ACTION_TYPES.LOGOUT_RESPONSE);
+const logoutSuccess = makeAction(ACTION_TYPES.LOGOUT_SUCCESS);
 const logoutError = makeAction(ACTION_TYPES.LOGOUT_ERROR, "errors");
 
 const logout = () => {
   return dispatch => {
     dispatch(logoutRequest());
     return apiLogout()
-      .then(() => dispatch(logoutResponse()))
+      .then(() => dispatch(logoutSuccess()))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(logoutError(errors))})
@@ -41,14 +41,14 @@ const logout = () => {
 };
 
 const oauthRequest = makeAction(ACTION_TYPES.OAUTH_REQUEST, "provider");
-const oauthResponse = makeAction(ACTION_TYPES.OAUTH_RESPONSE, "data");
+const oauthSuccess = makeAction(ACTION_TYPES.OAUTH_SUCCESS, "data");
 const oauthError = makeAction(ACTION_TYPES.OAUTH_ERROR, "errors");
 
 const oauth = (provider) => {
   return dispatch => {
     dispatch(oauthRequest(provider));
     return apiOauth(provider)
-      .then(success => dispatch(oauthResponse(success)))
+      .then(success => dispatch(oauthSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(oauthError(errors))})
@@ -56,14 +56,14 @@ const oauth = (provider) => {
 };
 
 const signupRequest = makeAction(ACTION_TYPES.SIGNUP_REQUEST, "data");
-const signupResponse = makeAction(ACTION_TYPES.SIGNUP_RESPONSE, "data");
+const signupSuccess = makeAction(ACTION_TYPES.SIGNUP_SUCCESS, "data");
 const signupError = makeAction(ACTION_TYPES.SIGNUP_ERROR, "errors");
 
 const signup = (data) => {
   return dispatch => {
     dispatch(signupRequest(data));
     return apiSignup(data)
-      .then(success => dispatch(signupResponse(success)))
+      .then(success => dispatch(signupSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(signupError(errors))})
@@ -71,14 +71,14 @@ const signup = (data) => {
 };
 
 const loginUpdateRequest = makeAction(ACTION_TYPES.LOGIN_UPDATE_REQUEST, "data");
-const loginUpdateResponse = makeAction(ACTION_TYPES.LOGIN_UPDATE_RESPONSE, "data");
+const loginUpdateSuccess = makeAction(ACTION_TYPES.LOGIN_UPDATE_SUCCESS, "data");
 const loginUpdateError = makeAction(ACTION_TYPES.LOGIN_UPDATE_ERROR, "errors");
 
 const updateLogin = (data) => {
   return dispatch => {
     dispatch(loginUpdateRequest(data));
     return apiUpdateLogin(data)
-      .then(success => dispatch(loginUpdateResponse(success)))
+      .then(success => dispatch(loginUpdateSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(loginUpdateError(errors))})
@@ -86,14 +86,14 @@ const updateLogin = (data) => {
 };
 
 const passwordCreateRequest = makeAction(ACTION_TYPES.PASSWORD_CREATE_REQUEST, "data");
-const passwordCreateResponse = makeAction(ACTION_TYPES.PASSWORD_CREATE_RESPONSE, "data");
+const passwordCreateSuccess = makeAction(ACTION_TYPES.PASSWORD_CREATE_SUCCESS, "data");
 const passwordCreateError = makeAction(ACTION_TYPES.PASSWORD_CREATE_ERROR, "errors");
 
 const createPassword = (data) => {
   return dispatch => {
     dispatch(passwordCreateRequest(data));
     return apiCreatePassword(data)
-      .then(success => dispatch(passwordCreateResponse(success)))
+      .then(success => dispatch(passwordCreateSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(passwordCreateError(errors))})

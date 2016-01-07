@@ -8,7 +8,7 @@ const coachSchema = new Schema("coaches", { idAttribute: "id" });
 const entityName = "coach";
 
 const coachFetchRequest = makeAction(ACTION_TYPES.COACH_FETCH_REQUEST);
-const coachFetchResponse = makeAction(ACTION_TYPES.COACH_FETCH_RESPONSE, "data");
+const coachFetchSuccess = makeAction(ACTION_TYPES.COACH_FETCH_SUCCESS, "data");
 const coachFetchError = makeAction(ACTION_TYPES.COACH_FETCH_ERROR, "errors");
 
 const getCoaches = () => {
@@ -17,7 +17,7 @@ const getCoaches = () => {
     return fetchAll(entityName)
       .then(success => {
         const normalized = normalize(success, arrayOf(coachSchema));
-        dispatch(coachFetchResponse(normalized.entities.coaches))})
+        dispatch(coachFetchSuccess(normalized.entities.coaches))})
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(coachFetchError(errors))})
