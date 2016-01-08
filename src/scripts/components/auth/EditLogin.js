@@ -23,7 +23,7 @@ class EditLogin extends Component {
     let password = this.refs.password.state.fieldValue;
     let passwordConfirmation = this.refs.passwordConfirmation.state.fieldValue;
 
-    if (password && passwordConfirmation) {
+    if (email && password && passwordConfirmation) {
       this.props.dispatch(updateLogin({
         id: id,
         email: email,
@@ -34,6 +34,8 @@ class EditLogin extends Component {
   }
 
   render() {
+    const { email } = this.props.user;
+
     const styles = {
       form: {
         padding: "50px 0 0 0",
@@ -49,6 +51,7 @@ class EditLogin extends Component {
             fieldId="email"
             fieldName="Email"
             fieldType="text"
+            fieldValue={email}
             ref="email" />
         </div>
         <div>
