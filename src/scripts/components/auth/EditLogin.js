@@ -18,7 +18,7 @@ class EditLogin extends Component {
   _handleSubmit(ev) {
     ev.preventDefault();
 
-    let id = this.props.user.uid;
+    let id = this.props.user.identity_id;
     let email = this.refs.email.state.fieldValue;
     let password = this.refs.password.state.fieldValue;
     let passwordConfirmation = this.refs.passwordConfirmation.state.fieldValue;
