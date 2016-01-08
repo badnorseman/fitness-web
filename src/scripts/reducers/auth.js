@@ -5,12 +5,12 @@ const initialState = {
   currentUser: {}
 };
 
-const deleteUserToken = () => {
-  localStorage.removeItem("userToken");
+const deleteAuthToken = () => {
+  localStorage.removeItem("auth_token");
 };
 
-const setUserToken = (token) => {
-  localStorage.setItem("userToken", token);
+const setAuthToken = (token) => {
+  localStorage.setItem("auth_token", token);
 };
 
 const auth = (state = initialState, action) => {
@@ -23,7 +23,7 @@ const auth = (state = initialState, action) => {
 
     case  ACTION_TYPES.LOGIN_SUCCESS:
     case  ACTION_TYPES.OAUTH_SUCCESS:
-      setUserToken(action.data.token);
+      setAuthToken(action.data.token);
       return {
         ...state,
         currentUser: action.data
@@ -35,7 +35,7 @@ const auth = (state = initialState, action) => {
     case  ACTION_TYPES.OAUTH_ERROR:
     case  ACTION_TYPES.SIGNUP_SUCCESS:
     case  ACTION_TYPES.SIGNUP_ERROR:
-      deleteUserToken();
+      deleteAuthToken();
       return {
         ...state,
         currentUser: {}

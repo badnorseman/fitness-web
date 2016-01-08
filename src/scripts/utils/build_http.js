@@ -11,7 +11,7 @@ const buildFormData = (entityName, data) => {
 };
 
 const buildHeaders = () => {
-  const token = localStorage.userToken;
+  const token = localStorage.auth_token;
   return { "Authorization": `Token token=${token}` };
 };
 
