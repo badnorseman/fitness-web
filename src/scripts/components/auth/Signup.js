@@ -34,6 +34,7 @@ class Signup extends Component {
     if (email && name && password && passwordConfirmation) {
       this.props.dispatch(signup({
         email: email,
+        name: name,
         password: password,
         password_confirmation: passwordConfirmation
       }));
