@@ -23,7 +23,7 @@ const loginFacebook = (dispatch) => {
       dispatch(oauth("facebook"));
     } else {
       FB.login(response => {
-        if (response.authResponse) {
+        if (response.authSuccess) {
           dispatch(oauth("facebook"));
         };
       }, { scope: "email,public_profile", info_fields: "email,name" });

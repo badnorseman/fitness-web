@@ -14,7 +14,7 @@ const user = (state = initialState, action) => {
         isFetching: true
       };
 
-    case  ACTION_TYPES.USER_FETCH_RESPONSE:
+    case  ACTION_TYPES.USER_FETCH_SUCCESS:
       return {
         ...state,
         isFetching: false,

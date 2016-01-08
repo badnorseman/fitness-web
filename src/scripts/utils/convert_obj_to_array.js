@@ -1,5 +1,5 @@
 "use strict";
-export function convertObjtoArray(obj) {
+const convertObjtoArray = (obj) => {
   let array = [];
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
@@ -7,4 +7,6 @@ export function convertObjtoArray(obj) {
     }
   }
   return array;
-}
+};
+
+export { convertObjtoArray };

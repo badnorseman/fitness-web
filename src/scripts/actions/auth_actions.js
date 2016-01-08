@@ -8,187 +8,103 @@ import {
   updateLogin as apiUpdateLogin,
   createPassword as apiCreatePassword
 } from "../api/api";
+import { makeAction } from "../utils/make_action";
 
-function loginRequest(data) {
-  return {
-    type:  ACTION_TYPES.LOGIN_REQUEST,
-    data: data
-  };
-}
+const loginRequest = makeAction(ACTION_TYPES.LOGIN_REQUEST, "data");
+const loginSuccess = makeAction(ACTION_TYPES.LOGIN_SUCCESS, "data");
+const loginError = makeAction(ACTION_TYPES.LOGIN_ERROR, "errors");
 
-function loginResponse(response) {
-  return {
-    type:  ACTION_TYPES.LOGIN_RESPONSE,
-    data: response
-  };
-}
-
-function loginError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.LOGIN_ERROR,
-    errors: errors
-  };
-}
-
-export function login(data) {
+const login = (data) => {
   return dispatch => {
     dispatch(loginRequest(data));
     return apiLogin(data)
-    .then(response => dispatch(loginResponse(response)))
-    .catch(error => dispatch(loginError(error)))
+      .then(success => dispatch(loginSuccess(success)))
+      .catch(error => {
+        const errors = JSON.parse(error.responseText).errors;
+        dispatch(loginError(errors))})
   };
 }
 
-function logoutRequest() {
-  return {
-    type:  ACTION_TYPES.LOGOUT_REQUEST
-  };
-}
+const logoutRequest = makeAction(ACTION_TYPES.LOGOUT_REQUEST);
+const logoutSuccess = makeAction(ACTION_TYPES.LOGOUT_SUCCESS);
+const logoutError = makeAction(ACTION_TYPES.LOGOUT_ERROR, "errors");
 
-function logoutResponse() {
-  return {
-    type:  ACTION_TYPES.LOGOUT_RESPONSE
-  };
-}
-
-function logoutError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.LOGOUT_ERROR,
-    errors: errors
-  };
-}
-
-export function logout() {
+const logout = () => {
   return dispatch => {
     dispatch(logoutRequest());
     return apiLogout()
-    .then(() => dispatch(logoutResponse()))
-    .catch(error => dispatch(logoutError(error)))
+      .then(() => dispatch(logoutSuccess()))
+      .catch(error => {
+        const errors = JSON.parse(error.responseText).errors;
+        dispatch(logoutError(errors))})
   };
-}
+};
 
-function oauthRequest(provider) {
-  return {
-    type:  ACTION_TYPES.OAUTH_REQUEST,
-    provider: provider
-  };
-}
+const oauthRequest = makeAction(ACTION_TYPES.OAUTH_REQUEST, "provider");
+const oauthSuccess = makeAction(ACTION_TYPES.OAUTH_SUCCESS, "data");
+const oauthError = makeAction(ACTION_TYPES.OAUTH_ERROR, "errors");
 
-function oauthResponse(response) {
-  return {
-    type:  ACTION_TYPES.OAUTH_RESPONSE,
-    data: response
-  };
-}
-
-function oauthError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.OAUTH_ERROR,
-    errors: errors
-  };
-}
-
-export function oauth(provider) {
+const oauth = (provider) => {
   return dispatch => {
     dispatch(oauthRequest(provider));
     return apiOauth(provider)
-    .then(response => dispatch(oauthResponse(response)))
-    .catch(error => dispatch(oauthError(error)))
+      .then(success => dispatch(oauthSuccess(success)))
+      .catch(error => {
+        const errors = JSON.parse(error.responseText).errors;
+        dispatch(oauthError(errors))})
   };
-}
+};
 
-function signupRequest(data) {
-  return {
-    type:  ACTION_TYPES.SIGNUP_REQUEST,
-    data: data
-  };
-}
+const signupRequest = makeAction(ACTION_TYPES.SIGNUP_REQUEST, "data");
+const signupSuccess = makeAction(ACTION_TYPES.SIGNUP_SUCCESS, "data");
+const signupError = makeAction(ACTION_TYPES.SIGNUP_ERROR, "errors");
 
-function signupResponse(response) {
-  return {
-    type:  ACTION_TYPES.SIGNUP_RESPONSE,
-    data: response
-  };
-}
-
-function signupError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.SIGNUP_ERROR,
-    errors: errors
-  };
-}
-
-export function signup(data) {
+const signup = (data) => {
   return dispatch => {
     dispatch(signupRequest(data));
     return apiSignup(data)
-    .then(response => dispatch(signupResponse(response)))
-    .catch(error => dispatch(signupError(error)))
+      .then(success => dispatch(signupSuccess(success)))
+      .catch(error => {
+        const errors = JSON.parse(error.responseText).errors;
+        dispatch(signupError(errors))})
   };
-}
+};
 
-function loginUpdateRequest(data) {
-  return {
-    type:  ACTION_TYPES.LOGIN_UPDATE_REQUEST,
-    data: data
-  };
-}
+const loginUpdateRequest = makeAction(ACTION_TYPES.LOGIN_UPDATE_REQUEST, "data");
+const loginUpdateSuccess = makeAction(ACTION_TYPES.LOGIN_UPDATE_SUCCESS, "data");
+const loginUpdateError = makeAction(ACTION_TYPES.LOGIN_UPDATE_ERROR, "errors");
 
-function loginUpdateResponse(response) {
-  return {
-    type:  ACTION_TYPES.LOGIN_UPDATE_RESPONSE,
-    data: response
-  };
-}
-
-function loginUpdateError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.LOGIN_UPDATE_ERROR,
-    errors: errors
-  };
-}
-
-export function updateLogin(data) {
+const updateLogin = (data) => {
   return dispatch => {
     dispatch(loginUpdateRequest(data));
     return apiUpdateLogin(data)
-      .then(response => dispatch(loginUpdateResponse(response)))
-      .catch(error => dispatch(loginUpdateError(error)))
+      .then(success => dispatch(loginUpdateSuccess(success)))
+      .catch(error => {
+        const errors = JSON.parse(error.responseText).errors;
+        dispatch(loginUpdateError(errors))})
   };
-}
+};
 
-function passwordCreateRequest(data) {
-  return {
-    type:  ACTION_TYPES.PASSWORD_CREATE_REQUEST,
-    data: data
-  };
-}
+const passwordCreateRequest = makeAction(ACTION_TYPES.PASSWORD_CREATE_REQUEST, "data");
+const passwordCreateSuccess = makeAction(ACTION_TYPES.PASSWORD_CREATE_SUCCESS, "data");
+const passwordCreateError = makeAction(ACTION_TYPES.PASSWORD_CREATE_ERROR, "errors");
 
-function passwordCreateResponse(response) {
-  return {
-    type:  ACTION_TYPES.PASSWORD_CREATE_RESPONSE,
-    data: response
-  };
-}
-
-function passwordCreateError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.PASSWORD_CREATE_ERROR,
-    errors: errors
-  };
-}
-
-export function createPassword(data) {
+const createPassword = (data) => {
   return dispatch => {
     dispatch(passwordCreateRequest(data));
     return apiCreatePassword(data)
-    .then(response => dispatch(passwordCreateResponse(response)))
-    .catch(error => dispatch(passwordCreateError(error)))
+      .then(success => dispatch(passwordCreateSuccess(success)))
+      .catch(error => {
+        const errors = JSON.parse(error.responseText).errors;
+        dispatch(passwordCreateError(errors))})
   };
-}
+};
+
+export {
+  login,
+  logout,
+  oauth,
+  signup,
+  updateLogin,
+  createPassword
+};

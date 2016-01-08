@@ -5,17 +5,14 @@ const ProductGridList = ({
   products,
   onShow
 }) => {
-  let tiles = (products) => {
-    let tiles = [];
-    for (let key in products) {
-      if (products.hasOwnProperty(key)) {
-        tiles.push(
-          <ProductGridTile key={key} product={products[key]} onShow={onShow} />
-        );
-      }
+  let tiles = [];
+  for (let key in products) {
+    if (products.hasOwnProperty(key)) {
+      tiles.push(
+        <ProductGridTile key={key} product={products[key]} onShow={onShow} />
+      );
     }
-    return tiles;
-  }(products);
+  }
 
   const styles = {
     grid: {

@@ -1,38 +1,27 @@
 "use strict";
 import * as  ACTION_TYPES from "../constants/action_types";
-import { Schema, arrayOf, normalize } from "normalizr";
+import { arrayOf, normalize, Schema } from "normalizr";
 import { fetchAll } from "../api/api";
+import { makeAction } from "../utils/make_action";
 
 const coachSchema = new Schema("coaches", { idAttribute: "id" });
 const entityName = "coach";
 
-function coachFetchRequest() {
-  return {
-    type:  ACTION_TYPES.COACH_FETCH_REQUEST
-  };
-}
+const coachFetchRequest = makeAction(ACTION_TYPES.COACH_FETCH_REQUEST);
+const coachFetchSuccess = makeAction(ACTION_TYPES.COACH_FETCH_SUCCESS, "data");
+const coachFetchError = makeAction(ACTION_TYPES.COACH_FETCH_ERROR, "errors");
 
-function coachFetchResponse(response) {
-  const normalized = normalize(response, arrayOf(coachSchema));
-  return {
-    type:  ACTION_TYPES.COACH_FETCH_RESPONSE,
-    data: normalized.entities.coaches
-  };
-}
-
-function coachFetchError(error) {
-  const errors = JSON.parse(error.responseText).errors;
-  return {
-    type:  ACTION_TYPES.COACH_FETCH_ERROR,
-    errors: errors
-  };
-}
-
-export function getCoaches() {
+const getCoaches = () => {
   return dispatch => {
     dispatch(coachFetchRequest());
     return fetchAll(entityName)
-      .then(response => dispatch(coachFetchResponse(response)))
-      .catch(error => dispatch(coachFetchError(error)))
+      .then(success => {
+        const normalized = normalize(success, arrayOf(coachSchema));
+        dispatch(coachFetchSuccess(normalized.entities.coaches))})
+      .catch(error => {
+        const errors = JSON.parse(error.responseText).errors;
+        dispatch(coachFetchError(errors))})
   };
-}
+};
+
+export { getCoaches };

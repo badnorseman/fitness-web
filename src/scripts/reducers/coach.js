@@ -14,7 +14,7 @@ const coach = (state = initialState, action) => {
         isFetching: true
       };
 
-    case  ACTION_TYPES.COACH_FETCH_RESPONSE:
+    case  ACTION_TYPES.COACH_FETCH_SUCCESS:
       return {
         ...state,
         isFetching: false,
