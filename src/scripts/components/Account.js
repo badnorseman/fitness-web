@@ -18,6 +18,7 @@ class Account extends Component {
 
   render() {
     const { currentUser, transactions } = this.props;
+    const hasLogin = (currentUser.identity_id) ? true : false;
 
     const styles = {
       card: {
@@ -39,7 +40,7 @@ class Account extends Component {
               <div className="mdl-tabs mdl-js-tabs">
                 <div className="mdl-tabs__tab-bar">
                   <a href="#profile-panel" className="mdl-tabs__tab is-active">Profile</a>
-                  <a href="#login-panel" className="mdl-tabs__tab">Login</a>
+                  {hasLogin && <a href="#login-panel" className="mdl-tabs__tab">Login</a>}
                   <a href="#payment-history-panel" className="mdl-tabs__tab">Payment History</a>
                 </div>
                 <div className="mdl-tabs__panel is-active" id="profile-panel">
@@ -47,11 +48,11 @@ class Account extends Component {
                     user={currentUser}
                   />
                 </div>
-                <div className="mdl-tabs__panel" id="login-panel">
+                {hasLogin && <div className="mdl-tabs__panel" id="login-panel">
                   <EditLogin
                     user={currentUser}
                   />
-                </div>
+                </div>}
                 <div className="mdl-tabs__panel" id="payment-history-panel">
                   <TransactionList
                     transactions={transactions}
