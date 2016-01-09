@@ -142,40 +142,6 @@ const update = (entityName, data) => {
   );
 };
 
-const updateLogin = (data) => {
-  const url = `${SERVER}/identities/${data.id}`;
-  const headers = buildHeaders();
-  const formData = buildFormData("identity", data);
-  return Promise.resolve(
-    $.ajax({
-      url: url,
-      dataType: "json",
-      type: "PUT",
-      headers: headers,
-      processData: false,
-      contentType: false,
-      data: formData
-    })
-  );
-};
-
-const createPassword = (data) => {
-  const url = `${SERVER}/identities`;
-  const headers = buildHeaders();
-  const formData = buildFormData("identity", data);
-  return Promise.resolve(
-    $.ajax({
-      url: url,
-      dataType: "json",
-      type: "POST",
-      headers: headers,
-      processData: false,
-      contentType: false,
-      data: formData
-    })
-  );
-};
-
 export {
   create,
   destroy,
@@ -186,7 +152,5 @@ export {
   logout,
   oauth,
   signup,
-  update,
-  updateLogin,
-  createPassword
+  update
 };

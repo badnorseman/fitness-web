@@ -1,14 +1,16 @@
 "use strict";
 import * as  ACTION_TYPES from "../constants/action_types";
 import {
+  create,
+  update,
   login as apiLogin,
   logout as apiLogout,
   oauth as apiOauth,
-  signup as apiSignup,
-  updateLogin as apiUpdateLogin,
-  createPassword as apiCreatePassword
+  signup as apiSignup
 } from "../api/api";
 import { makeAction } from "../utils/make_action";
+
+const entityName = "identity";
 
 const loginRequest = makeAction(ACTION_TYPES.LOGIN_REQUEST, "data");
 const loginSuccess = makeAction(ACTION_TYPES.LOGIN_SUCCESS, "data");
@@ -77,7 +79,7 @@ const loginUpdateError = makeAction(ACTION_TYPES.LOGIN_UPDATE_ERROR, "errors");
 const updateLogin = (data) => {
   return dispatch => {
     dispatch(loginUpdateRequest(data));
-    return apiUpdateLogin(data)
+    return update(entityName, data)
       .then(success => dispatch(loginUpdateSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
@@ -92,7 +94,7 @@ const passwordCreateError = makeAction(ACTION_TYPES.PASSWORD_CREATE_ERROR, "erro
 const createPassword = (data) => {
   return dispatch => {
     dispatch(passwordCreateRequest(data));
-    return apiCreatePassword(data)
+    return create(entityName, data)
       .then(success => dispatch(passwordCreateSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
