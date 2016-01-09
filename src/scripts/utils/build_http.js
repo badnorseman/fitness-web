@@ -4,7 +4,7 @@ const buildFormData = (entityName, data) => {
   let formData = new FormData();
   for (let key in data) {
     if (data.hasOwnProperty(key)) {
-      formData.append(`${entityName.toLowerCase()}[${key}]`, data[key]);
+      formData.append(`${entityName}[${key}]`, data[key]);
     }
   }
   return formData;
@@ -20,8 +20,10 @@ const buildUrl = (serverName, entityName, params) => {
 
   if (entityName === "coach") {
     return `${serverName}/coaches${urlParams}`;
+  } else if (entityName === "identity") {
+    return `${serverName}/identities${urlParams}`;
   } else {
-    return `${serverName}/${entityName.toLowerCase()}s${urlParams}`;
+    return `${serverName}/${entityName}s${urlParams}`;
   }
 };
 
