@@ -28,14 +28,16 @@ class EditUser extends Component {
 
     let avatar = this.refs.avatar.state.file;
     let birthDay = this.refs.birthDay.state.fieldValue;
+    let email = this.refs.email.state.fieldValue;
     let gender = this._getGender();
     let id = this.props.user.id;
     let name = this.refs.name.state.fieldValue;
 
-    if (gender) {
+    if (email && gender && name) {
       this.props.dispatch(updateUser({
         avatar: avatar,
         birth_date: birthDay,
+        email: email,
         gender: gender,
         id: id,
         name: name
@@ -48,7 +50,7 @@ class EditUser extends Component {
   }
 
   render() {
-    const { avatar, birth_date, gender, name } = this.props.user;
+    const { avatar, birth_date, email, gender, name } = this.props.user;
 
     const styles = {
       avatar: {
@@ -72,6 +74,14 @@ class EditUser extends Component {
             fieldType="text"
             fieldValue={name}
             ref="name" />
+        </div>
+        <div>
+          <InputField
+            fieldId="email"
+            fieldName="Email"
+            fieldType="text"
+            fieldValue={email}
+            ref="email" />
         </div>
         <div>
           <p>I am</p>

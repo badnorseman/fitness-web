@@ -34,7 +34,7 @@ class EditLogin extends Component {
   }
 
   render() {
-    const { email } = this.props.user;
+    const { identity_email } = this.props.user;
 
     const styles = {
       form: {
@@ -51,7 +51,7 @@ class EditLogin extends Component {
             fieldId="email"
             fieldName="Email"
             fieldType="text"
-            fieldValue={email}
+            fieldValue={identity_email}
             ref="email" />
         </div>
         <div>
