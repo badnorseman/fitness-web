@@ -46,6 +46,14 @@ const ShowCoach = ({
       style={styles.grid}>
       <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col"
         style={styles.card}>
+        <div className="mdl-card__menu">
+          <Link
+            styles="mdl-button mdl-js-button mdl-button--icon"
+            onClick={() => goTo("MARKETPLACE")}
+          >
+            <i className="zmdi zmdi-close"></i>
+          </Link>
+        </div>
         <div className="mdl-card__supporting-text"
           style={styles.image}>
           <img src={avatar} alt=""
@@ -114,8 +122,8 @@ const ProductListItem = ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    goTo: () => {
-      dispatch(changeRoute("MARKETPLACE"));
+    goTo: (route) => {
+      dispatch(changeRoute(route));
     }
   };
 };

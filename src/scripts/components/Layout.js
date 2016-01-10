@@ -39,7 +39,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { param, route, onClick } = this.props;
+    const { param, route, goTo } = this.props;
 
     let content;
     switch (route) {
@@ -92,7 +92,7 @@ class Layout extends Component {
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
                 <a href="#!" className="mdl-navigation__link"
-                  onClick={onClick}
+                  onClick={() => goTo("MARKETPLACE")}
                 >
                   FitBird
                 </a>
@@ -123,8 +123,8 @@ const mapDispatchToProps = (dispatch) => {
     getProducts: () => {
       dispatch(getProducts());
     },
-    onClick: () => {
-      dispatch(changeRoute("MARKETPLACE"));
+    goTo: (route) => {
+      dispatch(changeRoute(route));
     }
   };
 };
