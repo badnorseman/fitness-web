@@ -12,11 +12,11 @@ const Marketplace = ({
   <div>
     <ProductGridList
       products={products}
-      onClick={goTo}
+      goTo={goTo}
     />
     <CoachGridList
       coaches={coaches}
-      onClick={goTo}
+      goTo={goTo}
     />
   </div>
 );

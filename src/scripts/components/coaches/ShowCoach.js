@@ -6,7 +6,7 @@ import Link from "../Link";
 const ShowCoach = ({
   coach,
   products,
-  onClose
+  goTo
 }) => {
   // const { avatar, email, name } = coach;
   const avatar = "https://s3.amazonaws.com/images.fitbird.us/production/users/default/avatars/small.jpeg";
@@ -79,7 +79,7 @@ const ProductList = ({
   let items = [];
   coach.products.forEach(el => {
     items.push(<ProductListItem key={el.id} product={products[el.id]} />);
-  });
+  })
 
   return (
     <div>
@@ -114,7 +114,7 @@ const ProductListItem = ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClose: () => {
+    goTo: () => {
       dispatch(changeRoute("MARKETPLACE"));
     }
   };
