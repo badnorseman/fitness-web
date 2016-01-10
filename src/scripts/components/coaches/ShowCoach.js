@@ -1,6 +1,5 @@
 "use strict";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
 import Link from "../Link";
 
 const ShowCoach = ({
@@ -120,14 +119,6 @@ const ProductListItem = ({
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    goTo: (route) => {
-      dispatch(changeRoute(route));
-    }
-  };
-};
-
 const mapStateToProps = (state) => {
   return {
     products: state.product.products
@@ -135,6 +126,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(ShowCoach)

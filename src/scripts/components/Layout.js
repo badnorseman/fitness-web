@@ -7,6 +7,7 @@ import { getCoaches } from "../actions/coach_actions";
 import { getProducts } from "../actions/product_actions";
 import About from "./About";
 import Account from "./Account";
+import Cart from "./Cart";
 import Dashboard from "./Dashboard";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
@@ -49,6 +50,9 @@ class Layout extends Component {
       case "ACCOUNT":
         content = <Account />;
         break;
+      case "CART":
+        content = <Cart goTo={goTo} />;
+        break;
       case "DASHBOARD":
         content = <Dashboard />;
         break;
@@ -71,10 +75,10 @@ class Layout extends Component {
         content = <NewTransaction product={param} />;
         break;
       case "SHOWCOACH":
-        content = <ShowCoach coach={param} />;
+        content = <ShowCoach coach={param} goTo={goTo} />;
         break;
       case "SHOWPRODUCT":
-        content = <ShowProduct product={param} />;
+        content = <ShowProduct product={param} goTo={goTo} />;
         break;
       case "SIGNUP":
         content = <Signup />;
@@ -83,7 +87,7 @@ class Layout extends Component {
         content = <Terms />;
         break;
       default:
-        content = <Marketplace />;
+        content = <Marketplace goTo={goTo} />;
     }
     return (
       <div>
@@ -124,8 +128,8 @@ const mapDispatchToProps = (dispatch) => {
     getProducts: () => {
       dispatch(getProducts());
     },
-    goTo: (route) => {
-      dispatch(changeRoute(route));
+    goTo: (route, param) => {
+      dispatch(changeRoute(route, param));
     }
   };
 };

@@ -1,6 +1,4 @@
 "use strict";
-import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
 import Link from "../Link";
 
 const ShowProduct = ({
@@ -71,15 +69,4 @@ const ShowProduct = ({
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    goTo: (route, param) => {
-      dispatch(changeRoute(route, param));
-    }
-  };
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(ShowProduct)
+export default ShowProduct
