@@ -17,7 +17,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { products, users, onEdit, onNew } = this.props;
+    const { products, users, goTo } = this.props;
 
     const styles = {
       card: {
@@ -44,8 +44,7 @@ class Dashboard extends Component {
                 <div className="mdl-tabs__panel is-active" id="products-panel">
                   <ProductList
                     products={products}
-                    onEdit={onEdit}
-                    onNew={onNew}
+                    goTo={goTo}
                   />
                 </div>
                 <div className="mdl-tabs__panel" id="clients-panel">
@@ -67,11 +66,8 @@ const mapDispatchToProps = (dispatch) => {
     getProducts: () => {
       dispatch(getProducts());
     },
-    onEdit: (product) => {
-      dispatch(changeRoute("EDITPRODUCT", product));
-    },
-    onNew: () => {
-      dispatch(changeRoute("NEWPRODUCT"));
+    goTo: (route, param) => {
+      dispatch(changeRoute(route, param));
     }
   };
 };

@@ -1,12 +1,8 @@
 "use strict";
-import { connect } from "react-redux";
-import { changeRoute } from "../actions/router_actions";
 import Link from "./Link";
 
 const Footer = ({
-  goToAbout,
-  goToHelp,
-  goToTerms
+  goTo
 }) => (
   <div>
     <div className="mdl-mini-footer">
@@ -20,9 +16,9 @@ const Footer = ({
       </div>
       <div className="mdl-mini-footer__right-section">
         <ul className="mdl-mini-footer__link-list">
-          <li><Link onClick={goToAbout}>About</Link></li>
-          <li><Link onClick={goToHelp}>Help</Link></li>
-          <li><Link onClick={goToTerms}>Terms</Link></li>
+          <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
+          <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
+          <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
         </ul>
       </div>
     </div>
@@ -87,21 +83,4 @@ const Twitter = () => (
   </a>
 );
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    goToAbout: () => {
-      dispatch(changeRoute("ABOUT"));
-    },
-    goToHelp: () => {
-      dispatch(changeRoute("HELP"));
-    },
-    goToTerms: () => {
-      dispatch(changeRoute("TERMS"));
-    }
-  };
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Footer)
+export default Footer

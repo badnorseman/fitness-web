@@ -107,7 +107,8 @@ class Layout extends Component {
               {content}
             </div>
             <div className="mdl-layout-spacer"></div>
-            <Footer className="layout__footer" />
+            <Footer className="layout__footer"
+              goTo={goTo} />
           </main>
         </div>
       </div>
