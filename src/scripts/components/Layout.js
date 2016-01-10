@@ -54,7 +54,7 @@ class Layout extends Component {
         content = <Cart goTo={goTo} />;
         break;
       case "DASHBOARD":
-        content = <Dashboard />;
+        content = <Dashboard goTo={goTo} />;
         break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;
@@ -102,7 +102,7 @@ class Layout extends Component {
                 </a>
               </span>
               <div className="mdl-layout-spacer"></div>
-              <Navigation />
+              <Navigation goTo={goTo} />
             </div>
           </header>
           <main className="mdl-layout__content">

@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/router_actions";
 import { getProducts } from "../actions/product_actions";
 import ProductList from "./products/ProductList";
 import UserList from "./users/UserList";
@@ -65,9 +64,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getProducts: () => {
       dispatch(getProducts());
-    },
-    goTo: (route, param) => {
-      dispatch(changeRoute(route, param));
     }
   };
 };

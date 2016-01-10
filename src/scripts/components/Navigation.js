@@ -1,6 +1,5 @@
 "use strict";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/router_actions";
 import { logout } from "../actions/auth_actions";
 import Link from "./Link";
 
@@ -83,9 +82,6 @@ const logoutFacebook = () => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    goTo: (route) => {
-      dispatch(changeRoute(route));
-    },
     logout: () => {
       logoutFacebook();
       dispatch(logout());
