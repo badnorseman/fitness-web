@@ -3,13 +3,13 @@ import ProductGridTile from "./ProductGridTile";
 
 const ProductGridList = ({
   products,
-  onShow
+  onClick
 }) => {
   let tiles = [];
   for (let key in products) {
     if (products.hasOwnProperty(key)) {
       tiles.push(
-        <ProductGridTile key={key} product={products[key]} onShow={onShow} />
+        <ProductGridTile key={key} product={products[key]} onClick={onClick} />
       );
     }
   }

@@ -32,7 +32,7 @@ const ProductGridTile = ({
     <a href="#!"
       onClick={ev => {
         ev.preventDefault();
-        onShow(product);
+        onShow("SHOWPRODUCT", product);
       }}
     >
       <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop"

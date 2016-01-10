@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
+import { getCoaches } from "../actions/coach_actions";
+import { getProducts } from "../actions/product_actions";
 import About from "./About";
 import Account from "./Account";
 import Dashboard from "./Dashboard";
@@ -25,6 +27,11 @@ import "./layout.css";
 class Layout extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.getCoaches();
+    this.props.getProducts();
   }
 
   componentDidUpdate() {
@@ -110,6 +117,12 @@ class Layout extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    getCoaches: () => {
+      dispatch(getCoaches());
+    },
+    getProducts: () => {
+      dispatch(getProducts());
+    },
     onClick: () => {
       dispatch(changeRoute("MARKETPLACE"));
     }
