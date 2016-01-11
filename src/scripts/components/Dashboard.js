@@ -4,8 +4,8 @@ import ProductList from "./products/ProductList";
 import UserList from "./users/UserList";
 
 const Dashboard = ({
+  clients,
   products,
-  users,
   goTo
 }) => {
   const styles = {
@@ -38,7 +38,7 @@ const Dashboard = ({
               </div>
               <div className="mdl-tabs__panel" id="clients-panel">
                 <UserList
-                  users={users}
+                  users={clients}
                 />
               </div>
             </div>
@@ -51,20 +51,18 @@ const Dashboard = ({
 
 const selected = (state) => {
   let products = {};
-  console.log(state.coach.coaches[state.auth.currentUser.id]);
   state.coach.coaches[state.auth.currentUser.id].products.forEach(el => {
     if (state.product.products[el.id]) {
       products[el.id] = state.product.products[el.id];
     }
   })
-  console.log("selected", products);
   return products;
 };
 
 const mapStateToProps = (state) => {
   return {
-    products: selected(state),
-    users: state.user.users
+    clients: state.client.clients,
+    products: selected(state)
   };
 };
 
