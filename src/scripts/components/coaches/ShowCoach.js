@@ -1,12 +1,11 @@
 "use strict";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
 import Link from "../Link";
 
 const ShowCoach = ({
   coach,
   products,
-  onClose
+  goTo
 }) => {
   // const { avatar, email, name } = coach;
   const avatar = "https://s3.amazonaws.com/images.fitbird.us/production/users/default/avatars/small.jpeg";
@@ -46,6 +45,14 @@ const ShowCoach = ({
       style={styles.grid}>
       <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col"
         style={styles.card}>
+        <div className="mdl-card__menu">
+          <Link
+            styles="mdl-button mdl-js-button mdl-button--icon"
+            onClick={() => goTo("MARKETPLACE")}
+          >
+            <i className="zmdi zmdi-close"></i>
+          </Link>
+        </div>
         <div className="mdl-card__supporting-text"
           style={styles.image}>
           <img src={avatar} alt=""
@@ -79,7 +86,7 @@ const ProductList = ({
   let items = [];
   coach.products.forEach(el => {
     items.push(<ProductListItem key={el.id} product={products[el.id]} />);
-  });
+  })
 
   return (
     <div>
@@ -112,14 +119,6 @@ const ProductListItem = ({
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onClose: () => {
-      dispatch(changeRoute("MARKETPLACE"));
-    }
-  };
-};
-
 const mapStateToProps = (state) => {
   return {
     products: state.product.products
@@ -127,6 +126,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(ShowCoach)

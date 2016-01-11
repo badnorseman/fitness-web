@@ -6,8 +6,8 @@ import Link from "../Link";
 import ProductForm from "./ProductForm";
 
 const NewProduct = ({
-  onAdd,
-  onClose
+  goTo,
+  onAdd
 }) => {
   const styles = {
     card: {
@@ -24,7 +24,7 @@ const NewProduct = ({
         <div className="mdl-card__menu">
           <Link
             styles="mdl-button mdl-js-button mdl-button--icon"
-            onClick={onClose}
+            onClick={() => goTo("DASHBOARD")}
           >
             <i className="zmdi zmdi-close"></i>
           </Link>
@@ -41,11 +41,11 @@ const NewProduct = ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    goTo: (route) => {
+      dispatch(changeRoute(route));
+    },
     onAdd: (product) => {
       dispatch(createProduct(product));
-    },
-    onClose: () => {
-      dispatch(changeRoute("DASHBOARD"));
     }
   };
 };

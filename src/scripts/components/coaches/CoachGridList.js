@@ -3,13 +3,13 @@ import CoachGridTile from "./CoachGridTile";
 
 const CoachGridList = ({
   coaches,
-  onShow
+  goTo
 }) => {
   let tiles = [];
   for (let key in coaches) {
     if (coaches.hasOwnProperty(key)) {
       tiles.push(
-        <CoachGridTile key={key} coach={coaches[key]} onShow={onShow} />
+        <CoachGridTile key={key} coach={coaches[key]} goTo={goTo} />
       );
     }
   }

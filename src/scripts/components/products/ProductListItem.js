@@ -2,7 +2,7 @@
 
 const ProductListItem = ({
   product,
-  onEdit
+  goTo
 }) => {
   const { currency, name, price } = product;
 
@@ -21,7 +21,7 @@ const ProductListItem = ({
         className="block--center-horizontally__flex"
         onClick={ev => {
           ev.preventDefault();
-          onEdit(product);
+          goTo("EDITPRODUCT", product);
         }}
       >
         <div style={styles.itemElement}>{name}</div>

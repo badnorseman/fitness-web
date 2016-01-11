@@ -3,14 +3,13 @@ import ProductListItem from "./ProductListItem";
 
 const ProductList = ({
   products,
-  onEdit,
-  onNew
+  goTo
 }) => {
   let items = [];
   for (let key in products) {
     if (products.hasOwnProperty(key)) {
       items.push(
-        <ProductListItem key={key} product={products[key]} onEdit={onEdit} />
+        <ProductListItem key={key} product={products[key]} goTo={goTo} />
       );
     }
   }
@@ -43,7 +42,8 @@ const ProductList = ({
       <button
         className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
         style={styles.button}
-        onClick={onNew}>
+        onClick={() => goTo("NEWPRODUCT")}
+      >
         <i className="zmdi zmdi-plus"></i>
       </button>
     </div>

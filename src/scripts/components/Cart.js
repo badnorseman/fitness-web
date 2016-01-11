@@ -1,17 +1,15 @@
 "use strict";
-import { connect } from "react-redux";
-import { changeRoute } from "../actions/router_actions";
 import Link from "./Link";
 
 const Cart = ({
-  onClick
+  goTo
 }) => (
   <div className="mdl-grid">
     <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
       <div className="mdl-card__menu">
         <Link
           styles="mdl-button mdl-js-button mdl-button--icon"
-          onClick={onClick}
+          onClick={() => goTo("MARKETPLACE")}
         >
           <i className="zmdi zmdi-close"></i>
         </Link>
@@ -22,15 +20,4 @@ const Cart = ({
   </div>
 );
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onClick: () => {
-      dispatch(changeRoute("MARKETPLACE"));
-    }
-  };
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Cart)
+export default Cart

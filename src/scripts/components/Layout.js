@@ -3,8 +3,11 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { changeRoute } from "../actions/router_actions";
+import { getCoaches } from "../actions/coach_actions";
+import { getProducts } from "../actions/product_actions";
 import About from "./About";
 import Account from "./Account";
+import Cart from "./Cart";
 import Dashboard from "./Dashboard";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
@@ -27,12 +30,17 @@ class Layout extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.getCoaches();
+    this.props.getProducts();
+  }
+
   componentDidUpdate() {
     componentHandler.upgradeDom();
   }
 
   render() {
-    const { param, route, onClick } = this.props;
+    const { param, route, goTo } = this.props;
 
     let content;
     switch (route) {
@@ -42,8 +50,11 @@ class Layout extends Component {
       case "ACCOUNT":
         content = <Account />;
         break;
+      case "CART":
+        content = <Cart goTo={goTo} />;
+        break;
       case "DASHBOARD":
-        content = <Dashboard />;
+        content = <Dashboard goTo={goTo} />;
         break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;
@@ -64,10 +75,10 @@ class Layout extends Component {
         content = <NewTransaction product={param} />;
         break;
       case "SHOWCOACH":
-        content = <ShowCoach coach={param} />;
+        content = <ShowCoach coach={param} goTo={goTo} />;
         break;
       case "SHOWPRODUCT":
-        content = <ShowProduct product={param} />;
+        content = <ShowProduct product={param} goTo={goTo} />;
         break;
       case "SIGNUP":
         content = <Signup />;
@@ -76,7 +87,7 @@ class Layout extends Component {
         content = <Terms />;
         break;
       default:
-        content = <Marketplace />;
+        content = <Marketplace goTo={goTo} />;
     }
     return (
       <div>
@@ -85,13 +96,13 @@ class Layout extends Component {
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">
                 <a href="#!" className="mdl-navigation__link"
-                  onClick={onClick}
+                  onClick={() => goTo("MARKETPLACE")}
                 >
                   FitBird
                 </a>
               </span>
               <div className="mdl-layout-spacer"></div>
-              <Navigation />
+              <Navigation goTo={goTo} />
             </div>
           </header>
           <main className="mdl-layout__content">
@@ -100,7 +111,8 @@ class Layout extends Component {
               {content}
             </div>
             <div className="mdl-layout-spacer"></div>
-            <Footer className="layout__footer" />
+            <Footer className="layout__footer"
+              goTo={goTo} />
           </main>
         </div>
       </div>
@@ -110,8 +122,14 @@ class Layout extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: () => {
-      dispatch(changeRoute("MARKETPLACE"));
+    getCoaches: () => {
+      dispatch(getCoaches());
+    },
+    getProducts: () => {
+      dispatch(getProducts());
+    },
+    goTo: (route, param) => {
+      dispatch(changeRoute(route, param));
     }
   };
 };

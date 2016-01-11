@@ -1,12 +1,9 @@
 "use strict";
-import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
 import Link from "../Link";
 
 const ShowProduct = ({
   product,
-  onBuy,
-  onClose
+  goTo
 }) => {
   const { currency, description, image, name, price } = product;
 
@@ -34,7 +31,7 @@ const ShowProduct = ({
         <div className="mdl-card__menu">
           <Link
             styles="mdl-button mdl-js-button mdl-button--icon"
-            onClick={onClose}
+            onClick={() => goTo("MARKETPLACE")}
           >
             <i className="zmdi zmdi-close"></i>
           </Link>
@@ -53,7 +50,7 @@ const ShowProduct = ({
                 className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
                 onClick={ev => {
                   ev.preventDefault();
-                  onBuy(product);
+                  goTo("NEWTRANSACTION", product);
                 }}
               >
                 Buy
@@ -72,18 +69,4 @@ const ShowProduct = ({
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onBuy: (product) => {
-      dispatch(changeRoute("NEWTRANSACTION", product));
-    },
-    onClose: () => {
-      dispatch(changeRoute("MARKETPLACE"));
-    }
-  };
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(ShowProduct)
+export default ShowProduct

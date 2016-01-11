@@ -2,7 +2,7 @@
 
 const CoachGridTile = ({
   coach,
-  onShow
+  goTo
 }) => {
   const { avatar, name } = coach;
 
@@ -32,7 +32,7 @@ const CoachGridTile = ({
     <a href="#!"
       onClick={ev => {
         ev.preventDefault();
-        onShow(coach);
+        goTo("SHOWCOACH", coach);
       }}
     >
       <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop"

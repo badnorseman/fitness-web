@@ -7,7 +7,7 @@ import ProductForm from "./ProductForm";
 
 const EditProduct = ({
   product,
-  onClose,
+  goTo,
   onEdit,
   onRemove
 }) => {
@@ -26,7 +26,7 @@ const EditProduct = ({
         <div className="mdl-card__menu">
           <Link
             styles="mdl-button mdl-js-button mdl-button--icon"
-            onClick={onClose}
+            onClick={() => goTo("DASHBOARD")}
           >
             <i className="zmdi zmdi-close"></i>
           </Link>
@@ -45,8 +45,8 @@ const EditProduct = ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClose: () => {
-      dispatch(changeRoute("DASHBOARD"));
+    goTo: (route) => {
+      dispatch(changeRoute(route));
     },
     onEdit: (product) => {
       dispatch(updateProduct(product));
