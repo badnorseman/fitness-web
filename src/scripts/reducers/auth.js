@@ -5,14 +5,6 @@ const initialState = {
   currentUser: {}
 };
 
-const deleteAuthToken = () => {
-  localStorage.removeItem("auth_token");
-};
-
-const setAuthToken = (token) => {
-  localStorage.setItem("auth_token", token);
-};
-
 const auth = (state = initialState, action) => {
   switch (action.type) {
     case  ACTION_TYPES.USER_UPDATE_SUCCESS:
@@ -23,7 +15,6 @@ const auth = (state = initialState, action) => {
 
     case  ACTION_TYPES.LOGIN_SUCCESS:
     case  ACTION_TYPES.OAUTH_SUCCESS:
-      setAuthToken(action.data.token);
       return {
         ...state,
         currentUser: action.data
@@ -35,7 +26,6 @@ const auth = (state = initialState, action) => {
     case  ACTION_TYPES.OAUTH_ERROR:
     case  ACTION_TYPES.SIGNUP_SUCCESS:
     case  ACTION_TYPES.SIGNUP_ERROR:
-      deleteAuthToken();
       return {
         ...state,
         currentUser: {}
