@@ -2,10 +2,14 @@
 import ProductListItem from "./ProductListItem";
 
 const ProductList = ({
+  coach,
   products,
   goTo
 }) => {
   let items = [];
+  // coach.products.forEach(el => {
+  //   items.push(<ProductListItem key={el.id} product={products[el.id]} goTo={goTo} />);
+  // })
   for (let key in products) {
     if (products.hasOwnProperty(key)) {
       items.push(
