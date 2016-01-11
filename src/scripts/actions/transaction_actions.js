@@ -28,10 +28,10 @@ const createTransaction = (data) => {
   return dispatch => {
     dispatch(transactionCreateRequest(data));
     return create(entityName, data)
-      .then(() => fetchAll(entityName))
       .then(success => {
         const normalized = normalize(success, arrayOf(transactionSchema));
         dispatch(transactionCreateSuccess(normalized.entities.transactions))})
+      .then(() => dispatch(getTransactions()))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(transactionCreateError(errors))})

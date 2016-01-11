@@ -3,6 +3,7 @@ import * as  ACTION_TYPES from "../constants/action_types";
 import { arrayOf, normalize, Schema } from "normalizr";
 import { create, destroy, fetchAll, update } from "../api/api";
 import { makeAction } from "../utils/make_action";
+import { getCoaches } from "./coach_actions";
 
 const productSchema = new Schema("products", { idAttribute: "id" });
 const entityName = "product";
@@ -15,10 +16,11 @@ const createProduct = (data) => {
   return dispatch => {
     dispatch(productCreateRequest(data));
     return create(entityName, data)
-      .then(() => fetchAll(entityName))
       .then(success => {
         const normalized = normalize(success, arrayOf(productSchema));
         dispatch(productCreateSuccess(normalized.entities.products))})
+      .then(() => dispatch(getProducts()))
+      .then(() => dispatch(getCoaches()))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(productCreateError(errors))})
@@ -26,17 +28,16 @@ const createProduct = (data) => {
 };
 
 const productDestroyRequest = makeAction(ACTION_TYPES.PRODUCT_DESTROY_REQUEST, "id");
-const productDestroySuccess = makeAction(ACTION_TYPES.PRODUCT_DESTROY_SUCCESS, "data");
+const productDestroySuccess = makeAction(ACTION_TYPES.PRODUCT_DESTROY_SUCCESS);
 const productDestroyError = makeAction(ACTION_TYPES.PRODUCT_DESTROY_ERROR, "errors");
 
 const destroyProduct = (id) => {
   return dispatch => {
     dispatch(productDestroyRequest(id));
     return destroy(entityName, id)
-      .then(() => fetchAll(entityName))
-      .then(success => {
-        const normalized = normalize(success, arrayOf(productSchema));
-        dispatch(productDestroySuccess(normalized.entities.products))})
+      .then(() => dispatch(productDestroySuccess()))
+      .then(() => dispatch(getProducts()))
+      .then(() => dispatch(getCoaches()))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(productDestroyError(errors))})
@@ -68,10 +69,11 @@ const updateProduct = (data) => {
   return dispatch => {
     dispatch(productUpdateRequest(data));
     return update(entityName, data)
-      .then(() => fetchAll(entityName))
       .then(success => {
         const normalized = normalize(success, arrayOf(productSchema));
         dispatch(productUpdateSuccess(normalized.entities.products))})
+      .then(() => dispatch(getProducts()))
+      .then(() => dispatch(getCoaches()))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(productUpdateError(errors))})

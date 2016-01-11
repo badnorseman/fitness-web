@@ -12,6 +12,14 @@ import { makeAction } from "../utils/make_action";
 
 const entityName = "identity";
 
+const deleteAuthToken = () => {
+  localStorage.removeItem("auth_token");
+};
+
+const setAuthToken = (token) => {
+  localStorage.setItem("auth_token", token);
+};
+
 const loginRequest = makeAction(ACTION_TYPES.LOGIN_REQUEST, "data");
 const loginSuccess = makeAction(ACTION_TYPES.LOGIN_SUCCESS, "data");
 const loginError = makeAction(ACTION_TYPES.LOGIN_ERROR, "errors");
@@ -20,8 +28,12 @@ const login = (data) => {
   return dispatch => {
     dispatch(loginRequest(data));
     return apiLogin(data)
-      .then(success => dispatch(loginSuccess(success)))
+      .then(success => {
+        setAuthToken(success.token);
+        dispatch(loginSuccess(success));
+      })
       .catch(error => {
+        deleteAuthToken();
         const errors = JSON.parse(error.responseText).errors;
         dispatch(loginError(errors))})
   };
@@ -33,6 +45,7 @@ const logoutError = makeAction(ACTION_TYPES.LOGOUT_ERROR, "errors");
 
 const logout = () => {
   return dispatch => {
+    deleteAuthToken();
     dispatch(logoutRequest());
     return apiLogout()
       .then(() => dispatch(logoutSuccess()))
@@ -50,8 +63,12 @@ const oauth = (provider) => {
   return dispatch => {
     dispatch(oauthRequest(provider));
     return apiOauth(provider)
-      .then(success => dispatch(oauthSuccess(success)))
+      .then(success => {
+        setAuthToken(success.token);
+        dispatch(oauthSuccess(success));
+      })
       .catch(error => {
+        deleteAuthToken();
         const errors = JSON.parse(error.responseText).errors;
         dispatch(oauthError(errors))})
   };
@@ -63,6 +80,7 @@ const signupError = makeAction(ACTION_TYPES.SIGNUP_ERROR, "errors");
 
 const signup = (data) => {
   return dispatch => {
+    deleteAuthToken();
     dispatch(signupRequest(data));
     return apiSignup(data)
       .then(success => dispatch(signupSuccess(success)))
@@ -80,7 +98,10 @@ const updateLogin = (data) => {
   return dispatch => {
     dispatch(loginUpdateRequest(data));
     return update(entityName, data)
-      .then(success => dispatch(loginUpdateSuccess(success)))
+      .then(success => {
+        deleteAuthToken();
+        dispatch(loginUpdateSuccess(success));
+      })
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
         dispatch(loginUpdateError(errors))})

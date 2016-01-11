@@ -1,78 +1,59 @@
 "use strict";
-import React, { Component } from "react";
-import { render } from "react-dom";
 import { connect } from "react-redux";
-import { getTransactions } from "../actions/transaction_actions";
 import EditLogin from "./auth/EditLogin";
 import EditUser from "./users/EditUser";
 import TransactionList from "./transactions/TransactionList";
 
-class Account extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Account = ({
+  currentUser,
+  transactions
+}) => {
+  const hasLogin = (currentUser.identity_id) ? true : false;
 
-  componentDidMount() {
-    this.props.getTransactions();
-  }
+  const styles = {
+    card: {
+      height: "auto",
+      width: "80%"
+    }
+  };
 
-  render() {
-    const { currentUser, transactions } = this.props;
-    const hasLogin = (currentUser.identity_id) ? true : false;
-
-    const styles = {
-      card: {
-        height: "auto",
-        width: "80%"
-      }
-    };
-
-    return (
-      <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--12-col">
-          <div className="block--center-horizontally__margin"
-            style={styles.card}>
-            <h3>Account</h3>
-          </div>
-          <div className="mdl-card mdl-shadow--2dp block--center-horizontally__margin"
-            style={styles.card}>
-            <div className="mdl-card__supporting-text block--center-horizontally__margin">
-              <div className="mdl-tabs mdl-js-tabs">
-                <div className="mdl-tabs__tab-bar">
-                  <a href="#profile-panel" className="mdl-tabs__tab is-active">Profile</a>
-                  {hasLogin && <a href="#login-panel" className="mdl-tabs__tab">Login</a>}
-                  <a href="#payment-history-panel" className="mdl-tabs__tab">Payment History</a>
-                </div>
-                <div className="mdl-tabs__panel is-active" id="profile-panel">
-                  <EditUser
-                    user={currentUser}
-                  />
-                </div>
-                {hasLogin && <div className="mdl-tabs__panel" id="login-panel">
-                  <EditLogin
-                    user={currentUser}
-                  />
-                </div>}
-                <div className="mdl-tabs__panel" id="payment-history-panel">
-                  <TransactionList
-                    transactions={transactions}
-                  />
-                </div>
+  return (
+    <div className="mdl-grid">
+      <div className="mdl-cell mdl-cell--12-col">
+        <div className="block--center-horizontally__margin"
+          style={styles.card}>
+          <h3>Account</h3>
+        </div>
+        <div className="mdl-card mdl-shadow--2dp block--center-horizontally__margin"
+          style={styles.card}>
+          <div className="mdl-card__supporting-text block--center-horizontally__margin">
+            <div className="mdl-tabs mdl-js-tabs">
+              <div className="mdl-tabs__tab-bar">
+                <a href="#profile-panel" className="mdl-tabs__tab is-active">Profile</a>
+                {hasLogin && <a href="#login-panel" className="mdl-tabs__tab">Login</a>}
+                <a href="#payment-history-panel" className="mdl-tabs__tab">Payment History</a>
+              </div>
+              <div className="mdl-tabs__panel is-active" id="profile-panel">
+                <EditUser
+                  user={currentUser}
+                />
+              </div>
+              {hasLogin && <div className="mdl-tabs__panel" id="login-panel">
+                <EditLogin
+                  user={currentUser}
+                />
+              </div>}
+              <div className="mdl-tabs__panel" id="payment-history-panel">
+                <TransactionList
+                  transactions={transactions}
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getTransactions: () => {
-      dispatch(getTransactions());
-    }
-  };
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {
@@ -83,6 +64,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Account)

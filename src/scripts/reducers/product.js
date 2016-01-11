@@ -8,24 +8,26 @@ const initialState = {
 
 const product = (state = initialState, action) => {
   switch (action.type) {
-    case  ACTION_TYPES.PRODUCT_CREATE_REQUEST:
-    case  ACTION_TYPES.PRODUCT_DESTROY_REQUEST:
     case  ACTION_TYPES.PRODUCT_FETCH_REQUEST:
-    case  ACTION_TYPES.PRODUCT_UPDATE_REQUEST:
       return {
         ...state,
         isFetching: true
       };
 
-    case  ACTION_TYPES.PRODUCT_CREATE_SUCCESS:
-    case  ACTION_TYPES.PRODUCT_DESTROY_SUCCESS:
     case  ACTION_TYPES.PRODUCT_FETCH_SUCCESS:
-    case  ACTION_TYPES.PRODUCT_UPDATE_SUCCESS:
       return {
         ...state,
         isFetching: false,
         products: action.data
       };
+
+    case  ACTION_TYPES.PRODUCT_CREATE_REQUEST:
+    case  ACTION_TYPES.PRODUCT_DESTROY_REQUEST:
+    case  ACTION_TYPES.PRODUCT_UPDATE_REQUEST:
+    case  ACTION_TYPES.PRODUCT_CREATE_SUCCESS:
+    case  ACTION_TYPES.PRODUCT_DESTROY_SUCCESS:
+    case  ACTION_TYPES.PRODUCT_UPDATE_SUCCESS:
+      return state;
 
     default:
       return state;

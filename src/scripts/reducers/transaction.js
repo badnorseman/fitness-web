@@ -15,20 +15,22 @@ const transaction = (state = initialState, action) => {
         clientToken: action.clientToken
       };
 
-    case  ACTION_TYPES.TRANSACTION_CREATE_REQUEST:
     case  ACTION_TYPES.TRANSACTION_FETCH_REQUEST:
       return {
         ...state,
         isFetching: true
       };
 
-    case  ACTION_TYPES.TRANSACTION_CREATE_SUCCESS:
     case  ACTION_TYPES.TRANSACTION_FETCH_SUCCESS:
       return {
         ...state,
         isFetching: false,
         transactions: action.data
       };
+
+    case  ACTION_TYPES.TRANSACTION_CREATE_REQUEST:
+    case  ACTION_TYPES.TRANSACTION_CREATE_SUCCESS:
+      return state;
 
     default:
       return state;
