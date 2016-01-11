@@ -1,6 +1,6 @@
 "use strict";
 import * as  ACTION_TYPES from "../constants/action_types";
-import { getClients } from "./client_actions";
+import { getCustomers } from "./customer_actions";
 import { getTransactions } from "./transaction_actions";
 
 const changeRoute = (route, param) => {
