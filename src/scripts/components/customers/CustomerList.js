@@ -1,20 +1,17 @@
 "use strict";
-import UserListItem from "./UserListItem";
+import CustomerListItem from "./CustomerListItem";
 
-const UserList = ({
-  users
+const CustomerList = ({
+  customers
 }) => {
-  let items = (users) => {
-    let items = [];
-    for (let key in users) {
-      if (users.hasOwnProperty(key)) {
-        items.push(
-          <UserListItem key={key} user={users[key]}/>
-        );
-      }
+  let items = [];
+  for (let key in customers) {
+    if (customers.hasOwnProperty(key)) {
+      items.push(
+        <CustomerListItem key={key} customer={customers[key]}/>
+      );
     }
-    return items;
-  }(users);
+  }
 
   const styles = {
     headerElement: {
@@ -41,4 +38,4 @@ const UserList = ({
   );
 };
 
-export default UserList
+export default CustomerList

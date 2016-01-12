@@ -8,7 +8,6 @@ import errorMessage from "./error_message";
 import product from "./product";
 import router from "./router";
 import transaction from "./transaction";
-import user from "./user";
 
 const reducer = combineReducers({
   auth,
@@ -18,8 +17,7 @@ const reducer = combineReducers({
   errorMessage,
   product,
   router,
-  transaction,
-  user
+  transaction
 });
 
 export default reducer

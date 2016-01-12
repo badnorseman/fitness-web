@@ -1,7 +1,7 @@
 "use strict";
 import { connect } from "react-redux";
 import ProductList from "./products/ProductList";
-import UserList from "./users/UserList";
+import CustomerList from "./customers/CustomerList";
 
 const Dashboard = ({
   customers,
@@ -37,8 +37,8 @@ const Dashboard = ({
                 />
               </div>
               <div className="mdl-tabs__panel" id="customers-panel">
-                <UserList
-                  users={customers}
+                <CustomerList
+                  customers={customers}
                 />
               </div>
             </div>

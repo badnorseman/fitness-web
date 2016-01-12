@@ -36,7 +36,7 @@ const ProductList = ({
         <div style={styles.headerElement}>NAME</div>
         <div style={styles.headerElement}>CURRENCY</div>
         <div style={styles.headerElement}>PRICE</div>
-        <div style={styles.headerElement}>NUMBERS OF USERS</div>
+        <div style={styles.headerElement}>NUMBERS OF CUSTOMERS</div>
       </div>
       {items}
       <button

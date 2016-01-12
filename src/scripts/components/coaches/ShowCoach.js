@@ -9,7 +9,7 @@ const ShowCoach = ({
 }) => {
   // const { avatar, email, name } = coach;
   const avatar = "https://s3.amazonaws.com/images.fitbird.us/production/users/default/avatars/small.jpeg";
-  const image = "https://s3.amazonaws.com/images.fitbird.us/production/products/default/images/small.png";
+  const image = "https://s3.amazonaws.com/images.fitbird.us/production/products/default/images/small.jpeg";
   const email = "hello@fitbird.com";
   const name = "Coach";
 

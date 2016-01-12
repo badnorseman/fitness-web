@@ -1,9 +1,9 @@
 "use strict";
 
 const UserListItem = ({
-  user
+  customer
 }) => {
-  const { name } = user;
+  const { name, product } = customer;
 
   const styles = {
     itemElement: {
@@ -19,7 +19,7 @@ const UserListItem = ({
       <div className="block--center-horizontally__flex">
         <div style={styles.itemElement}>{name}</div>
         <div style={styles.itemElement}>Status</div>
-        <div style={styles.itemElement}>Product</div>
+        <div style={styles.itemElement}>{product}</div>
         <div style={styles.itemElement}>Current end date</div>
       </div>
     </div>
