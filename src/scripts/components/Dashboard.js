@@ -1,11 +1,11 @@
 "use strict";
 import { connect } from "react-redux";
 import ProductList from "./products/ProductList";
-import CustomerList from "./customers/CustomerList";
+import UserList from "./users/UserList";
 
 const Dashboard = ({
-  customers,
   products,
+  users,
   goTo
 }) => {
   const styles = {
@@ -37,8 +37,8 @@ const Dashboard = ({
                 />
               </div>
               <div className="mdl-tabs__panel" id="customers-panel">
-                <CustomerList
-                  customers={customers}
+                <UserList
+                  users={users}
                 />
               </div>
             </div>
@@ -61,8 +61,8 @@ const selected = (state) => {
 
 const mapStateToProps = (state) => {
   return {
-    customers: state.customer.customers,
-    products: selected(state)
+    products: selected(state),
+    users: state.user.users
   };
 };
 

@@ -1,14 +1,14 @@
 "use strict";
-import CustomerListItem from "./CustomerListItem";
+import UserListItem from "./UserListItem";
 
-const CustomerList = ({
-  customers
+const UserList = ({
+  users
 }) => {
   let items = [];
-  for (let key in customers) {
-    if (customers.hasOwnProperty(key)) {
+  for (let key in users) {
+    if (users.hasOwnProperty(key)) {
       items.push(
-        <CustomerListItem key={key} customer={customers[key]}/>
+        <UserListItem key={key} user={users[key]}/>
       );
     }
   }
@@ -38,4 +38,4 @@ const CustomerList = ({
   );
 };
 
-export default CustomerList
+export default UserList
