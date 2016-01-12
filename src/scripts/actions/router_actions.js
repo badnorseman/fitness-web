@@ -10,9 +10,8 @@ const changeRoute = (route, param) => {
         dispatch(getTransactions());
         break;
       case "DASHBOARD":
-        console.log("get data to Dashboard");
+        dispatch(getCustomers());
         break;
-      default:
     }
 
     dispatch({

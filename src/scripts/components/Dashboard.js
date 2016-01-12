@@ -28,7 +28,7 @@ const Dashboard = ({
             <div className="mdl-tabs mdl-js-tabs">
               <div className="mdl-tabs__tab-bar">
                 <a href="#products-panel" className="mdl-tabs__tab is-active">Products</a>
-                <a href="#customers-panel" className="mdl-tabs__tab">Clients</a>
+                <a href="#customers-panel" className="mdl-tabs__tab">Customers</a>
               </div>
               <div className="mdl-tabs__panel is-active" id="products-panel">
                 <ProductList

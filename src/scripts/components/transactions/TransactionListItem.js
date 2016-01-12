@@ -3,7 +3,7 @@
 const TransactionListItem = ({
   transaction
 }) => {
-  const { amount, currency, date, transaction_id } = transaction;
+  const { amount, currency, transaction_date, transaction_id } = transaction;
 
   const styles = {
     itemElement: {
@@ -17,7 +17,7 @@ const TransactionListItem = ({
     <div>
       <hr />
       <div className="block--center-horizontally__flex">
-        <div style={styles.itemElement}>{date}</div>
+        <div style={styles.itemElement}>{transaction_date}</div>
         <div style={styles.itemElement}>{currency}</div>
         <div style={styles.itemElement}>{amount}</div>
         <div style={styles.itemElement}>{transaction_id}</div>
