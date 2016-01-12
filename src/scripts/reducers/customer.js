@@ -3,22 +3,22 @@ import * as  ACTION_TYPES from "../constants/action_types";
 
 const initialState = {
   isFetching: false,
-  users: {}
+  customers: {}
 };
 
-const user = (state = initialState, action) => {
+const customer = (state = initialState, action) => {
   switch (action.type) {
-    case  ACTION_TYPES.USER_FETCH_REQUEST:
+    case  ACTION_TYPES.CUSTOMER_FETCH_REQUEST:
       return {
         ...state,
         isFetching: true
       };
 
-    case  ACTION_TYPES.USER_FETCH_SUCCESS:
+    case  ACTION_TYPES.CUSTOMER_FETCH_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        users: action.data
+        customers: action.data
       };
 
     default:
@@ -26,4 +26,4 @@ const user = (state = initialState, action) => {
   }
 };
 
-export default user
+export default customer

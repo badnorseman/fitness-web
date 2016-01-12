@@ -1,7 +1,7 @@
 "use strict";
 import { connect } from "react-redux";
 import EditLogin from "./auth/EditLogin";
-import EditUser from "./users/EditUser";
+import EditUser from "./auth/EditUser";
 import TransactionList from "./transactions/TransactionList";
 
 const Account = ({

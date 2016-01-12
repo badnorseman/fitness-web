@@ -1,6 +1,6 @@
 "use strict";
 import * as  ACTION_TYPES from "../constants/action_types";
-import { getClients } from "./client_actions";
+import { getCustomers } from "./customer_actions";
 import { getTransactions } from "./transaction_actions";
 
 const changeRoute = (route, param) => {
@@ -10,9 +10,8 @@ const changeRoute = (route, param) => {
         dispatch(getTransactions());
         break;
       case "DASHBOARD":
-        console.log("get data to Dashboard");
+        dispatch(getCustomers());
         break;
-      default:
     }
 
     dispatch({
