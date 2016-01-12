@@ -1,8 +1,10 @@
 "use strict";
 import * as  ACTION_TYPES from "../constants/action_types";
+import { arrayOf, normalize, Schema } from "normalizr";
 import { fetchAll, update } from "../api/api";
 import { makeAction } from "../utils/make_action";
 
+const userSchema = new Schema("users", { idAttribute: "id" });
 const entityName = "user";
 
 const userFetchRequest = makeAction(ACTION_TYPES.USER_FETCH_REQUEST);
