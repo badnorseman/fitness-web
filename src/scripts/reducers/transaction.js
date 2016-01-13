@@ -28,10 +28,6 @@ const transaction = (state = initialState, action) => {
         transactions: action.data
       };
 
-    case  ACTION_TYPES.TRANSACTION_CREATE_REQUEST:
-    case  ACTION_TYPES.TRANSACTION_CREATE_SUCCESS:
-      return state;
-
     default:
       return state;
   }

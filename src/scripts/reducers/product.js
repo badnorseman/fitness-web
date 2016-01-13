@@ -21,14 +21,6 @@ const product = (state = initialState, action) => {
         products: action.data
       };
 
-    case  ACTION_TYPES.PRODUCT_CREATE_REQUEST:
-    case  ACTION_TYPES.PRODUCT_DESTROY_REQUEST:
-    case  ACTION_TYPES.PRODUCT_UPDATE_REQUEST:
-    case  ACTION_TYPES.PRODUCT_CREATE_SUCCESS:
-    case  ACTION_TYPES.PRODUCT_DESTROY_SUCCESS:
-    case  ACTION_TYPES.PRODUCT_UPDATE_SUCCESS:
-      return state;
-
     default:
       return state;
   }
