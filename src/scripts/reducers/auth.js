@@ -7,14 +7,9 @@ const initialState = {
 
 const auth = (state = initialState, action) => {
   switch (action.type) {
-    case  ACTION_TYPES.USER_UPDATE_SUCCESS:
-      return {
-        ...state,
-        currentUser: action.data
-      };
-
     case  ACTION_TYPES.LOGIN_SUCCESS:
     case  ACTION_TYPES.OAUTH_SUCCESS:
+    case  ACTION_TYPES.USER_UPDATE_SUCCESS:
       return {
         ...state,
         currentUser: action.data
