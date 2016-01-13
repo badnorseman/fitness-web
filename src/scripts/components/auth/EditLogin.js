@@ -7,7 +7,7 @@ import InputField from "../InputField";
 
 class EditLogin extends Component {
   static propTypes = {
-    user: PropTypes.object.isRequired
+    login: PropTypes.object.isRequired
   }
 
   constructor(props) {
@@ -18,7 +18,7 @@ class EditLogin extends Component {
   _handleSubmit(ev) {
     ev.preventDefault();
 
-    let id = this.props.user.identity_id;
+    let id = this.props.id;
     let email = this.refs.email.state.fieldValue;
     let password = this.refs.password.state.fieldValue;
     let passwordConfirmation = this.refs.passwordConfirmation.state.fieldValue;
@@ -34,7 +34,7 @@ class EditLogin extends Component {
   }
 
   render() {
-    const { identity_email } = this.props.user;
+    const { email } = this.props.login;
 
     const styles = {
       form: {
@@ -51,7 +51,7 @@ class EditLogin extends Component {
             fieldId="email"
             fieldName="Email"
             fieldType="text"
-            fieldValue={identity_email}
+            fieldValue={email}
             ref="email" />
         </div>
         <div>

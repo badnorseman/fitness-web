@@ -8,7 +8,7 @@ const Account = ({
   currentUser,
   transactions
 }) => {
-  const hasLogin = (currentUser.identity_id) ? true : false;
+  const { login } = currentUser;
 
   const styles = {
     card: {
@@ -30,7 +30,7 @@ const Account = ({
             <div className="mdl-tabs mdl-js-tabs">
               <div className="mdl-tabs__tab-bar">
                 <a href="#profile-panel" className="mdl-tabs__tab is-active">Profile</a>
-                {hasLogin && <a href="#login-panel" className="mdl-tabs__tab">Login</a>}
+                {login && <a href="#login-panel" className="mdl-tabs__tab">Login</a>}
                 <a href="#payment-history-panel" className="mdl-tabs__tab">Payment History</a>
               </div>
               <div className="mdl-tabs__panel is-active" id="profile-panel">
@@ -38,9 +38,9 @@ const Account = ({
                   user={currentUser}
                 />
               </div>
-              {hasLogin && <div className="mdl-tabs__panel" id="login-panel">
+              {login && <div className="mdl-tabs__panel" id="login-panel">
                 <EditLogin
-                  user={currentUser}
+                  login={login}
                 />
               </div>}
               <div className="mdl-tabs__panel" id="payment-history-panel">
