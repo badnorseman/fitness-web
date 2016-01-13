@@ -1,9 +1,9 @@
 "use strict";
 
 const UserListItem = ({
-  customer
+  user
 }) => {
-  const { name, product } = customer;
+  const { name, product } = user;
 
   const styles = {
     itemElement: {
