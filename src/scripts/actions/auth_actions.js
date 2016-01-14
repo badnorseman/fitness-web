@@ -1,5 +1,5 @@
 "use strict";
-import * as  ActionTypes from "../constants/action_types";
+import * as  actionTypes from "../constants/action_types";
 import {
   create,
   update,
@@ -20,9 +20,9 @@ const setAuthToken = (token) => {
   localStorage.setItem("auth_token", token);
 };
 
-const loginRequest = makeAction(ActionTypes.LOGIN_REQUEST, "data");
-const loginSuccess = makeAction(ActionTypes.LOGIN_SUCCESS, "data");
-const loginError = makeAction(ActionTypes.LOGIN_ERROR, "errors");
+const loginRequest = makeAction(actionTypes.LOGIN_REQUEST, "data");
+const loginSuccess = makeAction(actionTypes.LOGIN_SUCCESS, "data");
+const loginError = makeAction(actionTypes.LOGIN_ERROR, "errors");
 
 const login = (data) => {
   return dispatch => {
@@ -39,9 +39,9 @@ const login = (data) => {
   };
 }
 
-const logoutRequest = makeAction(ActionTypes.LOGOUT_REQUEST);
-const logoutSuccess = makeAction(ActionTypes.LOGOUT_SUCCESS);
-const logoutError = makeAction(ActionTypes.LOGOUT_ERROR, "errors");
+const logoutRequest = makeAction(actionTypes.LOGOUT_REQUEST);
+const logoutSuccess = makeAction(actionTypes.LOGOUT_SUCCESS);
+const logoutError = makeAction(actionTypes.LOGOUT_ERROR, "errors");
 
 const logout = () => {
   return dispatch => {
@@ -55,9 +55,9 @@ const logout = () => {
   };
 };
 
-const oauthRequest = makeAction(ActionTypes.OAUTH_REQUEST, "provider");
-const oauthSuccess = makeAction(ActionTypes.OAUTH_SUCCESS, "data");
-const oauthError = makeAction(ActionTypes.OAUTH_ERROR, "errors");
+const oauthRequest = makeAction(actionTypes.OAUTH_REQUEST, "provider");
+const oauthSuccess = makeAction(actionTypes.OAUTH_SUCCESS, "data");
+const oauthError = makeAction(actionTypes.OAUTH_ERROR, "errors");
 
 const oauth = (provider) => {
   return dispatch => {
@@ -74,9 +74,9 @@ const oauth = (provider) => {
   };
 };
 
-const signupRequest = makeAction(ActionTypes.SIGNUP_REQUEST, "data");
-const signupSuccess = makeAction(ActionTypes.SIGNUP_SUCCESS, "data");
-const signupError = makeAction(ActionTypes.SIGNUP_ERROR, "errors");
+const signupRequest = makeAction(actionTypes.SIGNUP_REQUEST, "data");
+const signupSuccess = makeAction(actionTypes.SIGNUP_SUCCESS, "data");
+const signupError = makeAction(actionTypes.SIGNUP_ERROR, "errors");
 
 const signup = (data) => {
   return dispatch => {
@@ -90,9 +90,9 @@ const signup = (data) => {
   };
 };
 
-const loginUpdateRequest = makeAction(ActionTypes.LOGIN_UPDATE_REQUEST, "data");
-const loginUpdateSuccess = makeAction(ActionTypes.LOGIN_UPDATE_SUCCESS, "data");
-const loginUpdateError = makeAction(ActionTypes.LOGIN_UPDATE_ERROR, "errors");
+const loginUpdateRequest = makeAction(actionTypes.LOGIN_UPDATE_REQUEST, "data");
+const loginUpdateSuccess = makeAction(actionTypes.LOGIN_UPDATE_SUCCESS, "data");
+const loginUpdateError = makeAction(actionTypes.LOGIN_UPDATE_ERROR, "errors");
 
 const updateLogin = (data) => {
   return dispatch => {
@@ -108,9 +108,9 @@ const updateLogin = (data) => {
   };
 };
 
-const passwordCreateRequest = makeAction(ActionTypes.PASSWORD_CREATE_REQUEST, "data");
-const passwordCreateSuccess = makeAction(ActionTypes.PASSWORD_CREATE_SUCCESS, "data");
-const passwordCreateError = makeAction(ActionTypes.PASSWORD_CREATE_ERROR, "errors");
+const passwordCreateRequest = makeAction(actionTypes.PASSWORD_CREATE_REQUEST, "data");
+const passwordCreateSuccess = makeAction(actionTypes.PASSWORD_CREATE_SUCCESS, "data");
+const passwordCreateError = makeAction(actionTypes.PASSWORD_CREATE_ERROR, "errors");
 
 const createPassword = (data) => {
   return dispatch => {

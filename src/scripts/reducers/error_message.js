@@ -1,11 +1,11 @@
 "use strict";
-import * as  ActionTypes from "../constants/action_types";
+import * as  actionTypes from "../constants/action_types";
 
 const errorMessage = (state = null, action) => {
   const { type, errors } = action;
 
-  if (type ===  ActionTypes.RESET_ERROR_MESSAGE ||
-    type ===  ActionTypes.ROUTE_CHANGE) {
+  if (type ===  actionTypes.RESET_ERROR_MESSAGE ||
+    type ===  actionTypes.ROUTE_CHANGE) {
     return null;
   } else if (errors) {
     return errors;

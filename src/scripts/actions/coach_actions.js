@@ -1,5 +1,5 @@
 "use strict";
-import * as  ActionTypes from "../constants/action_types";
+import * as  actionTypes from "../constants/action_types";
 import { arrayOf, normalize, Schema } from "normalizr";
 import { fetchAll } from "../api/api";
 import { makeAction } from "../utils/make_action";
@@ -7,9 +7,9 @@ import { makeAction } from "../utils/make_action";
 const coachSchema = new Schema("coaches", { idAttribute: "id" });
 const entityName = "coach";
 
-const coachFetchRequest = makeAction(ActionTypes.COACH_FETCH_REQUEST);
-const coachFetchSuccess = makeAction(ActionTypes.COACH_FETCH_SUCCESS, "data");
-const coachFetchError = makeAction(ActionTypes.COACH_FETCH_ERROR, "errors");
+const coachFetchRequest = makeAction(actionTypes.COACH_FETCH_REQUEST);
+const coachFetchSuccess = makeAction(actionTypes.COACH_FETCH_SUCCESS, "data");
+const coachFetchError = makeAction(actionTypes.COACH_FETCH_ERROR, "errors");
 
 const getCoaches = () => {
   return dispatch => {

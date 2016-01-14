@@ -1,16 +1,16 @@
 "use strict";
-import * as  ActionTypes from "../constants/action_types";
+import * as  actionTypes from "../constants/action_types";
 
 const cartAddProduct = (product) => {
   return {
-    type:  ActionTypes.CART_ADD_PRODUCT,
+    type:  actionTypes.CART_ADD_PRODUCT,
     data: product
   };
 };
 
 const cartRemoveProduct = (id) => {
   return {
-    type:  ActionTypes.CART_REMOVE_PRODUCT,
+    type:  actionTypes.CART_REMOVE_PRODUCT,
     id: id
   };
 };

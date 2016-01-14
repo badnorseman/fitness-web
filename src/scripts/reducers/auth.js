@@ -1,5 +1,5 @@
 "use strict";
-import * as  ActionTypes from "../constants/action_types";
+import * as  actionTypes from "../constants/action_types";
 
 const initialState = {
   currentUser: {}
@@ -7,20 +7,20 @@ const initialState = {
 
 const auth = (state = initialState, action) => {
   switch (action.type) {
-    case  ActionTypes.LOGIN_SUCCESS:
-    case  ActionTypes.OAUTH_SUCCESS:
-    case  ActionTypes.USER_UPDATE_SUCCESS:
+    case  actionTypes.LOGIN_SUCCESS:
+    case  actionTypes.OAUTH_SUCCESS:
+    case  actionTypes.USER_UPDATE_SUCCESS:
       return {
         ...state,
         currentUser: action.data
       };
 
-    case  ActionTypes.LOGIN_UPDATE_SUCCESS:
-    case  ActionTypes.LOGIN_ERROR:
-    case  ActionTypes.LOGOUT_REQUEST:
-    case  ActionTypes.OAUTH_ERROR:
-    case  ActionTypes.SIGNUP_SUCCESS:
-    case  ActionTypes.SIGNUP_ERROR:
+    case  actionTypes.LOGIN_UPDATE_SUCCESS:
+    case  actionTypes.LOGIN_ERROR:
+    case  actionTypes.LOGOUT_REQUEST:
+    case  actionTypes.OAUTH_ERROR:
+    case  actionTypes.SIGNUP_SUCCESS:
+    case  actionTypes.SIGNUP_ERROR:
       return {
         ...state,
         currentUser: {}

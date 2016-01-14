@@ -1,5 +1,5 @@
 "use strict";
-import * as  ActionTypes from "../constants/action_types";
+import * as  actionTypes from "../constants/action_types";
 import { arrayOf, normalize, Schema } from "normalizr";
 import { fetchAll, update } from "../api/api";
 import { makeAction } from "../utils/make_action";
@@ -7,9 +7,9 @@ import { makeAction } from "../utils/make_action";
 const userSchema = new Schema("users", { idAttribute: "id" });
 const entityName = "user";
 
-const userFetchRequest = makeAction(ActionTypes.USER_FETCH_REQUEST);
-const userFetchSuccess = makeAction(ActionTypes.USER_FETCH_SUCCESS, "data");
-const userFetchError = makeAction(ActionTypes.USER_FETCH_ERROR, "errors");
+const userFetchRequest = makeAction(actionTypes.USER_FETCH_REQUEST);
+const userFetchSuccess = makeAction(actionTypes.USER_FETCH_SUCCESS, "data");
+const userFetchError = makeAction(actionTypes.USER_FETCH_ERROR, "errors");
 
 const getUsers = () => {
   return dispatch => {
@@ -24,9 +24,9 @@ const getUsers = () => {
   };
 };
 
-const userUpdateRequest = makeAction(ActionTypes.USER_UPDATE_REQUEST, "data");
-const userUpdateSuccess = makeAction(ActionTypes.USER_UPDATE_SUCCESS, "data");
-const userUpdateError = makeAction(ActionTypes.USER_UPDATE_ERROR, "errors");
+const userUpdateRequest = makeAction(actionTypes.USER_UPDATE_REQUEST, "data");
+const userUpdateSuccess = makeAction(actionTypes.USER_UPDATE_SUCCESS, "data");
+const userUpdateError = makeAction(actionTypes.USER_UPDATE_ERROR, "errors");
 
 const updateUser = (data) => {
   return dispatch => {
