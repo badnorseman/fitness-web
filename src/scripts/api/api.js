@@ -9,10 +9,10 @@ import {
   buildUrl
 } from "../utils/build_http";
 
-const create = (entityName, data) => {
-  const url = buildUrl(SERVER, entityName);
+const create = (entity, data) => {
+  const url = buildUrl(SERVER, entity);
   const headers = buildHeaders();
-  const formData = buildFormData(entityName, data);
+  const formData = buildFormData(entity, data);
   return Promise.resolve(
     $.ajax({
       url: url,
@@ -26,8 +26,8 @@ const create = (entityName, data) => {
   );
 };
 
-const destroy = (entityName, id) => {
-  const url = buildUrl(SERVER, entityName, id);
+const destroy = (entity, id) => {
+  const url = buildUrl(SERVER, entity, id);
   const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
@@ -39,8 +39,8 @@ const destroy = (entityName, id) => {
   );
 };
 
-const fetchClientToken = (entityName) => {
-  const url = buildUrl(SERVER, entityName, "new");
+const fetchClientToken = (entity) => {
+  const url = buildUrl(SERVER, entity, "new");
   const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
@@ -52,8 +52,8 @@ const fetchClientToken = (entityName) => {
   );
 };
 
-const fetchAll = (entityName) => {
-  const url = buildUrl(SERVER, entityName);
+const fetchAll = (entity) => {
+  const url = buildUrl(SERVER, entity);
   const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
@@ -65,8 +65,8 @@ const fetchAll = (entityName) => {
   );
 };
 
-const fetchById = (entityName, id) => {
-  const url = buildUrl(SERVER, entityName, id);
+const fetchById = (entity, id) => {
+  const url = buildUrl(SERVER, entity, id);
   const headers = buildHeaders();
   return Promise.resolve(
     $.ajax({
@@ -125,10 +125,10 @@ const signup = (data) => {
   );
 };
 
-const update = (entityName, data) => {
-  const url = buildUrl(SERVER, entityName, data.id);
+const update = (entity, data) => {
+  const url = buildUrl(SERVER, entity, data.id);
   const headers = buildHeaders();
-  const formData = buildFormData(entityName, data);
+  const formData = buildFormData(entity, data);
   return Promise.resolve(
     $.ajax({
       url: url,

@@ -1,10 +1,10 @@
 "use strict";
 
-const buildFormData = (entityName, data) => {
+const buildFormData = (entity, data) => {
   let formData = new FormData();
   for (let key in data) {
     if (data.hasOwnProperty(key)) {
-      formData.append(`${entityName}[${key}]`, data[key]);
+      formData.append(`${entity}[${key}]`, data[key]);
     }
   }
   return formData;
@@ -15,15 +15,15 @@ const buildHeaders = () => {
   return { "Authorization": `Token token=${token}` };
 };
 
-const buildUrl = (serverName, entityName, params) => {
+const buildUrl = (server, entity, params) => {
   const urlParams = buildUrlParams(params);
 
-  if (entityName === "coach") {
-    return `${serverName}/coaches${urlParams}`;
-  } else if (entityName === "identity") {
-    return `${serverName}/identities${urlParams}`;
+  if (entity === "coach") {
+    return `${server}/coaches${urlParams}`;
+  } else if (entity === "identity") {
+    return `${server}/identities${urlParams}`;
   } else {
-    return `${serverName}/${entityName}s${urlParams}`;
+    return `${server}/${entity}s${urlParams}`;
   }
 };
 
@@ -31,8 +31,4 @@ const buildUrlParams = (params) => {
   return (params) ? `/${params}` : "";
 };
 
-export {
-  buildFormData,
-  buildHeaders,
-  buildUrl
-};
+export { buildFormData, buildHeaders, buildUrl };
