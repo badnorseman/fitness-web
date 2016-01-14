@@ -1,13 +1,6 @@
 "use strict";
-import * as  actionTypes from "../constants/action_types";
-import {
-  create,
-  update,
-  login as apiLogin,
-  logout as apiLogout,
-  oauth as apiOauth,
-  signup as apiSignup
-} from "../api/api";
+import * as actionTypes from "../constants/action_types";
+import * as api from "../api/api";
 import { makeAction } from "../utils/make_action";
 
 const ENTITY = "identity";
@@ -27,7 +20,7 @@ const loginError = makeAction(actionTypes.LOGIN_ERROR, "errors");
 const login = (data) => {
   return dispatch => {
     dispatch(loginRequest(data));
-    return apiLogin(data)
+    return api.login(data)
       .then(success => {
         setAuthToken(success.token);
         dispatch(loginSuccess(success));
@@ -47,7 +40,7 @@ const logout = () => {
   return dispatch => {
     deleteAuthToken();
     dispatch(logoutRequest());
-    return apiLogout()
+    return api.logout()
       .then(() => dispatch(logoutSuccess()))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
@@ -62,7 +55,7 @@ const oauthError = makeAction(actionTypes.OAUTH_ERROR, "errors");
 const oauth = (provider) => {
   return dispatch => {
     dispatch(oauthRequest(provider));
-    return apiOauth(provider)
+    return api.oauth(provider)
       .then(success => {
         setAuthToken(success.token);
         dispatch(oauthSuccess(success));
@@ -82,7 +75,7 @@ const signup = (data) => {
   return dispatch => {
     deleteAuthToken();
     dispatch(signupRequest(data));
-    return apiSignup(data)
+    return api.signup(data)
       .then(success => dispatch(signupSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
@@ -97,7 +90,7 @@ const loginUpdateError = makeAction(actionTypes.LOGIN_UPDATE_ERROR, "errors");
 const updateLogin = (data) => {
   return dispatch => {
     dispatch(loginUpdateRequest(data));
-    return update(ENTITY, data)
+    return api.update(ENTITY, data)
       .then(success => {
         deleteAuthToken();
         dispatch(loginUpdateSuccess(success));
@@ -115,7 +108,7 @@ const passwordCreateError = makeAction(actionTypes.PASSWORD_CREATE_ERROR, "error
 const createPassword = (data) => {
   return dispatch => {
     dispatch(passwordCreateRequest(data));
-    return create(ENTITY, data)
+    return api.create(ENTITY, data)
       .then(success => dispatch(passwordCreateSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;

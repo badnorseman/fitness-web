@@ -16,9 +16,7 @@ const createProduct = (data) => {
   return dispatch => {
     dispatch(productCreateRequest(data));
     return create(ENTITY, data)
-      .then(success => {
-        const normalized = normalize(success, arrayOf(productSchema));
-        dispatch(productCreateSuccess(normalized.entities.products))})
+      .then(success => dispatch(productCreateSuccess(success)))
       .then(() => dispatch(getProducts()))
       .then(() => dispatch(getCoaches()))
       .catch(error => {
@@ -69,9 +67,7 @@ const updateProduct = (data) => {
   return dispatch => {
     dispatch(productUpdateRequest(data));
     return update(ENTITY, data)
-      .then(success => {
-        const normalized = normalize(success, arrayOf(productSchema));
-        dispatch(productUpdateSuccess(normalized.entities.products))})
+      .then(success => dispatch(productUpdateSuccess(success)))
       .then(() => dispatch(getProducts()))
       .then(() => dispatch(getCoaches()))
       .catch(error => {

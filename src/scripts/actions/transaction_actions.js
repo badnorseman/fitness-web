@@ -28,9 +28,7 @@ const createTransaction = (data) => {
   return dispatch => {
     dispatch(transactionCreateRequest(data));
     return create(ENTITY, data)
-      .then(success => {
-        const normalized = normalize(success, arrayOf(transactionSchema));
-        dispatch(transactionCreateSuccess(normalized.entities.transactions))})
+      .then(success => dispatch(transactionCreateSuccess(success)))
       .then(() => dispatch(getTransactions()))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
