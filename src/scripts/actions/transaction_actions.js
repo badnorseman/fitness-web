@@ -1,5 +1,5 @@
 "use strict";
-import * as  ACTION_TYPES from "../constants/action_types";
+import * as  ActionTypes from "../constants/action_types";
 import { arrayOf, normalize, Schema } from "normalizr";
 import { create, fetchAll, fetchClientToken } from "../api/api";
 import { makeAction } from "../utils/make_action";
@@ -7,9 +7,9 @@ import { makeAction } from "../utils/make_action";
 const transactionSchema = new Schema("transactions", { idAttribute: "id" });
 const entityName = "transaction";
 
-const clientTokenRequest = makeAction(ACTION_TYPES.CLIENT_TOKEN_REQUEST);
-const clientTokenSuccess = makeAction(ACTION_TYPES.CLIENT_TOKEN_SUCCESS, "clientToken");
-const clientTokenError = makeAction(ACTION_TYPES.CLIENT_TOKEN_ERROR, "errors");
+const clientTokenRequest = makeAction(ActionTypes.CLIENT_TOKEN_REQUEST);
+const clientTokenSuccess = makeAction(ActionTypes.CLIENT_TOKEN_SUCCESS, "clientToken");
+const clientTokenError = makeAction(ActionTypes.CLIENT_TOKEN_ERROR, "errors");
 
 const getClientToken = () => {
   return dispatch => {
@@ -20,9 +20,9 @@ const getClientToken = () => {
   };
 };
 
-const transactionCreateRequest = makeAction(ACTION_TYPES.TRANSACTION_CREATE_REQUEST, "data");
-const transactionCreateSuccess = makeAction(ACTION_TYPES.TRANSACTION_CREATE_SUCCESS, "data");
-const transactionCreateError = makeAction(ACTION_TYPES.TRANSACTION_CREATE_ERROR, "errors");
+const transactionCreateRequest = makeAction(ActionTypes.TRANSACTION_CREATE_REQUEST, "data");
+const transactionCreateSuccess = makeAction(ActionTypes.TRANSACTION_CREATE_SUCCESS, "data");
+const transactionCreateError = makeAction(ActionTypes.TRANSACTION_CREATE_ERROR, "errors");
 
 const createTransaction = (data) => {
   return dispatch => {
@@ -38,9 +38,9 @@ const createTransaction = (data) => {
   };
 };
 
-const transactionFetchRequest = makeAction(ACTION_TYPES.TRANSACTION_FETCH_REQUEST);
-const transactionFetchSuccess = makeAction(ACTION_TYPES.TRANSACTION_FETCH_SUCCESS, "data");
-const transactionFetchError = makeAction(ACTION_TYPES.TRANSACTION_FETCH_ERROR, "errors");
+const transactionFetchRequest = makeAction(ActionTypes.TRANSACTION_FETCH_REQUEST);
+const transactionFetchSuccess = makeAction(ActionTypes.TRANSACTION_FETCH_SUCCESS, "data");
+const transactionFetchError = makeAction(ActionTypes.TRANSACTION_FETCH_ERROR, "errors");
 
 const getTransactions = () => {
   return dispatch => {

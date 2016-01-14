@@ -1,5 +1,5 @@
 "use strict";
-import * as  ACTION_TYPES from "../constants/action_types";
+import * as  ActionTypes from "../constants/action_types";
 import { getTransactions } from "./transaction_actions";
 import { getUsers } from "./user_actions";
 
@@ -15,7 +15,7 @@ const changeRoute = (route, param) => {
     }
 
     dispatch({
-      type:  ACTION_TYPES.ROUTE_CHANGE,
+      type:  ActionTypes.ROUTE_CHANGE,
       route: route,
       param: param
     });

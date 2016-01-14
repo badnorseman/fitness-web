@@ -1,5 +1,5 @@
 "use strict";
-import * as  ACTION_TYPES from "../constants/action_types";
+import * as  ActionTypes from "../constants/action_types";
 import { arrayOf, normalize, Schema } from "normalizr";
 import { create, destroy, fetchAll, update } from "../api/api";
 import { makeAction } from "../utils/make_action";
@@ -8,9 +8,9 @@ import { getCoaches } from "./coach_actions";
 const productSchema = new Schema("products", { idAttribute: "id" });
 const entityName = "product";
 
-const productCreateRequest = makeAction(ACTION_TYPES.PRODUCT_CREATE_REQUEST, "data");
-const productCreateSuccess = makeAction(ACTION_TYPES.PRODUCT_CREATE_SUCCESS, "data");
-const productCreateError = makeAction(ACTION_TYPES.PRODUCT_CREATE_ERROR, "errors");
+const productCreateRequest = makeAction(ActionTypes.PRODUCT_CREATE_REQUEST, "data");
+const productCreateSuccess = makeAction(ActionTypes.PRODUCT_CREATE_SUCCESS, "data");
+const productCreateError = makeAction(ActionTypes.PRODUCT_CREATE_ERROR, "errors");
 
 const createProduct = (data) => {
   return dispatch => {
@@ -27,9 +27,9 @@ const createProduct = (data) => {
   };
 };
 
-const productDestroyRequest = makeAction(ACTION_TYPES.PRODUCT_DESTROY_REQUEST, "id");
-const productDestroySuccess = makeAction(ACTION_TYPES.PRODUCT_DESTROY_SUCCESS);
-const productDestroyError = makeAction(ACTION_TYPES.PRODUCT_DESTROY_ERROR, "errors");
+const productDestroyRequest = makeAction(ActionTypes.PRODUCT_DESTROY_REQUEST, "id");
+const productDestroySuccess = makeAction(ActionTypes.PRODUCT_DESTROY_SUCCESS);
+const productDestroyError = makeAction(ActionTypes.PRODUCT_DESTROY_ERROR, "errors");
 
 const destroyProduct = (id) => {
   return dispatch => {
@@ -44,9 +44,9 @@ const destroyProduct = (id) => {
   };
 };
 
-const productFetchRequest = makeAction(ACTION_TYPES.PRODUCT_FETCH_REQUEST);
-const productFetchSuccess = makeAction(ACTION_TYPES.PRODUCT_FETCH_SUCCESS, "data");
-const productFetchError = makeAction(ACTION_TYPES.PRODUCT_FETCH_ERROR, "errors");
+const productFetchRequest = makeAction(ActionTypes.PRODUCT_FETCH_REQUEST);
+const productFetchSuccess = makeAction(ActionTypes.PRODUCT_FETCH_SUCCESS, "data");
+const productFetchError = makeAction(ActionTypes.PRODUCT_FETCH_ERROR, "errors");
 
 const getProducts = () => {
   return dispatch => {
@@ -61,9 +61,9 @@ const getProducts = () => {
   };
 };
 
-const productUpdateRequest = makeAction(ACTION_TYPES.PRODUCT_UPDATE_REQUEST, "data");
-const productUpdateSuccess = makeAction(ACTION_TYPES.PRODUCT_UPDATE_SUCCESS, "data");
-const productUpdateError = makeAction(ACTION_TYPES.PRODUCT_UPDATE_ERROR, "errors");
+const productUpdateRequest = makeAction(ActionTypes.PRODUCT_UPDATE_REQUEST, "data");
+const productUpdateSuccess = makeAction(ActionTypes.PRODUCT_UPDATE_SUCCESS, "data");
+const productUpdateError = makeAction(ActionTypes.PRODUCT_UPDATE_ERROR, "errors");
 
 const updateProduct = (data) => {
   return dispatch => {
