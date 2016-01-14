@@ -5,7 +5,7 @@ import { fetchAll, update } from "../api/api";
 import { makeAction } from "../utils/make_action";
 
 const userSchema = new Schema("users", { idAttribute: "id" });
-const entityName = "user";
+const ENTITY = "user";
 
 const userFetchRequest = makeAction(actionTypes.USER_FETCH_REQUEST);
 const userFetchSuccess = makeAction(actionTypes.USER_FETCH_SUCCESS, "data");
@@ -14,7 +14,7 @@ const userFetchError = makeAction(actionTypes.USER_FETCH_ERROR, "errors");
 const getUsers = () => {
   return dispatch => {
     dispatch(userFetchRequest());
-    return fetchAll(entityName)
+    return fetchAll(ENTITY)
       .then(success => {
         const normalized = normalize(success, arrayOf(userSchema));
         dispatch(userFetchSuccess(normalized.entities.users))})
@@ -31,7 +31,7 @@ const userUpdateError = makeAction(actionTypes.USER_UPDATE_ERROR, "errors");
 const updateUser = (data) => {
   return dispatch => {
     dispatch(userUpdateRequest(data));
-    return update(entityName, data)
+    return update(ENTITY, data)
       .then(success => dispatch(userUpdateSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
@@ -39,7 +39,4 @@ const updateUser = (data) => {
   };
 };
 
-export {
-  getUsers,
-  updateUser
-};
+export { getUsers, updateUser };

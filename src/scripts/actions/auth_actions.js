@@ -10,7 +10,7 @@ import {
 } from "../api/api";
 import { makeAction } from "../utils/make_action";
 
-const entityName = "identity";
+const ENTITY = "identity";
 
 const deleteAuthToken = () => {
   localStorage.removeItem("auth_token");
@@ -97,7 +97,7 @@ const loginUpdateError = makeAction(actionTypes.LOGIN_UPDATE_ERROR, "errors");
 const updateLogin = (data) => {
   return dispatch => {
     dispatch(loginUpdateRequest(data));
-    return update(entityName, data)
+    return update(ENTITY, data)
       .then(success => {
         deleteAuthToken();
         dispatch(loginUpdateSuccess(success));
@@ -115,7 +115,7 @@ const passwordCreateError = makeAction(actionTypes.PASSWORD_CREATE_ERROR, "error
 const createPassword = (data) => {
   return dispatch => {
     dispatch(passwordCreateRequest(data));
-    return create(entityName, data)
+    return create(ENTITY, data)
       .then(success => dispatch(passwordCreateSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;

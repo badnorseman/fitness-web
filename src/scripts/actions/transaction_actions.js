@@ -5,7 +5,7 @@ import { create, fetchAll, fetchClientToken } from "../api/api";
 import { makeAction } from "../utils/make_action";
 
 const transactionSchema = new Schema("transactions", { idAttribute: "id" });
-const entityName = "transaction";
+const ENTITY = "transaction";
 
 const clientTokenRequest = makeAction(actionTypes.CLIENT_TOKEN_REQUEST);
 const clientTokenSuccess = makeAction(actionTypes.CLIENT_TOKEN_SUCCESS, "clientToken");
@@ -14,7 +14,7 @@ const clientTokenError = makeAction(actionTypes.CLIENT_TOKEN_ERROR, "errors");
 const getClientToken = () => {
   return dispatch => {
     dispatch(clientTokenRequest());
-    return fetchClientToken(entityName)
+    return fetchClientToken(ENTITY)
       .then(success => dispatch(clientTokenSuccess(success.client_token)))
       .catch(error => dispatch(clientTokenError(error.statusText)))
   };
@@ -27,7 +27,7 @@ const transactionCreateError = makeAction(actionTypes.TRANSACTION_CREATE_ERROR, 
 const createTransaction = (data) => {
   return dispatch => {
     dispatch(transactionCreateRequest(data));
-    return create(entityName, data)
+    return create(ENTITY, data)
       .then(success => {
         const normalized = normalize(success, arrayOf(transactionSchema));
         dispatch(transactionCreateSuccess(normalized.entities.transactions))})
@@ -45,7 +45,7 @@ const transactionFetchError = makeAction(actionTypes.TRANSACTION_FETCH_ERROR, "e
 const getTransactions = () => {
   return dispatch => {
     dispatch(transactionFetchRequest());
-    return fetchAll(entityName)
+    return fetchAll(ENTITY)
       .then(success => {
         const normalized = normalize(success, arrayOf(transactionSchema));
         dispatch(transactionFetchSuccess(normalized.entities.transactions))})
@@ -55,8 +55,4 @@ const getTransactions = () => {
   };
 };
 
-export {
-  getClientToken,
-  createTransaction,
-  getTransactions
-};
+export { getClientToken, createTransaction, getTransactions };

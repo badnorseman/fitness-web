@@ -15,7 +15,4 @@ const cartRemoveProduct = (id) => {
   };
 };
 
-export {
-  cartAddProduct,
-  cartRemoveProduct
-};
+export { cartAddProduct, cartRemoveProduct };

@@ -1,13 +1,7 @@
 "use strict";
 import $ from "jquery";
-import {
-  SERVER
-} from "../constants/server";
-import {
-  buildFormData,
-  buildHeaders,
-  buildUrl
-} from "../utils/build_http";
+import { SERVER } from "../constants/server";
+import { buildFormData, buildHeaders, buildUrl } from "../utils/build_http";
 
 const create = (entity, data) => {
   const url = buildUrl(SERVER, entity);
