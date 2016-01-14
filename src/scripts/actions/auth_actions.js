@@ -1,16 +1,9 @@
 "use strict";
-import * as  ACTION_TYPES from "../constants/action_types";
-import {
-  create,
-  update,
-  login as apiLogin,
-  logout as apiLogout,
-  oauth as apiOauth,
-  signup as apiSignup
-} from "../api/api";
+import * as actionTypes from "../constants/action_types";
+import * as api from "../api/api";
 import { makeAction } from "../utils/make_action";
 
-const entityName = "identity";
+const ENTITY = "identity";
 
 const deleteAuthToken = () => {
   localStorage.removeItem("auth_token");
@@ -20,14 +13,14 @@ const setAuthToken = (token) => {
   localStorage.setItem("auth_token", token);
 };
 
-const loginRequest = makeAction(ACTION_TYPES.LOGIN_REQUEST, "data");
-const loginSuccess = makeAction(ACTION_TYPES.LOGIN_SUCCESS, "data");
-const loginError = makeAction(ACTION_TYPES.LOGIN_ERROR, "errors");
+const loginRequest = makeAction(actionTypes.LOGIN_REQUEST, "data");
+const loginSuccess = makeAction(actionTypes.LOGIN_SUCCESS, "data");
+const loginError = makeAction(actionTypes.LOGIN_ERROR, "errors");
 
 const login = (data) => {
   return dispatch => {
     dispatch(loginRequest(data));
-    return apiLogin(data)
+    return api.login(data)
       .then(success => {
         setAuthToken(success.token);
         dispatch(loginSuccess(success));
@@ -39,15 +32,15 @@ const login = (data) => {
   };
 }
 
-const logoutRequest = makeAction(ACTION_TYPES.LOGOUT_REQUEST);
-const logoutSuccess = makeAction(ACTION_TYPES.LOGOUT_SUCCESS);
-const logoutError = makeAction(ACTION_TYPES.LOGOUT_ERROR, "errors");
+const logoutRequest = makeAction(actionTypes.LOGOUT_REQUEST);
+const logoutSuccess = makeAction(actionTypes.LOGOUT_SUCCESS);
+const logoutError = makeAction(actionTypes.LOGOUT_ERROR, "errors");
 
 const logout = () => {
   return dispatch => {
     deleteAuthToken();
     dispatch(logoutRequest());
-    return apiLogout()
+    return api.logout()
       .then(() => dispatch(logoutSuccess()))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
@@ -55,14 +48,14 @@ const logout = () => {
   };
 };
 
-const oauthRequest = makeAction(ACTION_TYPES.OAUTH_REQUEST, "provider");
-const oauthSuccess = makeAction(ACTION_TYPES.OAUTH_SUCCESS, "data");
-const oauthError = makeAction(ACTION_TYPES.OAUTH_ERROR, "errors");
+const oauthRequest = makeAction(actionTypes.OAUTH_REQUEST, "provider");
+const oauthSuccess = makeAction(actionTypes.OAUTH_SUCCESS, "data");
+const oauthError = makeAction(actionTypes.OAUTH_ERROR, "errors");
 
 const oauth = (provider) => {
   return dispatch => {
     dispatch(oauthRequest(provider));
-    return apiOauth(provider)
+    return api.oauth(provider)
       .then(success => {
         setAuthToken(success.token);
         dispatch(oauthSuccess(success));
@@ -74,15 +67,15 @@ const oauth = (provider) => {
   };
 };
 
-const signupRequest = makeAction(ACTION_TYPES.SIGNUP_REQUEST, "data");
-const signupSuccess = makeAction(ACTION_TYPES.SIGNUP_SUCCESS, "data");
-const signupError = makeAction(ACTION_TYPES.SIGNUP_ERROR, "errors");
+const signupRequest = makeAction(actionTypes.SIGNUP_REQUEST, "data");
+const signupSuccess = makeAction(actionTypes.SIGNUP_SUCCESS, "data");
+const signupError = makeAction(actionTypes.SIGNUP_ERROR, "errors");
 
 const signup = (data) => {
   return dispatch => {
     deleteAuthToken();
     dispatch(signupRequest(data));
-    return apiSignup(data)
+    return api.signup(data)
       .then(success => dispatch(signupSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
@@ -90,14 +83,14 @@ const signup = (data) => {
   };
 };
 
-const loginUpdateRequest = makeAction(ACTION_TYPES.LOGIN_UPDATE_REQUEST, "data");
-const loginUpdateSuccess = makeAction(ACTION_TYPES.LOGIN_UPDATE_SUCCESS, "data");
-const loginUpdateError = makeAction(ACTION_TYPES.LOGIN_UPDATE_ERROR, "errors");
+const loginUpdateRequest = makeAction(actionTypes.LOGIN_UPDATE_REQUEST, "data");
+const loginUpdateSuccess = makeAction(actionTypes.LOGIN_UPDATE_SUCCESS, "data");
+const loginUpdateError = makeAction(actionTypes.LOGIN_UPDATE_ERROR, "errors");
 
 const updateLogin = (data) => {
   return dispatch => {
     dispatch(loginUpdateRequest(data));
-    return update(entityName, data)
+    return api.update(ENTITY, data)
       .then(success => {
         deleteAuthToken();
         dispatch(loginUpdateSuccess(success));
@@ -108,14 +101,14 @@ const updateLogin = (data) => {
   };
 };
 
-const passwordCreateRequest = makeAction(ACTION_TYPES.PASSWORD_CREATE_REQUEST, "data");
-const passwordCreateSuccess = makeAction(ACTION_TYPES.PASSWORD_CREATE_SUCCESS, "data");
-const passwordCreateError = makeAction(ACTION_TYPES.PASSWORD_CREATE_ERROR, "errors");
+const passwordCreateRequest = makeAction(actionTypes.PASSWORD_CREATE_REQUEST, "data");
+const passwordCreateSuccess = makeAction(actionTypes.PASSWORD_CREATE_SUCCESS, "data");
+const passwordCreateError = makeAction(actionTypes.PASSWORD_CREATE_ERROR, "errors");
 
 const createPassword = (data) => {
   return dispatch => {
     dispatch(passwordCreateRequest(data));
-    return create(entityName, data)
+    return api.create(ENTITY, data)
       .then(success => dispatch(passwordCreateSuccess(success)))
       .catch(error => {
         const errors = JSON.parse(error.responseText).errors;
