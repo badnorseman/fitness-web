@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import Braintree from "braintree-web";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
+import { goTo } from "../../actions/router_actions";
 import { createTransaction, getClientToken } from "../../actions/transaction_actions";
 import Link from "../Link";
 
@@ -35,7 +35,7 @@ class NewTransaction extends Component {
   }
 
   _handleClose() {
-    this.props.changeRoute("MARKETPLACE");
+    this.props.goTo("MARKETPLACE");
   }
 
   _handleSubmit(ev) {
@@ -109,7 +109,7 @@ class NewTransaction extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    changeRoute,
+    goTo,
     createTransaction,
     getClientToken
   }, dispatch);

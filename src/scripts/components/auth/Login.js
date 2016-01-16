@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
+import { goTo } from "../../actions/router_actions";
 import { login } from "../../actions/auth_actions";
 import Facebook from "./Facebook";
 import InputField from "../InputField";
@@ -18,11 +18,11 @@ class Login extends Component {
   }
 
   _handleClose() {
-    this.props.dispatch(changeRoute("MARKETPLACE"));
+    this.props.dispatch(goTo("MARKETPLACE"));
   }
 
   _handleForgotPassword() {
-    this.props.dispatch(changeRoute("NEWPASSWORD"));
+    this.props.dispatch(goTo("NEWPASSWORD"));
   }
 
   _handleSubmit(ev) {

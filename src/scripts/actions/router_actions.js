@@ -3,7 +3,7 @@ import * as  actionTypes from "../constants/action_types";
 import { getTransactions } from "./transaction_actions";
 import { getUsers } from "./user_actions";
 
-const changeRoute = (route, param) => {
+const goTo = (route, param) => {
   return dispatch => {
     switch (route) {
       case "ACCOUNT":
@@ -22,4 +22,4 @@ const changeRoute = (route, param) => {
   };
 };
 
-export { changeRoute };
+export { goTo };
