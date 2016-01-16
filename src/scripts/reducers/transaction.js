@@ -1,5 +1,5 @@
 "use strict";
-import * as  actionTypes from "../constants/action_types";
+import * as actionTypes from "../constants/action_types";
 
 const initialState = {
   clientToken: "",
@@ -9,19 +9,19 @@ const initialState = {
 
 const transaction = (state = initialState, action) => {
   switch (action.type) {
-    case  actionTypes.CLIENT_TOKEN_SUCCESS:
+    case actionTypes.CLIENT_TOKEN_SUCCESS:
       return {
         ...state,
         clientToken: action.clientToken
       };
 
-    case  actionTypes.TRANSACTION_FETCH_REQUEST:
+    case actionTypes.TRANSACTION_FETCH_REQUEST:
       return {
         ...state,
         isFetching: true
       };
 
-    case  actionTypes.TRANSACTION_FETCH_SUCCESS:
+    case actionTypes.TRANSACTION_FETCH_SUCCESS:
       return {
         ...state,
         isFetching: false,
