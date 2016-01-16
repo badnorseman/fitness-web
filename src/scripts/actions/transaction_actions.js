@@ -1,5 +1,5 @@
 "use strict";
-import * as  actionTypes from "../constants/action_types";
+import * as actionTypes from "../constants/action_types";
 import { arrayOf, normalize, Schema } from "normalizr";
 import { create, fetchAll, fetchClientToken } from "../api/api";
 import { makeAction } from "../utils/make_action";
