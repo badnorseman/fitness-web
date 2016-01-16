@@ -1,6 +1,6 @@
 "use strict";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
+import { goTo } from "../../actions/router_actions";
 import { createProduct } from "../../actions/product_actions";
 import Link from "../Link";
 import ProductForm from "./ProductForm";
@@ -42,7 +42,7 @@ const NewProduct = ({
 const mapDispatchToProps = (dispatch) => {
   return {
     goTo: (route) => {
-      dispatch(changeRoute(route));
+      dispatch(goTo(route));
     },
     onAdd: (product) => {
       dispatch(createProduct(product));

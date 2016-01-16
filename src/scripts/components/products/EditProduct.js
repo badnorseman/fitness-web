@@ -1,6 +1,6 @@
 "use strict";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
+import { goTo } from "../../actions/router_actions";
 import { destroyProduct, updateProduct } from "../../actions/product_actions";
 import Link from "../Link";
 import ProductForm from "./ProductForm";
@@ -46,7 +46,7 @@ const EditProduct = ({
 const mapDispatchToProps = (dispatch) => {
   return {
     goTo: (route) => {
-      dispatch(changeRoute(route));
+      dispatch(goTo(route));
     },
     onEdit: (product) => {
       dispatch(updateProduct(product));

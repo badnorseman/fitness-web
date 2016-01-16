@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { changeRoute } from "../../actions/router_actions";
+import { goTo } from "../../actions/router_actions";
 import { signup } from "../../actions/auth_actions";
 import Facebook from "./Facebook";
 import InputField from "../../components/InputField";
@@ -20,7 +20,7 @@ class Signup extends Component {
   }
 
   _handleClose() {
-    this.props.dispatch(changeRoute("MARKETPLACE"));
+    this.props.dispatch(goTo("MARKETPLACE"));
   }
 
   _handleSubmit(ev) {

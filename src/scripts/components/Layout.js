@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { changeRoute } from "../actions/router_actions";
+import { goTo } from "../actions/router_actions";
 import { getCoaches } from "../actions/coach_actions";
 import { getProducts } from "../actions/product_actions";
 import About from "./About";
@@ -129,7 +129,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(getProducts());
     },
     goTo: (route, param) => {
-      dispatch(changeRoute(route, param));
+      dispatch(goTo(route, param));
     }
   };
 };
