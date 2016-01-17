@@ -1,6 +1,5 @@
 "use strict";
 import ProductListItem from "./ProductListItem";
-import styles from "./styles";
 
 const ProductList = ({
   products,
@@ -14,6 +13,21 @@ const ProductList = ({
       );
     }
   }
+
+  const styles = {
+    button: {
+      float: "right",
+      margin: "50px 0 10px 0"
+    },
+    headerElement: {
+      margin: "0 0 10px 0",
+      maxWidth: "800px",
+      width: "25%"
+    },
+    list: {
+      padding: "20px 0 0 0"
+    }
+  };
 
   return (
     <div className="block--center-horizontally__margin"
