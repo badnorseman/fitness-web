@@ -8,44 +8,29 @@ const CoachGridTile = ({
 
   const styles = {
     avatar: {
-      backgroundImage: "url(" + avatar + ")",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      height: "160px",
-      WebkitTransition: "all",
-      msTransition: "all"
-    },
-    card: {
-      height: "auto",
-      margin: "0 auto",
-      marginBottom: "10px",
-      marginRight: "10px",
-      maxWidth: "320px",
-      width: "320px"
-    },
-    cell: {
-      margin: "0"
+      maxHeight: "160px"
     }
   };
 
   return (
-    <a href="#!"
-      onClick={ev => {
-        ev.preventDefault();
-        goTo("SHOWCOACH", coach);
-      }}
-    >
-      <div className="mdl-cell mdl-cell--6-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop"
-        style={styles.cell}
-       >
-        <div className="mdl-card mdl-shadow--2dp" style={styles.card}>
-          <div className="mdl-card__title" style={styles.avatar}></div>
-          <div className="mdl-card__supporting-text">
-            <h5>{name}</h5>
-          </div>
-        </div>
+    <div className="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+      <div className="mdl-card__media">
+        <a href="#!"
+          onClick={ev => {
+            ev.preventDefault();
+            goTo("SHOWCOACH", coach);
+          }}
+        >
+          <img src={avatar} alt="" style={styles.avatar} />
+        </a>
       </div>
-    </a>
+      <div className="mdl-card__title">
+        <h5 className="mdl-card__title-text">{name}</h5>
+      </div>
+      <div className="mdl-card__supporting-text">
+        <h6 className="mdl-typography--subhead"></h6>
+      </div>
+    </div>
   );
 };
 
