@@ -19,7 +19,7 @@ const ShowProduct = ({
       width: "50%"
     },
     image: {
-      height: "320px",
+      maxHeight: "160px",
       width: "320px"
     }
   };

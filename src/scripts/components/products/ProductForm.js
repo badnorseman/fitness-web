@@ -62,6 +62,12 @@ export default class ProductForm extends Component {
   render() {
     const { description, id, image, name, price } = this.props.product;
 
+    const styles = {
+      image: {
+        maxHeight: "160px"
+      }
+    };
+
     return (
       <form>
         <div>
@@ -109,7 +115,7 @@ export default class ProductForm extends Component {
           </label>
         </div>
         <div>
-          <img src={image} alt="" />
+          <img src={image} alt="" style={styles.image} />
         </div>
         <div>
           <InputFile ref="image" />

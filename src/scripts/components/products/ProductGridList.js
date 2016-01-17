@@ -14,14 +14,8 @@ const ProductGridList = ({
     }
   }
 
-  const styles = {
-    grid: {
-      padding: "0"
-    }
-  };
-
   return (
-    <div className="mdl-grid" style={styles.grid}>
+    <div className="mdl-grid">
       {tiles}
     </div>
   );
