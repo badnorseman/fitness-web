@@ -8,8 +8,8 @@ const ShowCoach = ({
   goTo
 }) => {
   // const { avatar, email, name } = coach;
-  const avatar = "https://s3.amazonaws.com/images.fitbird.us/production/users/default/avatars/small.jpeg";
-  const image = "https://s3.amazonaws.com/images.fitbird.us/production/products/default/images/small.jpeg";
+  const avatar = "https://s3.amazonaws.com/images.fitbird.us/production/users/default/avatars/normal.jpeg";
+  const image = "https://s3.amazonaws.com/images.fitbird.us/production/products/default/images/normal.jpeg";
   const email = "hello@fitbird.com";
   const name = "Coach";
 

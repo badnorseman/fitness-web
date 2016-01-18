@@ -7,7 +7,7 @@
 }
 
 .layout__header {
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
 }
 
 .layout__header-avatar {
@@ -18,22 +18,22 @@
 
 .layout__header .mdl-layout-title .mdl-navigation__link {
   align-items: center;
-  color: #000000;
+  /*color: #000000;*/
   display: flex !important;
   flex-direction: row;
   font-family: 'Roboto', serif;
   font-size: 24px;
-  font-weight: 700;
+  /*font-weight: 700;*/
 }
 
 .layout__header .mdl-navigation .mdl-navigation__link {
   align-items: center;
-  color: #000000;
+  /*color: #000000;*/
   display: flex !important;
   flex-direction: row;
   font-family: 'Roboto', serif;
-  font-size: 14px;
-  font-weight: 500;
+  /*font-size: 14px;*/
+  /*font-weight: 500;*/
 }
 
 .layout__footer {

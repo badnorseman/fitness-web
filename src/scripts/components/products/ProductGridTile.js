@@ -4,7 +4,7 @@ const ProductGridTile = ({
   product,
   goTo
 }) => {
-  const { currency, image, name, price } = product;
+  const { description, image, name } = product;
 
   const styles = {
     image: {
@@ -28,9 +28,7 @@ const ProductGridTile = ({
         <h5 className="mdl-card__title-text">{name}</h5>
       </div>
       <div className="mdl-card__supporting-text">
-        <h6 className="mdl-typography--subhead">
-          {currency}&nbsp;{price}
-        </h6>
+        <h6 className="mdl-typography--subhead">{description}</h6>
       </div>
     </div>
   );
