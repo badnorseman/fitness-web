@@ -12,63 +12,46 @@ const Navigation = ({
   const isLoggedIn = (id) ? true : false;
 
   return (
-    <nav className="mdl-navigation">
-      {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-        <Link styles="mdl-navigation__link" onClick={() => goTo("LOGIN")}>
-          Login
-        </Link>
-      </div>}
-      {!isLoggedIn && <div className="mdl-layout--large-screen-only">
-        <Link styles="mdl-navigation__link" onClick={() => goTo("SIGNUP")}>
-          Sign up
-        </Link>
-      </div>}
-      {coach && <div className="mdl-layout--large-screen-only">
-        <Link styles="mdl-navigation__link" onClick={() => goTo("DASHBOARD")}>
-          Dashboard
-        </Link>
-      </div>}
-      {isLoggedIn && <div className="mdl-layout--large-screen-only">
-        <div id="account-menu">
-          <img className="layout__header-avatar" src={avatar} alt="" />
-        </div>
-        <ul
-          className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-          htmlFor="account-menu">
-          <li>
-            <Link styles="mdl-menu__item" onClick={() => goTo("ACCOUNT")}>
-              Account
-            </Link>
-          </li>
-          <li className="mdl-menu__item" onClick={logout}>Log out</li>
+    <div>
+      <nav className="mdl-navigation mdl-layout--large-screen-only">
+        {!isLoggedIn && <Link styles="mdl-navigation__link"
+          onClick={() => goTo("LOGIN")}>Login</Link>}
+        {!isLoggedIn && <Link styles="mdl-navigation__link"
+          onClick={() => goTo("SIGNUP")}>Sign up</Link>}
+        {coach && <Link styles="mdl-navigation__link"
+          onClick={() => goTo("DASHBOARD")}>Dashboard</Link>}
+        {isLoggedIn && <div>
+          <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+            id="menu"><img className="layout__header-avatar" src={avatar} alt="" />
+          </button>
+          <ul className="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right"
+            htmlFor="menu">
+            <li><Link styles="mdl-menu__item"
+              onClick={() => goTo("ACCOUNT")}>Account</Link></li>
+            <li className="mdl-menu__item" onClick={logout}>Log out</li>
+          </ul>
+        </div>}
+      </nav>
+      <nav className="mdl-navigation mdl-layout--small-screen-only">
+        <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+          id="menu">
+          {isLoggedIn && <img className="layout__header-avatar" src={avatar} alt="" />}
+          {!isLoggedIn && <i className="zmdi zmdi-more-vert zmdi-hc-lg"></i>}
+        </button>
+        <ul className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+          htmlFor="menu">
+          {coach && <li><Link styles="mdl-menu__item"
+            onClick={() => goTo("DASHBOARD")}>Dashboard</Link></li>}
+          {isLoggedIn && <li><Link styles="mdl-menu__item"
+            onClick={() => goTo("ACCOUNT")}>Account</Link></li>}
+          {isLoggedIn && <li className="mdl-menu__item" onClick={logout}>Log out</li>}
+          {!isLoggedIn && <li><Link styles="mdl-menu__item"
+            onClick={() => goTo("LOGIN")}>Login</Link></li>}
+          {!isLoggedIn && <li><Link styles="mdl-menu__item"
+            onClick={() => goTo("SIGNUP")}>Signup</Link></li>}
         </ul>
-      </div>}
-      {!isLoggedIn && <div className="mdl-layout--small-screen-only">
-        <Link styles="mdl-navigation__link" onClick={() => goTo("LOGIN")}>
-          <i className="zmdi zmdi-lock-open zmdi-hc-lg"></i>
-        </Link>
-      </div>}
-      {!isLoggedIn && <div className="mdl-layout--small-screen-only">
-        <Link styles="mdl-navigation__link" onClick={() => goTo("SIGNUP")}>
-          <i className="zmdi zmdi-mood zmdi-hc-lg"></i>
-        </Link>
-      </div>}
-      {coach && <div className="mdl-layout--small-screen-only">
-        <Link styles="mdl-navigation__link" onClick={() => goTo("DASHBOARD")}>
-          <i className="zmdi zmdi-view-dashboard zmdi-hc-lg"></i>
-        </Link>
-      </div>}
-      {isLoggedIn && <div className="mdl-layout--small-screen-only">
-        <Link styles="mdl-navigation__link" onClick={() => goTo("ACCOUNT")}>
-          <i className="zmdi zmdi-account-box zmdi-hc-lg"></i>
-        </Link>
-      </div>}
-      {isLoggedIn && <div className="mdl-layout--small-screen-only">
-        <Link styles="mdl-navigation__link" onClick={logout}>
-          <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
-        </Link>
-      </div>}
-    </nav>
+      </nav>
+    </div>
   );
 };
 
