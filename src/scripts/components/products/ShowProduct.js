@@ -12,9 +12,6 @@ const ShowProduct = ({
       height: "auto",
       width: "800px"
     },
-    button: {
-      float: "right"
-    },
     image: {
       backgroundImage: "url(" + image + ")",
       backgroundRepeat: "no-repeat",
@@ -38,28 +35,24 @@ const ShowProduct = ({
             <i className="zmdi zmdi-close"></i>
           </Link>
         </div>
-        <div className="mdl-card__media" style={styles.image}></div>
-      </div>
-      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
-        style={styles.card}>
-        <div className="mdl-card__title">
-          <h3 className="mdl-card__title-text">{name}</h3>
-        </div>
+        <div className="mdl-card__title" style={styles.image}></div>
         <div className="mdl-card__supporting-text">
-          <p>{description}</p>
-          <h5 className="mdl-typography--subhead">{currency} {price}</h5>
-        </div>
-        <div className="mdl-card__actions">
-          <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            style={styles.button}
-            onClick={ev => {
-              ev.preventDefault();
-              goTo("NEWTRANSACTION", product);
-            }}
-          >
-            Buy
-          </button>
+          <div>
+            <h3 className="mdl-card__title-text">{name}</h3>
+            <p>{description}</p>
+            <h5 className="mdl-typography--subhead">{currency} {price}</h5>
+          </div>
+          <div>
+            <button
+              className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+              onClick={ev => {
+                ev.preventDefault();
+                goTo("NEWTRANSACTION", product);
+              }}
+            >
+              Buy
+            </button>
+          </div>
         </div>
       </div>
     </div>

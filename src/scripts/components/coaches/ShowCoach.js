@@ -15,11 +15,10 @@ const ShowCoach = ({
 
   const styles = {
     avatar: {
-      borderRadius: "72px",
-      float: "right",
-      marginTop: "96px",
-      height: "146px",
-      width: "146px"
+      borderRadius: "46px",
+      marginTop: "46px",
+      height: "92px",
+      width: "92px"
     },
     card: {
       height: "auto",
@@ -48,17 +47,12 @@ const ShowCoach = ({
             <i className="zmdi zmdi-close"></i>
           </Link>
         </div>
-        <div className="mdl-card__supporting-text" style={styles.image}>
+        <div className="mdl-card__title" style={styles.image}>
           <img src={avatar} alt="" style={styles.avatar} />
         </div>
-      </div>
-      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
-        style={styles.card}>
-        <div className="mdl-card__title">
-          <h3 className="mdl-card__title-text">{name}</h3>
-        </div>
         <div className="mdl-card__supporting-text">
-          <h5 className="mdl-typography--subhead">Contact</h5>
+          <h3 className="mdl-card__title-text">{name}</h3>
+          <h5 className="mdl-typography--subhead">Title</h5>
           <p>{email}</p>
         </div>
       </div>
@@ -92,7 +86,7 @@ const ProductListItem = ({
 
   const styles = {
     card: {
-      height: "320px",
+      height: "160px",
       width: "800px"
     }
   };
