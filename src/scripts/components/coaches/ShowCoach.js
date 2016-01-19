@@ -37,28 +37,29 @@ const ShowCoach = ({
   };
 
   return (
-    <div className="mdl-grid">
-      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
-        style={styles.card}>
-        <div className="mdl-card__menu">
-          <Link
-            styles="mdl-button mdl-js-button mdl-button--icon"
-            onClick={() => goTo("MARKETPLACE")}
-          >
-            <i className="zmdi zmdi-close"></i>
-          </Link>
-        </div>
-        <div className="mdl-card__title" style={styles.image}>
-          <img src={avatar} alt="" style={styles.avatar} />
-        </div>
-        <div className="mdl-card__supporting-text">
-          <h3 className="mdl-card__title-text">{name}</h3>
-          <h5 className="mdl-typography--subhead">Title</h5>
-          <p>{email}</p>
+    <div>
+      <div className="mdl-grid">
+        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
+          style={styles.card}>
+          <div className="mdl-card__menu">
+            <Link
+              styles="mdl-button mdl-js-button mdl-button--icon"
+              onClick={() => goTo("MARKETPLACE")}
+            >
+              <i className="zmdi zmdi-close"></i>
+            </Link>
+          </div>
+          <div className="mdl-card__title" style={styles.image}>
+            <img src={avatar} alt="" style={styles.avatar} />
+          </div>
+          <div className="mdl-card__supporting-text">
+            <h3 className="mdl-card__title-text">{name}</h3>
+            <h5 className="mdl-typography--subhead">Title</h5>
+            <p>{email}</p>
+          </div>
         </div>
       </div>
       <ProductList
-        coach={coach}
         products={products} />
     </div>
   );
@@ -77,7 +78,7 @@ const ProductList = ({
   }
 
   return (
-    <div className="block--center-horizontally__margin">
+    <div className="mdl-grid">
       {items}
     </div>
   );
@@ -96,7 +97,7 @@ const ProductListItem = ({
   };
 
   return (
-    <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp"
+    <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
       style={styles.card}>
       <div className="mdl-card__supporting-text">
         <h3>{name}</h3>
