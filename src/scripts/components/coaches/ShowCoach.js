@@ -7,11 +7,12 @@ const ShowCoach = ({
   products,
   goTo
 }) => {
-  // const { avatar, email, name } = coach;
-  const avatar = "https://s3.amazonaws.com/images.fitbird.us/production/users/default/avatars/normal.jpeg";
-  const image = "https://s3.amazonaws.com/images.fitbird.us/production/products/default/images/normal.jpeg";
-  const email = "hello@fitbird.com";
-  const name = "Coach";
+  const { avatar, email, name } = coach;
+
+  let productsByCoach = {};
+  coach.products.forEach(el => {
+    if (products[el.id]) { productsByCoach[el.id] = products[el.id]; }
+  })
 
   const styles = {
     avatar: {
@@ -25,7 +26,7 @@ const ShowCoach = ({
       width: "800px"
     },
     image: {
-      backgroundImage: "url(" + image + ")",
+      backgroundImage: "url(" + avatar + ")",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       height: "160px",
@@ -64,16 +65,19 @@ const ShowCoach = ({
 };
 
 const ProductList = ({
-  coach,
   products
 }) => {
   let items = [];
-  coach.products.forEach(el => {
-    items.push(<ProductListItem key={el.id} product={products[el.id]} />);
-  })
+  for (let key in products) {
+    if (products.hasOwnProperty(key)) {
+      items.push(
+        <ProductListItem key={key} product={products[key]} />
+      );
+    }
+  }
 
   return (
-    <div>
+    <div className="block--center-horizontally__margin">
       {items}
     </div>
   );
