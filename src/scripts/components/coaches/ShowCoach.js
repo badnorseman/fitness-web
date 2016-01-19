@@ -22,13 +22,14 @@ const ShowCoach = ({
       width: "146px"
     },
     card: {
-      height: "320px",
+      height: "auto",
       width: "800px"
     },
     image: {
       backgroundImage: "url(" + image + ")",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
+      height: "160px",
       width: "auto",
       WebkitTransition: "all",
       msTransition: "all"
@@ -57,7 +58,7 @@ const ShowCoach = ({
           <h3 className="mdl-card__title-text">{name}</h3>
         </div>
         <div className="mdl-card__supporting-text">
-          <h3 className="mdl-typography--subhead">Contact</h3>
+          <h5 className="mdl-typography--subhead">Contact</h5>
           <p>{email}</p>
         </div>
       </div>

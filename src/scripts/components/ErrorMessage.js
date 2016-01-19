@@ -7,14 +7,16 @@ const ErrorMessage = ({
   errorMessage,
   onClick
 }) => (
-  <div>
-    {errorMessage}
-    {errorMessage && <Link
-      styles="mdl-button mdl-js-button mdl-button--icon"
-      onClick={onClick}
-    >
-      <i className="zmdi zmdi-close"></i>
-    </Link>}
+  <div className="mdl-grid">
+    <div className="mdl-cell mdl-cell--12-col">
+      {errorMessage}
+      {errorMessage && <Link
+        styles="mdl-button mdl-js-button mdl-button--icon"
+        onClick={onClick}
+      >
+        <i className="zmdi zmdi-close"></i>
+      </Link>}
+    </div>
   </div>
 );
 

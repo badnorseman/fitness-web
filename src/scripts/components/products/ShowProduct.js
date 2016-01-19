@@ -10,23 +10,25 @@ const ShowProduct = ({
   const styles ={
     card: {
       height: "auto",
-      maxWidth: "800px",
       width: "800px"
     },
-    block: {
-      float: "left",
-      overflow: "hidden",
-      width: "50%"
+    button: {
+      float: "right"
     },
     image: {
-      maxHeight: "160px",
-      width: "320px"
+      backgroundImage: "url(" + image + ")",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      height: "160px",
+      width: "auto",
+      WebkitTransition: "all",
+      msTransition: "all"
     }
   };
 
   return (
     <div className="mdl-grid">
-      <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col block--center-horizontally__margin"
+      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
         style={styles.card}>
         <div className="mdl-card__menu">
           <Link
@@ -36,33 +38,28 @@ const ShowProduct = ({
             <i className="zmdi zmdi-close"></i>
           </Link>
         </div>
-        <div className="mdl-card__supporting-text">
-          <div className="block--center-horizontally__flex">
-            <div style={styles.block}>
-              <img src={image} alt="" style={styles.image} />
-            </div>
-            <div style={styles.block}>
-              <div>
-                <h3>{name}</h3>
-                <h6>{currency} {price}</h6>
-              </div>
-              <button
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-                onClick={ev => {
-                  ev.preventDefault();
-                  goTo("NEWTRANSACTION", product);
-                }}
-              >
-                Buy
-              </button>
-            </div>
-          </div>
+        <div className="mdl-card__media" style={styles.image}></div>
+      </div>
+      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
+        style={styles.card}>
+        <div className="mdl-card__title">
+          <h3 className="mdl-card__title-text">{name}</h3>
         </div>
         <div className="mdl-card__supporting-text">
-          <div>
-            <h3>Description</h3>
-            <p>{description}</p>
-          </div>
+          <p>{description}</p>
+          <h5 className="mdl-typography--subhead">{currency} {price}</h5>
+        </div>
+        <div className="mdl-card__actions">
+          <button
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+            style={styles.button}
+            onClick={ev => {
+              ev.preventDefault();
+              goTo("NEWTRANSACTION", product);
+            }}
+          >
+            Buy
+          </button>
         </div>
       </div>
     </div>
