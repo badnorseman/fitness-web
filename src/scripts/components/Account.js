@@ -29,9 +29,12 @@ const Account = ({
           <div className="mdl-card__supporting-text block--center-horizontally__margin">
             <div className="mdl-tabs mdl-js-tabs">
               <div className="mdl-tabs__tab-bar">
-                <a href="#profile-panel" className="mdl-tabs__tab is-active">Profile</a>
-                {login && <a href="#login-panel" className="mdl-tabs__tab">Login</a>}
-                <a href="#payment-history-panel" className="mdl-tabs__tab">Payment History</a>
+                <a href="#profile-panel" className="mdl-tabs__tab is-active">
+                  Profile</a>
+                {login && <a href="#login-panel" className="mdl-tabs__tab">
+                  Login</a>}
+                <a href="#payment-history-panel" className="mdl-tabs__tab">
+                  Payment History</a>
               </div>
               <div className="mdl-tabs__panel is-active" id="profile-panel">
                 <EditUser

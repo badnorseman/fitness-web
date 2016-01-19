@@ -15,7 +15,7 @@ const Navigation = ({
     <div>
       <nav className="mdl-navigation mdl-layout--large-screen-only">
         {!isLoggedIn && <Link styles="mdl-navigation__link"
-          onClick={() => goTo("LOGIN")}>Login</Link>}
+          onClick={() => goTo("LOGIN")}>Log in</Link>}
         {!isLoggedIn && <Link styles="mdl-navigation__link"
           onClick={() => goTo("SIGNUP")}>Sign up</Link>}
         {coach && <Link styles="mdl-navigation__link"
@@ -46,9 +46,9 @@ const Navigation = ({
             onClick={() => goTo("ACCOUNT")}>Account</Link></li>}
           {isLoggedIn && <li className="mdl-menu__item" onClick={logout}>Log out</li>}
           {!isLoggedIn && <li><Link styles="mdl-menu__item"
-            onClick={() => goTo("LOGIN")}>Login</Link></li>}
+            onClick={() => goTo("LOGIN")}>Log in</Link></li>}
           {!isLoggedIn && <li><Link styles="mdl-menu__item"
-            onClick={() => goTo("SIGNUP")}>Signup</Link></li>}
+            onClick={() => goTo("SIGNUP")}>Sign up</Link></li>}
         </ul>
       </nav>
     </div>
