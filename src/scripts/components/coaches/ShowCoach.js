@@ -15,20 +15,15 @@ const ShowCoach = ({
 
   const styles = {
     avatar: {
-      borderRadius: "96px",
+      borderRadius: "72px",
       float: "right",
       marginTop: "96px",
-      height: "192px",
-      width: "192px"
+      height: "146px",
+      width: "146px"
     },
     card: {
       height: "320px",
       width: "800px"
-    },
-    grid: {
-      alignItems: "center",
-      display: "flex",
-      flexDirection: "column"
     },
     image: {
       backgroundImage: "url(" + image + ")",
@@ -41,9 +36,8 @@ const ShowCoach = ({
   };
 
   return (
-    <div className="mdl-grid"
-      style={styles.grid}>
-      <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col"
+    <div className="mdl-grid">
+      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
         style={styles.card}>
         <div className="mdl-card__menu">
           <Link
@@ -53,22 +47,17 @@ const ShowCoach = ({
             <i className="zmdi zmdi-close"></i>
           </Link>
         </div>
-        <div className="mdl-card__supporting-text"
-          style={styles.image}>
-          <img src={avatar} alt=""
-            style={styles.avatar} />
+        <div className="mdl-card__supporting-text" style={styles.image}>
+          <img src={avatar} alt="" style={styles.avatar} />
         </div>
       </div>
-      <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col"
+      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
         style={styles.card}>
-        <div className="mdl-card__supporting-text">
-          <h3>{name}</h3>
+        <div className="mdl-card__title">
+          <h3 className="mdl-card__title-text">{name}</h3>
         </div>
-      </div>
-      <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col"
-        style={styles.card}>
         <div className="mdl-card__supporting-text">
-          <h3>Contact</h3>
+          <h3 className="mdl-typography--subhead">Contact</h3>
           <p>{email}</p>
         </div>
       </div>
@@ -108,7 +97,7 @@ const ProductListItem = ({
   };
 
   return (
-    <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col"
+    <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp"
       style={styles.card}>
       <div className="mdl-card__supporting-text">
         <h3>{name}</h3>
