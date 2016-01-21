@@ -1,10 +1,7 @@
 "use strict";
 import Link from "../Link";
 
-const ShowProduct = ({
-  product,
-  goTo
-}) => {
+const ShowProduct = ({ product, goTo }) => {
   const { currency, description, image, name, price } = product;
 
   const styles ={

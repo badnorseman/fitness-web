@@ -1,10 +1,7 @@
 "use strict";
 import ProductGridTile from "./ProductGridTile";
 
-const ProductGridList = ({
-  products,
-  goTo
-}) => {
+const ProductGridList = ({ products, goTo }) => {
   let tiles = [];
   for (let key in products) {
     if (products.hasOwnProperty(key)) {

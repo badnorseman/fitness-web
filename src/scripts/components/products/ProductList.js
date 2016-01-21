@@ -1,10 +1,7 @@
 "use strict";
 import ProductListItem from "./ProductListItem";
 
-const ProductList = ({
-  products,
-  goTo
-}) => {
+const ProductList = ({ products, goTo }) => {
   let items = [];
   for (let key in products) {
     if (products.hasOwnProperty(key)) {

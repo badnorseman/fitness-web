@@ -1,9 +1,6 @@
 "use strict";
 
-const ProductListItem = ({
-  product,
-  goTo
-}) => {
+const ProductListItem = ({ product, goTo }) => {
   const { currency, name, price } = product;
 
   const styles = {

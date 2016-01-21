@@ -5,10 +5,7 @@ import { createProduct } from "../../actions/product_actions";
 import Link from "../Link";
 import ProductForm from "./ProductForm";
 
-const NewProduct = ({
-  goTo,
-  onAdd
-}) => {
+const NewProduct = ({ goTo, onAdd }) => {
   const styles = {
     card: {
       height: "auto",

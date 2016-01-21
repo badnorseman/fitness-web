@@ -1,9 +1,6 @@
 "use strict";
 
-const ProductGridTile = ({
-  product,
-  goTo
-}) => {
+const ProductGridTile = ({ product, goTo }) => {
   const { description, image, name } = product;
 
   const styles = {

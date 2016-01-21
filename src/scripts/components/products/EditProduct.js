@@ -5,12 +5,7 @@ import { destroyProduct, updateProduct } from "../../actions/product_actions";
 import Link from "../Link";
 import ProductForm from "./ProductForm";
 
-const EditProduct = ({
-  product,
-  goTo,
-  onEdit,
-  onRemove
-}) => {
+const EditProduct = ({ product, goTo, onEdit, onRemove }) => {
   const styles = {
     card: {
       height: "auto",
