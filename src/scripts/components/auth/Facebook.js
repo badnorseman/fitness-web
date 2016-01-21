@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import { oauth } from "../../actions/auth_actions";
 import "./facebook.css";
 
-const Facebook = ({
-  onClick
-}) => (
+const Facebook = ({ onClick }) => (
   <button
     className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect facebook"
     onClick={ev => {
