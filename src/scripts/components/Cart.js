@@ -5,7 +5,7 @@ const Cart = ({
   goTo
 }) => (
   <div className="mdl-grid">
-    <div className="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+    <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
       <div className="mdl-card__menu">
         <Link
           styles="mdl-button mdl-js-button mdl-button--icon"
