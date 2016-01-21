@@ -1,11 +1,7 @@
 "use strict";
 import Link from "./Link";
 
-const Sidebar = ({
-  currentUser,
-  goTo,
-  logout
-}) => {
+const Sidebar = ({ currentUser, goTo,clogout }) => {
   const { avatar, coach, email, id, name } = currentUser;
   const isLoggedIn = (id) ? true : false;
 

@@ -1,8 +1,6 @@
 "use strict";
 
-const TransactionListItem = ({
-  transaction
-}) => {
+const TransactionListItem = ({ transaction }) => {
   const { amount, currency, transaction_date, transaction_id } = transaction;
 
   const styles = {

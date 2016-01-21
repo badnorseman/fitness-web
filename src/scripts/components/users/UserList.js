@@ -1,9 +1,7 @@
 "use strict";
 import UserListItem from "./UserListItem";
 
-const UserList = ({
-  users
-}) => {
+const UserList = ({ users }) => {
   let items = [];
   for (let key in users) {
     if (users.hasOwnProperty(key)) {

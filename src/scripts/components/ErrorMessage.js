@@ -3,10 +3,7 @@ import { connect } from "react-redux";
 import { resetErrorMessage } from "../actions/error_actions";
 import Link from "./Link";
 
-const ErrorMessage = ({
-  errorMessage,
-  onClick
-}) => (
+const ErrorMessage = ({ errorMessage, onClick }) => (
   <div className="mdl-grid">
     <div className="mdl-cell mdl-cell--12-col">
       {errorMessage}

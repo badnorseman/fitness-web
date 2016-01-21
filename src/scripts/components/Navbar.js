@@ -1,11 +1,7 @@
 "use strict";
 import Link from "./Link";
 
-const Navbar = ({
-  currentUser,
-  goTo,
-  logout
-}) => {
+const Navbar = ({ currentUser, goTo, logout }) => {
   const { avatar, coach, email, id, name } = currentUser;
   const isLoggedIn = (id) ? true : false;
 

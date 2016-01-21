@@ -1,9 +1,7 @@
 "use strict";
 import Link from "./Link";
 
-const Cart = ({
-  goTo
-}) => (
+const Cart = ({ goTo }) => (
   <div className="mdl-grid">
     <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
       <div className="mdl-card__menu">

@@ -3,11 +3,7 @@ import { connect } from "react-redux";
 import ProductList from "./products/ProductList";
 import UserList from "./users/UserList";
 
-const Dashboard = ({
-  products,
-  users,
-  goTo
-}) => {
+const Dashboard = ({ products, users, goTo }) => {
   const styles = {
     card: {
       height: "auto",

@@ -1,9 +1,6 @@
 "use strict";
 
-const CoachGridTile = ({
-  coach,
-  goTo
-}) => {
+const CoachGridTile = ({ coach, goTo }) => {
   const { avatar, name } = coach;
 
   const styles = {

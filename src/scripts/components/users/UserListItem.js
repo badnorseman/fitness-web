@@ -1,8 +1,6 @@
 "use strict";
 
-const UserListItem = ({
-  user
-}) => {
+const UserListItem = ({ user }) => {
   const { name, product } = user;
 
   const styles = {

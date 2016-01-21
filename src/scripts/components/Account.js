@@ -4,10 +4,7 @@ import EditLogin from "./auth/EditLogin";
 import EditUser from "./auth/EditUser";
 import TransactionList from "./transactions/TransactionList";
 
-const Account = ({
-  currentUser,
-  transactions
-}) => {
+const Account = ({ currentUser, transactions }) => {
   const { login } = currentUser;
 
   const styles = {

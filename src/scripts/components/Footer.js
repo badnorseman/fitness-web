@@ -1,9 +1,7 @@
 "use strict";
 import Link from "./Link";
 
-const Footer = ({
-  goTo
-}) => (
+const Footer = ({ goTo }) => (
   <div>
     <div className="mdl-mini-footer">
       <div className="mdl-mini-footer__left-section">

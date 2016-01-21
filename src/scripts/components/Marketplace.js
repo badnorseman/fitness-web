@@ -3,11 +3,7 @@ import { connect } from "react-redux";
 import CoachGridList from "./coaches/CoachGridList";
 import ProductGridList from "./products/ProductGridList";
 
-const Marketplace = ({
-  coaches,
-  products,
-  goTo
-}) => (
+const Marketplace = ({ coaches, products, goTo }) => (
   <div>
     <ProductGridList
       products={products}

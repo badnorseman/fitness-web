@@ -1,9 +1,7 @@
 "use strict";
 import TransactionListItem from "./TransactionListItem";
 
-const TransactionList = ({
-  transactions
-}) => {
+const TransactionList = ({ transactions }) => {
   let items = [];
   for (let key in transactions) {
     if (transactions.hasOwnProperty(key)) {

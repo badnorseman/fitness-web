@@ -2,11 +2,7 @@
 import { connect } from "react-redux";
 import Link from "../Link";
 
-const ShowCoach = ({
-  coach,
-  products,
-  goTo
-}) => {
+const ShowCoach = ({ coach, products, goTo }) => {
   const { avatar, email, name } = coach;
 
   let productsByCoach = {};
