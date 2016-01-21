@@ -49,19 +49,21 @@ const Dashboard = ({
   );
 };
 
-const selected = (state) => {
-  let products = {};
-  state.coach.coaches[state.auth.currentUser.id].products.forEach(el => {
-    if (state.product.products[el.id]) {
-      products[el.id] = state.product.products[el.id];
+const getProductsByCoach = (coach, products) => {
+  let productsByCoach = {};
+  coach.products.forEach(el => {
+    if (products[el.id]) {
+      productsByCoach[el.id] = products[el.id];
     }
   })
-  return products;
+  return productsByCoach;
 };
 
 const mapStateToProps = (state) => {
   return {
-    products: selected(state),
+    products: getProductsByCoach(
+      state.coach.coaches[state.auth.currentUser.id],
+      state.product.products),
     users: state.user.users
   };
 };

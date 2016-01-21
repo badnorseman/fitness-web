@@ -2,9 +2,10 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { goTo } from "../actions/router_actions";
 import { getCoaches } from "../actions/coach_actions";
 import { getProducts } from "../actions/product_actions";
+import { goTo } from "../actions/router_actions";
+import { logout } from "../actions/auth_actions";
 import About from "./About";
 import Account from "./Account";
 import Cart from "./Cart";
@@ -15,7 +16,7 @@ import Footer from "./Footer";
 import Help from "./Help";
 import Login from "./auth/Login";
 import Marketplace from "./Marketplace";
-import Navigation from "./Navigation";
+import Navbar from "./Navbar";
 import NewPassword from "./auth/NewPassword";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
@@ -40,7 +41,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { param, route, goTo } = this.props;
+    const { currentUser, param, route, goTo, logout } = this.props;
 
     let content;
     switch (route) {
@@ -102,7 +103,10 @@ class Layout extends Component {
                 </a>
               </span>
               <div className="mdl-layout-spacer"></div>
-              <Navigation goTo={goTo} />
+              <Navbar
+                currentUser={currentUser}
+                goTo={goTo}
+                logout={logout} />
             </div>
           </header>
           <main className="mdl-layout__content">
@@ -122,20 +126,16 @@ class Layout extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCoaches: () => {
-      dispatch(getCoaches());
-    },
-    getProducts: () => {
-      dispatch(getProducts());
-    },
-    goTo: (route, param) => {
-      dispatch(goTo(route, param));
-    }
+    getCoaches: () => { dispatch(getCoaches()); },
+    getProducts: () => { dispatch(getProducts()); },
+    goTo: (route, param) => { dispatch(goTo(route, param)); },
+    logout: () => { dispatch(logout()); }
   };
 };
 
 const mapStateToProps = (state) => {
   return {
+    currentUser: state.auth.currentUser,
     param: state.router.param,
     route: state.router.route
   };
