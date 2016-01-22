@@ -15,15 +15,15 @@ import "./signup.css";
 class Signup extends Component {
   constructor(props) {
     super(props);
-    this._handleClose = this._handleClose.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  _handleClose() {
+  handleClose() {
     this.props.dispatch(goTo("MARKETPLACE"));
   }
 
-  _handleSubmit(ev) {
+  handleSubmit(ev) {
     ev.preventDefault();
 
     let email = this.refs.email.state.fieldValue;
@@ -49,7 +49,7 @@ class Signup extends Component {
             <div className="mdl-card__menu">
               <Link
                 styles="mdl-button mdl-js-button mdl-button--icon"
-                onClick={this._handleClose}
+                onClick={this.handleClose}
               >
                 <i className="zmdi zmdi-close"></i>
               </Link>
@@ -91,7 +91,7 @@ class Signup extends Component {
                 </div>
                 <button
                   className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup-card__signup-button"
-                  onClick={this._handleSubmit}
+                  onClick={this.handleSubmit}
                 >
                   SIGN UP
                 </button>

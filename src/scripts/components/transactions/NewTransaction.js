@@ -15,9 +15,9 @@ class NewTransaction extends Component {
 
   constructor(props) {
     super(props);
-    this._handleClose = this._handleClose.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
-    this._onPaymentMethodReceived = this._onPaymentMethodReceived.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onPaymentMethodReceived = this.onPaymentMethodReceived.bind(this);
   }
 
   componentDidMount() {
@@ -29,20 +29,20 @@ class NewTransaction extends Component {
       this.props.clientToken,
       "dropin", {
         container: "dropin-container",
-        onPaymentMethodReceived: this._onPaymentMethodReceived
+        onPaymentMethodReceived: this.onPaymentMethodReceived
       }
     );
   }
 
-  _handleClose() {
+  handleClose() {
     this.props.goTo("MARKETPLACE");
   }
 
-  _handleSubmit(ev) {
+  handleSubmit(ev) {
     ev.preventDefault();
   }
 
-  _onPaymentMethodReceived(paymentMethod) {
+  onPaymentMethodReceived(paymentMethod) {
     let amount = this.props.product.price;
     let currency = this.props.product.currency;
     let id = this.props.product.id;
@@ -81,13 +81,13 @@ class NewTransaction extends Component {
           <div className="mdl-card__menu">
             <Link
               styles="mdl-button mdl-js-button mdl-button--icon"
-              onClick={this._handleClose}
+              onClick={this.handleClose}
             >
               <i className="zmdi zmdi-close"></i>
             </Link>
           </div>
           <div className="mdl-card__supporting-text">
-            <form onSubmit={this._handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <div id="dropin-container"
                 style={styles.dropin}>
               </div>

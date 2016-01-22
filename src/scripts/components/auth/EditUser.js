@@ -13,23 +13,23 @@ class EditUser extends Component {
 
   constructor(props) {
     super(props);
-    this._handleSubmit = this._handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  _getGender() {
+  getGender() {
     let radios = document.getElementsByName("gender");
     for (let key in radios) {
       if (radios[key].checked === true) return radios[key].value;
     }
   }
 
-  _handleSubmit(ev) {
+  handleSubmit(ev) {
     ev.preventDefault();
 
     let avatar = this.refs.avatar.state.file;
     let birthDay = this.refs.birthDay.state.fieldValue;
     let email = this.refs.email.state.fieldValue;
-    let gender = this._getGender();
+    let gender = this.getGender();
     let id = this.props.user.id;
     let name = this.refs.name.state.fieldValue;
 
@@ -45,7 +45,7 @@ class EditUser extends Component {
     }
   }
 
-  _isGender(value) {
+  isGender(value) {
     return value === this.props.user.gender;
   }
 
@@ -86,12 +86,12 @@ class EditUser extends Component {
         <div>
           <p>I am</p>
           <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="gender-male">
-            <input className="mdl-radio__button" id="gender-male" type="radio" value="M" name="gender" defaultChecked={this._isGender("M")} />
+            <input className="mdl-radio__button" id="gender-male" type="radio" value="M" name="gender" defaultChecked={this.isGender("M")} />
             <span className="mdl-radio__label"><i className="zmdi zmdi-male-alt zmdi-hc-lg"></i></span>
           </label>
           <div className="block--divider"></div>
           <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="gender-female">
-            <input className="mdl-radio__button" id="gender-female" type="radio" value="F" name="gender" defaultChecked={this._isGender("F")} />
+            <input className="mdl-radio__button" id="gender-female" type="radio" value="F" name="gender" defaultChecked={this.isGender("F")} />
             <span className="mdl-radio__label"><i className="zmdi zmdi-female zmdi-hc-lg"></i></span>
           </label>
         </div>
@@ -112,7 +112,7 @@ class EditUser extends Component {
         <div className="text--center">
           <button
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            onClick={this._handleSubmit}
+            onClick={this.handleSubmit}
           >
             SAVE
           </button>

@@ -12,10 +12,10 @@ class EditLogin extends Component {
 
   constructor(props) {
     super(props);
-    this._handleSubmit = this._handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  _handleSubmit(ev) {
+  handleSubmit(ev) {
     ev.preventDefault();
 
     let id = this.props.id;
@@ -71,7 +71,7 @@ class EditLogin extends Component {
         <div className="text--center">
           <button
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            onClick={this._handleSubmit}
+            onClick={this.handleSubmit}
           >
             SAVE
           </button>

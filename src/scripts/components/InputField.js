@@ -17,10 +17,10 @@ class InputField extends Component {
   constructor(props) {
     super(props);
     this.state = { fieldValue: this.props.fieldValue };
-    this._handleChange = this._handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  _handleChange(e) {
+  handleChange(e) {
     e.preventDefault();
 
     let fieldValue = findDOMNode(this.refs[this.props.fieldId]).value;
@@ -40,7 +40,7 @@ class InputField extends Component {
           ref={fieldId}
           type={fieldType}
           value={this.state.fieldValue}
-          onChange={this._handleChange} />
+          onChange={this.handleChange} />
         <label
           className="mdl-textfield__label"
           htmlFor={fieldId}>

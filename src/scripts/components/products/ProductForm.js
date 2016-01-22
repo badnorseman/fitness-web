@@ -23,20 +23,20 @@ export default class ProductForm extends Component {
 
   constructor(props) {
     super(props);
-    this._handleSubmit = this._handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  _getCurrency() {
+  getCurrency() {
     let radios = document.getElementsByName("currency");
     for (let key in radios) {
       if (radios[key].checked === true) return radios[key].value;
     }
   }
 
-  _handleSubmit(ev) {
+  handleSubmit(ev) {
     ev.preventDefault();
 
-    let currency = this._getCurrency();
+    let currency = this.getCurrency();
     let description = this.refs.description.state.fieldValue;
     let id = this.props.product.id;
     let image = this.refs.image.state.file;
@@ -55,7 +55,7 @@ export default class ProductForm extends Component {
     }
   }
 
-  _isCurrency(value) {
+  isCurrency(value) {
     return value === this.props.product.currency;
   }
 
@@ -100,17 +100,17 @@ export default class ProductForm extends Component {
         </div>
         <div>
           <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="currency-dkk">
-            <input className="mdl-radio__button" id="currency-dkk" type="radio" value="DKK" name="currency" defaultChecked={this._isCurrency("DKK")} />
+            <input className="mdl-radio__button" id="currency-dkk" type="radio" value="DKK" name="currency" defaultChecked={this.isCurrency("DKK")} />
             <span className="mdl-radio__label">DKK</span>
           </label>
           <div className="block--divider"></div>
           <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="currency-eur">
-            <input className="mdl-radio__button" id="currency-eur" type="radio" value="EUR" name="currency" defaultChecked={this._isCurrency("EUR")} />
+            <input className="mdl-radio__button" id="currency-eur" type="radio" value="EUR" name="currency" defaultChecked={this.isCurrency("EUR")} />
             <span className="mdl-radio__label">EUR</span>
           </label>
           <div className="block--divider"></div>
           <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="currency-usd">
-            <input className="mdl-radio__button" id="currency-usd" type="radio" value="USD" name="currency" defaultChecked={this._isCurrency("USD")} />
+            <input className="mdl-radio__button" id="currency-usd" type="radio" value="USD" name="currency" defaultChecked={this.isCurrency("USD")} />
             <span className="mdl-radio__label">USD</span>
           </label>
         </div>
@@ -133,7 +133,7 @@ export default class ProductForm extends Component {
           <div className="block--divider"></div>
           <button
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            onClick={this._handleSubmit}
+            onClick={this.handleSubmit}
           >
             Save
           </button>
