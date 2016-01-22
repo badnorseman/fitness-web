@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 import { oauth } from "../../actions/auth_actions";
 import "./facebook.css";
 
-const Facebook = ({ onClick }) => (
+const Facebook = ({ dispatch }) => (
   <button
     className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect facebook"
     onClick={ev => {
       ev.preventDefault();
-      onClick();
+      loginFacebook(dispatch);
     }}
   >
     Facebook
@@ -29,15 +29,4 @@ const loginFacebook = (dispatch) => {
   });
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onClick: () => {
-      loginFacebook(dispatch);
-    }
-  };
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Facebook)
+export default connect()(Facebook)
