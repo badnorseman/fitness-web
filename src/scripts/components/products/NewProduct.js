@@ -5,7 +5,7 @@ import { createProduct } from "../../actions/product_actions";
 import Link from "../Link";
 import ProductForm from "./ProductForm";
 
-const NewProduct = ({ goTo, onAdd }) => {
+const NewProduct = ({ dispatch }) => {
   const styles = {
     card: {
       height: "auto",
@@ -21,14 +21,14 @@ const NewProduct = ({ goTo, onAdd }) => {
         <div className="mdl-card__menu">
           <Link
             styles="mdl-button mdl-js-button mdl-button--icon"
-            onClick={() => goTo("DASHBOARD")}
+            onClick={() => dispatch(goTo("DASHBOARD"))}
           >
             <i className="zmdi zmdi-close"></i>
           </Link>
         </div>
         <div className="mdl-card__supporting-text">
           <ProductForm
-            onSubmit={onAdd}
+            onSubmit={(product) => dispatch(createProduct(product))}
           />
         </div>
       </div>
@@ -36,18 +36,4 @@ const NewProduct = ({ goTo, onAdd }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    goTo: (route) => {
-      dispatch(goTo(route));
-    },
-    onAdd: (product) => {
-      dispatch(createProduct(product));
-    }
-  };
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(NewProduct)
+export default connect()(NewProduct)
