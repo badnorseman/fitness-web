@@ -2,7 +2,6 @@
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import Braintree from "braintree-web";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { goTo } from "../../actions/router_actions";
 import { createTransaction, getClientToken } from "../../actions/transaction_actions";
@@ -21,7 +20,7 @@ class NewTransaction extends Component {
   }
 
   componentDidMount() {
-    this.props.getClientToken();
+    this.props.dispatch(getClientToken());
   }
 
   componentDidUpdate() {
@@ -35,7 +34,7 @@ class NewTransaction extends Component {
   }
 
   handleClose() {
-    this.props.goTo("MARKETPLACE");
+    this.props.dispatch(goTo("MARKETPLACE"));
   }
 
   handleSubmit(ev) {
@@ -49,12 +48,12 @@ class NewTransaction extends Component {
     let paymentMethodNonce = paymentMethod.nonce;
 
     if (amount && currency && id && paymentMethodNonce) {
-      this.props.createTransaction({
+      this.props.dispatch(createTransaction({
         amount: amount,
         currency: currency,
         product_id: id,
         payment_method_nonce: paymentMethodNonce
-      });
+      }));
     }
   }
 
@@ -107,14 +106,6 @@ class NewTransaction extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    goTo,
-    createTransaction,
-    getClientToken
-  }, dispatch);
-};
-
 const mapStateToProps = (state) => {
   return {
     clientToken: state.transaction.clientToken
@@ -122,6 +113,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(NewTransaction)

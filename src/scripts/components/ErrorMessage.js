@@ -3,27 +3,19 @@ import { connect } from "react-redux";
 import { resetErrorMessage } from "../actions/error_actions";
 import Link from "./Link";
 
-const ErrorMessage = ({ errorMessage, onClick }) => (
+const ErrorMessage = ({ errorMessage, dispatch }) => (
   <div className="mdl-grid">
     <div className="mdl-cell mdl-cell--12-col">
       {errorMessage}
       {errorMessage && <Link
         styles="mdl-button mdl-js-button mdl-button--icon"
-        onClick={onClick}
+        onClick={() => dispatch(resetErrorMessage())}
       >
         <i className="zmdi zmdi-close"></i>
       </Link>}
     </div>
   </div>
 );
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onClick: () => {
-      dispatch(resetErrorMessage());
-    }
-  };
-};
 
 const mapStateToProps = (state) => {
   return {
@@ -32,6 +24,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(ErrorMessage)
