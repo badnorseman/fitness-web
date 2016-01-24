@@ -3,8 +3,8 @@ import Link from "./Link";
 
 const Footer = ({ goTo }) => {
   return (
-    <div>
-      <div className="mdl-mini-footer mdl-color--blue-grey-900 mdl-color-text--blue-grey-200">
+    <footer className="mdl-mini-footer">
+      <div className="mdl-mini-footer__top-section">
         <div className="mdl-mini-footer__left-section">
           <ul className="mdl-mini-footer__link-list">
             <li><Facebook /></li>
@@ -15,16 +15,28 @@ const Footer = ({ goTo }) => {
         </div>
         <div className="mdl-mini-footer__right-section">
           <ul className="mdl-mini-footer__link-list">
-            <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
-            <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
-            <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
+            <li>
+              <Link styles="mdl-navigation__link"
+                onClick={() => goTo("ABOUT")}>About
+              </Link>
+            </li>
+            <li>
+              <Link styles="mdl-navigation__link"
+                onClick={() => goTo("HELP")}>Help
+              </Link>
+            </li>
+            <li>
+              <Link styles="mdl-navigation__link"
+                onClick={() => goTo("TERMS")}>Terms
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
-      <div className="mdl-mini-footer mdl-color--blue-grey-900 mdl-color-text--blue-grey-300">
+      <div className="mdl-mini-footer__bottom-section">
         <Company />
       </div>
-    </div>
+    </footer>
   );
 };
 

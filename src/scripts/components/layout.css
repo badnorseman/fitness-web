@@ -1,6 +1,9 @@
-.footer {
-  margin: 0 auto -100px;
-  min-height: 100%;
+.mdl-mini-footer {
+  align-items: center;
+  background-color: rgb(38,50,56);
+  box-sizing: border-box;
+  color: rgba(255,255,255,0.56);
+  margin-top: 16px;
 }
 
 .mdl-layout__content {
@@ -29,17 +32,10 @@
   font-size: 15pt;
 }
 
-.mdl-layout__header .mdl-navigation .mdl-navigation__link {
-  align-items: center;
-  display: flex !important;
-  flex-direction: row;
-}
-
 .mdl-layout__drawer {
   background-color: rgb(38,50,56);
   border: none;
   color: rgba(255,255,255,0.56);
-  /*rgb(176,190,197)*/
 }
 
 .mdl-layout__drawer .mdl-navigation {

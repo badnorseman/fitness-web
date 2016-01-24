@@ -7,10 +7,6 @@ html, body {
   height: 100%;
 }
 
-footer, .push {
-  height: 100px;
-}
-
 .block--center-horizontally__margin {
   margin: 0 auto;
 }
