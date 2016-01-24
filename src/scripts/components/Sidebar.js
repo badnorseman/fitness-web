@@ -17,22 +17,18 @@ const Sidebar = ({ currentUser, goTo, logout }) => {
       height: "151px",
       justifyContent: "flex-end",
       padding: "32px"
-    },
-    main: {
-      border: "none"
     }
   };
 
   return (
-    <div className="mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-200"
-      style={styles.main}>
+    <div className="mdl-layout__drawer">
       <header style={styles.header}>
         {isLoggedIn && <div>
           <img src={avatar} alt="" style={styles.avatar} />
           <div>{name}</div>
         </div>}
       </header>
-      <nav className="mdl-navigation mdl-color--blue-grey-800">
+      <nav className="mdl-navigation">
         {!isLoggedIn && <Link styles="mdl-navigation__link"
           onClick={() => goTo("LOGIN")}>Log in</Link>}
         {!isLoggedIn && <Link styles="mdl-navigation__link"

@@ -4,10 +4,17 @@
 }
 
 .mdl-layout__content {
+  background-color: rgb(255,255,255);
+  border: none;
   display: -webkit-flex;
 	display: flex;
   -webkit-flex-direction: column;
 	flex-direction: column;
+}
+
+.mdl-layout__header {
+  background-color: rgb(255,255,255);
+  border: none;
 }
 
 .mdl-layout__header .mdl-layout__drawer-button {
@@ -28,7 +35,15 @@
   flex-direction: row;
 }
 
+.mdl-layout__drawer {
+  background-color: rgb(38,50,56);
+  border: none;
+  color: rgba(255,255,255,0.56);
+  /*rgb(176,190,197)*/
+}
+
 .mdl-layout__drawer .mdl-navigation {
+  background-color: rgb(55,71,79);
   flex-grow: 1;
 }
 

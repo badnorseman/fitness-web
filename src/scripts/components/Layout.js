@@ -105,7 +105,7 @@ class Layout extends Component {
             goTo={goTo}
             logout={logout}
           />
-          <main className="mdl-layout__content mdl-color--grey-100">
+          <main className="mdl-layout__content">
             <ErrorMessage />
             <div>{content}</div>
             <div className="mdl-layout-spacer"></div>

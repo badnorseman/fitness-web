@@ -6,7 +6,7 @@ const Header = ({ currentUser, goTo, logout }) => {
   const isLoggedIn = (id) ? true : false;
 
   return (
-    <header className="mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+    <header className="mdl-layout__header">
       <div className="mdl-layout__header-row">
         <span className="mdl-layout-title">
           <a href="#!" className="mdl-navigation__link"
