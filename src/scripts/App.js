@@ -5,7 +5,7 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import Layout from "./components/Layout";
-import "./App.css";
+import "./app.css";
 
 window.React = React;
 
