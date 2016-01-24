@@ -13,6 +13,7 @@ import Dashboard from "./Dashboard";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
 import Footer from "./Footer";
+import Header from "./Header";
 import Help from "./Help";
 import Login from "./auth/Login";
 import Marketplace from "./Marketplace";
@@ -22,6 +23,7 @@ import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
 import ShowCoach from "./coaches/ShowCoach";
 import ShowProduct from "./products/ShowProduct";
+import Sidebar from "./Sidebar";
 import Signup from "./auth/Signup";
 import Terms from "./Terms";
 import "./layout.css";
@@ -92,31 +94,22 @@ class Layout extends Component {
     }
     return (
       <div>
-        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          <header className="mdl-layout__header layout__header">
-            <div className="mdl-layout__header-row">
-              <span className="mdl-layout-title">
-                <a href="#!" className="mdl-navigation__link"
-                  onClick={() => goTo("MARKETPLACE")}
-                >
-                  FitBird
-                </a>
-              </span>
-              <div className="mdl-layout-spacer"></div>
-              <Navbar
-                currentUser={currentUser}
-                goTo={goTo}
-                logout={logout} />
-            </div>
-          </header>
-          <main className="mdl-layout__content">
+        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+          <Header
+            currentUser={currentUser}
+            goTo={goTo}
+            logout={logout}
+          />
+          <Sidebar
+            currentUser={currentUser}
+            goTo={goTo}
+            logout={logout}
+          />
+          <main className="mdl-layout__content mdl-color--grey-100">
             <ErrorMessage />
-            <div className="page-content">
-              {content}
-            </div>
+            <div>{content}</div>
             <div className="mdl-layout-spacer"></div>
-            <Footer className="layout__footer"
-              goTo={goTo} />
+            <Footer className="footer" goTo={goTo} />
           </main>
         </div>
       </div>
