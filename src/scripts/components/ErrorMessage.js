@@ -4,16 +4,15 @@ import { resetErrorMessage } from "../actions/error_actions";
 import Link from "./Link";
 
 const ErrorMessage = ({ errorMessage, dispatch }) => (
-  <div className="mdl-grid">
-    <div className="mdl-cell mdl-cell--12-col">
+  <div>
+    {errorMessage && <div>
       {errorMessage}
-      {errorMessage && <Link
-        styles="mdl-button mdl-js-button mdl-button--icon"
+      <Link styles="mdl-button mdl-js-button mdl-button--icon"
         onClick={() => dispatch(resetErrorMessage())}
       >
         <i className="zmdi zmdi-close"></i>
-      </Link>}
-    </div>
+      </Link>
+    </div>}
   </div>
 );
 

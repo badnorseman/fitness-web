@@ -1,7 +1,10 @@
 
 .mdl-layout__header {
   background-color: rgb(255,255,255);
-  border: none;
+  border-bottom-color: rgb(204,204,204);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  box-shadow: none;
 }
 
 .mdl-layout__header .mdl-layout__drawer-button {
