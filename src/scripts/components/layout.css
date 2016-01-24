@@ -51,42 +51,9 @@
 	flex-direction: column;
 }
 
-.mdl-mega-footer {
+.mdl-mini-footer {
   background-color: rgb(38,50,56);
   box-sizing: border-box;
   color: rgba(255,255,255,0.56);
-  margin-top: 16px;
-  padding: 16px 16px;
-}
-
-.mdl-mega-footer a {
-  color: inherit;
-  margin-right: 8px;
-}
-
-.mdl-mega-footer__left-section {
-  align-content: flex-start;
-  display: flex !important;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.mdl-mega-footer__right-section {
-  align-content: flex-end;
-  display: flex !important;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.mdl-mega-footer__bottom-section {
-  align-content: flex-start;
-  display: flex !important;
-  flex-direction: row;
-  padding-bottom: 16px;
-}
-
-@media all and (max-width: 500px) {
-  .mdl-mega-footer__bottom-section {
-    justify-content: center;
-  }
+  padding: 16px;
 }

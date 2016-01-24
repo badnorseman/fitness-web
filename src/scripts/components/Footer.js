@@ -2,26 +2,30 @@
 import Link from "./Link";
 
 const Footer = ({ goTo }) => (
-  <footer className="mdl-mega-footer">
+  <div>
     <FooterTop goTo={goTo} />
     <FooterBottom />
-  </footer>
+  </div>
 );
 
 const FooterTop = ({ goTo }) => (
-  <div className="mdl-mega-footer__top-section">
-    <div className="mdl-mega-footer__left-section">
-      <Facebook />
-      <Twitter />
-      <Instagram />
-      <Email />
+  <footer className="mdl-mini-footer">
+    <div className="mdl-mini-footer__left-section">
+      <ul className="mdl-mini-footer__link-list">
+        <li><Facebook /></li>
+        <li><Twitter /></li>
+        <li><Instagram /></li>
+        <li><Email /></li>
+      </ul>
     </div>
-    <div className="mdl-mega-footer__right-section">
-      <Link onClick={() => goTo("ABOUT")}>About</Link>
-      <Link onClick={() => goTo("HELP")}>Help</Link>
-      <Link onClick={() => goTo("TERMS")}>Terms</Link>
+    <div className="mdl-mini-footer__right-section">
+      <ul className="mdl-mini-footer__link-list">
+        <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
+        <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
+        <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
+      </ul>
     </div>
-  </div>
+  </footer>
 );
 
 const FooterBottom = () => {
@@ -29,7 +33,7 @@ const FooterBottom = () => {
   const currentYear = now.getFullYear();
 
   return (
-    <div className="mdl-mega-footer__bottom-section">
+    <footer className="mdl-mini-footer">
       <span className="mdl-layout--small-screen-only block--center-horizontally__margin">
         Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
       </span>
@@ -38,7 +42,7 @@ const FooterBottom = () => {
         Esromgade&nbsp;15,&nbsp;Suite&nbsp;1102,&nbsp;Copenhagen&nbsp;2200,&nbsp;Denmark.
         CVR&nbsp;35418067
       </span>
-    </div>
+    </footer>
   );
 };
 
