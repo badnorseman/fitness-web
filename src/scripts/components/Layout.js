@@ -94,7 +94,7 @@ class Layout extends Component {
     }
     return (
       <div>
-        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <Header
             currentUser={currentUser}
             goTo={goTo}
@@ -108,8 +108,7 @@ class Layout extends Component {
           <main className="mdl-layout__content">
             <ErrorMessage />
             <div>{content}</div>
-            <div className="mdl-layout-spacer"></div>
-            <Footer className="footer" goTo={goTo} />
+            <Footer goTo={goTo} />
           </main>
         </div>
       </div>

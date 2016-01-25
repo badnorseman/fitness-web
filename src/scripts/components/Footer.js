@@ -9,7 +9,7 @@ const Footer = ({ goTo }) => (
 );
 
 const FooterTop = ({ goTo }) => (
-  <footer className="mdl-mini-footer">
+  <footer className="mdl-mini-footer footer-top">
     <div className="mdl-mini-footer__left-section">
       <ul className="mdl-mini-footer__link-list">
         <li><Facebook /></li>
@@ -33,15 +33,15 @@ const FooterBottom = () => {
   const currentYear = now.getFullYear();
 
   return (
-    <footer className="mdl-mini-footer">
-      <span className="mdl-layout--small-screen-only block--center-horizontally__margin">
+    <footer className="mdl-mini-footer footer-bottom">
+      <div className="mdl-layout--small-screen-only">
         Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
-      </span>
-      <span className="mdl-layout--large-screen-only">
+      </div>
+      <div className="mdl-layout--large-screen-only">
         Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS.
         Esromgade&nbsp;15,&nbsp;Suite&nbsp;1102,&nbsp;Copenhagen&nbsp;2200,&nbsp;Denmark.
         CVR&nbsp;35418067
-      </span>
+      </div>
     </footer>
   );
 };
