@@ -1,46 +1,44 @@
 "use strict";
 import Link from "./Link";
 
-const Footer = ({ goTo }) => (
-  <div>
-    <FooterTop goTo={goTo} />
-    <FooterBottom />
-  </div>
-);
-
-const FooterTop = ({ goTo }) => (
-  <footer className="mdl-mini-footer footer-top">
-    <div className="mdl-mini-footer__left-section">
-      <ul className="mdl-mini-footer__link-list">
-        <li><Facebook /></li>
-        <li><Twitter /></li>
-        <li><Instagram /></li>
-        <li><Email /></li>
-      </ul>
-    </div>
-    <div className="mdl-mini-footer__right-section">
-      <ul className="mdl-mini-footer__link-list">
-        <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
-        <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
-        <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
-      </ul>
-    </div>
-  </footer>
-);
-
-const FooterBottom = () => {
+const Footer = ({ goTo }) => {
   const now = new Date();
   const currentYear = now.getFullYear();
 
+  const styles = {
+    main: {
+      width: "60%"
+    }
+  };
+
   return (
-    <footer className="mdl-mini-footer footer-bottom">
-      <div className="mdl-layout--small-screen-only">
-        Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
-      </div>
-      <div className="mdl-layout--large-screen-only">
-        Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS.
-        Esromgade&nbsp;15,&nbsp;Suite&nbsp;1102,&nbsp;Copenhagen&nbsp;2200,&nbsp;Denmark.
-        CVR&nbsp;35418067
+    <footer className="mdl-mini-footer">
+      <div className="mdl-grid" style={styles.main}>
+        <div className="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+          <ul className="mdl-mini-footer__link-list">
+            <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
+            <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
+            <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
+          </ul>
+        </div>
+        <div className="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+          <ul className="mdl-mini-footer__link-list">
+            <li><Facebook /></li>
+            <li><Twitter /></li>
+            <li><Instagram /></li>
+            <li><Email /></li>
+          </ul>
+        </div>
+        <div className="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+          <div className="mdl-layout--small-screen-only">
+            Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
+          </div>
+          <div className="mdl-layout--large-screen-only">
+            Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS.
+            Esromgade&nbsp;15,&nbsp;Suite&nbsp;1102,&nbsp;Copenhagen&nbsp;2200,&nbsp;Denmark.
+            CVR&nbsp;35418067
+          </div>
+        </div>
       </div>
     </footer>
   );
