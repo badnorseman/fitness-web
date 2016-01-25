@@ -108,6 +108,7 @@ class Layout extends Component {
           <main className="mdl-layout__content">
             <ErrorMessage />
             <div>{content}</div>
+            <div className="mdl-layout-spacer"></div>
             <Footer goTo={goTo} />
           </main>
         </div>

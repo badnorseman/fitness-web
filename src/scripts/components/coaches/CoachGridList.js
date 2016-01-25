@@ -11,8 +11,14 @@ const CoachGridList = ({ coaches, goTo }) => {
     }
   }
 
+  const styles = {
+    main: {
+      width: "60%"
+    }
+  };
+
   return (
-    <div className="mdl-grid">
+    <div className="mdl-grid" style={styles.main}>
       {tiles}
     </div>
   );

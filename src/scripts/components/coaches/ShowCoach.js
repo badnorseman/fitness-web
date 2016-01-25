@@ -17,10 +17,6 @@ const ShowCoach = ({ coach, products, goTo }) => {
       height: "92px",
       width: "92px"
     },
-    card: {
-      height: "auto",
-      width: "800px"
-    },
     image: {
       backgroundImage: "url(" + avatar + ")",
       backgroundRepeat: "no-repeat",
@@ -30,13 +26,15 @@ const ShowCoach = ({ coach, products, goTo }) => {
       WebkitTransition: "all",
       msTransition: "all"
     },
+    main: {
+      width: "60%"
+    }
   };
 
   return (
     <div>
-      <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
-          style={styles.card}>
+      <div className="mdl-grid" style={styles.main}>
+        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin">
           <div className="mdl-card__menu">
             <Link
               styles="mdl-button mdl-js-button mdl-button--icon"
@@ -73,8 +71,14 @@ const ProductList = ({
     }
   }
 
+  const styles = {
+    main: {
+      width: "60%"
+    }
+  };
+
   return (
-    <div className="mdl-grid">
+    <div className="mdl-grid" style={styles.main}>
       {items}
     </div>
   );
@@ -85,16 +89,8 @@ const ProductListItem = ({
 }) => {
   const { currency, description, name, price } = product;
 
-  const styles = {
-    card: {
-      height: "160px",
-      width: "800px"
-    }
-  };
-
   return (
-    <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
-      style={styles.card}>
+    <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin">
       <div className="mdl-card__supporting-text">
         <h3>{name}</h3>
         <p>{description}</p>
