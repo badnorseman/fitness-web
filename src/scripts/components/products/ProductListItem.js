@@ -2,7 +2,6 @@
 
 const ProductListItem = ({ product, goTo }) => {
   const { currency, name, price } = product;
-
   const styles = {
     itemElement: {
       margin: "10px 10px 10px 0",

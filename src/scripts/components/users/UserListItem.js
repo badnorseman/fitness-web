@@ -2,7 +2,6 @@
 
 const UserListItem = ({ user }) => {
   const { name, product } = user;
-
   const styles = {
     itemElement: {
       margin: "10px 10px 10px 0",

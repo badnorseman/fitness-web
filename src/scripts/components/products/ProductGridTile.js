@@ -2,7 +2,6 @@
 
 const ProductGridTile = ({ product, goTo }) => {
   const { description, image, name } = product;
-
   const styles = {
     image: {
       maxHeight: "160px"

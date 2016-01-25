@@ -2,7 +2,6 @@
 
 const CoachGridTile = ({ coach, goTo }) => {
   const { avatar, name } = coach;
-
   const styles = {
     avatar: {
       maxHeight: "160px"

@@ -17,7 +17,6 @@ import Header from "./Header";
 import Help from "./Help";
 import Login from "./auth/Login";
 import Marketplace from "./Marketplace";
-import Navbar from "./Navbar";
 import NewPassword from "./auth/NewPassword";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";

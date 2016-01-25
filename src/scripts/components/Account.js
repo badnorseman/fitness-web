@@ -6,7 +6,6 @@ import TransactionList from "./transactions/TransactionList";
 
 const Account = ({ currentUser, transactions }) => {
   const { login } = currentUser;
-
   const styles = {
     card: {
       height: "auto",

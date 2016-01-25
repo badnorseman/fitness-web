@@ -4,7 +4,6 @@ import Link from "./Link";
 const Footer = ({ goTo }) => {
   const now = new Date();
   const currentYear = now.getFullYear();
-
   const styles = {
     main: {
       width: "60%"
