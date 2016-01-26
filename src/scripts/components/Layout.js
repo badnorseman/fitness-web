@@ -22,7 +22,6 @@ import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
 import ShowCoach from "./coaches/ShowCoach";
 import ShowProduct from "./products/ShowProduct";
-import Sidebar from "./Sidebar";
 import Signup from "./auth/Signup";
 import Terms from "./Terms";
 import "./layout.css";
@@ -95,11 +94,6 @@ class Layout extends Component {
       <div>
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <Header
-            currentUser={currentUser}
-            goTo={goTo}
-            logout={logout}
-          />
-          <Sidebar
             currentUser={currentUser}
             goTo={goTo}
             logout={logout}
