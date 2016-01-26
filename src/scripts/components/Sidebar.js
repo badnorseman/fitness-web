@@ -14,13 +14,15 @@ const Sidebar = ({ currentUser, goTo, logout }) => {
 
   return (
     <div className="mdl-layout__drawer">
-      {!isLoggedIn && <div className="drawer-header">
-        FitBird
-      </div>}
-      {isLoggedIn && <div className="drawer-header--logged-in">
-        <img src={avatar} alt="" style={styles.avatar} />
-        <div>{name}</div>
-      </div>}
+      <div className="drawer-header">
+        {!isLoggedIn && <div>
+          FitBird
+        </div>}
+        {isLoggedIn && <div>
+          <img src={avatar} alt="" style={styles.avatar} />
+          <div>{name}</div>
+        </div>}
+      </div>
       <nav className="mdl-navigation">
         {!isLoggedIn && <Link styles="mdl-navigation__link"
           onClick={() => goTo("LOGIN")}>Log in</Link>}
