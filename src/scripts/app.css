@@ -7,16 +7,20 @@ html, body {
   height: 100%;
 }
 
-.block--center-horizontally__margin {
+.center {
   margin: 0 auto;
 }
 
-.block--center-horizontally__flex {
+.flex--center {
   display: flex;
   justify-content: center;
 }
 
-.block--divider {
+.text--center {
+  text-align: center;
+}
+
+.divider {
   display: inline-block;
   height: auto;
   width: 20px;
@@ -29,8 +33,4 @@ html, body {
   position: fixed;
   right: 24px;
   z-index: 998;
-}
-
-.text--center {
-  text-align: center;
 }

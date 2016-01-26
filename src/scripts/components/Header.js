@@ -2,7 +2,7 @@
 import Link from "./Link";
 
 const Header = ({ currentUser, goTo, logout }) => (
-  <header className="mdl-layout__header">
+  <header className="mdl-layout__header mdl-layout__header--seamed">
     <div className="mdl-layout__header-row">
       <span className="mdl-layout-title">
         <a href="#!" className="mdl-navigation__link"

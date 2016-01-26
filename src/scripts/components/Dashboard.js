@@ -14,13 +14,13 @@ const Dashboard = ({ products, users, goTo }) => {
   return (
     <div className="mdl-grid">
       <div className="mdl-cell mdl-cell--12-col">
-        <div className="block--center-horizontally__margin"
+        <div className="center"
           style={styles.card}>
           <h3>Dashboard</h3>
         </div>
-        <div className="mdl-card mdl-shadow--2dp block--center-horizontally__margin"
+        <div className="mdl-card mdl-shadow--2dp center"
           style={styles.card}>
-          <div className="mdl-card__supporting-text block--center-horizontally__margin">
+          <div className="mdl-card__supporting-text center">
             <div className="mdl-tabs mdl-js-tabs">
               <div className="mdl-tabs__tab-bar">
                 <a href="#products-panel" className="mdl-tabs__tab is-active">Products</a>

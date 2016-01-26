@@ -14,7 +14,7 @@ const ProductListItem = ({ product, goTo }) => {
     <div>
       <hr />
       <a href="#!"
-        className="block--center-horizontally__flex"
+        className="flex--center"
         onClick={ev => {
           ev.preventDefault();
           goTo("EDITPRODUCT", product);

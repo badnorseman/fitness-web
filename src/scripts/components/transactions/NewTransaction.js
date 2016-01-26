@@ -75,7 +75,7 @@ class NewTransaction extends Component {
 
     return (
       <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
+        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center"
           style={styles.card}>
           <div className="mdl-card__menu">
             <Link

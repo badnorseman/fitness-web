@@ -44,7 +44,7 @@ class EditLogin extends Component {
     };
 
     return (
-      <form className="block--center-horizontally__margin"
+      <form className="center"
         style={styles.form}>
         <div>
           <InputField

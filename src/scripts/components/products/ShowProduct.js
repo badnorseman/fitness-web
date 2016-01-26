@@ -20,7 +20,7 @@ const ShowProduct = ({ product, goTo }) => {
 
   return (
     <div className="mdl-grid" style={styles.main}>
-      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin">
+      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
         <div className="mdl-card__menu">
           <Link
             styles="mdl-button mdl-js-button mdl-button--icon"

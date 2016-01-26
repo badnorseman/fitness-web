@@ -13,7 +13,7 @@ const UserListItem = ({ user }) => {
   return (
     <div>
       <hr />
-      <div className="block--center-horizontally__flex">
+      <div className="flex--center">
         <div style={styles.itemElement}>{name}</div>
         <div style={styles.itemElement}>Status</div>
         <div style={styles.itemElement}>{product}</div>

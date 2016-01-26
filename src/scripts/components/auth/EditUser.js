@@ -65,7 +65,7 @@ class EditUser extends Component {
     };
 
     return (
-      <form className="block--center-horizontally__margin"
+      <form className="center"
         style={styles.form}>
         <div>
           <InputField
@@ -89,7 +89,7 @@ class EditUser extends Component {
             <input className="mdl-radio__button" id="gender-male" type="radio" value="M" name="gender" defaultChecked={this.isGender("M")} />
             <span className="mdl-radio__label"><i className="zmdi zmdi-male-alt zmdi-hc-lg"></i></span>
           </label>
-          <div className="block--divider"></div>
+          <div className="divider"></div>
           <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="gender-female">
             <input className="mdl-radio__button" id="gender-female" type="radio" value="F" name="gender" defaultChecked={this.isGender("F")} />
             <span className="mdl-radio__label"><i className="zmdi zmdi-female zmdi-hc-lg"></i></span>

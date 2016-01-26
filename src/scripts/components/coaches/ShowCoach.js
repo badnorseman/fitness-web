@@ -33,7 +33,7 @@ const ShowCoach = ({ coach, products, goTo }) => {
   return (
     <div>
       <div className="mdl-grid" style={styles.main}>
-        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin">
+        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
           <div className="mdl-card__menu">
             <Link
               styles="mdl-button mdl-js-button mdl-button--icon"
@@ -89,7 +89,7 @@ const ProductListItem = ({
   const { currency, description, name, price } = product;
 
   return (
-    <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin">
+    <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
       <div className="mdl-card__supporting-text">
         <h3>{name}</h3>
         <p>{description}</p>

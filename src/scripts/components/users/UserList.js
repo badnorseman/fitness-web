@@ -23,9 +23,9 @@ const UserList = ({ users }) => {
   };
 
   return (
-    <div className="block--center-horizontally__margin"
+    <div className="center"
       style={styles.list}>
-      <div className="block--center-horizontally__flex">
+      <div className="flex--center">
         <div style={styles.headerElement}>STATUS</div>
         <div style={styles.headerElement}>NAME</div>
         <div style={styles.headerElement}>PRODUCT</div>
