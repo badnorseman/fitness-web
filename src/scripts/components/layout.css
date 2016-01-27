@@ -13,7 +13,7 @@
 }
 
 .mdl-layout__header .mdl-navigation__link {
-  align-items: flex-start;
+  align-items: center;
   color: rgba(53,62,72,0.54);
   display: flex !important;
   flex-direction: row;

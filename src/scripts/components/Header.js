@@ -11,8 +11,8 @@ const Header = ({ currentUser, goTo, logout }) => {
       width: "32px"
     },
     logo: {
-      height: "48px",
-      width: "48px"
+      height: "32px",
+      width: "32px"
     }
   };
 
