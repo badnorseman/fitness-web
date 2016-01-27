@@ -8,11 +8,11 @@ const Header = ({ currentUser, goTo, logout }) => {
   const styles = {
     avatar: {
       height: "32px",
-      width: "32px",
+      width: "32px"
     },
     logo: {
       height: "48px",
-      width: "48px",
+      width: "48px"
     }
   };
 
