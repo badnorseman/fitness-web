@@ -120,7 +120,7 @@ export default class ProductForm extends Component {
         <div>
           <InputFile ref="image" />
         </div>
-        <div className="text--center">
+        <div className="mdl-typography--text-center">
           {id && <button
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={ev => {

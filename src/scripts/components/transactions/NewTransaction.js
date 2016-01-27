@@ -90,7 +90,7 @@ class NewTransaction extends Component {
               <div id="dropin-container"
                 style={styles.dropin}>
               </div>
-              <div className="text--center">
+              <div className="mdl-typography--text-center">
                 <button
                   className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
                   type="submit"

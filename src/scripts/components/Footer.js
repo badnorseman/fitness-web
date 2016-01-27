@@ -7,19 +7,21 @@ const Footer = ({ goTo }) => {
 
   return (
     <footer>
-      <div className="mdl-mini-footer">
-        <ul className="mdl-mini-footer__link-list">
-          <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
-          <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
-          <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
-          <li><Facebook /></li>
-          <li><Twitter /></li>
-          <li><Instagram /></li>
-          <li><Email /></li>
-        </ul>
+      <div className="mdl-mini-footer footer-top">
+        <div className="mdl-grid content--width">
+          <ul className="mdl-mini-footer__link-list">
+            <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
+            <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
+            <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
+            <li><Facebook /></li>
+            <li><Twitter /></li>
+            <li><Instagram /></li>
+            <li><Email /></li>
+          </ul>
+        </div>
       </div>
-      <div className="mdl-mini-footer">
-        <div className="footer-bottom">
+      <div className="mdl-mini-footer footer-bottom">
+        <div className="mdl-grid content--width">
           Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
         </div>
       </div>

@@ -83,9 +83,30 @@
   background-color: rgb(53,62,72);
   box-sizing: border-box;
   color: rgb(248,255,255);
-  padding: 16px 32px 0px;
+}
+
+.footer-top {
+  padding: 16px;
 }
 
 .footer-bottom {
-  padding-bottom: 32px;
+  padding: 0px 16px 32px 16px;
+}
+
+.content--width {
+  width: 100%;
+}
+
+@media all and (min-width: 500px) {
+  .footer-top {
+    padding: 16px 0px 0px 16px;
+  }
+
+  .footer-bottom {
+    padding: 0px 0px 32px 16px;
+  }
+
+  .content--width {
+    width: 60%;
+  }
 }

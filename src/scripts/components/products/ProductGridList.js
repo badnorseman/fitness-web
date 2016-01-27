@@ -11,14 +11,8 @@ const ProductGridList = ({ products, goTo }) => {
     }
   }
 
-  const styles = {
-    main: {
-      width: "60%"
-    }
-  };
-
   return (
-    <div className="mdl-grid" style={styles.main}>
+    <div className="mdl-grid content--width">
       {tiles}
     </div>
   );

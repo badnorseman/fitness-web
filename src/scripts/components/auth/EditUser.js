@@ -109,7 +109,7 @@ class EditUser extends Component {
         <div>
           <InputFile ref="avatar" />
         </div>
-        <div className="text--center">
+        <div className="mdl-typography--text-center">
           <button
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={this.handleSubmit}

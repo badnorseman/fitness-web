@@ -16,10 +16,6 @@ html, body {
   justify-content: center;
 }
 
-.text--center {
-  text-align: center;
-}
-
 .divider {
   display: inline-block;
   height: auto;

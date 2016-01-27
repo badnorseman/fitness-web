@@ -68,7 +68,7 @@ class EditLogin extends Component {
             fieldType="password"
             ref="passwordConfirmation" />
         </div>
-        <div className="text--center">
+        <div className="mdl-typography--text-center">
           <button
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={this.handleSubmit}
