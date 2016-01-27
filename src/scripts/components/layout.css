@@ -20,12 +20,8 @@
   font-size: 15pt;
 }
 
-.mdl-layout__header button {
+.header__menu-button {
   color: rgba(53,62,72,0.54);
-}
-
-.mdl-layout__header img {
-  margin-left: 16px;
 }
 
 .mdl-menu__item {
@@ -80,6 +76,10 @@
   -webkit-flex-direction: column;
 }
 
+.content--width {
+  width: 100%;
+}
+
 .mdl-mini-footer {
   align-items: center;
   background-color: rgb(53,62,72);
@@ -100,10 +100,6 @@
 
 .footer__bottom {
   padding: 16px 0px 32px;
-}
-
-.content--width {
-  width: 100%;
 }
 
 @media all and (min-width: 500px) {
