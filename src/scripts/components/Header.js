@@ -18,11 +18,11 @@ const Header = ({ currentUser, goTo, logout }) => {
           <Link styles="mdl-navigation__link"
             onClick={() => goTo("MARKETPLACE")}>FitBird</Link>
         </span>
+        <div className="mdl-layout-spacer"></div>
         <Link styles="mdl-navigation__link"
           onClick={() => goTo("MARKETPLACE")}>Browse</Link>
         {coach && <Link styles="mdl-navigation__link"
           onClick={() => goTo("DASHBOARD")}>Dashboard</Link>}
-        <div className="mdl-layout-spacer"></div>
         <nav className="mdl-navigation">
           {!isLoggedIn && <Link styles="mdl-navigation__link"
             onClick={() => goTo("LOGIN")}>Log in</Link>}
