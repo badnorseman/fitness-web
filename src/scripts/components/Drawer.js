@@ -1,7 +1,8 @@
 "use strict";
 import Link from "./Link";
+import "./drawer.css";
 
-const Sidebar = ({ currentUser, goTo, logout }) => {
+const Drawer = ({ currentUser, goTo, logout }) => {
   const { avatar, coach, email, id, name } = currentUser;
   const isLoggedIn = (id) ? true : false;
   const styles = {
@@ -14,7 +15,7 @@ const Sidebar = ({ currentUser, goTo, logout }) => {
 
   return (
     <div className="mdl-layout__drawer">
-      <div className="drawer-header">
+      <div className="drawer__header">
         {!isLoggedIn && <div>
           FitBird
         </div>}
@@ -35,8 +36,12 @@ const Sidebar = ({ currentUser, goTo, logout }) => {
         {isLoggedIn && <Link styles="mdl-navigation__link"
           onClick={logout}>Log out</Link>}
       </nav>
+      <div className="mdl-layout-spacer"></div>
+      <div>
+        Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
+      </div>
     </div>
   );
 };
 
-export default Sidebar
+export default Drawer

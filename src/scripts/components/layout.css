@@ -1,105 +1,14 @@
-.mdl-layout__header {
-  /*border-bottom-color: rgba(204,204,204,0.54);
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  box-shadow: none;*/
-  background-color: rgb(255,255,255);
-}
-
-.mdl-layout__header .mdl-layout__drawer-button {
-  /*color: rgba(38,50,56,0.87);*/
-  /*color: rgba(0,0,0,0.54);*/
-  color: rgba(53,62,72,0.54);
-}
-
-.mdl-layout__header .mdl-navigation__link {
-  align-items: center;
-  color: rgba(53,62,72,0.54);
-  display: flex !important;
-  flex-direction: row;
-  font-size: 15pt;
-}
-
-.header__menu-button {
-  color: rgba(53,62,72,0.54);
-}
-
-.mdl-menu__item {
-  color: rgba(53,62,72,0.56);
-  font-weight: 500;
-}
-
-.mdl-layout__drawer {
-  border: none;
-}
-
-.drawer-header {
-  align-items: center;
-  background-color: rgb(38,50,56);
-  color: rgb(255,255,255);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  font-weight: 400;
-  height: 151px;
-  justify-content: flex-end;
-  padding: 32px;
-}
-
-.mdl-layout__drawer .mdl-navigation {
-  background-color: rgb(55,71,79);
-  flex-grow: 1;
-}
-
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
-  align-items: center;
-  color: rgba(255,255,255,0.56);
-  display: flex !important;
-  flex-direction: row;
-  font-weight: 500;
-  padding-left: 32px;
-}
-
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
-  /*background-color: rgb(33,150,243);
-  color: rgba(38,50,56,0.87);*/
-  background-color: rgb(0,181,212);
-  color: rgb(55,71,79);
-}
-
 .mdl-layout__content {
   background-color: rgb(255,255,255);
   border: none;
-  display: -webkit-flex;
 	display: flex;
+  display: -webkit-flex;
 	flex-direction: column;
   -webkit-flex-direction: column;
 }
 
 .content--width {
   width: 100%;
-}
-
-.mdl-mini-footer {
-  align-items: center;
-  background-color: rgb(53,62,72);
-  box-sizing: border-box;
-  color: rgb(248,255,255);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.footer__top {
-  padding: 16px 0px;
-}
-
-.footer__middle {
-  padding: 0px;
-}
-
-.footer__bottom {
-  padding: 16px 0px 32px;
 }
 
 @media all and (min-width: 500px) {

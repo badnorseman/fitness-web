@@ -1,0 +1,39 @@
+.mdl-layout__drawer {
+  border: none;
+}
+
+.mdl-layout__drawer .mdl-navigation {
+  background-color: rgb(55,71,79);
+  flex-grow: 1;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+  align-items: center;
+  color: rgba(255,255,255,0.56);
+  display: flex !important;
+  flex-direction: row;
+  font-weight: 500;
+  padding-left: 32px;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+  /*background-color: rgb(33,150,243);
+  color: rgba(38,50,56,0.87);*/
+  background-color: rgb(0,181,212);
+  color: rgb(55,71,79);
+}
+
+.drawer__header {
+  background-color: rgb(38,50,56);
+  color: rgb(255,255,255);
+  box-sizing: border-box;
+  font-weight: 400;
+  height: 151px;
+  padding: 32px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  justify-content: flex-end;
+}

@@ -1,5 +1,6 @@
 "use strict";
 import Link from "./Link";
+import "./header.css";
 
 const Header = ({ currentUser, goTo, logout }) => {
   const logo = "https://s3.amazonaws.com/images.fitbird.us/development/system/57.png";

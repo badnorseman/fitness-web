@@ -1,5 +1,6 @@
 "use strict";
 import Link from "./Link";
+import "./footer.css";
 
 const Footer = ({ goTo }) => {
   const now = new Date();
