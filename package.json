@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "FitBird web application",
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js",
-    "pretest": "webpack --config webpack_spec.config.js",
+    "lint": "eslint . --ext .js",
+    "build": "webpack --config webpack.config.development.js",
+    "pretest": "webpack --config webpack.config.spec.js",
     "start": "node server.js",
     "test": "./node_modules/jasmine/bin/jasmine.js"
   },
@@ -25,9 +26,12 @@
   },
   "devDependencies": {
     "babel-core": "^5.8.35",
+    "babel-eslint": "^5.0.0-beta6",
     "babel-loader": "^5.3.2",
     "babel-plugin-react-transform": "^1.1.1",
     "css-loader": "^0.23.1",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.16.1",
     "express": "^4.13.4",
     "file-loader": "^0.8.5",
     "jasmine": "^2.4.1",

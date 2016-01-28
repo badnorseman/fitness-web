@@ -17,7 +17,7 @@ const logoutFacebook = () => {
   FB.getLoginStatus(response => {
     if (response.status === "connected") {
       FB.logout();
-    };
+    }
   });
 };
 

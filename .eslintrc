@@ -1,0 +1,10 @@
+{
+  "extends": "eslint:recommended",
+  "parser": "babel-eslint",
+  "rules": {
+    "no-var": 0
+  },
+  "plugins": [
+    "react"
+  ]
+}

@@ -5,10 +5,10 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore build files.
-/dist/bundle.js
+**/dist/*.js
 
 # Ignore node modules.
-/node_modules
+**/node_modules/*
 
 # Ignore temporary files.
 .DS_Store

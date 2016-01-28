@@ -23,9 +23,9 @@ const loginFacebook = (dispatch) => {
       FB.login(response => {
         if (response.authSuccess) {
           dispatch(oauth("facebook"));
-        };
+        }
       }, { scope: "email,public_profile", info_fields: "email,name" });
-    };
+    }
   });
 };
 

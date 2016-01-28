@@ -5,11 +5,13 @@ import "./drawer.css";
 const Drawer = ({ currentUser, goTo, logout }) => {
   const { avatar, coach, email, id, name } = currentUser;
   const isLoggedIn = (id) ? true : false;
+  const now = new Date();
+  const currentYear = now.getFullYear();
   const styles = {
     avatar: {
       height: "48px",
       marginBottom: "16px",
-      width: "48px",
+      width: "48px"
     }
   };
 
