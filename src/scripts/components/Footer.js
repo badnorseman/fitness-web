@@ -10,12 +10,9 @@ const Footer = ({ goTo }) => {
     <footer>
       <div className="mdl-mini-footer footer__top">
         <ul className="mdl-mini-footer__link-list">
-          <li><Link styles="mdl-navigation__link"
-            onClick={() => goTo("ABOUT")}>ABOUT</Link></li>
-          <li><Link styles="mdl-navigation__link"
-            onClick={() => goTo("HELP")}>HELP</Link></li>
-          <li><Link styles="mdl-navigation__link"
-            onClick={() => goTo("TERMS")}>TERMS</Link></li>
+          <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
+          <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
+          <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
         </ul>
       </div>
       <div className="mdl-mini-footer footer__middle">
@@ -27,7 +24,7 @@ const Footer = ({ goTo }) => {
         </ul>
       </div>
       <div className="mdl-mini-footer footer__bottom">
-        Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
+        Copyright&nbsp;{currentYear}&nbsp;FitBird
       </div>
     </footer>
   );
