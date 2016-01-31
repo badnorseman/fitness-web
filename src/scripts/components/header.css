@@ -19,6 +19,16 @@
   flex-direction: row;
 }
 
+.header__avatar {
+  height: 32px;
+  width: 32px;
+}
+
+.header__logo {
+  height: 32px;
+  width: 32px;
+}
+
 .header__menu-button {
   color: rgba(53,62,72,0.54);
 }

@@ -6,16 +6,6 @@ const Header = ({ currentUser, goTo, logout }) => {
   const logo = "https://s3.amazonaws.com/images.fitbird.us/development/system/57.png";
   const { avatar, coach, email, id, name } = currentUser;
   const isLoggedIn = (id) ? true : false;
-  const styles = {
-    avatar: {
-      height: "32px",
-      width: "32px"
-    },
-    logo: {
-      height: "32px",
-      width: "32px"
-    }
-  };
 
   return (
     <header className="mdl-layout__header mdl-layout__header--seamed">
@@ -23,7 +13,7 @@ const Header = ({ currentUser, goTo, logout }) => {
         <span className="mdl-layout-title">
           <Link styles="mdl-navigation__link"
             onClick={() => goTo("MARKETPLACE")}>
-            <img src={logo} alt="" style={styles.logo} />
+            <img className="header__logo" src={logo} alt="" />
             &nbsp;FitBird
           </Link>
         </span>
@@ -36,7 +26,7 @@ const Header = ({ currentUser, goTo, logout }) => {
           {!isLoggedIn && <Link styles="mdl-navigation__link"
             onClick={() => goTo("SIGNUP")}>Sign up</Link>}
           {isLoggedIn && <div>
-            <img src={avatar} alt="" style={styles.avatar} />
+            <img className="header__avatar" src={avatar} alt="" />
             <button id="menu"
               className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon header__menu-button">
               <i className="zmdi zmdi-caret-down"></i>
