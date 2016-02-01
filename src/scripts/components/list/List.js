@@ -1,5 +1,6 @@
 "use strict";
 import ListItem from "./ListItem";
+import "./list.css";
 
 const List = ({ users }) => {
   let items = [];
@@ -12,9 +13,11 @@ const List = ({ users }) => {
   }
 
   return (
-    <ul className="mdl-list">
-      {items}
-    </ul>
+    <div>
+      <ul className="mdl-list">
+        {items}
+      </ul>
+    </div>
   );
 };
 
