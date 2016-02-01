@@ -14,7 +14,7 @@ const Header = ({ currentUser, goTo, logout }) => {
           <Link styles="mdl-navigation__link"
             onClick={() => goTo("MARKETPLACE")}>
             <img className="header__logo" src={logo} alt="" />
-            &nbsp;FitBird
+            &nbsp;FITBIRD
           </Link>
         </span>
         <div className="mdl-layout-spacer"></div>

@@ -8,15 +8,25 @@
 
 .mdl-layout__header .mdl-layout__drawer-button {
   /*color: rgba(38,50,56,0.87);*/
-  /*color: rgba(0,0,0,0.54);*/
-  color: rgba(53,62,72,0.54);
+  /*color: rgba(53,62,72,0.54);*/
+  color: rgba(0,0,0,0.54);
+}
+
+.mdl-layout__header .mdl-layout-title .mdl-navigation__link {
+  color: rgb(75,87,167);
+  font-size: 20px;
+  font-weight: 500;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
 }
 
 .mdl-layout__header .mdl-navigation__link {
-  align-items: center;
-  color: rgba(53,62,72,0.54);
+  /*color: rgba(53,62,72,0.54);*/
+  color: rgba(0,0,0,0.87);
   display: flex !important;
   flex-direction: row;
+  align-items: center;
 }
 
 .header__avatar {
@@ -30,9 +40,11 @@
 }
 
 .header__menu-button {
-  color: rgba(53,62,72,0.54);
+  /*color: rgba(53,62,72,0.54);*/
+  color: rgba(0,0,0,0.87);
 }
 
 .mdl-menu__item {
-  color: rgba(53,62,72,0.56);
+  /*color: rgba(53,62,72,0.54);*/
+  color: rgba(0,0,0,0.87);
 }

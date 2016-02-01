@@ -3,26 +3,21 @@ import Link from "./Link";
 import "./drawer.css";
 
 const Drawer = ({ currentUser, goTo, logout }) => {
+  const logo = "https://s3.amazonaws.com/images.fitbird.us/development/system/57.png";
   const { avatar, coach, email, id, name } = currentUser;
   const isLoggedIn = (id) ? true : false;
   const now = new Date();
   const currentYear = now.getFullYear();
-  const styles = {
-    avatar: {
-      height: "48px",
-      marginBottom: "16px",
-      width: "48px"
-    }
-  };
 
   return (
     <div className="mdl-layout__drawer">
       <div className="drawer__header">
         {!isLoggedIn && <div>
-          FitBird
+          <img className="drawer__logo" src={logo} alt="" />
+          &nbsp;FITBIRD
         </div>}
         {isLoggedIn && <div>
-          <img src={avatar} alt="" style={styles.avatar} />
+          <img className="drawer__avatar" src={avatar} alt="" />
           <div>{name}</div>
         </div>}
       </div>
@@ -39,7 +34,7 @@ const Drawer = ({ currentUser, goTo, logout }) => {
           onClick={logout}>Log out</Link>}
       </nav>
       <div className="mdl-layout-spacer"></div>
-      <div>
+      <div className="drawer__bottom">
         Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
       </div>
     </div>
