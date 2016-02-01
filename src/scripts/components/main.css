@@ -1,0 +1,18 @@
+.mdl-layout__content {
+  background-color: rgb(255,255,255);
+  border: none;
+	display: flex;
+  display: -webkit-flex;
+	flex-direction: column;
+  -webkit-flex-direction: column;
+}
+
+.content--width {
+  width: 100%;
+}
+
+@media all and (min-width: 500px) {
+  .content--width {
+    width: 60%;
+  }
+}
