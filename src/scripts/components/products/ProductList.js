@@ -1,10 +1,7 @@
 "use strict";
 import ProductListItem from "./ProductListItem";
 
-const ProductList = ({
-  products,
-  goTo
-}) => {
+const ProductList = ({ products, goTo }) => {
   let items = [];
   for (let key in products) {
     if (products.hasOwnProperty(key)) {
@@ -30,9 +27,9 @@ const ProductList = ({
   };
 
   return (
-    <div className="block--center-horizontally__margin"
+    <div className="center"
       style={styles.list}>
-      <div className="block--center-horizontally__flex">
+      <div className="flex--center">
         <div style={styles.headerElement}>NAME</div>
         <div style={styles.headerElement}>CURRENCY</div>
         <div style={styles.headerElement}>PRICE</div>

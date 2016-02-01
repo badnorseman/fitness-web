@@ -2,28 +2,19 @@
 import { connect } from "react-redux";
 import Link from "../Link";
 
-const ShowCoach = ({
-  coach,
-  products,
-  goTo
-}) => {
-  const { avatar, email, name } = coach;
-
+const ShowCoach = ({ coach, products, goTo }) => {
   let productsByCoach = {};
   coach.products.forEach(el => {
     if (products[el.id]) { productsByCoach[el.id] = products[el.id]; }
   })
 
+  const { avatar, email, name } = coach;
   const styles = {
     avatar: {
       borderRadius: "46px",
       marginTop: "46px",
       height: "92px",
       width: "92px"
-    },
-    card: {
-      height: "auto",
-      width: "800px"
     },
     image: {
       backgroundImage: "url(" + avatar + ")",
@@ -34,13 +25,15 @@ const ShowCoach = ({
       WebkitTransition: "all",
       msTransition: "all"
     },
+    main: {
+      width: "60%"
+    }
   };
 
   return (
     <div>
-      <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
-          style={styles.card}>
+      <div className="mdl-grid" style={styles.main}>
+        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
           <div className="mdl-card__menu">
             <Link
               styles="mdl-button mdl-js-button mdl-button--icon"
@@ -77,8 +70,14 @@ const ProductList = ({
     }
   }
 
+  const styles = {
+    main: {
+      width: "60%"
+    }
+  };
+
   return (
-    <div className="mdl-grid">
+    <div className="mdl-grid" style={styles.main}>
       {items}
     </div>
   );
@@ -89,16 +88,8 @@ const ProductListItem = ({
 }) => {
   const { currency, description, name, price } = product;
 
-  const styles = {
-    card: {
-      height: "160px",
-      width: "800px"
-    }
-  };
-
   return (
-    <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
-      style={styles.card}>
+    <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
       <div className="mdl-card__supporting-text">
         <h3>{name}</h3>
         <p>{description}</p>

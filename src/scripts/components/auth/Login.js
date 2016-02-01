@@ -12,20 +12,20 @@ import "./login.css";
 class Login extends Component {
   constructor(props) {
     super(props);
-    this._handleClose = this._handleClose.bind(this);
-    this._handleForgotPassword = this._handleForgotPassword.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleForgotPassword = this.handleForgotPassword.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  _handleClose() {
+  handleClose() {
     this.props.dispatch(goTo("MARKETPLACE"));
   }
 
-  _handleForgotPassword() {
+  handleForgotPassword() {
     this.props.dispatch(goTo("NEWPASSWORD"));
   }
 
-  _handleSubmit(ev) {
+  handleSubmit(ev) {
     ev.preventDefault();
 
     let email = this.refs.email.state.fieldValue;
@@ -47,7 +47,7 @@ class Login extends Component {
             <div className="mdl-card__menu">
               <Link
                 styles="mdl-button mdl-js-button mdl-button--icon"
-                onClick={this._handleClose}
+                onClick={this.handleClose}
               >
                 <i className="zmdi zmdi-close"></i>
               </Link>
@@ -73,12 +73,12 @@ class Login extends Component {
                 </div>
                 <a href="#!"
                   className="login-card__forgot-password"
-                  onClick={this._handleForgotPassword}>
+                  onClick={this.handleForgotPassword}>
                     Forgot password?
                 </a>
                 <button
                   className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-card__login-button"
-                  onClick={this._handleSubmit}
+                  onClick={this.handleSubmit}
                 >
                   LOG IN
                 </button>

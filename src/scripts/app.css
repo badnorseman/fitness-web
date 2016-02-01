@@ -3,23 +3,20 @@
 }
 
 html, body {
+  font-family: 'Roboto', serif;
   height: 100%;
 }
 
-footer, .push {
-  height: 100px;
-}
-
-.block--center-horizontally__margin {
+.center {
   margin: 0 auto;
 }
 
-.block--center-horizontally__flex {
+.flex--center {
   display: flex;
   justify-content: center;
 }
 
-.block--divider {
+.divider {
   display: inline-block;
   height: auto;
   width: 20px;
@@ -32,8 +29,4 @@ footer, .push {
   position: fixed;
   right: 24px;
   z-index: 998;
-}
-
-.text--center {
-  text-align: center;
 }

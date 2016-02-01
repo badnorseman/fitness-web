@@ -6,11 +6,19 @@ import { makeAction } from "../utils/make_action";
 const ENTITY = "identity";
 
 const deleteAuthToken = () => {
-  localStorage.removeItem("auth_token");
+  localStorage.removeItem("f_token");
 };
 
 const setAuthToken = (token) => {
-  localStorage.setItem("auth_token", token);
+  localStorage.setItem("f_token", token);
+};
+
+const logoutFacebook = () => {
+  FB.getLoginStatus(response => {
+    if (response.status === "connected") {
+      FB.logout();
+    }
+  });
 };
 
 const loginRequest = makeAction(actionTypes.LOGIN_REQUEST, "data");
@@ -39,6 +47,7 @@ const logoutError = makeAction(actionTypes.LOGOUT_ERROR, "errors");
 const logout = () => {
   return dispatch => {
     deleteAuthToken();
+    logoutFacebook();
     dispatch(logoutRequest());
     return api.logout()
       .then(() => dispatch(logoutSuccess()))

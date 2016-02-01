@@ -1,10 +1,7 @@
 "use strict";
 import CoachGridTile from "./CoachGridTile";
 
-const CoachGridList = ({
-  coaches,
-  goTo
-}) => {
+const CoachGridList = ({ coaches, goTo }) => {
   let tiles = [];
   for (let key in coaches) {
     if (coaches.hasOwnProperty(key)) {
@@ -15,7 +12,7 @@ const CoachGridList = ({
   }
 
   return (
-    <div className="mdl-grid">
+    <div className="mdl-grid content--width">
       {tiles}
     </div>
   );

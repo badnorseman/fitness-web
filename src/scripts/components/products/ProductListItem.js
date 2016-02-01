@@ -1,11 +1,7 @@
 "use strict";
 
-const ProductListItem = ({
-  product,
-  goTo
-}) => {
+const ProductListItem = ({ product, goTo }) => {
   const { currency, name, price } = product;
-
   const styles = {
     itemElement: {
       margin: "10px 10px 10px 0",
@@ -18,7 +14,7 @@ const ProductListItem = ({
     <div>
       <hr />
       <a href="#!"
-        className="block--center-horizontally__flex"
+        className="flex--center"
         onClick={ev => {
           ev.preventDefault();
           goTo("EDITPRODUCT", product);

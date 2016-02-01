@@ -1,10 +1,6 @@
 "use strict";
 
-const Button = ({
-  children,
-  styles,
-  onClick
-}) => (
+const Button = ({ children, styles, onClick }) => (
   <button
     className={styles}
     onClick={onClick}

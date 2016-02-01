@@ -1,10 +1,7 @@
 "use strict";
 
-const TransactionListItem = ({
-  transaction
-}) => {
+const TransactionListItem = ({ transaction }) => {
   const { amount, currency, transaction_date, transaction_id } = transaction;
-
   const styles = {
     itemElement: {
       margin: "10px 10px 10px 0",
@@ -16,7 +13,7 @@ const TransactionListItem = ({
   return (
     <div>
       <hr />
-      <div className="block--center-horizontally__flex">
+      <div className="flex--center">
         <div style={styles.itemElement}>{transaction_date}</div>
         <div style={styles.itemElement}>{currency}</div>
         <div style={styles.itemElement}>{amount}</div>

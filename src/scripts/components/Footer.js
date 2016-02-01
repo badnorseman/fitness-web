@@ -1,12 +1,21 @@
 "use strict";
 import Link from "./Link";
+import "./footer.css";
 
-const Footer = ({
-  goTo
-}) => (
-  <div>
-    <div className="mdl-mini-footer">
-      <div className="mdl-mini-footer__left-section">
+const Footer = ({ goTo }) => {
+  const now = new Date();
+  const currentYear = now.getFullYear();
+
+  return (
+    <footer>
+      <div className="mdl-mini-footer footer__top">
+        <ul className="mdl-mini-footer__link-list">
+          <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
+          <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
+          <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
+        </ul>
+      </div>
+      <div className="mdl-mini-footer footer__middle">
         <ul className="mdl-mini-footer__link-list">
           <li><Facebook /></li>
           <li><Twitter /></li>
@@ -14,33 +23,10 @@ const Footer = ({
           <li><Email /></li>
         </ul>
       </div>
-      <div className="mdl-mini-footer__right-section">
-        <ul className="mdl-mini-footer__link-list">
-          <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
-          <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
-          <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
-        </ul>
+      <div className="mdl-mini-footer footer__bottom">
+        Copyright&nbsp;{currentYear}&nbsp;FitBird
       </div>
-    </div>
-    <Company />
-  </div>
-);
-
-const Company = () => {
-  const now = new Date();
-  const currentYear = now.getFullYear();
-
-  return (
-    <div className="mdl-mini-footer">
-      <span className="mdl-layout--small-screen-only block--center-horizontally__margin">
-        Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS
-      </span>
-      <span className="mdl-layout--large-screen-only">
-        Copyright&nbsp;{currentYear}&nbsp;FitBird&nbsp;ApS.
-        Esromgade&nbsp;15,&nbsp;Suite&nbsp;1102,&nbsp;Copenhagen&nbsp;2200,&nbsp;Denmark.
-        CVR&nbsp;35418067
-      </span>
-    </div>
+    </footer>
   );
 };
 
@@ -54,19 +40,14 @@ const Facebook = () => {
   const onClick = () => {
     FB.ui({
       method: "share",
-      href: "https://developers.facebook.com/docs/",
+      href: "https://developers.facebook.com/docs/"
     }, function(response){});
   };
 
   return (
-    <a href="#!"
-      onClick={ev => {
-        ev.preventDefault();
-        onClick();
-      }}
-    >
+    <Link onClick={() => onClick()}>
       <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
-    </a>
+    </Link>
   );
 };
 

@@ -2,7 +2,6 @@
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import Braintree from "braintree-web";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { goTo } from "../../actions/router_actions";
 import { createTransaction, getClientToken } from "../../actions/transaction_actions";
@@ -15,13 +14,13 @@ class NewTransaction extends Component {
 
   constructor(props) {
     super(props);
-    this._handleClose = this._handleClose.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
-    this._onPaymentMethodReceived = this._onPaymentMethodReceived.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onPaymentMethodReceived = this.onPaymentMethodReceived.bind(this);
   }
 
   componentDidMount() {
-    this.props.getClientToken();
+    this.props.dispatch(getClientToken());
   }
 
   componentDidUpdate() {
@@ -29,32 +28,32 @@ class NewTransaction extends Component {
       this.props.clientToken,
       "dropin", {
         container: "dropin-container",
-        onPaymentMethodReceived: this._onPaymentMethodReceived
+        onPaymentMethodReceived: this.onPaymentMethodReceived
       }
     );
   }
 
-  _handleClose() {
-    this.props.goTo("MARKETPLACE");
+  handleClose() {
+    this.props.dispatch(goTo("MARKETPLACE"));
   }
 
-  _handleSubmit(ev) {
+  handleSubmit(ev) {
     ev.preventDefault();
   }
 
-  _onPaymentMethodReceived(paymentMethod) {
+  onPaymentMethodReceived(paymentMethod) {
     let amount = this.props.product.price;
     let currency = this.props.product.currency;
     let id = this.props.product.id;
     let paymentMethodNonce = paymentMethod.nonce;
 
     if (amount && currency && id && paymentMethodNonce) {
-      this.props.createTransaction({
+      this.props.dispatch(createTransaction({
         amount: amount,
         currency: currency,
         product_id: id,
         payment_method_nonce: paymentMethodNonce
-      });
+      }));
     }
   }
 
@@ -76,22 +75,22 @@ class NewTransaction extends Component {
 
     return (
       <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
+        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center"
           style={styles.card}>
           <div className="mdl-card__menu">
             <Link
               styles="mdl-button mdl-js-button mdl-button--icon"
-              onClick={this._handleClose}
+              onClick={this.handleClose}
             >
               <i className="zmdi zmdi-close"></i>
             </Link>
           </div>
           <div className="mdl-card__supporting-text">
-            <form onSubmit={this._handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <div id="dropin-container"
                 style={styles.dropin}>
               </div>
-              <div className="text--center">
+              <div className="mdl-typography--text-center">
                 <button
                   className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
                   type="submit"
@@ -107,14 +106,6 @@ class NewTransaction extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    goTo,
-    createTransaction,
-    getClientToken
-  }, dispatch);
-};
-
 const mapStateToProps = (state) => {
   return {
     clientToken: state.transaction.clientToken
@@ -122,6 +113,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(NewTransaction)

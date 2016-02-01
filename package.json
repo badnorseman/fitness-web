@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "FitBird web application",
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js",
-    "pretest": "webpack --config webpack_spec.config.js",
+    "lint": "eslint . --ext .js",
+    "build": "webpack --config webpack.config.development.js",
+    "pretest": "webpack --config webpack.config.spec.js",
     "start": "node server.js",
     "test": "./node_modules/jasmine/bin/jasmine.js"
   },
@@ -13,22 +14,25 @@
     "url": "https://github.com/fitbird/web-app.git"
   },
   "dependencies": {
-    "braintree-web": "^2.17.4",
-    "jquery": "^2.1.4",
-    "normalizr": "^1.4.0",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
+    "braintree-web": "^2.19.0",
+    "jquery": "^2.2.0",
+    "normalizr": "^2.0.0",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
     "react-modal": "^0.6.1",
-    "react-redux": "^4.0.0",
-    "redux": "^3.0.4",
-    "redux-thunk": "^1.0.0"
+    "react-redux": "^4.0.6",
+    "redux": "^3.0.6",
+    "redux-thunk": "^1.0.3"
   },
   "devDependencies": {
-    "babel-core": "^5.8.22",
+    "babel-core": "^5.8.35",
+    "babel-eslint": "^5.0.0-beta6",
     "babel-loader": "^5.3.2",
     "babel-plugin-react-transform": "^1.1.1",
-    "css-loader": "^0.23.0",
-    "express": "^4.13.3",
+    "css-loader": "^0.23.1",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.16.1",
+    "express": "^4.13.4",
     "file-loader": "^0.8.5",
     "jasmine": "^2.4.1",
     "jasmine-ajax": "^3.2.0",
@@ -37,8 +41,8 @@
     "react-transform-hmr": "^1.0.1",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.9",
-    "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.6.0"
+    "webpack": "^1.12.12",
+    "webpack-dev-middleware": "^1.5.1",
+    "webpack-hot-middleware": "^2.6.4"
   }
 }

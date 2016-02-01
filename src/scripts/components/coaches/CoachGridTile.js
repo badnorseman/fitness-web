@@ -1,11 +1,7 @@
 "use strict";
 
-const CoachGridTile = ({
-  coach,
-  goTo
-}) => {
+const CoachGridTile = ({ coach, goTo }) => {
   const { avatar, name } = coach;
-
   const styles = {
     avatar: {
       maxHeight: "160px"
@@ -13,7 +9,7 @@ const CoachGridTile = ({
   };
 
   return (
-    <div className="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+    <div className="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
       <div className="mdl-card__media">
         <a href="#!"
           onClick={ev => {
@@ -24,11 +20,9 @@ const CoachGridTile = ({
           <img src={avatar} alt="" style={styles.avatar} />
         </a>
       </div>
-      <div className="mdl-card__title">
-        <h5 className="mdl-card__title-text">{name}</h5>
-      </div>
       <div className="mdl-card__supporting-text">
-        <h6 className="mdl-typography--subhead"></h6>
+        <p className="mdl-typography--title">{name}</p>
+        <p className="mdl-typography--subhead">{name}</p>
       </div>
     </div>
   );

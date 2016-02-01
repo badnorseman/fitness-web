@@ -6,10 +6,10 @@ class InputFile extends Component {
   constructor() {
     super();
     this.state = { file: "" };
-    this._handleChange = this._handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  _handleChange(e) {
+  handleChange(e) {
     e.preventDefault();
 
     let file = document.getElementById("file--selected").files[0];
@@ -26,7 +26,7 @@ class InputFile extends Component {
           id="file--selected"
           ref="selectedFile"
           type="file"
-          onChange={this._handleChange} />
+          onChange={this.handleChange} />
         <label
           htmlFor="file--selected">
         </label>

@@ -1,17 +1,9 @@
 "use strict";
 import Link from "../Link";
 
-const ShowProduct = ({
-  product,
-  goTo
-}) => {
+const ShowProduct = ({ product, goTo }) => {
   const { currency, description, image, name, price } = product;
-
   const styles ={
-    card: {
-      height: "auto",
-      width: "800px"
-    },
     image: {
       backgroundImage: "url(" + image + ")",
       backgroundRepeat: "no-repeat",
@@ -20,13 +12,15 @@ const ShowProduct = ({
       width: "auto",
       WebkitTransition: "all",
       msTransition: "all"
+    },
+    main: {
+      width: "60%"
     }
   };
 
   return (
-    <div className="mdl-grid">
-      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp block--center-horizontally__margin"
-        style={styles.card}>
+    <div className="mdl-grid" style={styles.main}>
+      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
         <div className="mdl-card__menu">
           <Link
             styles="mdl-button mdl-js-button mdl-button--icon"

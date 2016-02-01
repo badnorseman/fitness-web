@@ -1,10 +1,7 @@
 "use strict";
 
-const UserListItem = ({
-  user
-}) => {
+const UserListItem = ({ user }) => {
   const { name, product } = user;
-
   const styles = {
     itemElement: {
       margin: "10px 10px 10px 0",
@@ -16,7 +13,7 @@ const UserListItem = ({
   return (
     <div>
       <hr />
-      <div className="block--center-horizontally__flex">
+      <div className="flex--center">
         <div style={styles.itemElement}>{name}</div>
         <div style={styles.itemElement}>Status</div>
         <div style={styles.itemElement}>{product}</div>

@@ -2,9 +2,10 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { goTo } from "../actions/router_actions";
 import { getCoaches } from "../actions/coach_actions";
 import { getProducts } from "../actions/product_actions";
+import { goTo } from "../actions/router_actions";
+import { logout } from "../actions/auth_actions";
 import About from "./About";
 import Account from "./Account";
 import Cart from "./Cart";
@@ -12,10 +13,10 @@ import Dashboard from "./Dashboard";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
 import Footer from "./Footer";
+import Header from "./Header";
 import Help from "./Help";
 import Login from "./auth/Login";
 import Marketplace from "./Marketplace";
-import Navigation from "./Navigation";
 import NewPassword from "./auth/NewPassword";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
@@ -23,9 +24,9 @@ import ShowCoach from "./coaches/ShowCoach";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "./auth/Signup";
 import Terms from "./Terms";
-import "./layout.css";
+import "./main.css";
 
-class Layout extends Component {
+class Main extends Component {
   constructor(props) {
     super(props);
   }
@@ -40,7 +41,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { param, route, goTo } = this.props;
+    const { currentUser, param, route, goTo, logout } = this.props;
 
     let content;
     switch (route) {
@@ -92,27 +93,16 @@ class Layout extends Component {
     return (
       <div>
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          <header className="mdl-layout__header layout__header">
-            <div className="mdl-layout__header-row">
-              <span className="mdl-layout-title">
-                <a href="#!" className="mdl-navigation__link"
-                  onClick={() => goTo("MARKETPLACE")}
-                >
-                  FitBird
-                </a>
-              </span>
-              <div className="mdl-layout-spacer"></div>
-              <Navigation goTo={goTo} />
-            </div>
-          </header>
+          <Header
+            currentUser={currentUser}
+            goTo={goTo}
+            logout={logout}
+          />
           <main className="mdl-layout__content">
             <ErrorMessage />
-            <div className="page-content">
-              {content}
-            </div>
+            <div>{content}</div>
             <div className="mdl-layout-spacer"></div>
-            <Footer className="layout__footer"
-              goTo={goTo} />
+            <Footer goTo={goTo} />
           </main>
         </div>
       </div>
@@ -122,20 +112,16 @@ class Layout extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCoaches: () => {
-      dispatch(getCoaches());
-    },
-    getProducts: () => {
-      dispatch(getProducts());
-    },
-    goTo: (route, param) => {
-      dispatch(goTo(route, param));
-    }
+    getCoaches: () => { dispatch(getCoaches()); },
+    getProducts: () => { dispatch(getProducts()); },
+    goTo: (route, param) => { dispatch(goTo(route, param)); },
+    logout: () => { dispatch(logout()); }
   };
 };
 
 const mapStateToProps = (state) => {
   return {
+    currentUser: state.auth.currentUser,
     param: state.router.param,
     route: state.router.route
   };
@@ -144,4 +130,4 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Layout)
+)(Main)

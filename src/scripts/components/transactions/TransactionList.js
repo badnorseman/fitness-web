@@ -1,9 +1,7 @@
 "use strict";
 import TransactionListItem from "./TransactionListItem";
 
-const TransactionList = ({
-  transactions
-}) => {
+const TransactionList = ({ transactions }) => {
   let items = [];
   for (let key in transactions) {
     if (transactions.hasOwnProperty(key)) {
@@ -25,9 +23,9 @@ const TransactionList = ({
   };
 
   return (
-    <div className="block--center-horizontally__margin"
+    <div className="center"
       style={styles.list}>
-      <div className="block--center-horizontally__flex">
+      <div className="flex--center">
         <div style={styles.headerElement}>DATE</div>
         <div style={styles.headerElement}>CURRENCY</div>
         <div style={styles.headerElement}>AMOUNT</div>

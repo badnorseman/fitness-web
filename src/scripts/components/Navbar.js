@@ -1,13 +1,7 @@
 "use strict";
-import { connect } from "react-redux";
-import { logout } from "../actions/auth_actions";
 import Link from "./Link";
 
-const Navigation = ({
-  currentUser,
-  goTo,
-  logout
-}) => {
+const Navbar = ({ currentUser, goTo, logout }) => {
   const { avatar, coach, email, id, name } = currentUser;
   const isLoggedIn = (id) ? true : false;
 
@@ -55,30 +49,4 @@ const Navigation = ({
   );
 };
 
-const logoutFacebook = () => {
-  FB.getLoginStatus(response => {
-    if (response.status === "connected") {
-      FB.logout();
-    };
-  });
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    logout: () => {
-      logoutFacebook();
-      dispatch(logout());
-    }
-  };
-};
-
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.auth.currentUser
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Navigation)
+export default Navbar

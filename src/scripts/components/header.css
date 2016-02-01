@@ -1,0 +1,50 @@
+.mdl-layout__header {
+  /*border-bottom-color: rgba(204,204,204,0.54);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  box-shadow: none;*/
+  background-color: rgb(255,255,255);
+}
+
+.mdl-layout__header .mdl-layout__drawer-button {
+  /*color: rgba(38,50,56,0.87);*/
+  /*color: rgba(53,62,72,0.54);*/
+  color: rgba(0,0,0,0.54);
+}
+
+.mdl-layout__header .mdl-layout-title .mdl-navigation__link {
+  color: rgb(75,87,167);
+  font-size: 20px;
+  font-weight: 500;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mdl-layout__header .mdl-navigation__link {
+  /*color: rgba(53,62,72,0.54);*/
+  color: rgba(0,0,0,0.87);
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header__avatar {
+  height: 32px;
+  width: 32px;
+}
+
+.header__logo {
+  height: 32px;
+  width: 32px;
+}
+
+.header__menu-button {
+  /*color: rgba(53,62,72,0.54);*/
+  color: rgba(0,0,0,0.87);
+}
+
+.mdl-menu__item {
+  /*color: rgba(53,62,72,0.54);*/
+  color: rgba(0,0,0,0.87);
+}
