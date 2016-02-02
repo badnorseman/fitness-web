@@ -8,7 +8,6 @@ import { goTo } from "../actions/router_actions";
 import { logout } from "../actions/auth_actions";
 import About from "./About";
 import Account from "./Account";
-import Cart from "./Cart";
 import Dashboard from "./Dashboard";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
@@ -50,9 +49,6 @@ class Main extends Component {
         break;
       case "ACCOUNT":
         content = <Account />;
-        break;
-      case "CART":
-        content = <Cart goTo={goTo} />;
         break;
       case "DASHBOARD":
         content = <Dashboard goTo={goTo} />;

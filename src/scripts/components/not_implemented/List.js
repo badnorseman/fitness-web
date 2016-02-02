@@ -1,5 +1,6 @@
 "use strict";
 import ListItem from "./ListItem";
+import LoginNew from "./LoginNew";
 import "./list.css";
 
 const List = ({ users }) => {
@@ -14,6 +15,7 @@ const List = ({ users }) => {
 
   return (
     <div>
+      <LoginNew />
       <ul className="mdl-list">
         {items}
       </ul>

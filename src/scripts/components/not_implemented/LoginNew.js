@@ -2,22 +2,16 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { goTo } from "../../actions/router_actions";
 import { login } from "../../actions/auth_actions";
-import Facebook from "./Facebook";
+import Facebook from "../auth/Facebook";
 import InputField from "../InputField";
-import Link from "../Link";
-import "./login.css";
+import LinkNew from "./LinkNew";
+import "./loginNew.css";
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.handleForgotPassword = this.handleForgotPassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleForgotPassword() {
-    this.props.dispatch(goTo("NEWPASSWORD"));
   }
 
   handleSubmit(ev) {
@@ -37,9 +31,9 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <button id="login--open" type="button" className="mdl-navigation__link">
+        <a id="login--open" type="button" className="mdl-navigation__link">
           Log in
-        </button>
+        </a>
         <dialog id="login" className="mdl-dialog">
           <div><Facebook /></div>
           <form>
@@ -59,21 +53,22 @@ class Login extends Component {
                 styles="login__input-field"
                 ref="password" />
             </div>
-            <a href="#!"
-              className="login__forgot-password"
-              onClick={this.handleForgotPassword}>
-                Forgot password?
-            </a>
+            <LinkNew
+              route="NEWPASSWORD"
+              styles="login__forgot-password"
+            >
+              Forgot password?
+            </LinkNew>
             <button type="button"
-              className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login__button"
+              className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login__submit-btn"
               onClick={this.handleSubmit}
             >
-              LOG IN
+              Log in
             </button>
           </form>
           <button id="login--close" type="button"
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login__button">
-            Close
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login__cancel-btn">
+            Cancel
           </button>
         </dialog>
       </div>

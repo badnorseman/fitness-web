@@ -2,10 +2,14 @@
 import { connect } from "react-redux";
 import CoachGridList from "./coaches/CoachGridList";
 import ProductGridList from "./products/ProductGridList";
-import List from "./list/List";
+import List from "./not_implemented/List";
 
 const Marketplace = ({ coaches, products, goTo }) => (
   <div>
+    <List
+      users={coaches}
+    />
+    <hr />
     <ProductGridList
       products={products}
       goTo={goTo}
@@ -13,9 +17,6 @@ const Marketplace = ({ coaches, products, goTo }) => (
     <CoachGridList
       coaches={coaches}
       goTo={goTo}
-    />
-    <List
-      users={coaches}
     />
   </div>
 );
