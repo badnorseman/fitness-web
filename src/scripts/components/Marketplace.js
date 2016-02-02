@@ -9,7 +9,6 @@ const Marketplace = ({ coaches, products, goTo }) => (
     <List
       users={coaches}
     />
-    <hr />
     <ProductGridList
       products={products}
       goTo={goTo}

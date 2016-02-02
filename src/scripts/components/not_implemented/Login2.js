@@ -6,7 +6,7 @@ import { login } from "../../actions/auth_actions";
 import Facebook from "../auth/Facebook";
 import InputField from "../InputField";
 import LinkNew from "./LinkNew";
-import "./loginNew.css";
+import "./login2.css";
 
 class Login extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class Login extends Component {
     return (
       <div>
         <a id="login--open" type="button" className="mdl-navigation__link">
-          Log in
+          Log in (dialog)
         </a>
         <dialog id="login" className="mdl-dialog">
           <div><Facebook /></div>

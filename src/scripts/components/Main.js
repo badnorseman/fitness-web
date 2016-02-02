@@ -15,6 +15,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Help from "./Help";
 import Login from "./auth/Login";
+import Login3 from "./not_implemented/Login3";
 import Marketplace from "./Marketplace";
 import NewPassword from "./auth/NewPassword";
 import NewProduct from "./products/NewProduct";
@@ -61,6 +62,9 @@ class Main extends Component {
         break;
       case "LOGIN":
         content = <Login />;
+        break;
+      case "LOGIN3":
+        content = <Login3 />;
         break;
       case "NEWPASSWORD":
         content = <NewPassword />;
