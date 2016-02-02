@@ -1,0 +1,32 @@
+.mdl-dialog {
+  border: none;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+  width: 320px;
+}
+
+/*.login {
+  height: auto;
+  margin: 0 auto;
+  max-width: 320px;
+  width: 320px;
+}*/
+
+.login__button {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.login__forgot-password {
+  float: right;
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.login__forgot-password a:hover {
+  cursor: pointer;
+}
+
+.login__input-field {
+  width: 340px;
+}
