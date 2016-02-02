@@ -13,10 +13,21 @@
   width: 320px;
 }
 
-.login-card__login-button {
+.login-card__submit-btn {
   margin-bottom: 20px;
   margin-top: 20px;
   width: 100%;
+}
+
+.login-card__cancel-btn {
+  background-color: rgb(0,0,0);
+  color: rgba(255,255,255,1);
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.login-card__cancel-btn:hover{
+  background-color: rgb(0,0,0);
 }
 
 .login-card__forgot-password {

@@ -46,14 +46,6 @@ class Signup extends Component {
       <div className="mdl-grid signup-grid">
         <div className="mdl-cell mdl-cell--12-col signup-grid__cell">
           <div className="mdl-card mdl-shadow--2dp signup-card">
-            <div className="mdl-card__menu">
-              <Link
-                styles="mdl-button mdl-js-button mdl-button--icon"
-                onClick={this.handleClose}
-              >
-                <i className="zmdi zmdi-close"></i>
-              </Link>
-            </div>
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Facebook /></div>
               <form>
@@ -89,13 +81,19 @@ class Signup extends Component {
                     styles="signup-card__input-field"
                     ref="passwordConfirmation" />
                 </div>
-                <button
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup-card__signup-button"
+                <button type="button"
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup-card__submit-btn"
                   onClick={this.handleSubmit}
                 >
-                  SIGN UP
+                  Sign up
                 </button>
               </form>
+              <button type="button"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect signup-card__cancel-btn"
+                onClick={this.handleClose}
+              >
+                Cancel
+              </button>
             </div>
           </div>
         </div>
