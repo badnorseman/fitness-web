@@ -9,7 +9,6 @@ import { logout } from "../actions/auth_actions";
 import About from "./About";
 import Account from "./Account";
 import Dashboard from "./Dashboard";
-import Dashboard2 from "./not_implemented/Dashboard2";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
 import Footer from "./Footer";
@@ -20,10 +19,12 @@ import Marketplace from "./Marketplace";
 import NewPassword from "./auth/NewPassword";
 import NewProduct from "./products/NewProduct";
 import NewTransaction from "./transactions/NewTransaction";
+import ProductList from "./products/ProductList";
 import ShowCoach from "./coaches/ShowCoach";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "./auth/Signup";
 import Terms from "./Terms";
+import UserList from "./users/UserList";
 import "./main.css";
 
 class Main extends Component {
@@ -54,9 +55,6 @@ class Main extends Component {
       case "DASHBOARD":
         content = <Dashboard goTo={goTo} />;
         break;
-      case "DASHBOARD2":
-        content = <Dashboard2 goTo={goTo} />;
-        break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;
         break;
@@ -75,6 +73,9 @@ class Main extends Component {
       case "NEWTRANSACTION":
         content = <NewTransaction product={param} />;
         break;
+      case "PRODUCTLIST":
+        content = <ProductList goTo={goTo} />;
+        break;
       case "SHOWCOACH":
         content = <ShowCoach coach={param} goTo={goTo} />;
         break;
@@ -86,6 +87,9 @@ class Main extends Component {
         break;
       case "TERMS":
         content = <Terms />;
+        break;
+      case "USERLIST":
+        content = <UserList />;
         break;
       default:
         content = <Marketplace goTo={goTo} />;

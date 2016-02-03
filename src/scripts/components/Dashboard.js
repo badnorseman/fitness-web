@@ -1,9 +1,8 @@
 "use strict";
-import { connect } from "react-redux";
 import ProductList from "./products/ProductList";
 import UserList from "./users/UserList";
 
-const Dashboard = ({ products, users, goTo }) => (
+const Dashboard = ({ goTo }) => (
   <div className="mdl-grid content--width">
     <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
       <div className="mdl-card__title flex--center">
@@ -18,15 +17,10 @@ const Dashboard = ({ products, users, goTo }) => (
             <a href="#customers-panel" className="mdl-tabs__tab">Customers</a>
           </div>
           <div className="mdl-tabs__panel is-active" id="products-panel">
-            <ProductList
-              products={products}
-              goTo={goTo}
-            />
+            <ProductList goTo={goTo} />
           </div>
           <div className="mdl-tabs__panel" id="customers-panel">
-            <UserList
-              users={users}
-            />
+            <UserList />
           </div>
         </div>
       </div>
@@ -34,23 +28,4 @@ const Dashboard = ({ products, users, goTo }) => (
   </div>
 );
 
-const getProductsByCoach = (coach, products) => {
-  let productsByCoach = {};
-  coach.products.forEach(el => {
-    if (products[el.id]) {
-      productsByCoach[el.id] = products[el.id];
-    }
-  })
-  return productsByCoach;
-};
-
-const mapStateToProps = (state) => {
-  return {
-    products: getProductsByCoach(
-      state.coach.coaches[state.auth.currentUser.id],
-      state.product.products),
-    users: state.user.users
-  };
-};
-
-export default connect(mapStateToProps)(Dashboard)
+export default Dashboard

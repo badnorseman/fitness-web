@@ -6,18 +6,12 @@ import "./user-dialog.css";
 class UserDialog extends Component {
   render() {
     const { avatar, name, product } = this.props.user;
-    const styles = {
-      avatar: {
-        height: "48px",
-        width: "48px"
-      }
-    };
 
     return (
       <dialog id="user-dialog" className="mdl-dialog">
         <h5 className="mdl-dialog__title">{name}</h5>
         <div className="mdl-dialog__content">
-          <img src={avatar} alt="" style={styles.avatar} />
+          <img className="user-dialog_avatar" src={avatar} alt="" />
           <p>{name}</p>
         </div>
         <div className="mdl-dialog__actions">

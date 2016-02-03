@@ -50,3 +50,8 @@
   color: rgba(0,0,0, 0.54);
   padding: 20px 24px 24px 24px;
 }
+
+.user-dialog__avatar {
+  height: 48px;
+  width: 48px;
+}

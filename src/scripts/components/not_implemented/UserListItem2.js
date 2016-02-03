@@ -3,12 +3,6 @@ import UserDialog from "./UserDialog";
 
 const UserListItem = ({ user }) => {
   const { avatar, name, product } = user;
-  const styles = {
-    avatar: {
-      height: "32px",
-      width: "32px"
-    }
-  };
 
   return (
     <li className="mdl-list__item mdl-list__item--three-line">

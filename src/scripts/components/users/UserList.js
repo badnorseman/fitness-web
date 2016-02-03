@@ -1,4 +1,5 @@
 "use strict";
+import { connect } from "react-redux";
 import UserListItem from "./UserListItem";
 
 const UserList = ({ users }) => {
@@ -18,4 +19,10 @@ const UserList = ({ users }) => {
   );
 };
 
-export default UserList
+const mapStateToProps = (state) => {
+  return {
+    users: state.user.users
+  };
+};
+
+export default connect(mapStateToProps)(UserList)

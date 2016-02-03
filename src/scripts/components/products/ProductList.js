@@ -1,4 +1,5 @@
 "use strict";
+import { connect } from "react-redux";
 import ProductListItem from "./ProductListItem";
 
 const ProductList = ({ products, goTo }) => {
@@ -11,13 +12,6 @@ const ProductList = ({ products, goTo }) => {
     }
   }
 
-  const styles = {
-    button: {
-      float: "right",
-      margin: "50px 0 10px 0"
-    }
-  };
-
   return (
     <div>
       <ul className="mdl-list">
@@ -25,7 +19,6 @@ const ProductList = ({ products, goTo }) => {
       </ul>
       <button
         className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"
-        style={styles.button}
         onClick={() => goTo("NEWPRODUCT")}
       >
         <i className="zmdi zmdi-plus"></i>
@@ -34,4 +27,22 @@ const ProductList = ({ products, goTo }) => {
   );
 };
 
-export default ProductList
+const getProductsByCoach = (coach, products) => {
+  let productsByCoach = {};
+  coach.products.forEach(el => {
+    if (products[el.id]) {
+      productsByCoach[el.id] = products[el.id];
+    }
+  })
+  return productsByCoach;
+};
+
+const mapStateToProps = (state) => {
+  return {
+    products: getProductsByCoach(
+      state.coach.coaches[state.auth.currentUser.id],
+      state.product.products)
+  };
+};
+
+export default connect(mapStateToProps)(ProductList)
