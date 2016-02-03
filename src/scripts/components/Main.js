@@ -16,7 +16,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Help from "./Help";
 import Login from "./auth/Login";
-import Login3 from "./not_implemented/Login3";
+import Login2 from "./not_implemented/Login2";
 import Marketplace from "./Marketplace";
 import NewPassword from "./auth/NewPassword";
 import NewProduct from "./products/NewProduct";
@@ -44,7 +44,7 @@ class Main extends Component {
   render() {
     const { currentUser, param, route, goTo, logout } = this.props;
 
-    let content;
+    let content, dialog;
     switch (route) {
       case "ABOUT":
         content = <About />;
@@ -67,8 +67,8 @@ class Main extends Component {
       case "LOGIN":
         content = <Login />;
         break;
-      case "LOGIN3":
-        content = <Login3 />;
+      case "LOGIN2":
+        dialog = <Login2 />;
         break;
       case "NEWPASSWORD":
         content = <NewPassword />;
@@ -96,6 +96,7 @@ class Main extends Component {
     }
     return (
       <div>
+        {dialog && <div>{dialog}</div>}
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <Header
             currentUser={currentUser}
@@ -131,7 +132,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Main)
+export default connect(mapStateToProps, mapDispatchToProps)(Main)
