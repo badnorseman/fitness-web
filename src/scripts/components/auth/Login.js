@@ -2,27 +2,16 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { goTo } from "../../actions/router_actions";
 import { login } from "../../actions/auth_actions";
 import Facebook from "./Facebook";
 import InputField from "../InputField";
-import Link from "../Link";
+import Link from "../Link2";
 import "./login.css";
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.handleClose = this.handleClose.bind(this);
-    this.handleForgotPassword = this.handleForgotPassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleClose() {
-    this.props.dispatch(goTo("MARKETPLACE"));
-  }
-
-  handleForgotPassword() {
-    this.props.dispatch(goTo("NEWPASSWORD"));
   }
 
   handleSubmit(ev) {
@@ -63,8 +52,9 @@ class Login extends Component {
                   ref="password" />
               </div>
               <Link
+                route="NEWPASSWORD"
                 styles="login-card__forgot-password"
-                onClick={this.handleForgotPassword}>
+              >
                   Forgot password?
               </Link>
               <button type="button"
@@ -74,12 +64,12 @@ class Login extends Component {
                 Log in
               </button>
             </form>
-            <button type="button"
-              className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login-card__cancel-btn"
-              onClick={this.handleClose}
+            <Link
+              route="MARKETPLACE"
+              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login-card__cancel-btn"
             >
               Cancel
-            </button>
+            </Link>
           </div>
         </div>
       </div>

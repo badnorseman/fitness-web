@@ -65,7 +65,7 @@ class Main extends Component {
         dialog = <Login />;
         break;
       case "NEWPASSWORD":
-        content = <NewPassword />;
+        dialog = <NewPassword />;
         break;
       case "NEWPRODUCT":
         content = <NewProduct />;
@@ -83,7 +83,7 @@ class Main extends Component {
         content = <ShowProduct product={param} goTo={goTo} />;
         break;
       case "SIGNUP":
-        content = <Signup />;
+        dialog = <Signup />;
         break;
       case "TERMS":
         content = <Terms />;
