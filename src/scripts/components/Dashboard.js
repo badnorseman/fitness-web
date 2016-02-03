@@ -53,6 +53,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(
-  mapStateToProps
-)(Dashboard)
+export default connect(mapStateToProps)(Dashboard)

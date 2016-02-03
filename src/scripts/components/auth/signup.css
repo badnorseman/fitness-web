@@ -13,10 +13,21 @@
   width: 320px;
 }
 
-.signup-card__signup-button {
+.signup-card__submit-btn {
   margin-bottom: 20px;
   margin-top: 20px;
   width: 100%;
+}
+
+.signup-card__cancel-btn {
+  background-color: rgb(0,0,0);
+  color: rgba(255,255,255,1);
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.signup-card__cancel-btn:hover{
+  background-color: rgb(0,0,0);
 }
 
 .signup-card__input-field {

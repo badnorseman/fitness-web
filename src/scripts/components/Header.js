@@ -20,6 +20,8 @@ const Header = ({ currentUser, goTo, logout }) => {
         <div className="mdl-layout-spacer"></div>
         {coach && <Link styles="mdl-navigation__link"
           onClick={() => goTo("DASHBOARD")}>Dashboard</Link>}
+        {coach && <Link styles="mdl-navigation__link"
+          onClick={() => goTo("DASHBOARD2")}>Dashboard 2</Link>}
         <nav className="mdl-navigation">
           {!isLoggedIn && <Link styles="mdl-navigation__link"
             onClick={() => goTo("LOGIN")}>Log in</Link>}

@@ -44,14 +44,6 @@ class Login extends Component {
       <div className="mdl-grid login-grid">
         <div className="mdl-cell mdl-cell--12-col login-grid__cell">
           <div className="mdl-card mdl-shadow--2dp login-card">
-            <div className="mdl-card__menu">
-              <Link
-                styles="mdl-button mdl-js-button mdl-button--icon"
-                onClick={this.handleClose}
-              >
-                <i className="zmdi zmdi-close"></i>
-              </Link>
-            </div>
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Facebook /></div>
               <form>
@@ -76,13 +68,19 @@ class Login extends Component {
                   onClick={this.handleForgotPassword}>
                     Forgot password?
                 </a>
-                <button
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-card__login-button"
+                <button type="button"
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-card__submit-btn"
                   onClick={this.handleSubmit}
                 >
-                  LOG IN
+                  Log in
                 </button>
               </form>
+              <button type="button"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login-card__cancel-btn"
+                onClick={this.handleClose}
+              >
+                Cancel
+              </button>
             </div>
           </div>
         </div>

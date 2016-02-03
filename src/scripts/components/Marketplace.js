@@ -2,7 +2,6 @@
 import { connect } from "react-redux";
 import CoachGridList from "./coaches/CoachGridList";
 import ProductGridList from "./products/ProductGridList";
-import List from "./list/List";
 
 const Marketplace = ({ coaches, products, goTo }) => (
   <div>
@@ -14,9 +13,6 @@ const Marketplace = ({ coaches, products, goTo }) => (
       coaches={coaches}
       goTo={goTo}
     />
-    <List
-      users={coaches}
-    />
   </div>
 );
 
@@ -27,6 +23,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(
-  mapStateToProps
-)(Marketplace)
+export default connect(mapStateToProps)(Marketplace)

@@ -1,6 +1,6 @@
 "use strict";
 import { connect } from "react-redux";
-import { goTo } from "../actions/router_actions";
+import { goTo } from "../../actions/router_actions";
 
 const Link = ({ children, route, param, styles, dispatch }) => (
   <a href="#!"

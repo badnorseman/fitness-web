@@ -1,6 +1,7 @@
 .mdl-mini-footer {
   /*background-color: rgb(53,62,72);*/
-  background-color: rgb(75,87,167);
+  /*background-color: rgb(75,87,167);*/
+  background-color: rgb(58,77,153);
   box-sizing: border-box;
   color: rgba(255,255,255, 1);
   display: flex;
