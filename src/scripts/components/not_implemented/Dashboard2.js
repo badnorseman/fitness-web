@@ -1,21 +1,30 @@
 "use strict";
 import { connect } from "react-redux";
-import Login from "./Login2";
 import UserList from "./UserList2";
 
 const Dashboard = ({ products, users, goTo }) => (
-  <div className="mdl-grid">
+  <div className="mdl-grid content--width">
     <div className="mdl-cell mdl-cell--12-col">
       <h3>Dashboard 2</h3>
-      <Login />
+      <hr />
       <a className="mdl-navigation__link"
         onClick={ev => {
           ev.preventDefault();
-          goTo("LOGIN3");
+          goTo("LOGIN2");
         }}
       >
-        Log in (not working)
+        Log in
       </a>
+      <hr />
+      <button type="button"
+        className="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        onClick={ev => {
+          ev.preventDefault();
+          alert("Users");
+        }}
+      >
+          Users
+      </button>
       <hr />
       <UserList users={users} />
     </div>

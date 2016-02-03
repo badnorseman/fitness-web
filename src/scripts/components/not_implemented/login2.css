@@ -1,7 +1,25 @@
-.mdl-dialog {
-  border: none;
-  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+.login__container {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+  background-color: rgb(255,255,255);
   width: 320px;
+  position: relative;
+  z-index: 11;
+  padding: 20px;
 }
 
 .login__submit-btn {

@@ -11,8 +11,13 @@ import "./login2.css";
 class Login extends Component {
   constructor(props) {
     super(props);
+    this.handleClose = this.handleClose.bind(this);
     this.handleForgotPassword = this.handleForgotPassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleClose() {
+    this.props.dispatch(goTo("MARKETPLACE"));
   }
 
   handleForgotPassword() {
@@ -35,11 +40,8 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <a id="login--open" className="mdl-navigation__link">
-          Log in (dialog)
-        </a>
-        <dialog id="login" className="mdl-dialog">
+      <div className="login__container">
+        <div className="login">
           <div><Facebook /></div>
           <form>
             <div>
@@ -59,7 +61,7 @@ class Login extends Component {
                 ref="password" />
             </div>
             <a href="#!"
-              className="login-card__forgot-password"
+              className="login__forgot-password"
               onClick={this.handleForgotPassword}>
                 Forgot password?
             </a>
@@ -70,34 +72,15 @@ class Login extends Component {
               Log in
             </button>
           </form>
-          <button id="login--close" type="button"
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login__cancel-btn">
+          <button type="button"
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login__cancel-btn"
+            onClick={this.handleClose}
+          >
             Cancel
           </button>
-        </dialog>
+        </div>
       </div>
     )
-  }
-
-  componentDidMount() {
-    const dialog = document.getElementById("login");
-
-    if (!dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-    }
-
-    document.getElementById("login--open").addEventListener("click", () => {
-      dialog.showModal();
-    })
-
-    document.getElementById("login--close").addEventListener("click", () => {
-      dialog.close();
-    })
-  }
-
-  componentWillUnmount() {
-    document.getElementById("login--open").removeEventListener("click")
-    document.getElementById("login--close").removeEventListener("click")
   }
 }
 
