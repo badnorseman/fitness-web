@@ -9,6 +9,7 @@ import { logout } from "../actions/auth_actions";
 import About from "./About";
 import Account from "./Account";
 import Dashboard from "./Dashboard";
+import Dashboard2 from "./not_implemented/Dashboard2";
 import EditProduct from "./products/EditProduct";
 import ErrorMessage from "./ErrorMessage";
 import Footer from "./Footer";
@@ -53,6 +54,9 @@ class Main extends Component {
         break;
       case "DASHBOARD":
         content = <Dashboard goTo={goTo} />;
+        break;
+      case "DASHBOARD2":
+        content = <Dashboard2 goTo={goTo} />;
         break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;

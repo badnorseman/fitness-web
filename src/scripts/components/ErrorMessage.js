@@ -22,6 +22,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(
-  mapStateToProps
-)(ErrorMessage)
+export default connect(mapStateToProps)(ErrorMessage)

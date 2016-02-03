@@ -2,16 +2,21 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
+import { goTo } from "../../actions/router_actions";
 import { login } from "../../actions/auth_actions";
 import Facebook from "../auth/Facebook";
 import InputField from "../InputField";
-import LinkNew from "./LinkNew";
 import "./login2.css";
 
 class Login extends Component {
   constructor(props) {
     super(props);
+    this.handleForgotPassword = this.handleForgotPassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleForgotPassword() {
+    this.props.dispatch(goTo("NEWPASSWORD"));
   }
 
   handleSubmit(ev) {
@@ -31,7 +36,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <a id="login--open" type="button" className="mdl-navigation__link">
+        <a id="login--open" className="mdl-navigation__link">
           Log in (dialog)
         </a>
         <dialog id="login" className="mdl-dialog">
@@ -53,12 +58,11 @@ class Login extends Component {
                 styles="login__input-field"
                 ref="password" />
             </div>
-            <LinkNew
-              route="NEWPASSWORD"
-              styles="login__forgot-password"
-            >
-              Forgot password?
-            </LinkNew>
+            <a href="#!"
+              className="login-card__forgot-password"
+              onClick={this.handleForgotPassword}>
+                Forgot password?
+            </a>
             <button type="button"
               className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login__submit-btn"
               onClick={this.handleSubmit}
