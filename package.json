@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "braintree-web": "^2.19.0",
+    "dialog-polyfill": "^0.4.2",
     "jquery": "^2.2.0",
     "normalizr": "^2.0.0",
     "react": "^0.14.6",
