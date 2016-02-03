@@ -1,17 +1,17 @@
 "use strict";
 import { connect } from "react-redux";
 import { resetErrorMessage } from "../actions/error_actions";
-import Link from "./Link";
 
 const ErrorMessage = ({ errorMessage, dispatch }) => (
   <div>
     {errorMessage && <div>
       {errorMessage}
-      <Link styles="mdl-button mdl-js-button mdl-button--icon"
+      <button type="button"
+        className="mdl-button mdl-js-button mdl-button--icon"
         onClick={() => dispatch(resetErrorMessage())}
       >
         <i className="zmdi zmdi-close"></i>
-      </Link>
+      </button>
     </div>}
   </div>
 );
