@@ -13,9 +13,7 @@ const UserListItem = ({ user }) => {
   return (
     <li className="mdl-list__item mdl-list__item--three-line">
       <span className="mdl-list__item-primary-content">
-        <span>
-          <img src={avatar} alt="" style={styles.avatar} />
-        </span>
+        <img className="mdl-list__item-avatar" src={avatar} alt="" />
         <span>{name}</span>
         <span className="mdl-list__item-text-body">{name}</span>
       </span>

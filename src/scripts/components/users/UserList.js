@@ -11,28 +11,10 @@ const UserList = ({ users }) => {
     }
   }
 
-  const styles = {
-    headerElement: {
-      margin: "0 0 10px 0",
-      maxWidth: "800px",
-      width: "25%"
-    },
-    list: {
-      padding: "20px 0 0 0"
-    }
-  };
-
   return (
-    <div className="center"
-      style={styles.list}>
-      <div className="flex--center">
-        <div style={styles.headerElement}>STATUS</div>
-        <div style={styles.headerElement}>NAME</div>
-        <div style={styles.headerElement}>PRODUCT</div>
-        <div style={styles.headerElement}>CURRENT END DATE</div>
-      </div>
+    <ul className="mdl-list">
       {items}
-    </div>
+    </ul>
   );
 };
 
