@@ -15,29 +15,16 @@ const ProductList = ({ products, goTo }) => {
     button: {
       float: "right",
       margin: "50px 0 10px 0"
-    },
-    headerElement: {
-      margin: "0 0 10px 0",
-      maxWidth: "800px",
-      width: "25%"
-    },
-    list: {
-      padding: "20px 0 0 0"
     }
   };
 
   return (
-    <div className="center"
-      style={styles.list}>
-      <div className="flex--center">
-        <div style={styles.headerElement}>NAME</div>
-        <div style={styles.headerElement}>CURRENCY</div>
-        <div style={styles.headerElement}>PRICE</div>
-        <div style={styles.headerElement}>NUMBERS OF CUSTOMERS</div>
-      </div>
-      {items}
+    <div>
+      <ul className="mdl-list">
+        {items}
+      </ul>
       <button
-        className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+        className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"
         style={styles.button}
         onClick={() => goTo("NEWPRODUCT")}
       >
