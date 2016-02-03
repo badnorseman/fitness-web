@@ -65,7 +65,7 @@ class Main extends Component {
         content = <Help />;
         break;
       case "LOGIN":
-        content = <Login />;
+        dialog = <Login />;
         break;
       case "LOGIN2":
         dialog = <Login2 />;
@@ -97,7 +97,8 @@ class Main extends Component {
     return (
       <div>
         {dialog && <div>{dialog}</div>}
-        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        {content && <div
+          className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <Header
             currentUser={currentUser}
             goTo={goTo}
@@ -109,7 +110,7 @@ class Main extends Component {
             <div className="mdl-layout-spacer"></div>
             <Footer goTo={goTo} />
           </main>
-        </div>
+        </div>}
       </div>
     )
   }

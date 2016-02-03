@@ -41,8 +41,8 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="mdl-grid login-grid">
-        <div className="mdl-cell mdl-cell--12-col login-grid__cell">
+      <div className="mdl-grid login-container">
+        <div className="mdl-cell mdl-cell--12-col">
           <div className="mdl-card mdl-shadow--2dp login-card">
             <div className="mdl-card__supporting-text mdl-card--border">
               <div><Facebook /></div>
