@@ -12,7 +12,7 @@ const ProductGridList = ({ products, goTo }) => {
   }
 
   return (
-    <div className="mdl-grid content--width">
+    <div className="mdl-grid">
       {tiles}
     </div>
   );

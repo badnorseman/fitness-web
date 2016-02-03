@@ -13,9 +13,13 @@ const UserList = ({ users }) => {
   }
 
   return (
-    <ul className="mdl-list">
-      {items}
-    </ul>
+    <div className="mdl-grid">
+      <div className="mdl-cell mdl-cell--12-col">
+        <ul className="mdl-list">
+          {items}
+        </ul>
+      </div>
+    </div>
   );
 };
 

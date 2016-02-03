@@ -3,7 +3,7 @@ import ProductList from "./products/ProductList";
 import UserList from "./users/UserList";
 
 const Dashboard = ({ goTo }) => (
-  <div className="mdl-grid content--width">
+  <div className="mdl-grid">
     <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
       <div className="mdl-card__title flex--center">
         <div className="mdl-card__title-text">

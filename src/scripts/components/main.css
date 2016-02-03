@@ -7,12 +7,12 @@
   -webkit-flex-direction: column;
 }
 
-.content--width {
+.mdl-grid {
   width: 100%;
 }
 
 @media all and (min-width: 500px) {
-  .content--width {
+  .mdl-grid {
     width: 60%;
   }
 }

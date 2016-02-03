@@ -13,16 +13,18 @@ const ProductList = ({ products, goTo }) => {
   }
 
   return (
-    <div>
-      <ul className="mdl-list">
-        {items}
-      </ul>
-      <button
-        className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"
-        onClick={() => goTo("NEWPRODUCT")}
-      >
-        <i className="zmdi zmdi-plus"></i>
-      </button>
+    <div className="mdl-grid">
+      <div className="mdl-cell mdl-cell--12-col">
+        <ul className="mdl-list">
+          {items}
+        </ul>
+        <button
+          className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"
+          onClick={() => goTo("NEWPRODUCT")}
+        >
+          <i className="zmdi zmdi-plus"></i>
+        </button>
+      </div>
     </div>
   );
 };

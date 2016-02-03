@@ -2,7 +2,7 @@
 import Link from "../Link";
 
 const ProductListItem = ({ product, goTo }) => {
-  const { currency, image, name, price } = product;
+  const { currency, description, image, name, price } = product;
 
   return (
     <li className="mdl-list__item mdl-list__item--three-line">
@@ -10,9 +10,8 @@ const ProductListItem = ({ product, goTo }) => {
         <img className="mdl-list__item-avatar" src={image} alt="" />
         <span>{name}</span>
         <span className="mdl-list__item-text-body">
-          {name}
-          {currency}
-          {price}
+          {description}
+          {currency}&nbsp;{price}
         </span>
       </span>
       <span className="mdl-list__item-secondary-content">
