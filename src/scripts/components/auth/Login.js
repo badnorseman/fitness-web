@@ -41,47 +41,45 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="mdl-grid login-container">
-        <div className="mdl-cell mdl-cell--12-col">
-          <div className="mdl-card mdl-shadow--2dp login-card">
-            <div className="mdl-card__supporting-text mdl-card--border">
-              <div><Facebook /></div>
-              <form>
-                <div>
-                  <InputField
-                    fieldId="email"
-                    fieldName="Email"
-                    fieldType="text"
-                    styles="login-card__input-field"
-                    ref="email" />
-                </div>
-                <div>
-                  <InputField
-                    fieldId="password"
-                    fieldName="Password"
-                    fieldType="password"
-                    styles="login-card__input-field"
-                    ref="password" />
-                </div>
-                <a href="#!"
-                  className="login-card__forgot-password"
-                  onClick={this.handleForgotPassword}>
-                    Forgot password?
-                </a>
-                <button type="button"
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-card__submit-btn"
-                  onClick={this.handleSubmit}
-                >
-                  Log in
-                </button>
-              </form>
+      <div className="login-container">
+        <div className="mdl-card mdl-shadow--2dp login-card">
+          <div className="mdl-card__supporting-text mdl-card--border">
+            <div><Facebook /></div>
+            <form>
+              <div>
+                <InputField
+                  fieldId="email"
+                  fieldName="Email"
+                  fieldType="text"
+                  styles="login-card__input-field"
+                  ref="email" />
+              </div>
+              <div>
+                <InputField
+                  fieldId="password"
+                  fieldName="Password"
+                  fieldType="password"
+                  styles="login-card__input-field"
+                  ref="password" />
+              </div>
+              <Link
+                styles="login-card__forgot-password"
+                onClick={this.handleForgotPassword}>
+                  Forgot password?
+              </Link>
               <button type="button"
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login-card__cancel-btn"
-                onClick={this.handleClose}
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-card__submit-btn"
+                onClick={this.handleSubmit}
               >
-                Cancel
+                Log in
               </button>
-            </div>
+            </form>
+            <button type="button"
+              className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login-card__cancel-btn"
+              onClick={this.handleClose}
+            >
+              Cancel
+            </button>
           </div>
         </div>
       </div>

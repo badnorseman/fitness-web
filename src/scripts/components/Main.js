@@ -16,7 +16,6 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Help from "./Help";
 import Login from "./auth/Login";
-import Login2 from "./not_implemented/Login2";
 import Marketplace from "./Marketplace";
 import NewPassword from "./auth/NewPassword";
 import NewProduct from "./products/NewProduct";
@@ -67,9 +66,6 @@ class Main extends Component {
       case "LOGIN":
         dialog = <Login />;
         break;
-      case "LOGIN2":
-        dialog = <Login2 />;
-        break;
       case "NEWPASSWORD":
         content = <NewPassword />;
         break;
@@ -96,8 +92,7 @@ class Main extends Component {
     }
     return (
       <div>
-        {dialog && <div>{dialog}</div>}
-        {content && <div
+        <div
           className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <Header
             currentUser={currentUser}
@@ -106,11 +101,12 @@ class Main extends Component {
           />
           <main className="mdl-layout__content">
             <ErrorMessage />
-            <div>{content}</div>
+            {content && <div>{content}</div>}
             <div className="mdl-layout-spacer"></div>
             <Footer goTo={goTo} />
           </main>
-        </div>}
+        </div>
+        {dialog && <div>{dialog}</div>}
       </div>
     )
   }

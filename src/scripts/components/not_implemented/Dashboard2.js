@@ -5,28 +5,21 @@ import UserList from "./UserList2";
 const Dashboard = ({ products, users, goTo }) => (
   <div className="mdl-grid content--width">
     <div className="mdl-cell mdl-cell--12-col">
-      <h3>Dashboard 2</h3>
-      <hr />
-      <a className="mdl-navigation__link"
-        onClick={ev => {
-          ev.preventDefault();
-          goTo("LOGIN2");
-        }}
-      >
-        Log in
-      </a>
-      <hr />
-      <button type="button"
-        className="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-        onClick={ev => {
-          ev.preventDefault();
-          alert("Users");
-        }}
-      >
-          Users
-      </button>
-      <hr />
-      <UserList users={users} />
+      <h3>Dashboard</h3>
+      <div>
+        <button type="button"
+          className="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+          onClick={ev => {
+            ev.preventDefault();
+            alert("Users");
+          }}
+        >
+            Users
+        </button>
+      </div>
+      <div>
+        <UserList users={users} />
+      </div>
     </div>
   </div>
 );
