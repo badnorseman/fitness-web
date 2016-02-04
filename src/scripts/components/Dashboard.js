@@ -1,5 +1,6 @@
 "use strict";
 import ProductList from "./products/ProductList";
+import TransactionList from "./transactions/TransactionList";
 import UserList from "./users/UserList";
 
 const Dashboard = () => (
@@ -15,12 +16,16 @@ const Dashboard = () => (
           <div className="mdl-tabs__tab-bar">
             <a href="#products-panel" className="mdl-tabs__tab is-active">Products</a>
             <a href="#customers-panel" className="mdl-tabs__tab">Customers</a>
+            <a href="#payments-panel" className="mdl-tabs__tab">Payments</a>
           </div>
           <div className="mdl-tabs__panel is-active" id="products-panel">
             <ProductList />
           </div>
           <div className="mdl-tabs__panel" id="customers-panel">
             <UserList />
+          </div>
+          <div className="mdl-tabs__panel" id="payments-panel">
+            <TransactionList />
           </div>
         </div>
       </div>

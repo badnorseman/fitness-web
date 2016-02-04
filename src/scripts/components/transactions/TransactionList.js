@@ -1,4 +1,5 @@
 "use strict";
+import { connect } from "react-redux";
 import TransactionListItem from "./TransactionListItem";
 
 const TransactionList = ({ transactions }) => {
@@ -11,29 +12,21 @@ const TransactionList = ({ transactions }) => {
     }
   }
 
-  const styles = {
-    headerElement: {
-      margin: "0 0 10px 0",
-      maxWidth: "800px",
-      width: "25%"
-    },
-    list: {
-      padding: "20px 0 0 0"
-    }
-  };
-
   return (
-    <div className="center"
-      style={styles.list}>
-      <div className="flex--center">
-        <div style={styles.headerElement}>DATE</div>
-        <div style={styles.headerElement}>CURRENCY</div>
-        <div style={styles.headerElement}>AMOUNT</div>
-        <div style={styles.headerElement}>TRANSACTION ID</div>
+    <div className="mdl-grid">
+      <div className="mdl-cell mdl-cell--12-col">
+        <ul className="mdl-list">
+          {items}
+        </ul>
       </div>
-      {items}
     </div>
   );
 };
 
-export default TransactionList
+const mapStateToProps = (state) => {
+  return {
+    transactions: state.transaction.transactions
+  };
+};
+
+export default connect(mapStateToProps)(TransactionList)
