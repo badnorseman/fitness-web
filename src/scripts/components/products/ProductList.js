@@ -1,7 +1,7 @@
 "use strict";
 import { connect } from "react-redux";
 import ProductListItem from "./ProductListItem";
-import Link from "../Link2";
+import Link from "../Link";
 
 const ProductList = ({ products }) => {
   let items = [];

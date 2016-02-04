@@ -4,7 +4,6 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { getCoaches } from "../actions/coach_actions";
 import { getProducts } from "../actions/product_actions";
-import { goTo } from "../actions/router_actions";
 import { logout } from "../actions/auth_actions";
 import About from "./About";
 import Account from "./Account";
@@ -42,7 +41,7 @@ class Main extends Component {
   }
 
   render() {
-    const { currentUser, param, route, goTo, logout } = this.props;
+    const { currentUser, param, route, logout } = this.props;
 
     let content, dialog;
     switch (route) {
@@ -100,7 +99,6 @@ class Main extends Component {
           className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <Header
             currentUser={currentUser}
-            goTo={goTo}
             logout={logout}
           />
           <main className="mdl-layout__content">
@@ -120,7 +118,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getCoaches: () => { dispatch(getCoaches()); },
     getProducts: () => { dispatch(getProducts()); },
-    goTo: (route, param) => { dispatch(goTo(route, param)); },
     logout: () => { dispatch(logout()); }
   };
 };

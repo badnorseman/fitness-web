@@ -1,5 +1,5 @@
 "use strict";
-import Link from "../Link2";
+import Link from "../Link";
 
 const ProductGridTile = ({ product }) => {
   const { description, image, name } = product;

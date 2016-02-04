@@ -1,7 +1,7 @@
 "use strict";
 import { connect } from "react-redux";
 import { createProduct } from "../../actions/product_actions";
-import Link from "../Link2";
+import Link from "../Link";
 import ProductForm from "./ProductForm";
 
 const NewProduct = ({ dispatch }) => (

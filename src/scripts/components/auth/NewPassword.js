@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { createPassword } from "../../actions/auth_actions";
 import InputField from "../InputField";
-import Link from "../Link2";
+import Link from "../Link";
 import "./new_password.css";
 
 class NewPassword extends Component {

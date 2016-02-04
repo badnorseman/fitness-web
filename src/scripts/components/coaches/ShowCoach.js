@@ -1,6 +1,6 @@
 "use strict";
 import { connect } from "react-redux";
-import Link from "../Link2";
+import Link from "../Link";
 
 const ShowCoach = ({ coach, products }) => {
   let productsByCoach = {};

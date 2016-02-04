@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { signup } from "../../actions/auth_actions";
 import Facebook from "./Facebook";
 import InputField from "../../components/InputField";
-import Link from "../Link2";
+import Link from "../Link";
 import "./signup.css";
 
 class Signup extends Component {
