@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import Braintree from "braintree-web";
 import { connect } from "react-redux";
 import { createTransaction, getClientToken } from "../../actions/transaction_actions";
-import Link from "../Link2";
+import Link from "../Link";
 
 class NewTransaction extends Component {
   static propTypes = {

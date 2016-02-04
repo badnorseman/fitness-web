@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { login } from "../../actions/auth_actions";
 import Facebook from "./Facebook";
 import InputField from "../InputField";
-import Link from "../Link2";
+import Link from "../Link";
 import "./login.css";
 
 class Login extends Component {

@@ -1,15 +1,17 @@
 "use strict";
+import { connect } from "react-redux";
+import { goTo } from "../actions/router_actions";
 
-const Link = ({ children, styles, onClick }) => (
+const Link = ({ children, route, param, styles, dispatch }) => (
   <a href="#!"
     className={styles}
     onClick={ev => {
       ev.preventDefault();
-      onClick();
+      dispatch(goTo(route, param));
     }}
   >
     {children}
   </a>
 );
 
-export default Link
+export default connect()(Link)

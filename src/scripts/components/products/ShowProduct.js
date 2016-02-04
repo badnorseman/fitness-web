@@ -1,5 +1,5 @@
 "use strict";
-import Link from "../Link2";
+import Link from "../Link";
 
 const ShowProduct = ({ product }) => {
   const { currency, description, image, name, price } = product;
