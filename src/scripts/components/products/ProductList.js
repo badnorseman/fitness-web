@@ -1,13 +1,14 @@
 "use strict";
 import { connect } from "react-redux";
 import ProductListItem from "./ProductListItem";
+import Link from "../Link2";
 
-const ProductList = ({ products, goTo }) => {
+const ProductList = ({ products }) => {
   let items = [];
   for (let key in products) {
     if (products.hasOwnProperty(key)) {
       items.push(
-        <ProductListItem key={key} product={products[key]} goTo={goTo} />
+        <ProductListItem key={key} product={products[key]} />
       );
     }
   }
@@ -18,12 +19,12 @@ const ProductList = ({ products, goTo }) => {
         <ul className="mdl-list">
           {items}
         </ul>
-        <button
-          className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"
-          onClick={() => goTo("NEWPRODUCT")}
+        <Link
+          route="NEWPRODUCT"
+          styles="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"
         >
           <i className="zmdi zmdi-plus"></i>
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ class Main extends Component {
         content = <Account />;
         break;
       case "DASHBOARD":
-        content = <Dashboard goTo={goTo} />;
+        content = <Dashboard />;
         break;
       case "EDITPRODUCT":
         content = <EditProduct product={param} />;
@@ -74,13 +74,13 @@ class Main extends Component {
         content = <NewTransaction product={param} />;
         break;
       case "PRODUCTLIST":
-        content = <ProductList goTo={goTo} />;
+        content = <ProductList />;
         break;
       case "SHOWCOACH":
         content = <ShowCoach coach={param} goTo={goTo} />;
         break;
       case "SHOWPRODUCT":
-        content = <ShowProduct product={param} goTo={goTo} />;
+        content = <ShowProduct product={param} />;
         break;
       case "SIGNUP":
         dialog = <Signup />;

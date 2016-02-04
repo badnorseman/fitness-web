@@ -5,10 +5,7 @@ import ProductGridList from "./products/ProductGridList";
 
 const Marketplace = ({ coaches, products, goTo }) => (
   <div>
-    <ProductGridList
-      products={products}
-      goTo={goTo}
-    />
+    <ProductGridList products={products} />
     <CoachGridList
       coaches={coaches}
       goTo={goTo}
