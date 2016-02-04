@@ -1,12 +1,12 @@
 "use strict";
 import ProductGridTile from "./ProductGridTile";
 
-const ProductGridList = ({ products, goTo }) => {
+const ProductGridList = ({ products }) => {
   let tiles = [];
   for (let key in products) {
     if (products.hasOwnProperty(key)) {
       tiles.push(
-        <ProductGridTile key={key} product={products[key]} goTo={goTo} />
+        <ProductGridTile key={key} product={products[key]} />
       );
     }
   }

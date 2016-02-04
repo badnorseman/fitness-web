@@ -1,7 +1,7 @@
 "use strict";
-import Link from "../Link";
+import Link from "../Link2";
 
-const ProductListItem = ({ product, goTo }) => {
+const ProductListItem = ({ product }) => {
   const { currency, description, image, name, price } = product;
 
   return (
@@ -10,15 +10,20 @@ const ProductListItem = ({ product, goTo }) => {
         <img className="mdl-list__item-avatar" src={image} alt="" />
         <span>{name}</span>
         <span className="mdl-list__item-text-body">
-          {description}
-          {currency}&nbsp;{price}
+          {description}&nbsp;{currency}&nbsp;{price}
         </span>
       </span>
       <span className="mdl-list__item-secondary-content">
         <span className="mdl-list__item-secondary-action">
+          <button
+            className="mdl-button mdl-js-button mdl-button--icon"
+          >
+            <i className="zmdi zmdi-delete"></i>
+          </button>
           <Link
+            route="EDITPRODUCT"
+            param={product}
             styles="mdl-button mdl-js-button mdl-button--icon"
-            onClick={() => goTo("EDITPRODUCT", product)}
           >
             <i className="zmdi zmdi-edit"></i>
           </Link>

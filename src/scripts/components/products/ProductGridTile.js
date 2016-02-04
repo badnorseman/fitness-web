@@ -1,6 +1,7 @@
 "use strict";
+import Link from "../Link2";
 
-const ProductGridTile = ({ product, goTo }) => {
+const ProductGridTile = ({ product }) => {
   const { description, image, name } = product;
   const styles = {
     image: {
@@ -11,14 +12,12 @@ const ProductGridTile = ({ product, goTo }) => {
   return (
     <div className="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--middle mdl-card mdl-shadow--2dp">
       <div className="mdl-card__media">
-        <a href="#!"
-          onClick={ev => {
-            ev.preventDefault();
-            goTo("SHOWPRODUCT", product);
-          }}
+        <Link
+          route="SHOWPRODUCT"
+          param={product}
         >
           <img src={image} alt="" style={styles.image} />
-        </a>
+        </Link>
       </div>
       <div className="mdl-card__supporting-text">
         <p className="mdl-typography--title">{name}</p>

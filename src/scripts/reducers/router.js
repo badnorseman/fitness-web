@@ -28,7 +28,7 @@ const router = (state = initialState, action) => {
     case actionTypes.PRODUCT_UPDATE_SUCCESS:
       return {
         ...state,
-        route: "DASHBOARD"
+        route: "PRODUCTLIST"
       };
 
     case actionTypes.LOGIN_UPDATE_SUCCESS:

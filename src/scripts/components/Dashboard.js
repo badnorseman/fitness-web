@@ -2,7 +2,7 @@
 import ProductList from "./products/ProductList";
 import UserList from "./users/UserList";
 
-const Dashboard = ({ goTo }) => (
+const Dashboard = () => (
   <div className="mdl-grid">
     <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
       <div className="mdl-card__title flex--center">
@@ -17,7 +17,7 @@ const Dashboard = ({ goTo }) => (
             <a href="#customers-panel" className="mdl-tabs__tab">Customers</a>
           </div>
           <div className="mdl-tabs__panel is-active" id="products-panel">
-            <ProductList goTo={goTo} />
+            <ProductList />
           </div>
           <div className="mdl-tabs__panel" id="customers-panel">
             <UserList />

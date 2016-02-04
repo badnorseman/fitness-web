@@ -1,7 +1,7 @@
 "use strict";
-import Link from "../Link";
+import Link from "../Link2";
 
-const ShowProduct = ({ product, goTo }) => {
+const ShowProduct = ({ product }) => {
   const { currency, description, image, name, price } = product;
   const styles ={
     image: {
@@ -12,19 +12,16 @@ const ShowProduct = ({ product, goTo }) => {
       width: "auto",
       WebkitTransition: "all",
       msTransition: "all"
-    },
-    main: {
-      width: "60%"
     }
   };
 
   return (
-    <div className="mdl-grid" style={styles.main}>
+    <div className="mdl-grid">
       <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
         <div className="mdl-card__menu">
           <Link
+            route="MARKETPLACE"
             styles="mdl-button mdl-js-button mdl-button--icon"
-            onClick={() => goTo("MARKETPLACE")}
           >
             <i className="zmdi zmdi-close"></i>
           </Link>
@@ -37,15 +34,13 @@ const ShowProduct = ({ product, goTo }) => {
             <h5 className="mdl-typography--subhead">{currency} {price}</h5>
           </div>
           <div>
-            <button
-              className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-              onClick={ev => {
-                ev.preventDefault();
-                goTo("NEWTRANSACTION", product);
-              }}
+            <Link
+              route="NEWTRANSACTION"
+              param={product}
+              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             >
               Buy
-            </button>
+            </Link>
           </div>
         </div>
       </div>
