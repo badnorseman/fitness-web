@@ -77,7 +77,7 @@ class Main extends Component {
         content = <ProductList />;
         break;
       case "SHOWCOACH":
-        content = <ShowCoach coach={param} goTo={goTo} />;
+        content = <ShowCoach coach={param} />;
         break;
       case "SHOWPRODUCT":
         content = <ShowProduct product={param} />;
@@ -92,7 +92,7 @@ class Main extends Component {
         content = <UserList />;
         break;
       default:
-        content = <Marketplace goTo={goTo} />;
+        content = <Marketplace />;
     }
     return (
       <div>

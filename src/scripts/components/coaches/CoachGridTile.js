@@ -1,6 +1,7 @@
 "use strict";
+import Link from "../Link2";
 
-const CoachGridTile = ({ coach, goTo }) => {
+const CoachGridTile = ({ coach }) => {
   const { avatar, name } = coach;
   const styles = {
     avatar: {
@@ -11,14 +12,12 @@ const CoachGridTile = ({ coach, goTo }) => {
   return (
     <div className="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
       <div className="mdl-card__media">
-        <a href="#!"
-          onClick={ev => {
-            ev.preventDefault();
-            goTo("SHOWCOACH", coach);
-          }}
+        <Link
+          route="SHOWCOACH"
+          param={coach}
         >
           <img src={avatar} alt="" style={styles.avatar} />
-        </a>
+        </Link>
       </div>
       <div className="mdl-card__supporting-text">
         <p className="mdl-typography--title">{name}</p>

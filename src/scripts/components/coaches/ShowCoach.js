@@ -1,8 +1,8 @@
 "use strict";
 import { connect } from "react-redux";
-import Link from "../Link";
+import Link from "../Link2";
 
-const ShowCoach = ({ coach, products, goTo }) => {
+const ShowCoach = ({ coach, products }) => {
   let productsByCoach = {};
   coach.products.forEach(el => {
     if (products[el.id]) { productsByCoach[el.id] = products[el.id]; }
@@ -24,20 +24,17 @@ const ShowCoach = ({ coach, products, goTo }) => {
       width: "auto",
       WebkitTransition: "all",
       msTransition: "all"
-    },
-    main: {
-      width: "60%"
     }
   };
 
   return (
     <div>
-      <div className="mdl-grid" style={styles.main}>
+      <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
           <div className="mdl-card__menu">
             <Link
+              route="MARKETPLACE"
               styles="mdl-button mdl-js-button mdl-button--icon"
-              onClick={() => goTo("MARKETPLACE")}
             >
               <i className="zmdi zmdi-close"></i>
             </Link>
@@ -52,15 +49,12 @@ const ShowCoach = ({ coach, products, goTo }) => {
           </div>
         </div>
       </div>
-      <ProductList
-        products={products} />
+      <ProductList products={products} />
     </div>
   );
 };
 
-const ProductList = ({
-  products
-}) => {
+const ProductList = ({ products }) => {
   let items = [];
   for (let key in products) {
     if (products.hasOwnProperty(key)) {
@@ -70,22 +64,14 @@ const ProductList = ({
     }
   }
 
-  const styles = {
-    main: {
-      width: "60%"
-    }
-  };
-
   return (
-    <div className="mdl-grid" style={styles.main}>
+    <div className="mdl-grid">
       {items}
     </div>
   );
 };
 
-const ProductListItem = ({
-  product
-}) => {
+const ProductListItem = ({ product }) => {
   const { currency, description, name, price } = product;
 
   return (
@@ -105,6 +91,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(
-  mapStateToProps
-)(ShowCoach)
+export default connect(mapStateToProps)(ShowCoach)
