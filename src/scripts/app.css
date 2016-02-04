@@ -21,12 +21,3 @@ html, body {
   height: auto;
   width: 20px;
 }
-
-.button--floating-action {
-  bottom: 50px;
-  margin-bottom: 100px;
-  padding-top: 24px;
-  position: fixed;
-  right: 24px;
-  z-index: 998;
-}

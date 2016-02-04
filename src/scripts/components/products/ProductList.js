@@ -1,4 +1,5 @@
 "use strict";
+import { connect } from "react-redux";
 import ProductListItem from "./ProductListItem";
 
 const ProductList = ({ products, goTo }) => {
@@ -11,40 +12,39 @@ const ProductList = ({ products, goTo }) => {
     }
   }
 
-  const styles = {
-    button: {
-      float: "right",
-      margin: "50px 0 10px 0"
-    },
-    headerElement: {
-      margin: "0 0 10px 0",
-      maxWidth: "800px",
-      width: "25%"
-    },
-    list: {
-      padding: "20px 0 0 0"
-    }
-  };
-
   return (
-    <div className="center"
-      style={styles.list}>
-      <div className="flex--center">
-        <div style={styles.headerElement}>NAME</div>
-        <div style={styles.headerElement}>CURRENCY</div>
-        <div style={styles.headerElement}>PRICE</div>
-        <div style={styles.headerElement}>NUMBERS OF CUSTOMERS</div>
+    <div className="mdl-grid">
+      <div className="mdl-cell mdl-cell--12-col">
+        <ul className="mdl-list">
+          {items}
+        </ul>
+        <button
+          className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"
+          onClick={() => goTo("NEWPRODUCT")}
+        >
+          <i className="zmdi zmdi-plus"></i>
+        </button>
       </div>
-      {items}
-      <button
-        className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
-        style={styles.button}
-        onClick={() => goTo("NEWPRODUCT")}
-      >
-        <i className="zmdi zmdi-plus"></i>
-      </button>
     </div>
   );
 };
 
-export default ProductList
+const getProductsByCoach = (coach, products) => {
+  let productsByCoach = {};
+  coach.products.forEach(el => {
+    if (products[el.id]) {
+      productsByCoach[el.id] = products[el.id];
+    }
+  })
+  return productsByCoach;
+};
+
+const mapStateToProps = (state) => {
+  return {
+    products: getProductsByCoach(
+      state.coach.coaches[state.auth.currentUser.id],
+      state.product.products)
+  };
+};
+
+export default connect(mapStateToProps)(ProductList)

@@ -1,4 +1,5 @@
 "use strict";
+import { connect } from "react-redux";
 import UserListItem from "./UserListItem";
 
 const UserList = ({ users }) => {
@@ -11,29 +12,21 @@ const UserList = ({ users }) => {
     }
   }
 
-  const styles = {
-    headerElement: {
-      margin: "0 0 10px 0",
-      maxWidth: "800px",
-      width: "25%"
-    },
-    list: {
-      padding: "20px 0 0 0"
-    }
-  };
-
   return (
-    <div className="center"
-      style={styles.list}>
-      <div className="flex--center">
-        <div style={styles.headerElement}>STATUS</div>
-        <div style={styles.headerElement}>NAME</div>
-        <div style={styles.headerElement}>PRODUCT</div>
-        <div style={styles.headerElement}>CURRENT END DATE</div>
+    <div className="mdl-grid">
+      <div className="mdl-cell mdl-cell--12-col">
+        <ul className="mdl-list">
+          {items}
+        </ul>
       </div>
-      {items}
     </div>
   );
 };
 
-export default UserList
+const mapStateToProps = (state) => {
+  return {
+    users: state.user.users
+  };
+};
+
+export default connect(mapStateToProps)(UserList)

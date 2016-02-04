@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import UserList from "./UserList2";
 
 const Dashboard = ({ products, users, goTo }) => (
-  <div className="mdl-grid content--width">
+  <div className="mdl-grid">
     <div className="mdl-cell mdl-cell--12-col">
       <h3>Dashboard</h3>
       <div>

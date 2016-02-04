@@ -1,31 +1,30 @@
 "use strict";
+import Link from "../Link";
 
 const ProductListItem = ({ product, goTo }) => {
-  const { currency, name, price } = product;
-  const styles = {
-    itemElement: {
-      margin: "10px 10px 10px 0",
-      maxWidth:"800px",
-      width: "25%"
-    }
-  };
+  const { currency, description, image, name, price } = product;
 
   return (
-    <div>
-      <hr />
-      <a href="#!"
-        className="flex--center"
-        onClick={ev => {
-          ev.preventDefault();
-          goTo("EDITPRODUCT", product);
-        }}
-      >
-        <div style={styles.itemElement}>{name}</div>
-        <div style={styles.itemElement}>{currency}</div>
-        <div style={styles.itemElement}>{price}</div>
-        <div style={styles.itemElement}></div>
-      </a>
-    </div>
+    <li className="mdl-list__item mdl-list__item--three-line">
+      <span className="mdl-list__item-primary-content">
+        <img className="mdl-list__item-avatar" src={image} alt="" />
+        <span>{name}</span>
+        <span className="mdl-list__item-text-body">
+          {description}
+          {currency}&nbsp;{price}
+        </span>
+      </span>
+      <span className="mdl-list__item-secondary-content">
+        <span className="mdl-list__item-secondary-action">
+          <Link
+            styles="mdl-button mdl-js-button mdl-button--icon"
+            onClick={() => goTo("EDITPRODUCT", product)}
+          >
+            <i className="zmdi zmdi-edit"></i>
+          </Link>
+        </span>
+      </span>
+    </li>
   );
 };
 

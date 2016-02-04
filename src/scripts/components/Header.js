@@ -21,7 +21,9 @@ const Header = ({ currentUser, goTo, logout }) => {
         {coach && <Link styles="mdl-navigation__link"
           onClick={() => goTo("DASHBOARD")}>Dashboard</Link>}
         {coach && <Link styles="mdl-navigation__link"
-          onClick={() => goTo("DASHBOARD2")}>Dashboard 2</Link>}
+          onClick={() => goTo("PRODUCTLIST")}>Products</Link>}
+        {coach && <Link styles="mdl-navigation__link"
+          onClick={() => goTo("USERLIST")}>Customers</Link>}
         <nav className="mdl-navigation">
           {!isLoggedIn && <Link styles="mdl-navigation__link"
             onClick={() => goTo("LOGIN")}>Log in</Link>}
