@@ -107,7 +107,7 @@ class Main extends Component {
             <ErrorMessage />
             {content && <div>{content}</div>}
             <div className="mdl-layout-spacer"></div>
-            <Footer goTo={goTo} />
+            <Footer />
           </main>
         </div>
         {dialog && <div>{dialog}</div>}

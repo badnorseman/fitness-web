@@ -1,8 +1,8 @@
 "use strict";
-import Link from "./Link";
+import Link from "./Link2";
 import "./footer.css";
 
-const Footer = ({ goTo }) => {
+const Footer = () => {
   const now = new Date();
   const currentYear = now.getFullYear();
 
@@ -10,9 +10,9 @@ const Footer = ({ goTo }) => {
     <footer>
       <div className="mdl-mini-footer footer__top">
         <ul className="mdl-mini-footer__link-list">
-          <li><Link onClick={() => goTo("ABOUT")}>About</Link></li>
-          <li><Link onClick={() => goTo("HELP")}>Help</Link></li>
-          <li><Link onClick={() => goTo("TERMS")}>Terms</Link></li>
+          <li><Link route="ABOUT">About</Link></li>
+          <li><Link route="HELP">Help</Link></li>
+          <li><Link route="TERMS">Terms</Link></li>
         </ul>
       </div>
       <div className="mdl-mini-footer footer__middle">
@@ -45,9 +45,9 @@ const Facebook = () => {
   };
 
   return (
-    <Link onClick={() => onClick()}>
+    <a href="#!" onClick={() => onClick()}>
       <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
-    </Link>
+    </a>
   );
 };
 
