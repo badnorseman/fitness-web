@@ -23,6 +23,7 @@ import ShowCoach from "./coaches/ShowCoach";
 import ShowProduct from "./products/ShowProduct";
 import Signup from "./auth/Signup";
 import Terms from "./Terms";
+import TransactionList from "./transactions/TransactionList";
 import UserList from "./users/UserList";
 import "./main.css";
 
@@ -49,7 +50,7 @@ class Main extends Component {
         content = <About />;
         break;
       case "ACCOUNT":
-        content = <Account />;
+        content = <Account currentUser={currentUser} />;
         break;
       case "DASHBOARD":
         content = <Dashboard />;
@@ -86,6 +87,9 @@ class Main extends Component {
         break;
       case "TERMS":
         content = <Terms />;
+        break;
+      case "TRANSACTIONLIST":
+        content = <TransactionList />;
         break;
       case "USERLIST":
         content = <UserList />;

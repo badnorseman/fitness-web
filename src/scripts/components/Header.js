@@ -26,6 +26,9 @@ const Header = ({ currentUser, logout }) => {
         {coach && <Link route="USERLIST" styles="mdl-navigation__link">
           Customers
         </Link>}
+        {coach && <Link route="TRANSACTIONLIST" styles="mdl-navigation__link">
+          Payments
+        </Link>}
         <nav className="mdl-navigation">
           {!isLoggedIn && <Link route="LOGIN" styles="mdl-navigation__link">
             Log in

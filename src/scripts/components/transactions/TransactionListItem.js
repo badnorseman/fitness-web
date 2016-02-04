@@ -1,25 +1,20 @@
+// User, product per transaction
+// Transaction type f.x. sale, void as avatar s, v
 "use strict";
 
 const TransactionListItem = ({ transaction }) => {
   const { amount, currency, transaction_date, transaction_id } = transaction;
-  const styles = {
-    itemElement: {
-      margin: "10px 10px 10px 0",
-      maxWidth:"800px",
-      width: "25%"
-    }
-  };
 
   return (
-    <div>
-      <hr />
-      <div className="flex--center">
-        <div style={styles.itemElement}>{transaction_date}</div>
-        <div style={styles.itemElement}>{currency}</div>
-        <div style={styles.itemElement}>{amount}</div>
-        <div style={styles.itemElement}>{transaction_id}</div>
-      </div>
-    </div>
+    <li className="mdl-list__item mdl-list__item--three-line">
+      <span className="mdl-list__item-primary-content">
+        <img className="mdl-list__item-avatar" src="" alt="" />
+        <span>User bought product on {transaction_date}</span>
+        <span className="mdl-list__item-text-body">
+          {transaction_id}&nbsp;{currency}&nbsp;{amount}
+        </span>
+      </span>
+    </li>
   );
 };
 

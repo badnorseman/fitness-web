@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import { render } from "react-dom";
 import Braintree from "braintree-web";
+import { render } from "react-dom";
 import { connect } from "react-redux";
 import { createTransaction, getClientToken } from "../../actions/transaction_actions";
 import Link from "../Link";
