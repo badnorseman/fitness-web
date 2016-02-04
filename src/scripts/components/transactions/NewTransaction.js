@@ -3,9 +3,8 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import Braintree from "braintree-web";
 import { connect } from "react-redux";
-import { goTo } from "../../actions/router_actions";
 import { createTransaction, getClientToken } from "../../actions/transaction_actions";
-import Link from "../Link";
+import Link from "../Link2";
 
 class NewTransaction extends Component {
   static propTypes = {
@@ -14,7 +13,6 @@ class NewTransaction extends Component {
 
   constructor(props) {
     super(props);
-    this.handleClose = this.handleClose.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onPaymentMethodReceived = this.onPaymentMethodReceived.bind(this);
   }
@@ -31,10 +29,6 @@ class NewTransaction extends Component {
         onPaymentMethodReceived: this.onPaymentMethodReceived
       }
     );
-  }
-
-  handleClose() {
-    this.props.dispatch(goTo("MARKETPLACE"));
   }
 
   handleSubmit(ev) {
@@ -59,13 +53,6 @@ class NewTransaction extends Component {
 
   render() {
     const styles = {
-      card: {
-        height: "auto",
-        margin: "0 auto",
-        maxWidth: "400px",
-        padding: "10px",
-        width: "400px"
-      },
       dropin: {
         marginBottom: "20px",
         marginTop: "40px",
@@ -75,12 +62,11 @@ class NewTransaction extends Component {
 
     return (
       <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center"
-          style={styles.card}>
+        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
           <div className="mdl-card__menu">
             <Link
+              route="MARKETPLACE"
               styles="mdl-button mdl-js-button mdl-button--icon"
-              onClick={this.handleClose}
             >
               <i className="zmdi zmdi-close"></i>
             </Link>
@@ -91,9 +77,8 @@ class NewTransaction extends Component {
                 style={styles.dropin}>
               </div>
               <div className="mdl-typography--text-center">
-                <button
+                <button type="submit"
                   className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-                  type="submit"
                 >
                   Buy
                 </button>
