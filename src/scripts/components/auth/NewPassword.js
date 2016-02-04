@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { createPassword } from "../../actions/auth_actions";
 import InputField from "../InputField";
 import Link from "../Link2";
-import "./newpassword.css";
+import "./new_password.css";
 
 class NewPassword extends Component {
   constructor(props) {
@@ -27,8 +27,8 @@ class NewPassword extends Component {
 
   render() {
     return (
-      <div className="newpassword-container">
-        <div className="mdl-card mdl-shadow--2dp newpassword-card">
+      <div className="new-password-container">
+        <div className="mdl-card mdl-shadow--2dp new-password-card">
           <div className="mdl-card__supporting-text mdl-card--border">
             <form>
               <div>
@@ -36,11 +36,11 @@ class NewPassword extends Component {
                   fieldId="email"
                   fieldName="Email"
                   fieldType="text"
-                  styles="newpassword-card__input-field"
+                  styles="new-password-card__input-field"
                   ref="email" />
               </div>
               <button
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent newpassword-card__submit-btn"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent new-password-card__submit-btn"
                 onClick={this.handleSubmit}
               >
                 SEND
@@ -48,7 +48,7 @@ class NewPassword extends Component {
             </form>
             <Link
               route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect newpassword-card__cancel-btn"
+              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect new-password-card__cancel-btn"
             >
               Cancel
             </Link>
