@@ -30,7 +30,7 @@ const ProductList = ({ products }) => {
   );
 };
 
-const getProductsByCoach = (coach, products) => {
+const filterProductsByCoach = (coach, products) => {
   let productsByCoach = {};
   coach.products.forEach(el => {
     if (products[el.id]) {
@@ -42,7 +42,7 @@ const getProductsByCoach = (coach, products) => {
 
 const mapStateToProps = (state) => {
   return {
-    products: getProductsByCoach(
+    products: filterProductsByCoach(
       state.coach.coaches[state.auth.currentUser.id],
       state.product.products)
   };
