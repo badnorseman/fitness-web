@@ -28,7 +28,7 @@ class NewPassword extends Component {
   render() {
     return (
       <div className="new-password-container">
-        <div className="mdl-card mdl-shadow--2dp new-password-card">
+        <div className="mdl-card mdl-shadow--2dp new-password">
           <div className="mdl-card__supporting-text mdl-card--border">
             <form>
               <div>
@@ -36,19 +36,19 @@ class NewPassword extends Component {
                   id="email"
                   name="Email"
                   type="text"
-                  styles="new-password-card__input-field"
+                  styles="new-password__input-field"
                   ref="email" />
               </div>
               <button
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent new-password-card__submit-btn"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent new-password__submit-btn"
                 onClick={this.handleSubmit}
               >
-                Send
+                Send password
               </button>
             </form>
             <Link
               route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect new-password-card__cancel-btn"
+              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect new-password__cancel-btn"
             >
               Cancel
             </Link>

@@ -38,7 +38,7 @@ class Signup extends Component {
   render() {
     return (
       <div className="signup-container">
-        <div className="mdl-card mdl-shadow--2dp signup-card">
+        <div className="mdl-card mdl-shadow--2dp signup">
           <div className="mdl-card__supporting-text mdl-card--border">
             <div><Facebook /></div>
             <form>
@@ -47,7 +47,7 @@ class Signup extends Component {
                   id="name"
                   name="Name"
                   type="text"
-                  styles="signup-card__input-field"
+                  styles="signup__input-field"
                   ref="name" />
               </div>
               <div>
@@ -55,7 +55,7 @@ class Signup extends Component {
                   id="email"
                   name="Email"
                   type="text"
-                  styles="signup-card__input-field"
+                  styles="signup__input-field"
                   ref="email" />
               </div>
               <div>
@@ -63,7 +63,7 @@ class Signup extends Component {
                   id="password"
                   name="Password"
                   type="password"
-                  styles="signup-card__input-field"
+                  styles="signup__input-field"
                   ref="password" />
               </div>
               <div>
@@ -71,11 +71,11 @@ class Signup extends Component {
                   id="passwordConfirmation"
                   name="Confirm password"
                   type="password"
-                  styles="signup-card__input-field"
+                  styles="signup__input-field"
                   ref="passwordConfirmation" />
               </div>
               <button type="button"
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup-card__submit-btn"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup__submit-btn"
                 onClick={this.handleSubmit}
               >
                 Sign up
@@ -83,7 +83,7 @@ class Signup extends Component {
             </form>
             <Link
               route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login-card__cancel-btn"
+              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect signup__cancel-btn"
             >
               Cancel
             </Link>

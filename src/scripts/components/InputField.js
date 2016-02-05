@@ -20,12 +20,12 @@ class InputField extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    e.preventDefault();
+  handleChange(ev) {
+    ev.preventDefault();
 
-    let fieldValue = findDOMNode(this.refs[this.props.id]).value;
+    let change = findDOMNode(this.refs[this.props.id]).value;
 
-    this.setState({ fieldValue: fieldValue });
+    this.setState({ fieldValue: change });
   }
 
   render() {

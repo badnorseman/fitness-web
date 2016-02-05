@@ -31,7 +31,7 @@ class Login extends Component {
   render() {
     return (
       <div className="login-container">
-        <div className="mdl-card mdl-shadow--2dp login-card">
+        <div className="mdl-card mdl-shadow--2dp login">
           <div className="mdl-card__supporting-text mdl-card--border">
             <div><Facebook /></div>
             <form>
@@ -40,7 +40,7 @@ class Login extends Component {
                   id="email"
                   name="Email"
                   type="text"
-                  styles="login-card__input-field"
+                  styles="login__input-field"
                   ref="email" />
               </div>
               <div>
@@ -48,17 +48,17 @@ class Login extends Component {
                   id="password"
                   name="Password"
                   type="password"
-                  styles="login-card__input-field"
+                  styles="login__input-field"
                   ref="password" />
               </div>
               <Link
                 route="NEWPASSWORD"
-                styles="login-card__forgot-password"
+                styles="login__forgot-password"
               >
                   Forgot password?
               </Link>
               <button type="button"
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-card__submit-btn"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login__submit-btn"
                 onClick={this.handleSubmit}
               >
                 Log in
@@ -66,7 +66,7 @@ class Login extends Component {
             </form>
             <Link
               route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login-card__cancel-btn"
+              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login__cancel-btn"
             >
               Cancel
             </Link>
