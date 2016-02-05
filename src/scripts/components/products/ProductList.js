@@ -15,7 +15,7 @@ const ProductList = ({ products }) => {
 
   return (
     <div className="mdl-grid">
-      <div className="mdl-cell mdl-cell--12-col">
+      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
         <ul className="mdl-list">
           {items}
         </ul>
