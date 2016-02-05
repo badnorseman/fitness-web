@@ -10,7 +10,7 @@ const ProductGridTile = ({ product }) => {
   };
 
   return (
-    <div className="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-cell--middle mdl-card mdl-shadow--2dp">
+    <div className="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
       <div className="mdl-card__media">
         <Link
           route="SHOWPRODUCT"
