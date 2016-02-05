@@ -48,24 +48,24 @@ class EditLogin extends Component {
         style={styles.form}>
         <div>
           <InputField
-            fieldId="email"
-            fieldName="Email"
-            fieldType="text"
+            id="email"
+            name="Email"
+            type="text"
             fieldValue={email}
             ref="email" />
         </div>
         <div>
           <InputField
-            fieldId="password"
-            fieldName="Password"
-            fieldType="password"
+            id="password"
+            name="Password"
+            type="password"
             ref="password" />
         </div>
         <div>
           <InputField
-            fieldId="passwordConfirmation"
-            fieldName="Confirm password"
-            fieldType="password"
+            id="passwordConfirmation"
+            name="Confirm password"
+            type="password"
             ref="passwordConfirmation" />
         </div>
         <div className="mdl-typography--text-center">
@@ -73,7 +73,7 @@ class EditLogin extends Component {
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={this.handleSubmit}
           >
-            SAVE
+            Save
           </button>
         </div>
       </form>

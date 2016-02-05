@@ -37,17 +37,17 @@ class Login extends Component {
             <form>
               <div>
                 <InputField
-                  fieldId="email"
-                  fieldName="Email"
-                  fieldType="text"
+                  id="email"
+                  name="Email"
+                  type="text"
                   styles="login-card__input-field"
                   ref="email" />
               </div>
               <div>
                 <InputField
-                  fieldId="password"
-                  fieldName="Password"
-                  fieldType="password"
+                  id="password"
+                  name="Password"
+                  type="password"
                   styles="login-card__input-field"
                   ref="password" />
               </div>

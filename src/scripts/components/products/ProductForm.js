@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
+import InputTextArea from "../InputTextArea";
 
 export default class ProductForm extends Component {
   static propTypes = {
@@ -72,29 +73,37 @@ export default class ProductForm extends Component {
       <form>
         <div>
           <InputField
-            fieldError="Use letter, number, .,: or -"
-            fieldId="name"
-            fieldName="Name"
-            fieldPattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
-            fieldType="text"
+            id="name"
+            name="Name"
+            type="text"
+            errorMessage="Start with letter or number and use only letter, number, .,: or -"
+            pattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
             fieldValue={name}
             ref="name" />
         </div>
         <div>
           <InputField
-            fieldId="description"
-            fieldName="Description"
-            fieldType="text"
+            id="description"
+            name="Description"
+            type="text"
+            fieldValue={description}
+            ref="description" />
+        </div>
+        <div>
+          <InputTextArea
+            id="description"
+            name="Description"
+            type="text"
             fieldValue={description}
             ref="description" />
         </div>
         <div>
           <InputField
-            fieldError="Use number with or without separator . or ,"
-            fieldId="price"
-            fieldName="Price"
-            fieldPattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
-            fieldType="text"
+            id="price"
+            name="Price"
+            type="text"
+            errorMessage="Use number with or without separator . or ,"
+            pattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
             fieldValue={price}
             ref="price" />
         </div>

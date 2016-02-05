@@ -44,33 +44,33 @@ class Signup extends Component {
             <form>
               <div>
                 <InputField
-                  fieldId="Name"
-                  fieldName="Name"
-                  fieldType="text"
+                  id="name"
+                  name="Name"
+                  type="text"
                   styles="signup-card__input-field"
                   ref="name" />
               </div>
               <div>
                 <InputField
-                  fieldId="email"
-                  fieldName="Email"
-                  fieldType="text"
+                  id="email"
+                  name="Email"
+                  type="text"
                   styles="signup-card__input-field"
                   ref="email" />
               </div>
               <div>
                 <InputField
-                  fieldId="password"
-                  fieldName="Password"
-                  fieldType="password"
+                  id="password"
+                  name="Password"
+                  type="password"
                   styles="signup-card__input-field"
                   ref="password" />
               </div>
               <div>
                 <InputField
-                  fieldId="passwordConfirmation"
-                  fieldName="Confirm password"
-                  fieldType="password"
+                  id="passwordConfirmation"
+                  name="Confirm password"
+                  type="password"
                   styles="signup-card__input-field"
                   ref="passwordConfirmation" />
               </div>

@@ -4,7 +4,7 @@
 import React, { Component, PropTypes } from "react";
 import { findDOMNode, render } from "react-dom";
 
-class InputField extends Component {
+class InputTextArea extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -33,7 +33,7 @@ class InputField extends Component {
 
     return (
       <div className={"mdl-textfield mdl-js-textfield mdl-textfield--floating-label " + styles}>
-        <input
+        <textarea
           className="mdl-textfield__input"
           id={id}
           pattern={pattern}
@@ -55,4 +55,4 @@ class InputField extends Component {
   }
 }
 
-export default InputField
+export default InputTextArea

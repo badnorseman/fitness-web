@@ -69,17 +69,17 @@ class EditUser extends Component {
         style={styles.form}>
         <div>
           <InputField
-            fieldId="name"
-            fieldName="Full name"
-            fieldType="text"
+            id="name"
+            name="Full name"
+            type="text"
             fieldValue={name}
             ref="name" />
         </div>
         <div>
           <InputField
-            fieldId="email"
-            fieldName="Email"
-            fieldType="text"
+            id="email"
+            name="Email"
+            type="text"
             fieldValue={email}
             ref="email" />
         </div>
@@ -97,9 +97,9 @@ class EditUser extends Component {
         </div>
         <div>
           <InputField
-            fieldId="birthDay"
-            fieldName="Birthday"
-            fieldType="text"
+            id="birthDay"
+            name="Birthday"
+            type="text"
             fieldValue={birth_date}
             ref="birthDay" />
         </div>
@@ -114,7 +114,7 @@ class EditUser extends Component {
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={this.handleSubmit}
           >
-            SAVE
+            Save
           </button>
         </div>
       </form>

@@ -33,9 +33,9 @@ class NewPassword extends Component {
             <form>
               <div>
                 <InputField
-                  fieldId="email"
-                  fieldName="Email"
-                  fieldType="text"
+                  id="email"
+                  name="Email"
+                  type="text"
                   styles="new-password-card__input-field"
                   ref="email" />
               </div>
@@ -43,7 +43,7 @@ class NewPassword extends Component {
                 className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent new-password-card__submit-btn"
                 onClick={this.handleSubmit}
               >
-                SEND
+                Send
               </button>
             </form>
             <Link
