@@ -82,14 +82,6 @@ export default class ProductForm extends Component {
             ref="name" />
         </div>
         <div>
-          <InputField
-            id="description"
-            name="Description"
-            type="text"
-            fieldValue={description}
-            ref="description" />
-        </div>
-        <div>
           <InputTextArea
             id="description"
             name="Description"
