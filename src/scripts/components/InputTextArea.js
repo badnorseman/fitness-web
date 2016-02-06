@@ -1,5 +1,3 @@
-// Enable to pass in validators e.g. required, number, amount etc.
-// Each validators would have own pattern and each pattern world have an error message.
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";

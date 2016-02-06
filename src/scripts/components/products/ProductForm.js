@@ -76,7 +76,7 @@ export default class ProductForm extends Component {
             id="name"
             name="Name"
             type="text"
-            errorMessage="Start with letter or number and use only letter, number, .,: or -"
+            errorMessage="Letters and numbers and . , : - only. Start with a letter or number"
             pattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
             value={name}
             ref="name" />
@@ -94,7 +94,7 @@ export default class ProductForm extends Component {
             id="price"
             name="Price"
             type="text"
-            errorMessage="Use number with or without separator . or ,"
+            errorMessage="Number and decimal mark only"
             pattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
             value={price}
             ref="price" />
