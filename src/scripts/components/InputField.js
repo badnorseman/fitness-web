@@ -2,7 +2,7 @@
 // Each validators would have own pattern and each pattern world have an error message.
 "use strict";
 import React, { Component, PropTypes } from "react";
-import { findDOMNode, render } from "react-dom";
+import { render } from "react-dom";
 
 class InputField extends Component {
   static propTypes = {
@@ -16,20 +16,19 @@ class InputField extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { fieldValue: this.props.fieldValue };
+    this.state = { value: this.props.value };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(ev) {
     ev.preventDefault();
 
-    let change = findDOMNode(this.refs[this.props.id]).value;
-
-    this.setState({ fieldValue: change });
+    this.setState({ value: ev.target.value });
   }
 
   render() {
-    const { errorMessage, id, name, pattern, styles, type, fieldValue } = this.props;
+    const { errorMessage, id, name, pattern, styles, type } = this.props;
+    let value = this.state.value;
 
     return (
       <div className={"mdl-textfield mdl-js-textfield mdl-textfield--floating-label " + styles}>
@@ -38,8 +37,7 @@ class InputField extends Component {
           id={id}
           pattern={pattern}
           type={type}
-          value={this.state.fieldValue}
-          ref={id}
+          value={value}
           onChange={this.handleChange} />
         <label
           className="mdl-textfield__label"

@@ -41,8 +41,8 @@ export default class ProductForm extends Component {
     let description = this.refs.description.state.value;
     let id = this.props.product.id;
     let image = this.refs.image.state.file;
-    let name = this.refs.name.state.fieldValue;
-    let price = this.refs.price.state.fieldValue;
+    let name = this.refs.name.state.value;
+    let price = this.refs.price.state.value;
 
     if (currency && description && name && price) {
       this.props.onSubmit({
@@ -78,7 +78,7 @@ export default class ProductForm extends Component {
             type="text"
             errorMessage="Start with letter or number and use only letter, number, .,: or -"
             pattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
-            fieldValue={name}
+            value={name}
             ref="name" />
         </div>
         <div>
@@ -96,7 +96,7 @@ export default class ProductForm extends Component {
             type="text"
             errorMessage="Use number with or without separator . or ,"
             pattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
-            fieldValue={price}
+            value={price}
             ref="price" />
         </div>
         <div>

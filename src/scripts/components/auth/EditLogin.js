@@ -19,9 +19,9 @@ class EditLogin extends Component {
     ev.preventDefault();
 
     let id = this.props.id;
-    let email = this.refs.email.state.fieldValue;
-    let password = this.refs.password.state.fieldValue;
-    let passwordConfirmation = this.refs.passwordConfirmation.state.fieldValue;
+    let email = this.refs.email.state.value;
+    let password = this.refs.password.state.value;
+    let passwordConfirmation = this.refs.passwordConfirmation.state.value;
 
     if (email && password && passwordConfirmation) {
       this.props.dispatch(updateLogin({
@@ -51,7 +51,7 @@ class EditLogin extends Component {
             id="email"
             name="Email"
             type="text"
-            fieldValue={email}
+            value={email}
             ref="email" />
         </div>
         <div>

@@ -2,7 +2,7 @@
 // Each validators would have own pattern and each pattern world have an error message.
 "use strict";
 import React, { Component, PropTypes } from "react";
-import { findDOMNode, render } from "react-dom";
+import { render } from "react-dom";
 
 class InputTextArea extends Component {
   static propTypes = {

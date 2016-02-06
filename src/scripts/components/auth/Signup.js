@@ -20,10 +20,10 @@ class Signup extends Component {
   handleSubmit(ev) {
     ev.preventDefault();
 
-    let email = this.refs.email.state.fieldValue;
-    let name = this.refs.name.state.fieldValue;
-    let password = this.refs.password.state.fieldValue;
-    let passwordConfirmation = this.refs.passwordConfirmation.state.fieldValue;
+    let email = this.refs.email.state.value;
+    let name = this.refs.name.state.value;
+    let password = this.refs.password.state.value;
+    let passwordConfirmation = this.refs.passwordConfirmation.state.value;
 
     if (email && name && password && passwordConfirmation) {
       this.props.dispatch(signup({

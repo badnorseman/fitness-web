@@ -16,7 +16,7 @@ class NewPassword extends Component {
   handleSubmit(ev) {
     ev.preventDefault();
 
-    let email = this.refs.email.state.fieldValue;
+    let email = this.refs.email.state.value;
 
     if (email) {
       this.props.dispatch(createPassword({

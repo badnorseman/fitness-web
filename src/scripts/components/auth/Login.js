@@ -17,8 +17,8 @@ class Login extends Component {
   handleSubmit(ev) {
     ev.preventDefault();
 
-    let email = this.refs.email.state.fieldValue;
-    let password = this.refs.password.state.fieldValue;
+    let email = this.refs.email.state.value;
+    let password = this.refs.password.state.value;
 
     if (email && password) {
       this.props.dispatch(login({

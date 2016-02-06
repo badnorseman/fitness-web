@@ -27,11 +27,11 @@ class EditUser extends Component {
     ev.preventDefault();
 
     let avatar = this.refs.avatar.state.file;
-    let birthDay = this.refs.birthDay.state.fieldValue;
-    let email = this.refs.email.state.fieldValue;
+    let birthDay = this.refs.birthDay.state.value;
+    let email = this.refs.email.state.value;
     let gender = this.getGender();
     let id = this.props.user.id;
-    let name = this.refs.name.state.fieldValue;
+    let name = this.refs.name.state.value;
 
     if (email && gender && name) {
       this.props.dispatch(updateUser({
@@ -72,7 +72,7 @@ class EditUser extends Component {
             id="name"
             name="Full name"
             type="text"
-            fieldValue={name}
+            value={name}
             ref="name" />
         </div>
         <div>
@@ -80,7 +80,7 @@ class EditUser extends Component {
             id="email"
             name="Email"
             type="text"
-            fieldValue={email}
+            value={email}
             ref="email" />
         </div>
         <div>
@@ -100,7 +100,7 @@ class EditUser extends Component {
             id="birthDay"
             name="Birthday"
             type="text"
-            fieldValue={birth_date}
+            value={birth_date}
             ref="birthDay" />
         </div>
         <div>
