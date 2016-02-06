@@ -9,8 +9,8 @@ class InputFile extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    e.preventDefault();
+  handleChange(ev) {
+    ev.preventDefault();
 
     let file = document.getElementById("file--selected").files[0];
 
@@ -24,7 +24,6 @@ class InputFile extends Component {
           accept="image/jpeg, image/jpg, image/png"
           className="mdl-textfield__input"
           id="file--selected"
-          ref="selectedFile"
           type="file"
           onChange={this.handleChange} />
         <label
