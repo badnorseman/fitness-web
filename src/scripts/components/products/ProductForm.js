@@ -38,7 +38,7 @@ export default class ProductForm extends Component {
     ev.preventDefault();
 
     let currency = this.getCurrency();
-    let description = this.refs.description.state.fieldValue;
+    let description = this.refs.description.state.value;
     let id = this.props.product.id;
     let image = this.refs.image.state.file;
     let name = this.refs.name.state.fieldValue;
@@ -86,7 +86,7 @@ export default class ProductForm extends Component {
             id="description"
             name="Description"
             type="text"
-            fieldValue={description}
+            value={description}
             ref="description" />
         </div>
         <div>

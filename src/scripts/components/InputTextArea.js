@@ -11,25 +11,25 @@ class InputTextArea extends Component {
     type: PropTypes.string.isRequired,
     errorMessage: PropTypes.string,
     pattern: PropTypes.string,
-    styles: PropTypes.string
+    styles: PropTypes.string,
+    value: PropTypes.string
   }
 
   constructor(props) {
     super(props);
-    this.state = { fieldValue: this.props.fieldValue };
+    this.state = { value: this.props.value };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(ev) {
     ev.preventDefault();
 
-    let change = findDOMNode(this.refs[this.props.id]).value;
-
-    this.setState({ fieldValue: change });
+    this.setState({ value: ev.target.value });
   }
 
   render() {
-    const { errorMessage, id, name, pattern, styles, type, fieldValue } = this.props;
+    const { errorMessage, id, name, pattern, styles, type } = this.props;
+    let value = this.state.value;
 
     return (
       <div className={"mdl-textfield mdl-js-textfield mdl-textfield--floating-label " + styles}>
@@ -38,8 +38,7 @@ class InputTextArea extends Component {
           id={id}
           pattern={pattern}
           type={type}
-          value={this.state.fieldValue}
-          ref={id}
+          value={value}
           onChange={this.handleChange} />
         <label
           className="mdl-textfield__label"
