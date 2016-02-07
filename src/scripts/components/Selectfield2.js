@@ -1,8 +1,9 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
+import "./selectfield.css";
 
-class SelectField extends Component {
+class Selectfield extends Component {
   constructor(props) {
     super(props);
     this.state = { value: this.props.value };
@@ -32,7 +33,7 @@ class SelectField extends Component {
     let value = this.state.value;
 
     return (
-      <div className={" " + styles}>
+      <div className="mdl-selectfield">
         <label
           className=""
           htmlFor={id}
@@ -52,7 +53,7 @@ class SelectField extends Component {
   }
 }
 
-SelectField.propTypes = {
+Selectfield.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   options: PropTypes.object.isRequired,
@@ -63,4 +64,4 @@ SelectField.propTypes = {
   styles: PropTypes.string
 };
 
-export default SelectField
+export default Selectfield

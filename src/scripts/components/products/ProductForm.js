@@ -3,8 +3,8 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import InputField from "../InputField";
 import InputFile from "../InputFile";
-import InputTextArea from "../InputTextArea";
-import SelectField from "../SelectField";
+import Textarea from "../Textarea";
+import Selectfield from "../Selectfield2";
 
 class ProductForm extends Component {
   constructor(props) {
@@ -50,8 +50,8 @@ class ProductForm extends Component {
             ref="name" />
         </div>
         <div>
-          <InputTextArea
-            id="description" name="Description" type="text"
+          <Textarea
+            id="description" label="Description" type="text"
             value={description}
             ref="description" />
         </div>
@@ -64,7 +64,7 @@ class ProductForm extends Component {
             ref="price" />
         </div>
         <div>
-          <SelectField
+          <Selectfield
             id="currency" label="Currency"
             options={currencies}
             value={currency}
