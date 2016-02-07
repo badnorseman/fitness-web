@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 import { createProduct } from "../../actions/product_actions";
 import Link from "../Link";
-import ProductForm from "./ProductForm";
+import Productform from "./Productform2";
 
 const NewProduct = ({ dispatch }) => (
   <div className="mdl-grid">
@@ -16,7 +16,7 @@ const NewProduct = ({ dispatch }) => (
         </Link>
       </div>
       <div className="mdl-card__supporting-text">
-        <ProductForm
+        <Productform
           onSubmit={(product) => dispatch(createProduct(product))}
         />
       </div>

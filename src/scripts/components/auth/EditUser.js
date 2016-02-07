@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions/user_actions";
 import InputField from "../InputField";
-import InputFile from "../InputFile";
+import File from "../File";
 
 class EditUser extends Component {
   static propTypes = {
@@ -107,7 +107,7 @@ class EditUser extends Component {
           <img src={avatar} alt="" style={styles.avatar} />
         </div>
         <div>
-          <InputFile ref="avatar" />
+          <File ref="avatar" />
         </div>
         <div className="mdl-typography--text-center">
           <button

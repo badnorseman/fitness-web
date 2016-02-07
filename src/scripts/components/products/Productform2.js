@@ -2,11 +2,11 @@
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import InputField from "../InputField";
-import InputFile from "../InputFile";
+import File from "../File";
 import Textarea from "../Textarea";
-import Selectfield from "../Selectfield2";
+import Selectfield from "../Selectfield";
 
-class ProductForm extends Component {
+class Productform extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -74,7 +74,7 @@ class ProductForm extends Component {
           <img src={image} alt="" style={styles.image} />
         </div>
         <div>
-          <InputFile ref="image" />
+          <File ref="image" />
         </div>
         <div className="mdl-typography--text-center">
           {id && <button
@@ -99,13 +99,13 @@ class ProductForm extends Component {
   }
 }
 
-ProductForm.propTypes = {
+Productform.propTypes = {
   product: PropTypes.object,
   onRemove: PropTypes.func,
   onSubmit: PropTypes.func.isRequired
 };
 
-ProductForm.defaultProps = {
+Productform.defaultProps = {
   product: {
     currency: "DKK",
     description: "",
@@ -115,4 +115,4 @@ ProductForm.defaultProps = {
   }
 };
 
-export default ProductForm
+export default Productform

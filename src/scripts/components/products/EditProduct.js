@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 import { destroyProduct, updateProduct } from "../../actions/product_actions";
 import Link from "../Link";
-import ProductForm from "./ProductForm";
+import Productform from "./Productform2";
 
 const EditProduct = ({ product, dispatch }) => (
   <div className="mdl-grid">
@@ -16,7 +16,7 @@ const EditProduct = ({ product, dispatch }) => (
         </Link>
       </div>
       <div className="mdl-card__supporting-text">
-        <ProductForm
+        <Productform
           product={product}
           onRemove={(id) => dispatch(destroyProduct(id))}
           onSubmit={(product) => dispatch(updateProduct(product))}
