@@ -7,8 +7,8 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { signup } from "../../actions/auth_actions";
 import Facebook from "./Facebook";
-import InputField from "../../components/InputField";
 import Link from "../Link";
+import Inputfield from "../../components/Inputfield";
 import "./signup.css";
 
 class Signup extends Component {
@@ -43,34 +43,26 @@ class Signup extends Component {
             <div><Facebook /></div>
             <form>
               <div>
-                <InputField
-                  id="name"
-                  name="Name"
-                  type="text"
+                <Inputfield
+                  id="name" label="Name" type="text"
                   styles="signup__input-field"
                   ref="name" />
               </div>
               <div>
-                <InputField
-                  id="email"
-                  name="Email"
-                  type="text"
+                <Inputfield
+                  id="email" label="Email" type="text"
                   styles="signup__input-field"
                   ref="email" />
               </div>
               <div>
-                <InputField
-                  id="password"
-                  name="Password"
-                  type="password"
+                <Inputfield
+                  id="password" label="Password" type="password"
                   styles="signup__input-field"
                   ref="password" />
               </div>
               <div>
-                <InputField
-                  id="passwordConfirmation"
-                  name="Confirm password"
-                  type="password"
+                <Inputfield
+                  id="passwordConfirmation" label="Confirm password" type="password"
                   styles="signup__input-field"
                   ref="passwordConfirmation" />
               </div>

@@ -4,16 +4,7 @@
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 
-class InputField extends Component {
-  static propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    errorMessage: PropTypes.string,
-    pattern: PropTypes.string,
-    styles: PropTypes.string
-  }
-
+class Inputfield extends Component {
   constructor(props) {
     super(props);
     this.state = { value: this.props.value };
@@ -27,7 +18,7 @@ class InputField extends Component {
   }
 
   render() {
-    const { errorMessage, id, name, pattern, styles, type } = this.props;
+    const { errorMessage, id, label, pattern, styles, type } = this.props;
     let value = this.state.value;
 
     return (
@@ -42,7 +33,7 @@ class InputField extends Component {
         <label
           className="mdl-textfield__label"
           htmlFor={id}>
-          {name}
+          {label}
         </label>
         <span
           className="mdl-textfield__error">
@@ -53,4 +44,17 @@ class InputField extends Component {
   }
 }
 
-export default InputField
+Inputfield.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
+  pattern: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]),
+  styles: PropTypes.string
+};
+
+export default Inputfield

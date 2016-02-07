@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-class InputFile extends Component {
+class File extends Component {
   constructor() {
     super();
     this.state = { file: "" };
@@ -34,4 +34,4 @@ class InputFile extends Component {
   }
 }
 
-export default InputFile
+export default File

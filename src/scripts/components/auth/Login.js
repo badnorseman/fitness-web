@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { login } from "../../actions/auth_actions";
 import Facebook from "./Facebook";
-import InputField from "../InputField";
+import Inputfield from "../Inputfield";
 import Link from "../Link";
 import "./login.css";
 
@@ -36,18 +36,14 @@ class Login extends Component {
             <div><Facebook /></div>
             <form>
               <div>
-                <InputField
-                  id="email"
-                  name="Email"
-                  type="text"
+                <Inputfield
+                  id="email" label="Email" type="text"
                   styles="login__input-field"
                   ref="email" />
               </div>
               <div>
-                <InputField
-                  id="password"
-                  name="Password"
-                  type="password"
+                <Inputfield
+                  id="password" label="Password" type="password"
                   styles="login__input-field"
                   ref="password" />
               </div>

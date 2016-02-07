@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 import { createProduct } from "../../actions/product_actions";
 import Link from "../Link";
-import Productform from "./Productform2";
+import Productform from "./Productform";
 
 const NewProduct = ({ dispatch }) => (
   <div className="mdl-grid">

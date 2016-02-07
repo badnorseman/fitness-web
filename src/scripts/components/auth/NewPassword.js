@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { createPassword } from "../../actions/auth_actions";
-import InputField from "../InputField";
 import Link from "../Link";
+import Inputfield from "../Inputfield";
 import "./new_password.css";
 
 class NewPassword extends Component {
@@ -32,10 +32,8 @@ class NewPassword extends Component {
           <div className="mdl-card__supporting-text mdl-card--border">
             <form>
               <div>
-                <InputField
-                  id="email"
-                  name="Email"
-                  type="text"
+                <Inputfield
+                  id="email" label="Email" type="text"
                   styles="new-password__input-field"
                   ref="email" />
               </div>

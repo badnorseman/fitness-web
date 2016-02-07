@@ -1,10 +1,10 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
-import InputField from "../InputField";
 import File from "../File";
-import Textarea from "../Textarea";
+import Inputfield from "../Inputfield";
 import Selectfield from "../Selectfield";
+import Textarea from "../Textarea";
 
 class Productform extends Component {
   constructor(props) {
@@ -42,8 +42,8 @@ class Productform extends Component {
     return (
       <form>
         <div>
-          <InputField
-            id="name" name="Name" type="text"
+          <Inputfield
+            id="name" label="Name" type="text"
             errorMessage="Letters and numbers and . , : - only. Start with a letter or number"
             pattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
             value={name}
@@ -56,8 +56,8 @@ class Productform extends Component {
             ref="description" />
         </div>
         <div>
-          <InputField
-            id="price" name="Price" type="text"
+          <Inputfield
+            id="price" label="Price" type="text"
             errorMessage="Number and decimal mark only"
             pattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
             value={price}

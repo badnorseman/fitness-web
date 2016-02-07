@@ -3,13 +3,9 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { updateLogin } from "../../actions/auth_actions";
-import InputField from "../InputField";
+import Inputfield from "../Inputfield";
 
 class EditLogin extends Component {
-  static propTypes = {
-    login: PropTypes.object.isRequired
-  }
-
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,28 +40,21 @@ class EditLogin extends Component {
     };
 
     return (
-      <form className="center"
-        style={styles.form}>
+      <form className="center" style={styles.form}>
         <div>
-          <InputField
-            id="email"
-            name="Email"
-            type="text"
+          <Inputfield
+            id="email" label="Email" type="text"
             value={email}
             ref="email" />
         </div>
         <div>
-          <InputField
-            id="password"
-            name="Password"
-            type="password"
+          <Inputfield
+            id="password" label="Password" type="password"
             ref="password" />
         </div>
         <div>
-          <InputField
-            id="passwordConfirmation"
-            name="Confirm password"
-            type="password"
+          <Inputfield
+            id="passwordConfirmation" label="Confirm password" type="password"
             ref="passwordConfirmation" />
         </div>
         <div className="mdl-typography--text-center">
@@ -80,5 +69,9 @@ class EditLogin extends Component {
     )
   }
 }
+
+EditLogin.propTypes = {
+  login: PropTypes.object.isRequired
+};
 
 export default connect()(EditLogin)

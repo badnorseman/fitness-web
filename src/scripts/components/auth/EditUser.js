@@ -3,14 +3,10 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions/user_actions";
-import InputField from "../InputField";
 import File from "../File";
+import Inputfield from "../Inputfield";
 
 class EditUser extends Component {
-  static propTypes = {
-    user: PropTypes.object.isRequired
-  }
-
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -65,21 +61,16 @@ class EditUser extends Component {
     };
 
     return (
-      <form className="center"
-        style={styles.form}>
+      <form className="center" style={styles.form}>
         <div>
-          <InputField
-            id="name"
-            name="Full name"
-            type="text"
+          <Inputfield
+            id="name" label="Full name" type="text"
             value={name}
             ref="name" />
         </div>
         <div>
-          <InputField
-            id="email"
-            name="Email"
-            type="text"
+          <Inputfield
+            id="email" label="Email" type="text"
             value={email}
             ref="email" />
         </div>
@@ -96,10 +87,8 @@ class EditUser extends Component {
           </label>
         </div>
         <div>
-          <InputField
-            id="birthDay"
-            name="Birthday"
-            type="text"
+          <Inputfield
+            id="birthDay" label="Birthday" type="text"
             value={birth_date}
             ref="birthDay" />
         </div>
@@ -121,5 +110,9 @@ class EditUser extends Component {
     )
   }
 }
+
+EditUser.propTypes = {
+  user: PropTypes.object.isRequired
+};
 
 export default connect()(EditUser)
