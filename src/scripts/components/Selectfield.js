@@ -1,7 +1,6 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
-import "./selectfield.css";
 
 class Selectfield extends Component {
   constructor(props) {
@@ -10,44 +9,46 @@ class Selectfield extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(ev) {
-    ev.preventDefault();
-
-    this.setState({ value: ev.target.value });
+  handleChange(value) {
+    this.setState({ value: value });
   }
 
   render() {
     const { id, label, styles } = this.props;
 
-    let options = [];
-    for (let key in this.props.options) {
-      if (this.props.options.hasOwnProperty(key)) {
-        options.push(
-          <option key={key} value={this.props.options[key]}>
-            {this.props.options[key]}
-          </option>
-        );
-      }
-    }
+    // let options = [];
+    // for (let key in this.props.options) {
+    //   if (this.props.options.hasOwnProperty(key)) {
+    //     options.push(
+    //       <li key={key} value={this.props.options[key]} className="mdl-menu__item"
+    //         onClick={() => { this.handleChange(this.props.options[key]) }}
+    //       >
+    //         {this.props.options[key]}
+    //       </li>
+    //     );
+    //   }
+    // }
 
     let value = this.state.value;
 
     return (
-      <div className="mdl-selectfield">
-        <label
-          className=""
-          htmlFor={id}
-        >
-          {label}
-        </label>
-        <select
-          className=""
-          id={id}
-          value={value}
-          onChange={this.handleChange}
-        >
-          {options}
-        </select>
+      <div>
+        <span>{value}</span>
+        <button id="select-btn"
+          className="mdl-button mdl-js-button mdl-button--icon">
+          <i className="zmdi zmdi-caret-down zmdi-hc-lg"></i>
+        </button>
+        <ul htmlFor="select-btn" className="mdl-menu mdl-js-menu mdl-menu--bottom-right">
+          <li className="mdl-menu__item" onClick={() => { this.handleChange("DKK") }}>
+            DKK
+          </li>
+          <li className="mdl-menu__item" onClick={() => { this.handleChange("EUR") }}>
+            EUR
+          </li>
+          <li className="mdl-menu__item" onClick={() => { this.handleChange("USD") }}>
+            USD
+          </li>
+        </ul>
       </div>
     )
   }
