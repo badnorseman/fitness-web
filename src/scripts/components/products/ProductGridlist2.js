@@ -1,12 +1,12 @@
 "use strict";
-import ProductGridTile from "./ProductGridTile";
+import ProductTile from "./ProductTile";
 
-const ProductGridList = ({ products }) => {
+const ProductGridlist = ({ products }) => {
   let tiles = [];
   for (let key in products) {
     if (products.hasOwnProperty(key)) {
       tiles.push(
-        <ProductGridTile key={key} product={products[key]} />
+        <ProductTile key={key} product={products[key]} />
       );
     }
   }
@@ -18,4 +18,4 @@ const ProductGridList = ({ products }) => {
   );
 };
 
-export default ProductGridList
+export default ProductGridlist

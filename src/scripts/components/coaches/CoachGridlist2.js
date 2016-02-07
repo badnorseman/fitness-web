@@ -1,12 +1,12 @@
 "use strict";
-import CoachGridTile from "./CoachGridTile";
+import CoachTile from "./CoachTile";
 
-const CoachGridList = ({ coaches }) => {
+const CoachGridlist = ({ coaches }) => {
   let tiles = [];
   for (let key in coaches) {
     if (coaches.hasOwnProperty(key)) {
       tiles.push(
-        <CoachGridTile key={key} coach={coaches[key]} />
+        <CoachTile key={key} coach={coaches[key]} />
       );
     }
   }
@@ -18,4 +18,4 @@ const CoachGridList = ({ coaches }) => {
   );
 };
 
-export default CoachGridList
+export default CoachGridlist
