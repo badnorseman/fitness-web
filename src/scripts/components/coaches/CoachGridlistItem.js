@@ -1,7 +1,7 @@
 "use strict";
 import Link from "../Link";
 
-const CoachTile = ({ coach }) => {
+const CoachGridlistItem = ({ coach }) => {
   const { avatar, name } = coach;
   const styles = { avatar: { maxHeight: "160px" } };
 
@@ -20,4 +20,4 @@ const CoachTile = ({ coach }) => {
   );
 };
 
-export default CoachTile
+export default CoachGridlistItem

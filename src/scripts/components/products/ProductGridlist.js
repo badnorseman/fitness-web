@@ -1,19 +1,19 @@
 "use strict";
-import ProductTile from "./ProductTile";
+import ProductGridlistItem from "./ProductGridlistItem";
 
 const ProductGridlist = ({ products }) => {
-  let tiles = [];
+  let items = [];
   for (let key in products) {
     if (products.hasOwnProperty(key)) {
-      tiles.push(
-        <ProductTile key={key} product={products[key]} />
+      items.push(
+        <ProductGridlistItem key={key} product={products[key]} />
       );
     }
   }
 
   return (
     <div className="mdl-grid">
-      {tiles}
+      {items}
     </div>
   );
 };

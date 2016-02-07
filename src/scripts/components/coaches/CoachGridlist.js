@@ -1,19 +1,19 @@
 "use strict";
-import CoachTile from "./CoachTile";
+import CoachGridlistItem from "./CoachGridlistItem";
 
 const CoachGridlist = ({ coaches }) => {
-  let tiles = [];
+  let items = [];
   for (let key in coaches) {
     if (coaches.hasOwnProperty(key)) {
-      tiles.push(
-        <CoachTile key={key} coach={coaches[key]} />
+      items.push(
+        <CoachGridlistItem key={key} coach={coaches[key]} />
       );
     }
   }
 
   return (
     <div className="mdl-grid">
-      {tiles}
+      {items}
     </div>
   );
 };

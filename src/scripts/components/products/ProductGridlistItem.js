@@ -1,7 +1,7 @@
 "use strict";
 import Link from "../Link";
 
-const ProductTile = ({ product }) => {
+const ProductGridlistItem = ({ product }) => {
   const { description, image, name } = product;
   const styles = { image: { maxHeight: "160px" } };
 
@@ -20,4 +20,4 @@ const ProductTile = ({ product }) => {
   );
 };
 
-export default ProductTile
+export default ProductGridlistItem
