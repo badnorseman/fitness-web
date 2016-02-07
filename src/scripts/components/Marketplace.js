@@ -1,7 +1,7 @@
 "use strict";
 import { connect } from "react-redux";
-import CoachGridlist from "./coaches/CoachGridlist2";
-import ProductGridlist from "./products/ProductGridlist2";
+import CoachGridlist from "./coaches/CoachGridlist";
+import ProductGridlist from "./products/ProductGridlist";
 
 const Marketplace = ({ coaches, products }) => (
   <div>
