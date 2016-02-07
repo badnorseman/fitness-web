@@ -1,10 +1,8 @@
-// Enable to pass in validators e.g. required, number, amount etc.
-// Each validators would have own pattern and each pattern world have an error message.
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 
-class Inputfield extends Component {
+class Textarea extends Component {
   constructor(props) {
     super(props);
     this.state = { value: this.props.value };
@@ -23,7 +21,7 @@ class Inputfield extends Component {
 
     return (
       <div className={"mdl-textfield mdl-js-textfield mdl-textfield--floating-label " + styles}>
-        <input
+        <textarea
           className="mdl-textfield__input"
           id={id}
           pattern={pattern}
@@ -44,17 +42,14 @@ class Inputfield extends Component {
   }
 }
 
-Inputfield.propTypes = {
+Textarea.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   errorMessage: PropTypes.string,
   pattern: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string
-  ]),
-  styles: PropTypes.string
+  styles: PropTypes.string,
+  value: PropTypes.string
 };
 
-export default Inputfield
+export default Textarea

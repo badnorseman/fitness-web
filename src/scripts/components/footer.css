@@ -3,7 +3,7 @@
   /*background-color: rgb(75,87,167);*/
   background-color: rgb(58,77,153);
   box-sizing: border-box;
-  color: rgba(255,255,255, 1);
+  color: rgba(255,255,255,1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,17 +11,17 @@
 }
 
 .footer__top {
-  padding: 16px 0px;
-}
-
-.footer__middle {
-  padding: 0px;
+  padding: 32px 0px 16px;
 }
 
 .footer__bottom {
-  padding: 16px 16px 32px 0px;
-  align-items: center;
+  padding: 0px 0px 32px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
+}
+
+.footer__bottom ul {
+  font-weight: 500;
 }

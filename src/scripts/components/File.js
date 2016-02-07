@@ -2,15 +2,15 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-class InputFile extends Component {
+class File extends Component {
   constructor() {
     super();
     this.state = { file: "" };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    e.preventDefault();
+  handleChange(ev) {
+    ev.preventDefault();
 
     let file = document.getElementById("file--selected").files[0];
 
@@ -24,7 +24,6 @@ class InputFile extends Component {
           accept="image/jpeg, image/jpg, image/png"
           className="mdl-textfield__input"
           id="file--selected"
-          ref="selectedFile"
           type="file"
           onChange={this.handleChange} />
         <label
@@ -35,4 +34,4 @@ class InputFile extends Component {
   }
 }
 
-export default InputFile
+export default File

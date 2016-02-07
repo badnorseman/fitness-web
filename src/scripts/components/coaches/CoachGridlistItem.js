@@ -1,21 +1,14 @@
 "use strict";
 import Link from "../Link";
 
-const CoachGridTile = ({ coach }) => {
+const CoachGridlistItem = ({ coach }) => {
   const { avatar, name } = coach;
-  const styles = {
-    avatar: {
-      maxHeight: "160px"
-    }
-  };
+  const styles = { avatar: { maxHeight: "160px" } };
 
   return (
     <div className="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
       <div className="mdl-card__media">
-        <Link
-          route="SHOWCOACH"
-          param={coach}
-        >
+        <Link route="SHOWCOACH" param={coach}>
           <img src={avatar} alt="" style={styles.avatar} />
         </Link>
       </div>
@@ -27,4 +20,4 @@ const CoachGridTile = ({ coach }) => {
   );
 };
 
-export default CoachGridTile
+export default CoachGridlistItem

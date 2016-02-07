@@ -6,10 +6,10 @@ import { getUsers } from "./user_actions";
 const goTo = (route, param) => {
   return dispatch => {
     switch (route) {
-      case "ACCOUNT":
+      case "TRANSACTIONLIST":
         dispatch(getTransactions());
         break;
-      case "DASHBOARD":
+      case "USERLIST":
         dispatch(getUsers());
         break;
     }

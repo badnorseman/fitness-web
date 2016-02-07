@@ -3,14 +3,10 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions/user_actions";
-import InputField from "../InputField";
-import InputFile from "../InputFile";
+import File from "../File";
+import Inputfield from "../Inputfield";
 
 class EditUser extends Component {
-  static propTypes = {
-    user: PropTypes.object.isRequired
-  }
-
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,11 +23,11 @@ class EditUser extends Component {
     ev.preventDefault();
 
     let avatar = this.refs.avatar.state.file;
-    let birthDay = this.refs.birthDay.state.fieldValue;
-    let email = this.refs.email.state.fieldValue;
+    let birthDay = this.refs.birthDay.state.value;
+    let email = this.refs.email.state.value;
     let gender = this.getGender();
     let id = this.props.user.id;
-    let name = this.refs.name.state.fieldValue;
+    let name = this.refs.name.state.value;
 
     if (email && gender && name) {
       this.props.dispatch(updateUser({
@@ -65,22 +61,17 @@ class EditUser extends Component {
     };
 
     return (
-      <form className="center"
-        style={styles.form}>
+      <form className="center" style={styles.form}>
         <div>
-          <InputField
-            fieldId="name"
-            fieldName="Full name"
-            fieldType="text"
-            fieldValue={name}
+          <Inputfield
+            id="name" label="Full name" type="text"
+            value={name}
             ref="name" />
         </div>
         <div>
-          <InputField
-            fieldId="email"
-            fieldName="Email"
-            fieldType="text"
-            fieldValue={email}
+          <Inputfield
+            id="email" label="Email" type="text"
+            value={email}
             ref="email" />
         </div>
         <div>
@@ -96,30 +87,32 @@ class EditUser extends Component {
           </label>
         </div>
         <div>
-          <InputField
-            fieldId="birthDay"
-            fieldName="Birthday"
-            fieldType="text"
-            fieldValue={birth_date}
+          <Inputfield
+            id="birthDay" label="Birthday" type="text"
+            value={birth_date}
             ref="birthDay" />
         </div>
         <div>
           <img src={avatar} alt="" style={styles.avatar} />
         </div>
         <div>
-          <InputFile ref="avatar" />
+          <File ref="avatar" />
         </div>
         <div className="mdl-typography--text-center">
           <button
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
             onClick={this.handleSubmit}
           >
-            SAVE
+            Save
           </button>
         </div>
       </form>
     )
   }
 }
+
+EditUser.propTypes = {
+  user: PropTypes.object.isRequired
+};
 
 export default connect()(EditUser)

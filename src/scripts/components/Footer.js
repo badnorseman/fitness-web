@@ -10,13 +10,6 @@ const Footer = () => {
     <footer>
       <div className="mdl-mini-footer footer__top">
         <ul className="mdl-mini-footer__link-list">
-          <li><Link route="ABOUT">About</Link></li>
-          <li><Link route="HELP">Help</Link></li>
-          <li><Link route="TERMS">Terms</Link></li>
-        </ul>
-      </div>
-      <div className="mdl-mini-footer footer__middle">
-        <ul className="mdl-mini-footer__link-list">
           <li><Facebook /></li>
           <li><Twitter /></li>
           <li><Instagram /></li>
@@ -24,7 +17,12 @@ const Footer = () => {
         </ul>
       </div>
       <div className="mdl-mini-footer footer__bottom">
-        Copyright&nbsp;{currentYear}&nbsp;FitBird
+        <ul className="mdl-mini-footer__link-list">
+          <li>Copyright&nbsp;{currentYear}&nbsp;FitBird</li>
+          <li><Link route="ABOUT">About</Link></li>
+          <li><Link route="HELP">Help</Link></li>
+          <li><Link route="TERMS">Terms</Link></li>
+        </ul>
       </div>
     </footer>
   );

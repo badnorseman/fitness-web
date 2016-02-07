@@ -15,7 +15,7 @@ const ProductList = ({ products }) => {
 
   return (
     <div className="mdl-grid">
-      <div className="mdl-cell mdl-cell--12-col">
+      <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
         <ul className="mdl-list">
           {items}
         </ul>
@@ -30,7 +30,7 @@ const ProductList = ({ products }) => {
   );
 };
 
-const getProductsByCoach = (coach, products) => {
+const filterProductsByCoach = (coach, products) => {
   let productsByCoach = {};
   coach.products.forEach(el => {
     if (products[el.id]) {
@@ -42,7 +42,7 @@ const getProductsByCoach = (coach, products) => {
 
 const mapStateToProps = (state) => {
   return {
-    products: getProductsByCoach(
+    products: filterProductsByCoach(
       state.coach.coaches[state.auth.currentUser.id],
       state.product.products)
   };

@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { createPassword } from "../../actions/auth_actions";
-import InputField from "../InputField";
 import Link from "../Link";
+import Inputfield from "../Inputfield";
 import "./new_password.css";
 
 class NewPassword extends Component {
@@ -16,7 +16,7 @@ class NewPassword extends Component {
   handleSubmit(ev) {
     ev.preventDefault();
 
-    let email = this.refs.email.state.fieldValue;
+    let email = this.refs.email.state.value;
 
     if (email) {
       this.props.dispatch(createPassword({
@@ -28,27 +28,25 @@ class NewPassword extends Component {
   render() {
     return (
       <div className="new-password-container">
-        <div className="mdl-card mdl-shadow--2dp new-password-card">
+        <div className="mdl-card mdl-shadow--2dp new-password">
           <div className="mdl-card__supporting-text mdl-card--border">
             <form>
               <div>
-                <InputField
-                  fieldId="email"
-                  fieldName="Email"
-                  fieldType="text"
-                  styles="new-password-card__input-field"
+                <Inputfield
+                  id="email" label="Email" type="text"
+                  styles="new-password__input-field"
                   ref="email" />
               </div>
               <button
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent new-password-card__submit-btn"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent new-password__submit-btn"
                 onClick={this.handleSubmit}
               >
-                SEND
+                Send password
               </button>
             </form>
             <Link
               route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect new-password-card__cancel-btn"
+              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect new-password__cancel-btn"
             >
               Cancel
             </Link>
