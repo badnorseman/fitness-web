@@ -5,6 +5,7 @@ import File from "../File";
 import Inputfield from "../Inputfield";
 import Selectfield from "../Selectfield";
 import Textarea from "../Textarea";
+import currencies from "../../constants/currencies";
 
 class Productform extends Component {
   constructor(props) {
@@ -36,7 +37,6 @@ class Productform extends Component {
 
   render() {
     const { currency, description, id, image, name, price } = this.props.product;
-    const currencies = { DKK: "DKK", EUR: "EUR", USD: "USD" };
     const styles = { image: { maxHeight: "160px" } };
 
     return (

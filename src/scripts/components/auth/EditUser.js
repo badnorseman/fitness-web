@@ -5,18 +5,13 @@ import { connect } from "react-redux";
 import { updateUser } from "../../actions/user_actions";
 import File from "../File";
 import Inputfield from "../Inputfield";
+import Selectfield from "../Selectfield";
+import gender from "../../constants/gender";
 
 class EditUser extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  getGender() {
-    let radios = document.getElementsByName("gender");
-    for (let key in radios) {
-      if (radios[key].checked === true) return radios[key].value;
-    }
   }
 
   handleSubmit(ev) {
@@ -25,7 +20,7 @@ class EditUser extends Component {
     let avatar = this.refs.avatar.state.file;
     let birthDay = this.refs.birthDay.state.value;
     let email = this.refs.email.state.value;
-    let gender = this.getGender();
+    let gender = this.refs.gender.state.value;
     let id = this.props.user.id;
     let name = this.refs.name.state.value;
 
@@ -41,12 +36,8 @@ class EditUser extends Component {
     }
   }
 
-  isGender(value) {
-    return value === this.props.user.gender;
-  }
-
   render() {
-    const { avatar, birth_date, email, gender, name } = this.props.user;
+    const { avatar, birth_date, email, name } = this.props.user;
 
     const styles = {
       avatar: {
@@ -75,16 +66,10 @@ class EditUser extends Component {
             ref="email" />
         </div>
         <div>
-          <p>I am</p>
-          <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="gender-male">
-            <input className="mdl-radio__button" id="gender-male" type="radio" value="M" name="gender" defaultChecked={this.isGender("M")} />
-            <span className="mdl-radio__label"><i className="zmdi zmdi-male-alt zmdi-hc-lg"></i></span>
-          </label>
-          <div className="divider"></div>
-          <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="gender-female">
-            <input className="mdl-radio__button" id="gender-female" type="radio" value="F" name="gender" defaultChecked={this.isGender("F")} />
-            <span className="mdl-radio__label"><i className="zmdi zmdi-female zmdi-hc-lg"></i></span>
-          </label>
+          <Selectfield
+            id="gender" label="Gender" options={gender}
+            value={this.props.user.gender}
+            ref="gender" />
         </div>
         <div>
           <Inputfield

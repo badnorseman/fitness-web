@@ -17,18 +17,14 @@ class Selectfield extends Component {
 
   render() {
     const { id, label } = this.props;
+    let value = this.state.value;
 
     let options = [];
-    for (let key in this.props.options) {
-      if (this.props.options.hasOwnProperty(key)) {
-        options[options.length] =
-          <option key={key} value={this.props.options[key]}>
-            {this.props.options[key]}
-          </option>
-      }
-    }
-
-    let value = this.state.value;
+    this.props.options.forEach(el => {
+      options.push(
+        <option key={el.value} value={el.value}>{el.label}</option>
+      );
+    })
 
     return (
       <div>
@@ -46,12 +42,11 @@ class Selectfield extends Component {
 Selectfield.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  options: PropTypes.object.isRequired,
+  options: PropTypes.array.isRequired,
   value: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string
-  ]),
-  styles: PropTypes.string
+  ])
 };
 
 export default Selectfield
