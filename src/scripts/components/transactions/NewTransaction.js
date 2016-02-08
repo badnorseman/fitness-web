@@ -73,7 +73,7 @@ class NewTransaction extends Component {
                 <button type="submit"
                   className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                 >
-                  Buy
+                  Buy now
                 </button>
                 <div className="divider"></div>
                 <Link

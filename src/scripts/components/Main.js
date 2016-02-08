@@ -80,7 +80,7 @@ class Main extends Component {
         content = <ShowCoach coach={param} />;
         break;
       case "SHOWPRODUCT":
-        content = <ShowProduct product={param} />;
+        content = <ShowProduct currentUser={currentUser} product={param} />;
         break;
       case "SIGNUP":
         dialog = <Signup />;
