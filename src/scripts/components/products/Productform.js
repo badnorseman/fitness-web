@@ -3,9 +3,11 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import File from "../File";
 import Inputfield from "../Inputfield";
+import Link from "../Link";
 import Selectfield from "../Selectfield";
 import Textarea from "../Textarea";
 import currencies from "../../constants/currencies";
+import "./productform.css";
 
 class Productform extends Component {
   constructor(props) {
@@ -75,23 +77,30 @@ class Productform extends Component {
         <div>
           <File ref="image" />
         </div>
-        <div className="mdl-typography--text-center">
+        <div>
+          <button
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onClick={this.handleSubmit}
+          >
+            Save
+          </button>
+          <div className="divider"></div>
+          <Link
+            route="PRODUCTLIST"
+            styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect cancel-btn"
+          >
+            Cancel
+          </Link>
+          <div className="divider"></div>
           {id && <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+            className="mdl-button mdl-js-button mdl-button--icon"
             onClick={ev => {
               ev.preventDefault();
               this.props.onRemove(id);
             }}
           >
-            Remove
+            <i className="zmdi zmdi-delete"></i>
           </button>}
-          <div className="divider"></div>
-          <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            onClick={this.handleSubmit}
-          >
-            Save
-          </button>
         </div>
       </form>
     )
@@ -106,11 +115,7 @@ Productform.propTypes = {
 
 Productform.defaultProps = {
   product: {
-    currency: "DKK",
-    description: "",
-    image: "",
-    name: "",
-    price: ""
+    currency: "DKK"
   }
 };
 
