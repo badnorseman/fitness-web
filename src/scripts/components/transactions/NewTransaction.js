@@ -5,6 +5,7 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { createTransaction, getClientToken } from "../../actions/transaction_actions";
 import Link from "../Link";
+import "./new_transaction.css";
 
 class NewTransaction extends Component {
   static propTypes = {
@@ -62,26 +63,25 @@ class NewTransaction extends Component {
 
     return (
       <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
-          <div className="mdl-card__menu">
-            <Link
-              route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--icon"
-            >
-              <i className="zmdi zmdi-close"></i>
-            </Link>
-          </div>
+        <div className="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
           <div className="mdl-card__supporting-text">
             <form onSubmit={this.handleSubmit}>
               <div id="dropin-container"
                 style={styles.dropin}>
               </div>
-              <div className="mdl-typography--text-center">
+              <div>
                 <button type="submit"
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                 >
                   Buy
                 </button>
+                <div className="divider"></div>
+                <Link
+                  route="MARKETPLACE"
+                  styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect cancel-btn"
+                >
+                  Cancel
+                </Link>
               </div>
             </form>
           </div>
