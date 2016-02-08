@@ -27,14 +27,14 @@ class Selectfield extends Component {
     })
 
     return (
-      <div>
+      <span>
         <label htmlFor={id}>
           {label}
         </label>
         <select id={id} value={value} onChange={this.handleChange}>
           {options}
         </select>
-      </div>
+      </span>
     )
   }
 }

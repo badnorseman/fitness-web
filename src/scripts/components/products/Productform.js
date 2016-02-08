@@ -71,12 +71,8 @@ class Productform extends Component {
             value={currency}
             ref="currency" />
         </div>
-        <div>
-          <img src={image} alt="" style={styles.image} />
-        </div>
-        <div>
-          <File ref="image" />
-        </div>
+        <img src={image} alt="" style={styles.image} />
+        <File ref="image" />
         <div>
           <button
             className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
