@@ -65,8 +65,7 @@ class Productform extends Component {
         </div>
         <div>
           <Selectfield
-            id="currency" label="Currency"
-            options={currencies}
+            id="currency" label="Currency" options={currencies}
             value={currency}
             ref="currency" />
         </div>

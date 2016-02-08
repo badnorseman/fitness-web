@@ -9,46 +9,35 @@ class Selectfield extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(value) {
-    this.setState({ value: value });
+  handleChange(ev) {
+    ev.preventDefault();
+
+    this.setState({ value: ev.target.value });
   }
 
   render() {
-    const { id, label, styles } = this.props;
+    const { id, label } = this.props;
 
-    // let options = [];
-    // for (let key in this.props.options) {
-    //   if (this.props.options.hasOwnProperty(key)) {
-    //     options.push(
-    //       <li key={key} value={this.props.options[key]} className="mdl-menu__item"
-    //         onClick={() => { this.handleChange(this.props.options[key]) }}
-    //       >
-    //         {this.props.options[key]}
-    //       </li>
-    //     );
-    //   }
-    // }
+    let options = [];
+    for (let key in this.props.options) {
+      if (this.props.options.hasOwnProperty(key)) {
+        options[options.length] =
+          <option key={key} value={this.props.options[key]}>
+            {this.props.options[key]}
+          </option>
+      }
+    }
 
     let value = this.state.value;
 
     return (
       <div>
-        <span>{value}</span>
-        <button id="select-btn"
-          className="mdl-button mdl-js-button mdl-button--icon">
-          <i className="zmdi zmdi-caret-down zmdi-hc-lg"></i>
-        </button>
-        <ul htmlFor="select-btn" className="mdl-menu mdl-js-menu mdl-menu--bottom-right">
-          <li className="mdl-menu__item" onClick={() => { this.handleChange("DKK") }}>
-            DKK
-          </li>
-          <li className="mdl-menu__item" onClick={() => { this.handleChange("EUR") }}>
-            EUR
-          </li>
-          <li className="mdl-menu__item" onClick={() => { this.handleChange("USD") }}>
-            USD
-          </li>
-        </ul>
+        <label htmlFor={id}>
+          {label}
+        </label>
+        <select id={id} value={value} onChange={this.handleChange}>
+          {options}
+        </select>
       </div>
     )
   }
