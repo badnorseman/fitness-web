@@ -99,12 +99,8 @@ class Main extends Component {
     }
     return (
       <div>
-        <div
-          className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          <Header
-            currentUser={currentUser}
-            logout={logout}
-          />
+        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <Header currentUser={currentUser} logout={logout} />
           <main className="mdl-layout__content">
             <ErrorMessage />
             {content && <div>{content}</div>}

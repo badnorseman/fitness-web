@@ -27,22 +27,23 @@ const ShowProduct = ({ currentUser, product }) => {
           <p>{description}</p>
           <h5 className="mdl-typography--subhead">{currency} {price}</h5>
         </div>
-        {isLoggedIn && <div className="mdl-card__actions mdl-card--border">
-          <Link
-            route="NEWTRANSACTION"
-            param={product}
-            styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
-          >
-            Buy
-          </Link>
-          <div className="divider"></div>
+        <div className="mdl-card__actions mdl-card--border">
+          {isLoggedIn && <span>
+            <Link
+              route="NEWTRANSACTION"
+              param={product}
+              styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+            >
+              Buy
+            </Link>
+          </span>}
           <Link
             route="MARKETPLACE"
             styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
           >
             Cancel
           </Link>
-        </div>}
+        </div>
       </div>
     </div>
   );
