@@ -5,7 +5,6 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { createTransaction, getClientToken } from "../../actions/transaction_actions";
 import Link from "../Link";
-import "./new_transaction.css";
 
 class NewTransaction extends Component {
   static propTypes = {
@@ -71,14 +70,14 @@ class NewTransaction extends Component {
               </div>
               <div>
                 <button type="submit"
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
                 >
                   Buy now
                 </button>
                 <div className="divider"></div>
                 <Link
                   route="MARKETPLACE"
-                  styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect cancel-btn"
+                  styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
                 >
                   Cancel
                 </Link>

@@ -7,7 +7,6 @@ import Link from "../Link";
 import Selectfield from "../Selectfield";
 import Textarea from "../Textarea";
 import currencies from "../../constants/currencies";
-import "./productform.css";
 
 class Productform extends Component {
   constructor(props) {
@@ -75,7 +74,7 @@ class Productform extends Component {
         <File ref="image" />
         <div>
           <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
             onClick={this.handleSubmit}
           >
             Save
@@ -83,19 +82,19 @@ class Productform extends Component {
           <div className="divider"></div>
           <Link
             route="PRODUCTLIST"
-            styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect cancel-btn"
+            styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
           >
             Cancel
           </Link>
           <div className="divider"></div>
           {id && <button
-            className="mdl-button mdl-js-button mdl-button--icon"
+            className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
             onClick={ev => {
               ev.preventDefault();
               this.props.onRemove(id);
             }}
           >
-            <i className="zmdi zmdi-delete"></i>
+            Delete
           </button>}
         </div>
       </form>

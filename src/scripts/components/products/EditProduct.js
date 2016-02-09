@@ -13,6 +13,8 @@ const EditProduct = ({ product, dispatch }) => (
           onSubmit={(product) => dispatch(updateProduct(product))}
         />
       </div>
+      <div className="mdl-card__actions mdl-card--border">
+      </div>
     </div>
   </div>
 );
