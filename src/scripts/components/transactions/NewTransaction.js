@@ -12,7 +12,7 @@ class NewTransaction extends Component {
     this.onPaymentMethodReceived = this.onPaymentMethodReceived.bind(this);
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
     Braintree.setup(
       this.props.clientToken,
       "dropin", {
@@ -43,22 +43,20 @@ class NewTransaction extends Component {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
           <div className="mdl-card__supporting-text">
-            <form onSubmit={ev => {ev.preventDefault();}}>
+            <form onSubmit={ev => ev.preventDefault()}>
               <div id="dropin-container"></div>
               <br />
-              <div>
-                <button type="submit"
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
-                >
-                  Buy now
-                </button>
-                <Link
-                  route="MARKETPLACE"
-                  styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
-                >
-                  Cancel
-                </Link>
-              </div>
+              <button type="submit"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
+              >
+                Buy now
+              </button>
+              <Link
+                route="MARKETPLACE"
+                styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+              >
+                Cancel
+              </Link>
             </form>
           </div>
         </div>
