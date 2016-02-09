@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { updateUser } from "../../actions/user_actions";
 import File from "../File";
 import Inputfield from "../Inputfield";
+import Link from "../Link";
 import Selectfield from "../Selectfield";
 import gender from "../../constants/gender";
 
@@ -79,13 +80,21 @@ class EditUser extends Component {
             <div>
               <File ref="avatar" />
             </div>
-            <button
-              className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-              onClick={this.handleSubmit}
-            >
-              Save
-            </button>
           </form>
+        </div>
+        <div className="mdl-card__actions">
+          <button
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onClick={this.handleSubmit}
+          >
+            Save
+          </button>
+          <Link
+            route="MARKETPLACE"
+            styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+          >
+            Cancel
+          </Link>
         </div>
       </div>
     )

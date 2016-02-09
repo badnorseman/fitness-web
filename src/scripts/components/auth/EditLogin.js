@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { updateLogin } from "../../actions/auth_actions";
 import Inputfield from "../Inputfield";
+import Link from "../Link";
 
 class EditLogin extends Component {
   constructor(props) {
@@ -51,13 +52,21 @@ class EditLogin extends Component {
                 id="passwordConfirmation" label="Confirm password" type="password"
                 ref="passwordConfirmation" />
             </div>
-            <button
-              className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-              onClick={this.handleSubmit}
-            >
-              Save
-            </button>
           </form>
+        </div>
+        <div className="mdl-card__actions">
+          <button
+            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onClick={this.handleSubmit}
+          >
+            Save
+          </button>
+          <Link
+            route="MARKETPLACE"
+            styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+          >
+            Cancel
+          </Link>
         </div>
       </div>
     )
