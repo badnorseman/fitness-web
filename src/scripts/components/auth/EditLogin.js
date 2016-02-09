@@ -32,40 +32,34 @@ class EditLogin extends Component {
   render() {
     const { email } = this.props.login;
 
-    const styles = {
-      form: {
-        padding: "50px 0 0 0",
-        width: "300px"
-      }
-    };
-
     return (
-      <form className="center" style={styles.form}>
-        <div>
-          <Inputfield
-            id="email" label="Email" type="text"
-            value={email}
-            ref="email" />
+      <div className="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+        <div className="mdl-card__supporting-text mdl-card--border">
+          <form>
+            <div>
+              <Inputfield
+                id="email" label="Email" type="text" value={email}
+                ref="email" />
+            </div>
+            <div>
+              <Inputfield
+                id="password" label="Password" type="password"
+                ref="password" />
+            </div>
+            <div>
+              <Inputfield
+                id="passwordConfirmation" label="Confirm password" type="password"
+                ref="passwordConfirmation" />
+            </div>
+            <button
+              className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+              onClick={this.handleSubmit}
+            >
+              Save
+            </button>
+          </form>
         </div>
-        <div>
-          <Inputfield
-            id="password" label="Password" type="password"
-            ref="password" />
-        </div>
-        <div>
-          <Inputfield
-            id="passwordConfirmation" label="Confirm password" type="password"
-            ref="passwordConfirmation" />
-        </div>
-        <div className="mdl-typography--text-center">
-          <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            onClick={this.handleSubmit}
-          >
-            Save
-          </button>
-        </div>
-      </form>
+      </div>
     )
   }
 }

@@ -78,7 +78,7 @@ class Productform extends Component {
       </div>
       <div className="mdl-card__actions mdl-card--border">
         <button
-          className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+          className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
           onClick={this.handleSubmit}
         >
           Save

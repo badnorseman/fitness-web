@@ -44,54 +44,50 @@ class EditUser extends Component {
         borderRadius: "48px",
         height: "96px",
         width: "96px"
-      },
-      form: {
-        padding: "50px 0 0 0",
-        width: "300px"
       }
     };
 
     return (
-      <form className="center" style={styles.form}>
-        <div>
-          <Inputfield
-            id="name" label="Full name" type="text"
-            value={name}
-            ref="name" />
+      <div className="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+        <div className="mdl-card__supporting-text mdl-card--border">
+          <form>
+            <div>
+              <Inputfield
+                id="name" label="Full name" type="text"
+                value={name}
+                ref="name" />
+            </div>
+            <div>
+              <Inputfield
+                id="email" label="Email" type="text"
+                value={email}
+                ref="email" />
+            </div>
+            <div>
+              <Selectfield
+                id="gender" label="Gender" options={gender}
+                value={this.props.user.gender}
+                ref="gender" />
+            </div>
+            <div>
+              <Inputfield
+                id="birthDay" label="Birthday" type="text"
+                value={birth_date}
+                ref="birthDay" />
+            </div>
+            <img src={avatar} alt="" style={styles.avatar} />
+            <div>
+              <File ref="avatar" />
+            </div>
+            <button
+              className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+              onClick={this.handleSubmit}
+            >
+              Save
+            </button>
+          </form>
         </div>
-        <div>
-          <Inputfield
-            id="email" label="Email" type="text"
-            value={email}
-            ref="email" />
-        </div>
-        <div>
-          <Selectfield
-            id="gender" label="Gender" options={gender}
-            value={this.props.user.gender}
-            ref="gender" />
-        </div>
-        <div>
-          <Inputfield
-            id="birthDay" label="Birthday" type="text"
-            value={birth_date}
-            ref="birthDay" />
-        </div>
-        <div>
-          <img src={avatar} alt="" style={styles.avatar} />
-        </div>
-        <div>
-          <File ref="avatar" />
-        </div>
-        <div className="mdl-typography--text-center">
-          <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            onClick={this.handleSubmit}
-          >
-            Save
-          </button>
-        </div>
-      </form>
+      </div>
     )
   }
 }
