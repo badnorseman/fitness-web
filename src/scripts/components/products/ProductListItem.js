@@ -1,8 +1,10 @@
 "use strict";
+import { connect } from "react-redux";
+import { destroyProduct } from "../../actions/product_actions";
 import Link from "../Link";
 
-const ProductListItem = ({ product }) => {
-  const { currency, description, image, name, price } = product;
+const ProductListItem = ({ product, dispatch }) => {
+  const { currency, description, id, image, name, price } = product;
 
   return (
     <li className="mdl-list__item mdl-list__item--three-line">
@@ -15,22 +17,29 @@ const ProductListItem = ({ product }) => {
       </span>
       <span className="mdl-list__item-secondary-content">
         <span className="mdl-list__item-secondary-action">
-          <button
-            className="mdl-button mdl-js-button mdl-button--icon"
-          >
-            <i className="zmdi zmdi-delete"></i>
+          <button id={`product-list-menu${id}`}
+            className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon header__menu-button">
+            <i className="zmdi zmdi-more-vert"></i>
           </button>
-          <Link
-            route="EDITPRODUCT"
-            param={product}
-            styles="mdl-button mdl-js-button mdl-button--icon"
-          >
-            <i className="zmdi zmdi-edit"></i>
-          </Link>
+          <ul htmlFor={`product-list-menu${id}`}
+            className="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right">
+            <li>
+              <Link route="EDITPRODUCT" param={product} styles="mdl-menu__item">
+                Edit
+              </Link>
+            </li>
+            <li className="mdl-menu__item"
+              onClick={ev => {
+                ev.preventDefault();
+                dispatch(destroyProduct(id));
+            }}>
+              Delete
+            </li>
+          </ul>
         </span>
       </span>
     </li>
   );
 };
 
-export default ProductListItem
+export default connect()(ProductListItem)
