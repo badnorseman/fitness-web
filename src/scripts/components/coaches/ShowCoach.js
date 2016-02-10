@@ -30,7 +30,7 @@ const ShowCoach = ({ coach, products }) => {
   return (
     <div>
       <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+        <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
           <div className="mdl-card__title" style={styles.image}>
             <img src={avatar} alt="" style={styles.avatar} />
           </div>
@@ -75,7 +75,7 @@ const ProductListItem = ({ product }) => {
   const { currency, description, name, price } = product;
 
   return (
-    <div className="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+    <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
       <div className="mdl-card__supporting-text">
         <h3>{name}</h3>
         <p>{description}</p>

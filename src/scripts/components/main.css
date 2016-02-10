@@ -6,13 +6,3 @@
 	flex-direction: column;
   -webkit-flex-direction: column;
 }
-
-.mdl-grid {
-  width: 100%;
-}
-
-@media all and (min-width: 500px) {
-  .mdl-grid {
-    width: 60%;
-  }
-}
