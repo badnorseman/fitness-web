@@ -31,14 +31,6 @@ const ShowCoach = ({ coach, products }) => {
     <div>
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
-          <div className="mdl-card__menu">
-            <Link
-              route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--icon"
-            >
-              <i className="zmdi zmdi-close"></i>
-            </Link>
-          </div>
           <div className="mdl-card__title" style={styles.image}>
             <img src={avatar} alt="" style={styles.avatar} />
           </div>
@@ -46,6 +38,14 @@ const ShowCoach = ({ coach, products }) => {
             <h3 className="mdl-card__title-text">{name}</h3>
             <h5 className="mdl-typography--subhead">Title</h5>
             <p>{email}</p>
+          </div>
+          <div className="mdl-card__actions">
+            <Link
+              route="MARKETPLACE"
+              styles="mdl-button mdl-js-button mdl-js-ripple-effect"
+            >
+              Cancel
+            </Link>
           </div>
         </div>
       </div>

@@ -27,7 +27,7 @@ const ShowProduct = ({ currentUser, product }) => {
           <p>{description}</p>
           <h5 className="mdl-typography--subhead">{currency} {price}</h5>
         </div>
-        <div className="mdl-card__actions mdl-card--border">
+        <div className="mdl-card__actions">
           {isLoggedIn && <span>
             <Link
               route="NEWTRANSACTION"
