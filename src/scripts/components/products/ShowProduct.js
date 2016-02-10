@@ -32,14 +32,14 @@ const ShowProduct = ({ currentUser, product }) => {
             <Link
               route="NEWTRANSACTION"
               param={product}
-              styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+              styles="mdl-button mdl-js-button mdl-js-ripple-effect"
             >
               Buy
             </Link>
           </span>}
           <Link
             route="MARKETPLACE"
-            styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+            styles="mdl-button mdl-js-button mdl-js-ripple-effect"
           >
             Cancel
           </Link>

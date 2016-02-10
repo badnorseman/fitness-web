@@ -78,19 +78,19 @@ class Productform extends Component {
       </div>
       <div className="mdl-card__actions">
         <button type="button"
-          className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+          className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
           onClick={this.handleSubmit}
         >
           Save
         </button>
         <Link
           route="PRODUCTLIST"
-          styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+          styles="mdl-button mdl-js-button mdl-js-ripple-effect"
         >
           Cancel
         </Link>
         {id && <button type="button"
-          className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+          className="mdl-button mdl-js-button mdl-js-ripple-effect"
           onClick={ev => {
             ev.preventDefault();
             this.props.onRemove(id);

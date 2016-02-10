@@ -3,7 +3,7 @@
 const Help = () => (
   <div className="mdl-grid">
     <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
-      <div className="mdl-card__title flex--center">
+      <div className="mdl-card__title">
         <div className="mdl-card__title-text">
           <h3>Help</h3>
         </div>

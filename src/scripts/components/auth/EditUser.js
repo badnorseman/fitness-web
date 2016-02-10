@@ -84,14 +84,14 @@ class EditUser extends Component {
         </div>
         <div className="mdl-card__actions">
           <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
             onClick={this.handleSubmit}
           >
             Save
           </button>
           <Link
             route="MARKETPLACE"
-            styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+            styles="mdl-button mdl-js-button mdl-js-ripple-effect"
           >
             Cancel
           </Link>

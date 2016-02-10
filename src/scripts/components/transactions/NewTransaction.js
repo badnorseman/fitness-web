@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from "react";
 import Braintree from "braintree-web";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { createTransaction } from "../../actions/transaction_actions";
+import { createTransaction, getClientToken } from "../../actions/transaction_actions";
 import Link from "../Link";
 
 class NewTransaction extends Component {
@@ -13,6 +13,10 @@ class NewTransaction extends Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(getClientToken());
+  }
+
+  componentDidUpdate() {
     Braintree.setup(
       this.props.clientToken,
       "dropin", {
@@ -47,13 +51,13 @@ class NewTransaction extends Component {
               <div id="dropin-container"></div>
               <br />
               <button type="submit"
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
+                className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
               >
                 Buy now
               </button>
               <Link
                 route="MARKETPLACE"
-                styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+                styles="mdl-button mdl-js-button mdl-js-ripple-effect"
               >
                 Cancel
               </Link>
