@@ -1,5 +1,5 @@
 "use strict";
-import Link from "../Link";
+import ProductListMenu from "./ProductListMenu";
 
 const ProductListItem = ({ product }) => {
   const { currency, description, image, name, price } = product;
@@ -15,18 +15,7 @@ const ProductListItem = ({ product }) => {
       </span>
       <span className="mdl-list__item-secondary-content">
         <span className="mdl-list__item-secondary-action">
-          <button
-            className="mdl-button mdl-js-button mdl-button--icon"
-          >
-            <i className="zmdi zmdi-delete"></i>
-          </button>
-          <Link
-            route="EDITPRODUCT"
-            param={product}
-            styles="mdl-button mdl-js-button mdl-button--icon"
-          >
-            <i className="zmdi zmdi-edit"></i>
-          </Link>
+          <ProductListMenu product={product} />
         </span>
       </span>
     </li>

@@ -80,7 +80,7 @@ class Main extends Component {
         content = <ShowCoach coach={param} />;
         break;
       case "SHOWPRODUCT":
-        content = <ShowProduct product={param} />;
+        content = <ShowProduct currentUser={currentUser} product={param} />;
         break;
       case "SIGNUP":
         dialog = <Signup />;
@@ -99,12 +99,8 @@ class Main extends Component {
     }
     return (
       <div>
-        <div
-          className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          <Header
-            currentUser={currentUser}
-            logout={logout}
-          />
+        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <Header currentUser={currentUser} logout={logout} />
           <main className="mdl-layout__content">
             <ErrorMessage />
             {content && <div>{content}</div>}

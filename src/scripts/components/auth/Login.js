@@ -32,7 +32,7 @@ class Login extends Component {
     return (
       <div className="login-container">
         <div className="mdl-card mdl-shadow--2dp login">
-          <div className="mdl-card__supporting-text mdl-card--border">
+          <div className="mdl-card__supporting-text">
             <div><Facebook /></div>
             <form>
               <div>

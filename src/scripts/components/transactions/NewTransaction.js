@@ -7,13 +7,8 @@ import { createTransaction, getClientToken } from "../../actions/transaction_act
 import Link from "../Link";
 
 class NewTransaction extends Component {
-  static propTypes = {
-    product: PropTypes.object.isRequired
-  }
-
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.onPaymentMethodReceived = this.onPaymentMethodReceived.bind(this);
   }
 
@@ -29,10 +24,6 @@ class NewTransaction extends Component {
         onPaymentMethodReceived: this.onPaymentMethodReceived
       }
     );
-  }
-
-  handleSubmit(ev) {
-    ev.preventDefault();
   }
 
   onPaymentMethodReceived(paymentMethod) {
@@ -52,37 +43,24 @@ class NewTransaction extends Component {
   }
 
   render() {
-    const styles = {
-      dropin: {
-        marginBottom: "20px",
-        marginTop: "40px",
-        width: "100%"
-      }
-    };
-
     return (
       <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp center">
-          <div className="mdl-card__menu">
-            <Link
-              route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--icon"
-            >
-              <i className="zmdi zmdi-close"></i>
-            </Link>
-          </div>
+        <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
           <div className="mdl-card__supporting-text">
-            <form onSubmit={this.handleSubmit}>
-              <div id="dropin-container"
-                style={styles.dropin}>
-              </div>
-              <div className="mdl-typography--text-center">
-                <button type="submit"
-                  className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-                >
-                  Buy
-                </button>
-              </div>
+            <form onSubmit={ev => ev.preventDefault()}>
+              <div id="dropin-container"></div>
+              <br />
+              <button type="submit"
+                className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+              >
+                Buy now
+              </button>
+              <Link
+                route="MARKETPLACE"
+                styles="mdl-button mdl-js-button mdl-js-ripple-effect"
+              >
+                Cancel
+              </Link>
             </form>
           </div>
         </div>
@@ -90,6 +68,11 @@ class NewTransaction extends Component {
     )
   }
 }
+
+NewTransaction.propTypes = {
+  clientToken: PropTypes.string.isRequired,
+  product: PropTypes.object.isRequired
+};
 
 const mapStateToProps = (state) => {
   return {

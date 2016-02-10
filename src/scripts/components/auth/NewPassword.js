@@ -29,7 +29,7 @@ class NewPassword extends Component {
     return (
       <div className="new-password-container">
         <div className="mdl-card mdl-shadow--2dp new-password">
-          <div className="mdl-card__supporting-text mdl-card--border">
+          <div className="mdl-card__supporting-text">
             <form>
               <div>
                 <Inputfield

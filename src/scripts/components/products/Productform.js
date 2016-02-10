@@ -3,8 +3,10 @@ import React, { Component, PropTypes } from "react";
 import { render } from "react-dom";
 import File from "../File";
 import Inputfield from "../Inputfield";
+import Link from "../Link";
 import Selectfield from "../Selectfield";
 import Textarea from "../Textarea";
+import currencies from "../../constants/currencies";
 
 class Productform extends Component {
   constructor(props) {
@@ -36,65 +38,67 @@ class Productform extends Component {
 
   render() {
     const { currency, description, id, image, name, price } = this.props.product;
-    const currencies = { DKK: "DKK", EUR: "EUR", USD: "USD" };
     const styles = { image: { maxHeight: "160px" } };
 
     return (
-      <form>
-        <div>
-          <Inputfield
-            id="name" label="Name" type="text"
-            errorMessage="Letters and numbers and . , : - only. Start with a letter or number"
-            pattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
-            value={name}
-            ref="name" />
+      <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+        <div className="mdl-card__supporting-text">
+          <form>
+            <div>
+              <Inputfield
+                id="name" label="Name" type="text"
+                errorMessage="Letters and numbers and . , : - only. Start with a letter or number"
+                pattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
+                value={name}
+                ref="name" />
+            </div>
+            <div>
+              <Textarea
+                id="description" label="Description" type="text"
+                value={description}
+                ref="description" />
+            </div>
+            <div>
+              <Inputfield
+                id="price" label="Price" type="text"
+                errorMessage="Number and decimal mark only"
+                pattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
+                value={price}
+                ref="price" />
+            </div>
+            <div>
+              <Selectfield
+                id="currency" label="Currency" options={currencies}
+                value={currency}
+                ref="currency" />
+            </div>
+            <img src={image} alt="" style={styles.image} />
+            <File ref="image" />
+          </form>
         </div>
-        <div>
-          <Textarea
-            id="description" label="Description" type="text"
-            value={description}
-            ref="description" />
-        </div>
-        <div>
-          <Inputfield
-            id="price" label="Price" type="text"
-            errorMessage="Number and decimal mark only"
-            pattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
-            value={price}
-            ref="price" />
-        </div>
-        <div>
-          <Selectfield
-            id="currency" label="Currency"
-            options={currencies}
-            value={currency}
-            ref="currency" />
-        </div>
-        <div>
-          <img src={image} alt="" style={styles.image} />
-        </div>
-        <div>
-          <File ref="image" />
-        </div>
-        <div className="mdl-typography--text-center">
-          {id && <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            onClick={ev => {
-              ev.preventDefault();
-              this.props.onRemove(id);
-            }}
-          >
-            Remove
-          </button>}
-          <div className="divider"></div>
-          <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+        <div className="mdl-card__actions">
+          <button type="button"
+            className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
             onClick={this.handleSubmit}
           >
             Save
           </button>
+          <Link
+            route="PRODUCTLIST"
+            styles="mdl-button mdl-js-button mdl-js-ripple-effect"
+          >
+            Cancel
+          </Link>
+          {id && <button type="button"
+            className="mdl-button mdl-js-button mdl-js-ripple-effect"
+            onClick={ev => {
+              ev.preventDefault();
+              this.props.onRemove(id);
+          }}>
+            Delete
+          </button>}
         </div>
-      </form>
+      </div>
     )
   }
 }
@@ -107,11 +111,7 @@ Productform.propTypes = {
 
 Productform.defaultProps = {
   product: {
-    currency: "DKK",
-    description: "",
-    image: "",
-    name: "",
-    price: ""
+    currency: "DKK"
   }
 };
 

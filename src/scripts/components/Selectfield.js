@@ -9,47 +9,32 @@ class Selectfield extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(value) {
-    this.setState({ value: value });
+  handleChange(ev) {
+    ev.preventDefault();
+
+    this.setState({ value: ev.target.value });
   }
 
   render() {
-    const { id, label, styles } = this.props;
-
-    // let options = [];
-    // for (let key in this.props.options) {
-    //   if (this.props.options.hasOwnProperty(key)) {
-    //     options.push(
-    //       <li key={key} value={this.props.options[key]} className="mdl-menu__item"
-    //         onClick={() => { this.handleChange(this.props.options[key]) }}
-    //       >
-    //         {this.props.options[key]}
-    //       </li>
-    //     );
-    //   }
-    // }
-
+    const { id, label } = this.props;
     let value = this.state.value;
 
+    let options = [];
+    this.props.options.forEach(el => {
+      options.push(
+        <option key={el.value} value={el.value}>{el.label}</option>
+      );
+    })
+
     return (
-      <div>
-        <span>{value}</span>
-        <button id="select-btn"
-          className="mdl-button mdl-js-button mdl-button--icon">
-          <i className="zmdi zmdi-caret-down zmdi-hc-lg"></i>
-        </button>
-        <ul htmlFor="select-btn" className="mdl-menu mdl-js-menu mdl-menu--bottom-right">
-          <li className="mdl-menu__item" onClick={() => { this.handleChange("DKK") }}>
-            DKK
-          </li>
-          <li className="mdl-menu__item" onClick={() => { this.handleChange("EUR") }}>
-            EUR
-          </li>
-          <li className="mdl-menu__item" onClick={() => { this.handleChange("USD") }}>
-            USD
-          </li>
-        </ul>
-      </div>
+      <span>
+        <label htmlFor={id}>
+          {label}
+        </label>
+        <select id={id} value={value} onChange={this.handleChange}>
+          {options}
+        </select>
+      </span>
     )
   }
 }
@@ -57,12 +42,11 @@ class Selectfield extends Component {
 Selectfield.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  options: PropTypes.object.isRequired,
+  options: PropTypes.array.isRequired,
   value: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string
-  ]),
-  styles: PropTypes.string
+  ])
 };
 
 export default Selectfield

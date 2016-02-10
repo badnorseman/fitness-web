@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { updateLogin } from "../../actions/auth_actions";
 import Inputfield from "../Inputfield";
+import Link from "../Link";
 
 class EditLogin extends Component {
   constructor(props) {
@@ -32,40 +33,42 @@ class EditLogin extends Component {
   render() {
     const { email } = this.props.login;
 
-    const styles = {
-      form: {
-        padding: "50px 0 0 0",
-        width: "300px"
-      }
-    };
-
     return (
-      <form className="center" style={styles.form}>
-        <div>
-          <Inputfield
-            id="email" label="Email" type="text"
-            value={email}
-            ref="email" />
+      <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+        <div className="mdl-card__supporting-text">
+          <form>
+            <div>
+              <Inputfield
+                id="email" label="Email" type="text" value={email}
+                ref="email" />
+            </div>
+            <div>
+              <Inputfield
+                id="password" label="Password" type="password"
+                ref="password" />
+            </div>
+            <div>
+              <Inputfield
+                id="passwordConfirmation" label="Confirm password" type="password"
+                ref="passwordConfirmation" />
+            </div>
+          </form>
         </div>
-        <div>
-          <Inputfield
-            id="password" label="Password" type="password"
-            ref="password" />
-        </div>
-        <div>
-          <Inputfield
-            id="passwordConfirmation" label="Confirm password" type="password"
-            ref="passwordConfirmation" />
-        </div>
-        <div className="mdl-typography--text-center">
+        <div className="mdl-card__actions">
           <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+            className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
             onClick={this.handleSubmit}
           >
             Save
           </button>
+          <Link
+            route="MARKETPLACE"
+            styles="mdl-button mdl-js-button mdl-js-ripple-effect"
+          >
+            Cancel
+          </Link>
         </div>
-      </form>
+      </div>
     )
   }
 }

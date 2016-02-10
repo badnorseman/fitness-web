@@ -6,18 +6,3 @@ html, body {
   font-family: 'Roboto', serif;
   height: 100%;
 }
-
-.center {
-  margin: 0 auto;
-}
-
-.flex--center {
-  display: flex;
-  justify-content: center;
-}
-
-.divider {
-  display: inline-block;
-  height: auto;
-  width: 20px;
-}
