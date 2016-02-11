@@ -22,20 +22,20 @@
   z-index: 11;
 }
 
-.signup__submit-btn {
+.signup__button--submit {
   margin-bottom: 20px;
   margin-top: 20px;
   width: 100%;
 }
 
-.signup__cancel-btn {
+.signup__button--cancel {
   background-color: rgb(0,0,0);
   color: rgba(255,255,255,1);
   margin-bottom: 20px;
   width: 90%;
 }
 
-.signup__cancel-btn:hover{
+.signup__button--cancel:hover{
   background-color: rgb(0,0,0);
 }
 

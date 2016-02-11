@@ -54,7 +54,7 @@ class Login extends Component {
                   Forgot password?
               </Link>
               <button type="button"
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login__submit-btn"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login__button--submit"
                 onClick={this.handleSubmit}
               >
                 Log in
@@ -62,7 +62,7 @@ class Login extends Component {
             </form>
             <Link
               route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login__cancel-btn"
+              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect login__button--cancel"
             >
               Cancel
             </Link>

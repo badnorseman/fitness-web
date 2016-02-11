@@ -67,7 +67,7 @@ class Signup extends Component {
                   ref="passwordConfirmation" />
               </div>
               <button type="button"
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup__submit-btn"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent signup__button--submit"
                 onClick={this.handleSubmit}
               >
                 Sign up
@@ -75,7 +75,7 @@ class Signup extends Component {
             </form>
             <Link
               route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect signup__cancel-btn"
+              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect signup__button--cancel"
             >
               Cancel
             </Link>
