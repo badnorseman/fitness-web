@@ -1,21 +1,25 @@
 "use strict";
 import Link from "../Link";
 
-const UserListMenu = ({ user }) => (
-  <div>
-    <button id={`user-list-menu${user.id}`}
-      className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-      <i className="zmdi zmdi-more-vert"></i>
-    </button>
-    <ul htmlFor={`user-list-menu${user.id}`}
-      className="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right">
-      <li>
-        <Link route="USERLIST" styles="mdl-menu__item">
-          Edit
-        </Link>
-      </li>
-    </ul>
-  </div>
-);
+const UserListMenu = ({ user }) => {
+  const { id } = user;
+
+  return (
+    <div>
+      <button id={`user-list-menu${id}`}
+        className="mdl-button mdl-js-button mdl-button--icon">
+        <i className="zmdi zmdi-more-vert"></i>
+      </button>
+      <ul htmlFor={`user-list-menu${id}`}
+        className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
+        <li>
+          <Link route="USERLIST" styles="mdl-menu__item">
+            Edit
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
+};
 
 export default UserListMenu
