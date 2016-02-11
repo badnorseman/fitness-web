@@ -34,25 +34,23 @@ class EditLogin extends Component {
     const { email } = this.props.login;
 
     return (
-      <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+      <form className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
         <div className="mdl-card__supporting-text">
-          <form>
-            <div>
-              <Inputfield
-                id="email" label="Email" type="text" value={email}
-                ref="email" />
-            </div>
-            <div>
-              <Inputfield
-                id="password" label="Password" type="password"
-                ref="password" />
-            </div>
-            <div>
-              <Inputfield
-                id="passwordConfirmation" label="Confirm password" type="password"
-                ref="passwordConfirmation" />
-            </div>
-          </form>
+          <div>
+            <Inputfield
+              id="email" label="Email" type="text" value={email}
+              ref="email" />
+          </div>
+          <div>
+            <Inputfield
+              id="password" label="Password" type="password"
+              ref="password" />
+          </div>
+          <div>
+            <Inputfield
+              id="passwordConfirmation" label="Confirm password" type="password"
+              ref="passwordConfirmation" />
+          </div>
         </div>
         <div className="mdl-card__actions">
           <button
@@ -68,7 +66,7 @@ class EditLogin extends Component {
             Cancel
           </Link>
         </div>
-      </div>
+      </form>
     )
   }
 }

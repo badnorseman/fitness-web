@@ -41,40 +41,38 @@ class Productform extends Component {
     const styles = { image: { maxHeight: "160px" } };
 
     return (
-      <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+      <form className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
         <div className="mdl-card__supporting-text">
-          <form>
-            <div>
-              <Inputfield
-                id="name" label="Name" type="text"
-                errorMessage="Letters and numbers and . , : - only. Start with a letter or number"
-                pattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
-                value={name}
-                ref="name" />
-            </div>
-            <div>
-              <Textarea
-                id="description" label="Description" type="text"
-                value={description}
-                ref="description" />
-            </div>
-            <div>
-              <Inputfield
-                id="price" label="Price" type="text"
-                errorMessage="Number and decimal mark only"
-                pattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
-                value={price}
-                ref="price" />
-            </div>
-            <div>
-              <Selectfield
-                id="currency" label="Currency" options={currencies}
-                value={currency}
-                ref="currency" />
-            </div>
-            <img src={image} alt="" style={styles.image} />
-            <File ref="image" />
-          </form>
+          <div>
+            <Inputfield
+              id="name" label="Name" type="text"
+              errorMessage="Letters and numbers and . , : - only. Start with a letter or number"
+              pattern="([a-zA-Z0-9]{1,}[.:-\s]{0,1})+?"
+              value={name}
+              ref="name" />
+          </div>
+          <div>
+            <Textarea
+              id="description" label="Description" type="text"
+              value={description}
+              ref="description" />
+          </div>
+          <div>
+            <Inputfield
+              id="price" label="Price" type="text"
+              errorMessage="Number and decimal mark only"
+              pattern="[0-9]{1,}((\.|\,)[0-9]{2,2})?"
+              value={price}
+              ref="price" />
+          </div>
+          <div>
+            <Selectfield
+              id="currency" label="Currency" options={currencies}
+              value={currency}
+              ref="currency" />
+          </div>
+          <img src={image} alt="" style={styles.image} />
+          <File ref="image" />
         </div>
         <div className="mdl-card__actions">
           <button type="button"
@@ -98,7 +96,7 @@ class Productform extends Component {
             Delete
           </button>}
         </div>
-      </div>
+      </form>
     )
   }
 }

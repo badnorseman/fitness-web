@@ -49,38 +49,36 @@ class EditUser extends Component {
     };
 
     return (
-      <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+      <form className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
         <div className="mdl-card__supporting-text">
-          <form>
-            <div>
-              <Inputfield
-                id="name" label="Full name" type="text"
-                value={name}
-                ref="name" />
-            </div>
-            <div>
-              <Inputfield
-                id="email" label="Email" type="text"
-                value={email}
-                ref="email" />
-            </div>
-            <div>
-              <Selectfield
-                id="gender" label="Gender" options={gender}
-                value={this.props.user.gender}
-                ref="gender" />
-            </div>
-            <div>
-              <Inputfield
-                id="birthDay" label="Birthday" type="text"
-                value={birth_date}
-                ref="birthDay" />
-            </div>
-            <img src={avatar} alt="" style={styles.avatar} />
-            <div>
-              <File ref="avatar" />
-            </div>
-          </form>
+          <div>
+            <Inputfield
+              id="name" label="Full name" type="text"
+              value={name}
+              ref="name" />
+          </div>
+          <div>
+            <Inputfield
+              id="email" label="Email" type="text"
+              value={email}
+              ref="email" />
+          </div>
+          <div>
+            <Selectfield
+              id="gender" label="Gender" options={gender}
+              value={this.props.user.gender}
+              ref="gender" />
+          </div>
+          <div>
+            <Inputfield
+              id="birthDay" label="Birthday" type="text"
+              value={birth_date}
+              ref="birthDay" />
+          </div>
+          <img src={avatar} alt="" style={styles.avatar} />
+          <div>
+            <File ref="avatar" />
+          </div>
         </div>
         <div className="mdl-card__actions">
           <button
@@ -96,7 +94,7 @@ class EditUser extends Component {
             Cancel
           </Link>
         </div>
-      </div>
+      </form>
     )
   }
 }
