@@ -7,7 +7,7 @@ const ShowCoach = ({ coach, products }) => {
   let productsByCoach = {};
   coach.products.forEach(el => {
     if (products[el.id]) { productsByCoach[el.id] = products[el.id]; }
-  })
+  });
 
   const { avatar, email, name } = coach;
   const styles = {
@@ -58,37 +58,6 @@ const ShowCoach = ({ coach, products }) => {
     </div>
   );
 };
-
-// const ProductList = ({ products }) => {
-//   let items = [];
-//   for (let key in products) {
-//     if (products.hasOwnProperty(key)) {
-//       items.push(
-//         <ProductListItem key={key} product={products[key]} />
-//       );
-//     }
-//   }
-//
-//   return (
-//     <div className="mdl-grid">
-//       {items}
-//     </div>
-//   );
-// };
-
-// const ProductListItem = ({ product }) => {
-//   const { currency, description, name, price } = product;
-//
-//   return (
-//     <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
-//       <div className="mdl-card__supporting-text">
-//         <h3>{name}</h3>
-//         <p>{description}</p>
-//         <p>{currency}&nbsp;{price}</p>
-//       </div>
-//     </div>
-//   );
-// };
 
 const mapStateToProps = (state) => {
   return {

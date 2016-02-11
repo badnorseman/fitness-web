@@ -22,20 +22,20 @@
   z-index: 11;
 }
 
-.login__submit-btn {
+.login__button--submit {
   margin-bottom: 20px;
   margin-top: 20px;
   width: 100%;
 }
 
-.login__cancel-btn {
+.login__button--cancel {
   background-color: rgb(0,0,0);
   color: rgba(255,255,255,1);
   margin-bottom: 20px;
   width: 90%;
 }
 
-.login__cancel-btn:hover{
+.login__button--cancel:hover{
   background-color: rgb(0,0,0);
 }
 

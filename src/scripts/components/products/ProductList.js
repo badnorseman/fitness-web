@@ -16,15 +16,19 @@ const ProductList = ({ products }) => {
   return (
     <div className="mdl-grid">
       <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
-        <ul className="mdl-list">
-          {items}
-        </ul>
-        <Link
-          route="NEWPRODUCT"
-          styles="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"
-        >
-          <i className="zmdi zmdi-plus"></i>
-        </Link>
+        <div className="mdl-card__supporting-text">
+          <ul className="mdl-list">
+            {items}
+          </ul>
+        </div>
+        <div className="mdl-card__actions">
+          <Link
+            route="NEWPRODUCT"
+            styles="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+          >
+            New Product
+          </Link>
+        </div>
       </div>
     </div>
   );

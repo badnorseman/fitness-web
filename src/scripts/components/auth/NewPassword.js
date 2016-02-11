@@ -38,7 +38,7 @@ class NewPassword extends Component {
                   ref="email" />
               </div>
               <button
-                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent new-password__submit-btn"
+                className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent new-password__button--submit"
                 onClick={this.handleSubmit}
               >
                 Send password
@@ -46,7 +46,7 @@ class NewPassword extends Component {
             </form>
             <Link
               route="MARKETPLACE"
-              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect new-password__cancel-btn"
+              styles="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect new-password__button--cancel"
             >
               Cancel
             </Link>
