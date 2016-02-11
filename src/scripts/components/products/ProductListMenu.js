@@ -6,7 +6,7 @@ import Link from "../Link";
 const ProductListMenu = ({ product, dispatch }) => (
   <div>
     <button id={`product-list-menu${product.id}`}
-      className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon header__menu-button">
+      className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
       <i className="zmdi zmdi-more-vert"></i>
     </button>
     <ul htmlFor={`product-list-menu${product.id}`}
