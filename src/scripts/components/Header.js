@@ -4,7 +4,7 @@ import "./header.css";
 
 const Header = ({ currentUser, logout }) => {
   const logo = "https://s3.amazonaws.com/images.fitbird.us/development/system/57.png";
-  const { avatar, coach, email, id, name } = currentUser;
+  const { avatar, coach, id } = currentUser;
   const isLoggedIn = (id) ? true : false;
 
   return (
