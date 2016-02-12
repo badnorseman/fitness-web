@@ -21,6 +21,7 @@ import NewTransaction from "./transactions/NewTransaction";
 import ProductList from "./products/ProductList";
 import ShowCoach from "./coaches/ShowCoach";
 import ShowProduct from "./products/ShowProduct";
+import ShowUser from "./users/ShowUser";
 import Signup from "./auth/Signup";
 import Terms from "./Terms";
 import TransactionList from "./transactions/TransactionList";
@@ -81,6 +82,9 @@ class Main extends Component {
         break;
       case "SHOWPRODUCT":
         content = <ShowProduct currentUser={currentUser} product={param} />;
+        break;
+      case "SHOWUSER":
+        content = <ShowUser user={param} />;
         break;
       case "SIGNUP":
         dialog = <Signup />;

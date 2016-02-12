@@ -45,25 +45,25 @@ class NewTransaction extends Component {
   render() {
     return (
       <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
+        <form className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp"
+          onSubmit={ev => ev.preventDefault()}>
           <div className="mdl-card__supporting-text">
-            <form onSubmit={ev => ev.preventDefault()}>
-              <div id="dropin-container"></div>
-              <br />
-              <button type="submit"
-                className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-              >
-                Buy now
-              </button>
-              <Link
-                route="MARKETPLACE"
-                styles="mdl-button mdl-js-button mdl-js-ripple-effect"
-              >
-                Cancel
-              </Link>
-            </form>
+            <div id="dropin-container"></div>
           </div>
-        </div>
+          <div className="mdl-card__actions">
+            <button type="submit"
+              className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+            >
+              Buy now
+            </button>
+            <Link
+              route="MARKETPLACE"
+              styles="mdl-button mdl-js-button mdl-js-ripple-effect"
+            >
+              Cancel
+            </Link>
+          </div>
+        </form>
       </div>
     )
   }
