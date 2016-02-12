@@ -13,8 +13,8 @@ const UserListMenu = ({ user }) => {
       <ul htmlFor={`user-list-menu${id}`}
         className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
         <li>
-          <Link route="USERLIST" styles="mdl-menu__item">
-            Edit
+          <Link route="SHOWUSER" param={user} styles="mdl-menu__item">
+            Show
           </Link>
         </li>
       </ul>

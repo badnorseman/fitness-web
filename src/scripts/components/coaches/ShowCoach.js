@@ -52,7 +52,7 @@ const ShowCoach = ({ coach, products }) => {
       </div>
       <div className="mdl-grid mdl-grid--no-spacing">
         <div className="mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-          <ProductGridlist products={products} />
+          <ProductGridlist products={productsByCoach} />
         </div>
       </div>
     </div>
